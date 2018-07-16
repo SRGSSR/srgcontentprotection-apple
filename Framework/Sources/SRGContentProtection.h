@@ -5,6 +5,7 @@
 //
 
 #import "AVAsset+SRGContentProtection.h"
+#import "SRGContentProtectionConstants.h"
 
 #import <Foundation/Foundation.h>
 

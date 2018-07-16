@@ -17,7 +17,7 @@
 		6FD810F520FCB58500F250B9 /* AVAsset+SRGContentProtection.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FD810F320FCB58500F250B9 /* AVAsset+SRGContentProtection.m */; };
 		6FD810F820FCB7FC00F250B9 /* SRGContentProtectionURL.h in Headers */ = {isa = PBXBuildFile; fileRef = 6FD810F620FCB7FC00F250B9 /* SRGContentProtectionURL.h */; };
 		6FD810F920FCB7FC00F250B9 /* SRGContentProtectionURL.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FD810F720FCB7FC00F250B9 /* SRGContentProtectionURL.m */; };
-		6FD810FC20FCB83A00F250B9 /* SRGContentProtectionConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 6FD810FA20FCB83A00F250B9 /* SRGContentProtectionConstants.h */; };
+		6FD810FC20FCB83A00F250B9 /* SRGContentProtectionConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 6FD810FA20FCB83A00F250B9 /* SRGContentProtectionConstants.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6FD810FD20FCB83A00F250B9 /* SRGContentProtectionConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FD810FB20FCB83A00F250B9 /* SRGContentProtectionConstants.m */; };
 		6FDE576520FC9DC700719525 /* SRGContentProtectionError.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FDE576320FC9DC700719525 /* SRGContentProtectionError.m */; };
 		6FDE576620FC9DC700719525 /* SRGContentProtectionError.h in Headers */ = {isa = PBXBuildFile; fileRef = 6FDE576420FC9DC700719525 /* SRGContentProtectionError.h */; };
