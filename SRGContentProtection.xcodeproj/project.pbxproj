@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6F0EB54020FC7FA9009C02CF /* SRGContentProtection.h in Headers */ = {isa = PBXBuildFile; fileRef = 6F0EB53E20FC7FA9009C02CF /* SRGContentProtection.h */; };
+		6F0EB54020FC7FA9009C02CF /* SRGContentProtection.h in Headers */ = {isa = PBXBuildFile; fileRef = 6F0EB53E20FC7FA9009C02CF /* SRGContentProtection.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6F0EB54320FC7FF4009C02CF /* SRGContentProtection.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F0EB54220FC7FF4009C02CF /* SRGContentProtection.m */; };
 		6F0EB54720FC8049009C02CF /* NSBundle+SRGContentProtection.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F0EB54520FC8049009C02CF /* NSBundle+SRGContentProtection.m */; };
 		6F0EB54820FC8049009C02CF /* NSBundle+SRGContentProtection.h in Headers */ = {isa = PBXBuildFile; fileRef = 6F0EB54620FC8049009C02CF /* NSBundle+SRGContentProtection.h */; };
