@@ -6,5 +6,7 @@
 
 #import <UIKit/UIKit.h>
 
+#import "SRGAkamaiResourceLoaderDelegate.h"
+
 // Official version number.
 FOUNDATION_EXPORT NSString * SRGContentProtectionMarketingVersion(void);
