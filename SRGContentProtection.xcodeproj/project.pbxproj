@@ -11,7 +11,7 @@
 		6F0EB54320FC7FF4009C02CF /* SRGContentProtection.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F0EB54220FC7FF4009C02CF /* SRGContentProtection.m */; };
 		6F0EB54720FC8049009C02CF /* NSBundle+SRGContentProtection.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F0EB54520FC8049009C02CF /* NSBundle+SRGContentProtection.m */; };
 		6F0EB54820FC8049009C02CF /* NSBundle+SRGContentProtection.h in Headers */ = {isa = PBXBuildFile; fileRef = 6F0EB54620FC8049009C02CF /* NSBundle+SRGContentProtection.h */; };
-		6F0EB54C20FC80E2009C02CF /* SRGAkamaiResourceLoaderDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 6F0EB54A20FC80E2009C02CF /* SRGAkamaiResourceLoaderDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6F0EB54C20FC80E2009C02CF /* SRGAkamaiResourceLoaderDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 6F0EB54A20FC80E2009C02CF /* SRGAkamaiResourceLoaderDelegate.h */; };
 		6F0EB54D20FC80E2009C02CF /* SRGAkamaiResourceLoaderDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F0EB54B20FC80E2009C02CF /* SRGAkamaiResourceLoaderDelegate.m */; };
 		6FD810F420FCB58500F250B9 /* AVAsset+SRGContentProtection.h in Headers */ = {isa = PBXBuildFile; fileRef = 6FD810F220FCB58500F250B9 /* AVAsset+SRGContentProtection.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6FD810F520FCB58500F250B9 /* AVAsset+SRGContentProtection.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FD810F320FCB58500F250B9 /* AVAsset+SRGContentProtection.m */; };
