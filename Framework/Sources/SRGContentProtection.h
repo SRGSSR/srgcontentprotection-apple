@@ -4,9 +4,9 @@
 //  License information is available from the LICENSE file.
 //
 
-#import <UIKit/UIKit.h>
+#import "AVAsset+SRGContentProtection.h"
 
-#import "SRGAkamaiResourceLoaderDelegate.h"
+#import <Foundation/Foundation.h>
 
 // Official version number.
-FOUNDATION_EXPORT NSString * SRGContentProtectionMarketingVersion(void);
+FOUNDATION_EXPORT NSString *SRGContentProtectionMarketingVersion(void);
