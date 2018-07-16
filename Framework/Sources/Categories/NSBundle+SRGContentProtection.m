@@ -6,7 +6,7 @@
 
 #import "NSBundle+SRGContentProtection.h"
 
-#import "SRGResourceLoaderDelegate.h"
+#import "SRGAkamaiResourceLoaderDelegate.h"
 
 @implementation NSBundle (SRGLetterbox)
 
@@ -17,7 +17,7 @@
     static NSBundle *bundle;
     static dispatch_once_t once;
     dispatch_once(&once, ^{
-        bundle = [NSBundle bundleForClass:[SRGResourceLoaderDelegate class]];
+        bundle = [NSBundle bundleForClass:[SRGAkamaiResourceLoaderDelegate class]];
     });
     return bundle;
 }

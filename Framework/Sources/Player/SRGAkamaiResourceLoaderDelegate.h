@@ -4,11 +4,11 @@
 //  License information is available from the LICENSE file.
 //
 
-#import <Foundation/Foundation.h>
+#import <AVFoundation/AVFoundation.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface SRGResourceLoaderDelegate : NSObject
+@interface SRGAkamaiResourceLoaderDelegate : NSObject <AVAssetResourceLoaderDelegate>
 
 @end
 
