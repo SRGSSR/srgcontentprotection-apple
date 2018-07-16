@@ -11,8 +11,8 @@
 		6F0EB54320FC7FF4009C02CF /* SRGContentProtection.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F0EB54220FC7FF4009C02CF /* SRGContentProtection.m */; };
 		6F0EB54720FC8049009C02CF /* NSBundle+SRGContentProtection.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F0EB54520FC8049009C02CF /* NSBundle+SRGContentProtection.m */; };
 		6F0EB54820FC8049009C02CF /* NSBundle+SRGContentProtection.h in Headers */ = {isa = PBXBuildFile; fileRef = 6F0EB54620FC8049009C02CF /* NSBundle+SRGContentProtection.h */; };
-		6FD810F420FCB58500F250B9 /* AVAsset+SRGContentProtection.h in Headers */ = {isa = PBXBuildFile; fileRef = 6FD810F220FCB58500F250B9 /* AVAsset+SRGContentProtection.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6FD810F520FCB58500F250B9 /* AVAsset+SRGContentProtection.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FD810F320FCB58500F250B9 /* AVAsset+SRGContentProtection.m */; };
+		6FD810F420FCB58500F250B9 /* AVURLAsset+SRGContentProtection.h in Headers */ = {isa = PBXBuildFile; fileRef = 6FD810F220FCB58500F250B9 /* AVURLAsset+SRGContentProtection.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6FD810F520FCB58500F250B9 /* AVURLAsset+SRGContentProtection.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FD810F320FCB58500F250B9 /* AVURLAsset+SRGContentProtection.m */; };
 		6FD810F820FCB7FC00F250B9 /* SRGContentProtectionURL.h in Headers */ = {isa = PBXBuildFile; fileRef = 6FD810F620FCB7FC00F250B9 /* SRGContentProtectionURL.h */; };
 		6FD810F920FCB7FC00F250B9 /* SRGContentProtectionURL.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FD810F720FCB7FC00F250B9 /* SRGContentProtectionURL.m */; };
 		6FD810FC20FCB83A00F250B9 /* SRGContentProtectionConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 6FD810FA20FCB83A00F250B9 /* SRGContentProtectionConstants.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -32,8 +32,8 @@
 		6F0EB54220FC7FF4009C02CF /* SRGContentProtection.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SRGContentProtection.m; sourceTree = "<group>"; };
 		6F0EB54520FC8049009C02CF /* NSBundle+SRGContentProtection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSBundle+SRGContentProtection.m"; sourceTree = "<group>"; };
 		6F0EB54620FC8049009C02CF /* NSBundle+SRGContentProtection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSBundle+SRGContentProtection.h"; sourceTree = "<group>"; };
-		6FD810F220FCB58500F250B9 /* AVAsset+SRGContentProtection.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AVAsset+SRGContentProtection.h"; sourceTree = "<group>"; };
-		6FD810F320FCB58500F250B9 /* AVAsset+SRGContentProtection.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AVAsset+SRGContentProtection.m"; sourceTree = "<group>"; };
+		6FD810F220FCB58500F250B9 /* AVURLAsset+SRGContentProtection.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AVURLAsset+SRGContentProtection.h"; sourceTree = "<group>"; };
+		6FD810F320FCB58500F250B9 /* AVURLAsset+SRGContentProtection.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AVURLAsset+SRGContentProtection.m"; sourceTree = "<group>"; };
 		6FD810F620FCB7FC00F250B9 /* SRGContentProtectionURL.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SRGContentProtectionURL.h; sourceTree = "<group>"; };
 		6FD810F720FCB7FC00F250B9 /* SRGContentProtectionURL.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SRGContentProtectionURL.m; sourceTree = "<group>"; };
 		6FD810FA20FCB83A00F250B9 /* SRGContentProtectionConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SRGContentProtectionConstants.h; sourceTree = "<group>"; };
@@ -102,8 +102,8 @@
 		6F0EB54420FC8049009C02CF /* Categories */ = {
 			isa = PBXGroup;
 			children = (
-				6FD810F220FCB58500F250B9 /* AVAsset+SRGContentProtection.h */,
-				6FD810F320FCB58500F250B9 /* AVAsset+SRGContentProtection.m */,
+				6FD810F220FCB58500F250B9 /* AVURLAsset+SRGContentProtection.h */,
+				6FD810F320FCB58500F250B9 /* AVURLAsset+SRGContentProtection.m */,
 				6F0EB54620FC8049009C02CF /* NSBundle+SRGContentProtection.h */,
 				6F0EB54520FC8049009C02CF /* NSBundle+SRGContentProtection.m */,
 				6FDE576820FCA00D00719525 /* NSHTTPURLResponse+SRGContentProtection.h */,
@@ -130,7 +130,7 @@
 			files = (
 				6FD810FC20FCB83A00F250B9 /* SRGContentProtectionConstants.h in Headers */,
 				6F0EB54020FC7FA9009C02CF /* SRGContentProtection.h in Headers */,
-				6FD810F420FCB58500F250B9 /* AVAsset+SRGContentProtection.h in Headers */,
+				6FD810F420FCB58500F250B9 /* AVURLAsset+SRGContentProtection.h in Headers */,
 				6FD8110120FCC22500F250B9 /* SRGAkamaiResourceLoaderDelegate.h in Headers */,
 				6FDE576620FC9DC700719525 /* SRGContentProtectionError.h in Headers */,
 				6FD810F820FCB7FC00F250B9 /* SRGContentProtectionURL.h in Headers */,
@@ -212,7 +212,7 @@
 				6FDE576520FC9DC700719525 /* SRGContentProtectionError.m in Sources */,
 				6FD810F920FCB7FC00F250B9 /* SRGContentProtectionURL.m in Sources */,
 				6FD810FD20FCB83A00F250B9 /* SRGContentProtectionConstants.m in Sources */,
-				6FD810F520FCB58500F250B9 /* AVAsset+SRGContentProtection.m in Sources */,
+				6FD810F520FCB58500F250B9 /* AVURLAsset+SRGContentProtection.m in Sources */,
 				6FDE576920FCA00D00719525 /* NSHTTPURLResponse+SRGContentProtection.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

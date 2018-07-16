@@ -4,7 +4,7 @@
 //  License information is available from the LICENSE file.
 //
 
-#import "AVAsset+SRGContentProtection.h"
+#import "AVURLAsset+SRGContentProtection.h"
 #import "SRGContentProtectionConstants.h"
 
 #import <Foundation/Foundation.h>

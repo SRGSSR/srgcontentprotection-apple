@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface AVAsset (SRGContentProtection)
+@interface AVURLAsset (SRGContentProtection)
 
 + (instancetype)srg_assetWithURL:(NSURL *)URL contentProtection:(SRGContentProtection)contentProtection;
 
