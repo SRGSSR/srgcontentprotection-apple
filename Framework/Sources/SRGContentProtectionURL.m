@@ -25,14 +25,14 @@ NSURL *SRGContentProtectionWrapURL(NSURL *URL, SRGContentProtection contentProte
     }
     
     NSURLComponents *components = [NSURLComponents componentsWithURL:URL resolvingAgainstBaseURL:NO];
-    components.scheme = [@[schemePrefix, components.scheme] componentsJoinedByString:@"_"];
+    components.scheme = [@[schemePrefix, components.scheme] componentsJoinedByString:@"+"];
     return components.URL;
 }
 
 NSURL *SRGContentProtectionUnwrapURL(NSURL *URL, SRGContentProtection contentProtection)
 {
     NSURLComponents *components = [NSURLComponents componentsWithURL:URL resolvingAgainstBaseURL:NO];
-    NSArray<NSString *> *schemeComponents = [components.scheme componentsSeparatedByString:@"_"];
+    NSArray<NSString *> *schemeComponents = [components.scheme componentsSeparatedByString:@"+"];
     if (schemeComponents.count != 2) {
         return URL;
     }
