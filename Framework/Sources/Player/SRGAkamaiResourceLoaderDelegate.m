@@ -14,7 +14,45 @@ typedef void (^SRGURLCompletionBlock)(NSURL * _Nullable URL, NSError * _Nullable
 
 static NSString * const SRGTokenServiceURLString = @"https://tp.srgssr.ch/akahd/token";
 
+@interface SRGAkamaiResourceLoaderDelegate ()
+
+@property (nonatomic) NSURLSessionTask *sessionTask;
+
+@end
+
 @implementation SRGAkamaiResourceLoaderDelegate
+
+#pragma mark Common resource loading request processing
+
+- (void)processLoadingRequest:(AVAssetResourceLoadingRequest *)loadingRequest
+{
+    NSURLComponents *components = [NSURLComponents componentsWithURL:loadingRequest.request.URL resolvingAgainstBaseURL:NO];
+    if ([components.scheme isEqualToString:@"akamais"]) {
+        components.scheme = @"https";
+    }
+    else if ([components.scheme isEqualToString:@"akamai"]) {
+        components.scheme = @"http";
+    }
+    
+    self.sessionTask = [SRGAkamaiResourceLoaderDelegate tokenizeURL:components.URL withCompletionBlock:^(NSURL * _Nullable tokenizedURL, NSError * _Nullable error) {
+        if (error) {
+            [loadingRequest finishLoadingWithError:error];
+            return;
+        }
+        
+        // Update original URL with tokenized URL
+        NSMutableURLRequest *redirect = [loadingRequest.request mutableCopy];
+        redirect.URL = tokenizedURL;
+        loadingRequest.redirect = [redirect copy];
+        
+        // Force redirect to the new tokenized URL
+        NSHTTPURLResponse *response = [[NSHTTPURLResponse alloc] initWithURL:tokenizedURL statusCode:303 HTTPVersion:nil headerFields:nil];
+        [loadingRequest setResponse:response];
+        
+        [loadingRequest finishLoading];
+    }];
+    [self.sessionTask resume];
+}
 
 #pragma mark Tokenization
 
@@ -121,6 +159,25 @@ static NSString * const SRGTokenServiceURLString = @"https://tp.srgssr.ch/akahd/
         
         requestCompletionBlock(tokenizedURLComponents.URL, nil);
     }];
+}
+
+#pragma mark AVAssetResourceLoaderDelegate protocol
+
+- (BOOL)resourceLoader:(AVAssetResourceLoader *)resourceLoader shouldWaitForLoadingOfRequestedResource:(AVAssetResourceLoadingRequest *)loadingRequest
+{
+    [self processLoadingRequest:loadingRequest];
+    return YES;
+}
+
+- (BOOL)resourceLoader:(AVAssetResourceLoader *)resourceLoader shouldWaitForRenewalOfRequestedResource:(AVAssetResourceRenewalRequest *)renewalRequest
+{
+    [self processLoadingRequest:renewalRequest];
+    return YES;
+}
+
+- (void)resourceLoader:(AVAssetResourceLoader *)resourceLoader didCancelLoadingRequest:(AVAssetResourceLoadingRequest *)loadingRequest
+{
+    [self.sessionTask cancel];
 }
 
 @end
