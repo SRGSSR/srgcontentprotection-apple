@@ -31,8 +31,8 @@ static id<AVAssetResourceLoaderDelegate> SRGContentProtectionResourceLoaderDeleg
 
 + (instancetype)srg_assetWithURL:(NSURL *)URL contentProtection:(SRGContentProtection)contentProtection
 {
-    NSURL *wrappedURL = SRGContentProtectionWrapURL(URL, contentProtection);
-    AVURLAsset *asset = [AVURLAsset assetWithURL:wrappedURL];
+    NSURL *routingURL = SRGContentProtectionRoutingURL(URL, contentProtection);
+    AVURLAsset *asset = [AVURLAsset assetWithURL:routingURL];
     
     id<AVAssetResourceLoaderDelegate> resourceLoaderDelegate = SRGContentProtectionResourceLoaderDelegate(contentProtection);
     objc_setAssociatedObject(asset, SRGContentProtectionResourceLoaderDelegateKey, resourceLoaderDelegate, OBJC_ASSOCIATION_RETAIN_NONATOMIC);

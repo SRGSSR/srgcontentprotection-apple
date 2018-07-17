@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 // reserved scheme, for which the system cannot figure out what to do and is therefore forced to ask a resource
 // loader delegate for help.
 
-OBJC_EXPORT NSURL *SRGContentProtectionWrapURL(NSURL *URL, SRGContentProtection contentProtection);
-OBJC_EXPORT NSURL * _Nullable SRGContentProtectionUnwrapURL(NSURL *URL, SRGContentProtection contentProtection);
+OBJC_EXPORT NSURL *SRGContentProtectionRoutingURL(NSURL *URL, SRGContentProtection contentProtection);
+OBJC_EXPORT NSURL * _Nullable SRGContentProtectionRoutedURL(NSURL *routingURL, SRGContentProtection contentProtection);
 
 NS_ASSUME_NONNULL_END

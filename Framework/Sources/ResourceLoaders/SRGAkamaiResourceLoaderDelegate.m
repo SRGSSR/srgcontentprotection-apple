@@ -32,7 +32,7 @@ static NSString * const SRGTokenServiceURLString = @"https://tp.srgssr.ch/akahd/
         return NO;
     }
     
-    NSURL *URL = SRGContentProtectionUnwrapURL(requestURL, SRGContentProtectionAkamaiToken);
+    NSURL *URL = SRGContentProtectionRoutedURL(requestURL, SRGContentProtectionAkamaiToken);
     if (! URL) {
         return NO;
     }
