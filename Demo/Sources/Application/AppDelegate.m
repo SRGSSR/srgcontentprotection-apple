@@ -16,7 +16,9 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
     [self.window makeKeyAndVisible];
-    self.window.rootViewController = [[DemosViewController alloc] init];
+    
+    DemosViewController *demosViewController = [[DemosViewController alloc] init];
+    self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:demosViewController];
     return YES;
 }
 

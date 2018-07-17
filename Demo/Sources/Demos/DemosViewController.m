@@ -23,6 +23,13 @@
     return [storyboard instantiateInitialViewController];
 }
 
+#pragma mark Getters and setters
+
+- (NSString *)title
+{
+    return NSLocalizedString(@"Demos", nil);
+}
+
 #pragma mark UITableViewDelegate protocol
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
