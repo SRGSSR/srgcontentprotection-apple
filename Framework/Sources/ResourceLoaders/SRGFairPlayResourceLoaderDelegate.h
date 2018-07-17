@@ -8,6 +8,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+/**
+ *  Resource loader delegate for streams encrypted with FairPlay.
+ */
 @interface SRGFairPlayResourceLoaderDelegate : NSObject <AVAssetResourceLoaderDelegate>
 
 @end

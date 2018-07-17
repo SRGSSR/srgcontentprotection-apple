@@ -33,7 +33,7 @@ typedef NS_ENUM(NSInteger, SRGContentProtectionErrorCode) {
 };
 
 /**
- *  Common domain for data provider errors.
+ *  Common domain for content protection errors.
  */
 OBJC_EXPORT NSString * const SRGContentProtectionErrorDomain;
 
@@ -42,6 +42,5 @@ OBJC_EXPORT NSString * const SRGContentProtectionErrorDomain;
  */
 OBJC_EXPORT NSString * const SRGContentProtectionHTTPStatusCodeKey;
 OBJC_EXPORT NSString * const SRGContentProtectionRedirectionURLKey;
-OBJC_EXPORT NSString * const SRGContentProtectionErrorsKey;
 
 NS_ASSUME_NONNULL_END

@@ -8,6 +8,7 @@
 
 static NSDictionary<NSNumber *, NSString *> *SRGContentProtectionRoutingPrefixes(void)
 {
+    // Not all content protection types require special routing
     static dispatch_once_t s_onceToken;
     static NSDictionary<NSNumber *, NSString *> *s_routingPrefixes;
     dispatch_once(&s_onceToken, ^{

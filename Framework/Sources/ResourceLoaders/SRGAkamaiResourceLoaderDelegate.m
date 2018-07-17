@@ -11,8 +11,6 @@
 #import "SRGContentProtectionURL.h"
 #import "SRGContentProtectionRequestService.h"
 
-typedef void (^SRGURLCompletionBlock)(NSURL * _Nullable URL, NSError * _Nullable error);
-
 static NSString * const SRGTokenServiceURLString = @"https://tp.srgssr.ch/akahd/token";
 
 @interface SRGAkamaiResourceLoaderDelegate ()
@@ -60,7 +58,7 @@ static NSString * const SRGTokenServiceURLString = @"https://tp.srgssr.ch/akahd/
 
 #pragma mark Tokenization
 
-+ (NSURLSessionTask *)tokenizeURL:(NSURL *)URL withCompletionBlock:(SRGURLCompletionBlock)completionBlock
++ (NSURLSessionTask *)tokenizeURL:(NSURL *)URL withCompletionBlock:(void (^)(NSURL *URL, NSError *error))completionBlock
 {
     NSParameterAssert(URL);
     NSParameterAssert(completionBlock);
