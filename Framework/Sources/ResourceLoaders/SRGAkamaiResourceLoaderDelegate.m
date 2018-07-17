@@ -27,7 +27,12 @@ static NSString * const SRGTokenServiceURLString = @"https://tp.srgssr.ch/akahd/
 
 - (BOOL)shouldProcessResourceLoadingRequest:(AVAssetResourceLoadingRequest *)loadingRequest
 {
-    NSURL *URL = SRGContentProtectionUnwrapURL(loadingRequest.request.URL, SRGContentProtectionAkamaiToken);
+    NSURL *requestURL = loadingRequest.request.URL;
+    if (! [requestURL.host containsString:@"akamai"]) {
+        return NO;
+    }
+    
+    NSURL *URL = SRGContentProtectionUnwrapURL(requestURL, SRGContentProtectionAkamaiToken);
     if (! URL) {
         return NO;
     }
@@ -60,7 +65,6 @@ static NSString * const SRGTokenServiceURLString = @"https://tp.srgssr.ch/akahd/
 {
     NSParameterAssert(URL);
     NSParameterAssert(completionBlock);
-    NSAssert([URL.host containsString:@"akamai"], @"Only Akamai URLs can be tokenized");
     
     NSURLComponents *URLComponents = [NSURLComponents componentsWithURL:URL resolvingAgainstBaseURL:NO];
     NSString *acl = [URLComponents.path.stringByDeletingLastPathComponent stringByAppendingPathComponent:@"*"];
