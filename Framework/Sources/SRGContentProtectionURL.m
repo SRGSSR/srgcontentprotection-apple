@@ -12,7 +12,7 @@ static NSDictionary<NSNumber *, NSString *> *SRGContentProtectionRoutingPrefixes
     static NSDictionary<NSNumber *, NSString *> *s_routingPrefixes;
     dispatch_once(&s_onceToken, ^{
         s_routingPrefixes = @{ @(SRGContentProtectionAkamaiToken) : @"akamai",
-                               @(SRGContentProtectionAkamaiToken) : @"fairplay" };
+                               @(SRGContentProtectionFairPlay) : @"fairplay" };
     });
     return s_routingPrefixes;
 }
