@@ -31,10 +31,8 @@ static id<AVAssetResourceLoaderDelegate> SRGContentProtectionResourceLoaderDeleg
 
 + (instancetype)srg_assetWithURL:(NSURL *)URL contentProtection:(SRGContentProtection)contentProtection
 {
-    // To force an asset resource loader to be used (especially on foreign AirPlay receivers), we use a custom
-    // reserved scheme, for which the player is forced to check its associated resource loader delegate.
-    NSURL *bootstrapURL = SRGContentProtectionWrapURL(URL, contentProtection);
-    AVURLAsset *asset = [AVURLAsset assetWithURL:bootstrapURL];
+    NSURL *wrappedURL = SRGContentProtectionWrapURL(URL, contentProtection);
+    AVURLAsset *asset = [AVURLAsset assetWithURL:wrappedURL];
     
     id<AVAssetResourceLoaderDelegate> resourceLoaderDelegate = SRGContentProtectionResourceLoaderDelegate(contentProtection);
     objc_setAssociatedObject(asset, SRGContentProtectionResourceLoaderDelegateKey, resourceLoaderDelegate, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
