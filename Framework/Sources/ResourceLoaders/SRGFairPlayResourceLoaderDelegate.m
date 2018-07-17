@@ -7,6 +7,29 @@
 #import "SRGFairPlayResourceLoaderDelegate.h"
 
 #import "SRGContentProtectionURL.h"
+#import "SRGContentProtectionRequestService.h"
+
+// TODO: Must be configurable?
+static NSString * const SRGFairPlayApplicationIdentifier = @"stage";
+
+static NSURL *SRGFairPlayApplicationCertificateURL(NSURL *URL)
+{
+    NSURLComponents *URLComponents = [NSURLComponents componentsWithURL:URL resolvingAgainstBaseURL:NO];
+    if (! [URLComponents.scheme isEqualToString:@"skd"]) {
+        return nil;
+    }
+    
+    URLComponents.scheme = @"https";
+    URLComponents.path = [URLComponents.path.stringByDeletingLastPathComponent stringByAppendingPathComponent:@"getcertificate"];
+    URLComponents.queryItems = @[ [NSURLQueryItem queryItemWithName:@"applicationId" value:SRGFairPlayApplicationIdentifier] ];
+    return URLComponents.URL;
+}
+
+@interface SRGFairPlayResourceLoaderDelegate ()
+
+@property (nonatomic) NSURLSessionTask *sessionTask;
+
+@end
 
 @implementation SRGFairPlayResourceLoaderDelegate
 
@@ -19,7 +42,22 @@
         return NO;
     }
     
-    return NO;
+    NSURL *applicationCertificateURL = SRGFairPlayApplicationCertificateURL(URL);
+    if (! applicationCertificateURL) {
+        return NO;
+    }
+    
+    NSURLRequest *request = [NSURLRequest requestWithURL:applicationCertificateURL];
+    [[[SRGContentProtectionRequestService sharedService] asynchronousDataRequest:request withCompletionBlock:^(NSData * _Nullable data, NSError * _Nullable error) {
+        if (error) {
+            [loadingRequest finishLoadingWithError:error];
+            return;
+        }
+        
+        
+    }] resume];
+    
+    return YES;
 }
 
 #pragma mark AVAssetResourceLoaderDelegate protocol

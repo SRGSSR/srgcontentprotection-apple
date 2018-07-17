@@ -21,6 +21,8 @@
 		6F8A940220FDCBA600AA6434 /* DemosViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6F8A940120FDCBA600AA6434 /* DemosViewController.storyboard */; };
 		6F8A940320FDD01B00AA6434 /* SRGContentProtection.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F0EB53120FC7F58009C02CF /* SRGContentProtection.framework */; };
 		6F8A940420FDD01B00AA6434 /* SRGContentProtection.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6F0EB53120FC7F58009C02CF /* SRGContentProtection.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6F8A940B20FDEA3000AA6434 /* SRGContentProtectionRequestService.h in Headers */ = {isa = PBXBuildFile; fileRef = 6F8A940920FDEA3000AA6434 /* SRGContentProtectionRequestService.h */; };
+		6F8A940C20FDEA3000AA6434 /* SRGContentProtectionRequestService.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F8A940A20FDEA3000AA6434 /* SRGContentProtectionRequestService.m */; };
 		6FD810F420FCB58500F250B9 /* AVURLAsset+SRGContentProtection.h in Headers */ = {isa = PBXBuildFile; fileRef = 6FD810F220FCB58500F250B9 /* AVURLAsset+SRGContentProtection.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6FD810F520FCB58500F250B9 /* AVURLAsset+SRGContentProtection.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FD810F320FCB58500F250B9 /* AVURLAsset+SRGContentProtection.m */; };
 		6FD810F820FCB7FC00F250B9 /* SRGContentProtectionURL.h in Headers */ = {isa = PBXBuildFile; fileRef = 6FD810F620FCB7FC00F250B9 /* SRGContentProtectionURL.h */; };
@@ -77,6 +79,8 @@
 		6F8A93F920FDCAA800AA6434 /* DemosViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemosViewController.m; sourceTree = "<group>"; };
 		6F8A93FA20FDCAA800AA6434 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6F8A940120FDCBA600AA6434 /* DemosViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DemosViewController.storyboard; sourceTree = "<group>"; };
+		6F8A940920FDEA3000AA6434 /* SRGContentProtectionRequestService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SRGContentProtectionRequestService.h; sourceTree = "<group>"; };
+		6F8A940A20FDEA3000AA6434 /* SRGContentProtectionRequestService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SRGContentProtectionRequestService.m; sourceTree = "<group>"; };
 		6FD810F220FCB58500F250B9 /* AVURLAsset+SRGContentProtection.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AVURLAsset+SRGContentProtection.h"; sourceTree = "<group>"; };
 		6FD810F320FCB58500F250B9 /* AVURLAsset+SRGContentProtection.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AVURLAsset+SRGContentProtection.m"; sourceTree = "<group>"; };
 		6FD810F620FCB7FC00F250B9 /* SRGContentProtectionURL.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SRGContentProtectionURL.h; sourceTree = "<group>"; };
@@ -140,6 +144,7 @@
 			isa = PBXGroup;
 			children = (
 				6F0EB54420FC8049009C02CF /* Categories */,
+				6F8A940820FDE94000AA6434 /* Helpers */,
 				6FD810FE20FCC22500F250B9 /* ResourceLoaders */,
 				6F0EB53E20FC7FA9009C02CF /* SRGContentProtection.h */,
 				6F0EB54220FC7FF4009C02CF /* SRGContentProtection.m */,
@@ -213,6 +218,15 @@
 			path = Demos;
 			sourceTree = "<group>";
 		};
+		6F8A940820FDE94000AA6434 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				6F8A940920FDEA3000AA6434 /* SRGContentProtectionRequestService.h */,
+				6F8A940A20FDEA3000AA6434 /* SRGContentProtectionRequestService.m */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		6FD810FE20FCC22500F250B9 /* ResourceLoaders */ = {
 			isa = PBXGroup;
 			children = (
@@ -237,6 +251,7 @@
 				6FD8110120FCC22500F250B9 /* SRGAkamaiResourceLoaderDelegate.h in Headers */,
 				6F8A93D220FDB3D200AA6434 /* SRGFairPlayResourceLoaderDelegate.h in Headers */,
 				6FDE576620FC9DC700719525 /* SRGContentProtectionError.h in Headers */,
+				6F8A940B20FDEA3000AA6434 /* SRGContentProtectionRequestService.h in Headers */,
 				6FD810F820FCB7FC00F250B9 /* SRGContentProtectionURL.h in Headers */,
 				6F0EB54820FC8049009C02CF /* NSBundle+SRGContentProtection.h in Headers */,
 				6FDE576A20FCA00D00719525 /* NSHTTPURLResponse+SRGContentProtection.h in Headers */,
@@ -352,6 +367,7 @@
 				6FD810F920FCB7FC00F250B9 /* SRGContentProtectionURL.m in Sources */,
 				6FD810F520FCB58500F250B9 /* AVURLAsset+SRGContentProtection.m in Sources */,
 				6FDE576920FCA00D00719525 /* NSHTTPURLResponse+SRGContentProtection.m in Sources */,
+				6F8A940C20FDEA3000AA6434 /* SRGContentProtectionRequestService.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
