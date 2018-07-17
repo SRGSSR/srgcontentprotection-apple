@@ -27,13 +27,12 @@ static NSString * const SRGTokenServiceURLString = @"https://tp.srgssr.ch/akahd/
 
 - (BOOL)shouldProcessResourceLoadingRequest:(AVAssetResourceLoadingRequest *)loadingRequest
 {
-    NSURL *requestURL = loadingRequest.request.URL;
-    if (! [requestURL.host containsString:@"akamai"]) {
+    NSURL *URL = SRGContentProtectionRoutedURL(loadingRequest.request.URL, SRGContentProtectionAkamaiToken);
+    if (! URL) {
         return NO;
     }
     
-    NSURL *URL = SRGContentProtectionRoutedURL(requestURL, SRGContentProtectionAkamaiToken);
-    if (! URL) {
+    if (! [URL.host containsString:@"akamai"]) {
         return NO;
     }
     
