@@ -42,7 +42,6 @@
                     @2 : [NSURL URLWithString:@"https://accountdigitalinnovation.streaming.mediaservices.windows.net/7e157f65-a8a0-4810-897c-fcc49c946a1c/bbd11abe-936f-4b71-ae4c-6d651d86e6b0.ism/manifest(format=m3u8-aapl)"] };
     });
     
-    AVPlayerViewController *playerViewController = [[AVPlayerViewController alloc] init];
     NSURL *URL = s_URLs[@(indexPath.row)];
     
     AVURLAsset *asset = nil;
@@ -69,7 +68,10 @@
     
     AVPlayerItem *playerItem = [AVPlayerItem playerItemWithAsset:asset];
     AVPlayer *player = [AVPlayer playerWithPlayerItem:playerItem];
+    
+    AVPlayerViewController *playerViewController = [[AVPlayerViewController alloc] init];
     playerViewController.player = player;
+    
     [self presentViewController:playerViewController animated:YES completion:^{
         [player play];
     }];
