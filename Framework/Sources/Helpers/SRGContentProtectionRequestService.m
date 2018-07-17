@@ -107,4 +107,22 @@
     }];
 }
 
+- (NSURLSessionTask *)synchronousDataRequest:(NSURLRequest *)request withCompletionBlock:(void (^)(NSData * _Nullable, NSError * _Nullable))completionBlock
+{
+    return [self asynchronousDataRequest:request withCompletionBlock:^(NSData * _Nullable data, NSError * _Nullable error) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            completionBlock(data, error);
+        });
+    }];
+}
+
+- (NSURLSessionTask *)synchronousJSONDictionaryRequest:(NSURLRequest *)request withCompletionBlock:(void (^)(NSDictionary * _Nullable, NSError * _Nullable))completionBlock
+{
+    return [self asynchronousJSONDictionaryRequest:request withCompletionBlock:^(NSDictionary * _Nullable JSONDictionary, NSError * _Nullable error) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            completionBlock(JSONDictionary, error);
+        });
+    }];
+}
+
 @end

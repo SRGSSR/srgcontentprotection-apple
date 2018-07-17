@@ -12,7 +12,7 @@
 // TODO: Must be configurable?
 static NSString * const SRGFairPlayApplicationIdentifier = @"stage";
 
-static NSURL *SRGFairPlayApplicationCertificateURL(NSURL *URL)
+static NSURLRequest *SRGFairPlayApplicationCertificateURLRequest(NSURL *URL)
 {
     NSURLComponents *URLComponents = [NSURLComponents componentsWithURL:URL resolvingAgainstBaseURL:NO];
     if (! [URLComponents.scheme isEqualToString:@"skd"]) {
@@ -22,7 +22,19 @@ static NSURL *SRGFairPlayApplicationCertificateURL(NSURL *URL)
     URLComponents.scheme = @"https";
     URLComponents.path = [URLComponents.path.stringByDeletingLastPathComponent stringByAppendingPathComponent:@"getcertificate"];
     URLComponents.queryItems = @[ [NSURLQueryItem queryItemWithName:@"applicationId" value:SRGFairPlayApplicationIdentifier] ];
-    return URLComponents.URL;
+    return [NSURLRequest requestWithURL:URLComponents.URL];
+}
+
+static NSURLRequest *SRGFairPlayContentKeyContextRequest(NSURL *URL, NSData *requestData)
+{
+    NSURLComponents *components = [NSURLComponents componentsWithURL:URL resolvingAgainstBaseURL:NO];
+    components.scheme = @"https";
+    
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:components.URL];
+    [request setValue:@"application/octet-stream" forHTTPHeaderField:@"Content-Type"];
+    request.HTTPMethod = @"POST";
+    request.HTTPBody = requestData;
+    return [request copy];
 }
 
 @interface SRGFairPlayResourceLoaderDelegate ()
@@ -42,13 +54,12 @@ static NSURL *SRGFairPlayApplicationCertificateURL(NSURL *URL)
         return NO;
     }
     
-    NSURL *applicationCertificateURL = SRGFairPlayApplicationCertificateURL(URL);
-    if (! applicationCertificateURL) {
+    NSURLRequest *certificateRequest = SRGFairPlayApplicationCertificateURLRequest(URL);
+    if (! certificateRequest) {
         return NO;
     }
     
-    NSURLRequest *request = [NSURLRequest requestWithURL:applicationCertificateURL];
-    [[[SRGContentProtectionRequestService sharedService] asynchronousDataRequest:request withCompletionBlock:^(NSData * _Nullable certificateData, NSError * _Nullable error) {
+    self.sessionTask = [[SRGContentProtectionRequestService sharedService] synchronousDataRequest:certificateRequest withCompletionBlock:^(NSData * _Nullable certificateData, NSError * _Nullable error) {
         if (error) {
             [loadingRequest finishLoadingWithError:error];
             return;
@@ -57,17 +68,28 @@ static NSURL *SRGFairPlayApplicationCertificateURL(NSURL *URL)
         // TODO: - Content identifier convention
         //       - Is the error suitable for display?
         NSError *keyError = nil;
-        NSData *keyData = [loadingRequest streamingContentKeyRequestDataForApp:certificateData
-                                                             contentIdentifier:[URL.absoluteString dataUsingEncoding:NSUTF8StringEncoding]
-                                                                       options:nil
-                                                                         error:&keyError];
+        NSData *keyRequestData = [loadingRequest streamingContentKeyRequestDataForApp:certificateData
+                                                                    contentIdentifier:[URL.absoluteString dataUsingEncoding:NSUTF8StringEncoding]
+                                                                              options:nil
+                                                                                error:&keyError];
         if (keyError) {
             [loadingRequest finishLoadingWithError:keyError];
             return;
         }
         
-        // TODO: Use key!
-    }] resume];
+        NSURLRequest *contentKeyContextRequest = SRGFairPlayContentKeyContextRequest(URL, keyRequestData);
+        self.sessionTask = [[SRGContentProtectionRequestService sharedService] synchronousDataRequest:contentKeyContextRequest withCompletionBlock:^(NSData * _Nullable contentKeyContextData, NSError * _Nullable error) {
+            if (error) {
+                [loadingRequest finishLoadingWithError:error];
+                return;
+            }
+            
+            [loadingRequest.dataRequest respondWithData:contentKeyContextData];
+            [loadingRequest finishLoading];
+        }];
+        [self.sessionTask resume];
+    }];
+    [self.sessionTask resume];
     
     return YES;
 }

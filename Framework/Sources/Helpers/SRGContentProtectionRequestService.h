@@ -17,6 +17,9 @@ NS_ASSUME_NONNULL_BEGIN
 - (NSURLSessionTask *)asynchronousDataRequest:(NSURLRequest *)request withCompletionBlock:(void (^)(NSData * _Nullable data, NSError * _Nullable error))completionBlock;
 - (NSURLSessionTask *)asynchronousJSONDictionaryRequest:(NSURLRequest *)request withCompletionBlock:(void (^)(NSDictionary * _Nullable JSONDictionary, NSError * _Nullable error))completionBlock;
 
+- (NSURLSessionTask *)synchronousDataRequest:(NSURLRequest *)request withCompletionBlock:(void (^)(NSData * _Nullable data, NSError * _Nullable error))completionBlock;
+- (NSURLSessionTask *)synchronousJSONDictionaryRequest:(NSURLRequest *)request withCompletionBlock:(void (^)(NSDictionary * _Nullable JSONDictionary, NSError * _Nullable error))completionBlock;
+
 @end
 
 NS_ASSUME_NONNULL_END
