@@ -19,6 +19,8 @@
 		6F8A93FE20FDCAA800AA6434 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F8A93F620FDCAA800AA6434 /* AppDelegate.m */; };
 		6F8A93FF20FDCAA800AA6434 /* DemosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F8A93F920FDCAA800AA6434 /* DemosViewController.m */; };
 		6F8A940220FDCBA600AA6434 /* DemosViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6F8A940120FDCBA600AA6434 /* DemosViewController.storyboard */; };
+		6F8A940320FDD01B00AA6434 /* SRGContentProtection.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F0EB53120FC7F58009C02CF /* SRGContentProtection.framework */; };
+		6F8A940420FDD01B00AA6434 /* SRGContentProtection.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6F0EB53120FC7F58009C02CF /* SRGContentProtection.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6FD810F420FCB58500F250B9 /* AVURLAsset+SRGContentProtection.h in Headers */ = {isa = PBXBuildFile; fileRef = 6FD810F220FCB58500F250B9 /* AVURLAsset+SRGContentProtection.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6FD810F520FCB58500F250B9 /* AVURLAsset+SRGContentProtection.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FD810F320FCB58500F250B9 /* AVURLAsset+SRGContentProtection.m */; };
 		6FD810F820FCB7FC00F250B9 /* SRGContentProtectionURL.h in Headers */ = {isa = PBXBuildFile; fileRef = 6FD810F620FCB7FC00F250B9 /* SRGContentProtectionURL.h */; };
@@ -31,6 +33,30 @@
 		6FDE576920FCA00D00719525 /* NSHTTPURLResponse+SRGContentProtection.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FDE576720FCA00D00719525 /* NSHTTPURLResponse+SRGContentProtection.m */; };
 		6FDE576A20FCA00D00719525 /* NSHTTPURLResponse+SRGContentProtection.h in Headers */ = {isa = PBXBuildFile; fileRef = 6FDE576820FCA00D00719525 /* NSHTTPURLResponse+SRGContentProtection.h */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		6F8A940520FDD01B00AA6434 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6F0EB52820FC7F58009C02CF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6F0EB53020FC7F58009C02CF;
+			remoteInfo = SRGContentProtection;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		6F8A940720FDD01B00AA6434 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				6F8A940420FDD01B00AA6434 /* SRGContentProtection.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		6F0EB53120FC7F58009C02CF /* SRGContentProtection.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SRGContentProtection.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -76,6 +102,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6F8A940320FDD01B00AA6434 /* SRGContentProtection.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -244,10 +271,12 @@
 				6F8A93D420FDCA0800AA6434 /* Sources */,
 				6F8A93D520FDCA0800AA6434 /* Frameworks */,
 				6F8A93D620FDCA0800AA6434 /* Resources */,
+				6F8A940720FDD01B00AA6434 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				6F8A940620FDD01B00AA6434 /* PBXTargetDependency */,
 			);
 			name = "SRGContentProtection-demo";
 			productName = "SRGContentProtection-demo";
@@ -337,6 +366,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		6F8A940620FDD01B00AA6434 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6F0EB53020FC7F58009C02CF /* SRGContentProtection */;
+			targetProxy = 6F8A940520FDD01B00AA6434 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		6F0EB53720FC7F58009C02CF /* Debug */ = {
