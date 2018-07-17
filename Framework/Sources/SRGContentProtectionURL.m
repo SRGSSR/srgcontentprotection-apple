@@ -11,8 +11,7 @@ static NSDictionary<NSNumber *, NSString *> *SRGContentProtectionRoutingPrefixes
     static dispatch_once_t s_onceToken;
     static NSDictionary<NSNumber *, NSString *> *s_routingPrefixes;
     dispatch_once(&s_onceToken, ^{
-        s_routingPrefixes = @{ @(SRGContentProtectionAkamaiToken) : @"akamai",
-                               @(SRGContentProtectionFairPlay) : @"fairplay" };
+        s_routingPrefixes = @{ @(SRGContentProtectionAkamaiToken) : @"akamai" };
     });
     return s_routingPrefixes;
 }
