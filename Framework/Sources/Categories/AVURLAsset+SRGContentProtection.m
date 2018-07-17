@@ -7,6 +7,7 @@
 #import "AVURLAsset+SRGContentProtection.h"
 
 #import "SRGAkamaiResourceLoaderDelegate.h"
+#import "SRGFairPlayResourceLoaderDelegate.h"
 #import "SRGContentProtectionURL.h"
 
 #import <objc/runtime.h>
@@ -18,7 +19,8 @@ static id<AVAssetResourceLoaderDelegate> SRGContentProtectionResourceLoaderDeleg
     static dispatch_once_t s_onceToken;
     static NSDictionary<NSNumber *, Class> *s_resourceLoaderDelegateClasses;
     dispatch_once(&s_onceToken, ^{
-        s_resourceLoaderDelegateClasses = @{ @(SRGContentProtectionAkamaiToken) : [SRGAkamaiResourceLoaderDelegate class] };
+        s_resourceLoaderDelegateClasses = @{ @(SRGContentProtectionAkamaiToken) : [SRGAkamaiResourceLoaderDelegate class],
+                                             @(SRGContentProtectionFairPlay) : [SRGFairPlayResourceLoaderDelegate class] };
     });
     
     Class resourceLoaderDelegateClass = s_resourceLoaderDelegateClasses[@(contentProtection)];
