@@ -48,13 +48,25 @@ static NSURL *SRGFairPlayApplicationCertificateURL(NSURL *URL)
     }
     
     NSURLRequest *request = [NSURLRequest requestWithURL:applicationCertificateURL];
-    [[[SRGContentProtectionRequestService sharedService] asynchronousDataRequest:request withCompletionBlock:^(NSData * _Nullable data, NSError * _Nullable error) {
+    [[[SRGContentProtectionRequestService sharedService] asynchronousDataRequest:request withCompletionBlock:^(NSData * _Nullable certificateData, NSError * _Nullable error) {
         if (error) {
             [loadingRequest finishLoadingWithError:error];
             return;
         }
         
+        // TODO: - Content identifier convention
+        //       - Is the error suitable for display?
+        NSError *keyError = nil;
+        NSData *keyData = [loadingRequest streamingContentKeyRequestDataForApp:certificateData
+                                                             contentIdentifier:[URL.absoluteString dataUsingEncoding:NSUTF8StringEncoding]
+                                                                       options:nil
+                                                                         error:&keyError];
+        if (keyError) {
+            [loadingRequest finishLoadingWithError:keyError];
+            return;
+        }
         
+        // TODO: Use key!
     }] resume];
     
     return YES;
