@@ -6,38 +6,37 @@
 
 #import "SRGContentProtectionURL.h"
 
-static NSDictionary<NSNumber *, NSString *> *SRGContentProtectionBootstrapSchemePrefixes(void)
+static NSDictionary<NSNumber *, NSString *> *SRGContentProtectionRoutingPrefixes(void)
 {
     static dispatch_once_t s_onceToken;
-    static NSDictionary<NSNumber *, NSString *> *s_shemePrefixes;
+    static NSDictionary<NSNumber *, NSString *> *s_routingPrefixes;
     dispatch_once(&s_onceToken, ^{
-        s_shemePrefixes = @{ @(SRGContentProtectionAkamaiToken) : @"akamai",
-                             @(SRGContentProtectionAkamaiToken) : @"fairplay" };
+        s_routingPrefixes = @{ @(SRGContentProtectionAkamaiToken) : @"akamai" };
     });
-    return s_shemePrefixes;
+    return s_routingPrefixes;
 }
 
-NSURL *SRGContentProtectionWrapURL(NSURL *URL, SRGContentProtection contentProtection)
+NSURL *SRGContentProtectionRoutingURL(NSURL *URL, SRGContentProtection contentProtection)
 {
-    NSString *schemePrefix = SRGContentProtectionBootstrapSchemePrefixes()[@(contentProtection)];
-    if (! schemePrefix) {
+    NSString *routingPrefix = SRGContentProtectionRoutingPrefixes()[@(contentProtection)];
+    if (! routingPrefix) {
         return URL;
     }
     
     NSURLComponents *components = [NSURLComponents componentsWithURL:URL resolvingAgainstBaseURL:NO];
-    components.scheme = [@[schemePrefix, components.scheme] componentsJoinedByString:@"+"];
+    components.scheme = [@[routingPrefix, components.scheme] componentsJoinedByString:@"+"];
     return components.URL;
 }
 
-NSURL *SRGContentProtectionUnwrapURL(NSURL *URL, SRGContentProtection contentProtection)
+NSURL *SRGContentProtectionRoutedURL(NSURL *routingURL, SRGContentProtection contentProtection)
 {
-    NSURLComponents *components = [NSURLComponents componentsWithURL:URL resolvingAgainstBaseURL:NO];
+    NSURLComponents *components = [NSURLComponents componentsWithURL:routingURL resolvingAgainstBaseURL:NO];
     NSArray<NSString *> *schemeComponents = [components.scheme componentsSeparatedByString:@"+"];
     if (schemeComponents.count != 2) {
-        return URL;
+        return routingURL;
     }
     
-    NSNumber *contentProtectionNumber = [SRGContentProtectionBootstrapSchemePrefixes() allKeysForObject:schemeComponents.firstObject].firstObject;
+    NSNumber *contentProtectionNumber = [SRGContentProtectionRoutingPrefixes() allKeysForObject:schemeComponents.firstObject].firstObject;
     if (! contentProtectionNumber || contentProtectionNumber.integerValue != contentProtection) {
         return nil;
     }

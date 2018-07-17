@@ -7,6 +7,7 @@
 #import "AVURLAsset+SRGContentProtection.h"
 
 #import "SRGAkamaiResourceLoaderDelegate.h"
+#import "SRGFairPlayResourceLoaderDelegate.h"
 #import "SRGContentProtectionURL.h"
 
 #import <objc/runtime.h>
@@ -18,7 +19,8 @@ static id<AVAssetResourceLoaderDelegate> SRGContentProtectionResourceLoaderDeleg
     static dispatch_once_t s_onceToken;
     static NSDictionary<NSNumber *, Class> *s_resourceLoaderDelegateClasses;
     dispatch_once(&s_onceToken, ^{
-        s_resourceLoaderDelegateClasses = @{ @(SRGContentProtectionAkamaiToken) : [SRGAkamaiResourceLoaderDelegate class] };
+        s_resourceLoaderDelegateClasses = @{ @(SRGContentProtectionAkamaiToken) : [SRGAkamaiResourceLoaderDelegate class],
+                                             @(SRGContentProtectionFairPlay) : [SRGFairPlayResourceLoaderDelegate class] };
     });
     
     Class resourceLoaderDelegateClass = s_resourceLoaderDelegateClasses[@(contentProtection)];
@@ -29,10 +31,8 @@ static id<AVAssetResourceLoaderDelegate> SRGContentProtectionResourceLoaderDeleg
 
 + (instancetype)srg_assetWithURL:(NSURL *)URL contentProtection:(SRGContentProtection)contentProtection
 {
-    // To force an asset resource loader to be used (especially on foreign AirPlay receivers), we use a custom
-    // reserved scheme, for which the player is forced to check its associated resource loader delegate.
-    NSURL *bootstrapURL = SRGContentProtectionWrapURL(URL, contentProtection);
-    AVURLAsset *asset = [AVURLAsset assetWithURL:bootstrapURL];
+    NSURL *routingURL = SRGContentProtectionRoutingURL(URL, contentProtection);
+    AVURLAsset *asset = [AVURLAsset assetWithURL:routingURL];
     
     id<AVAssetResourceLoaderDelegate> resourceLoaderDelegate = SRGContentProtectionResourceLoaderDelegate(contentProtection);
     objc_setAssociatedObject(asset, SRGContentProtectionResourceLoaderDelegateKey, resourceLoaderDelegate, OBJC_ASSOCIATION_RETAIN_NONATOMIC);

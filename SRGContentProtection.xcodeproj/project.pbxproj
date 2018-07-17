@@ -11,12 +11,23 @@
 		6F0EB54320FC7FF4009C02CF /* SRGContentProtection.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F0EB54220FC7FF4009C02CF /* SRGContentProtection.m */; };
 		6F0EB54720FC8049009C02CF /* NSBundle+SRGContentProtection.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F0EB54520FC8049009C02CF /* NSBundle+SRGContentProtection.m */; };
 		6F0EB54820FC8049009C02CF /* NSBundle+SRGContentProtection.h in Headers */ = {isa = PBXBuildFile; fileRef = 6F0EB54620FC8049009C02CF /* NSBundle+SRGContentProtection.h */; };
+		6F8A93D220FDB3D200AA6434 /* SRGFairPlayResourceLoaderDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 6F8A93D020FDB3D200AA6434 /* SRGFairPlayResourceLoaderDelegate.h */; };
+		6F8A93D320FDB3D200AA6434 /* SRGFairPlayResourceLoaderDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F8A93D120FDB3D200AA6434 /* SRGFairPlayResourceLoaderDelegate.m */; };
+		6F8A93FB20FDCAA800AA6434 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6F8A93F020FDCAA800AA6434 /* LaunchScreen.storyboard */; };
+		6F8A93FC20FDCAA800AA6434 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6F8A93F120FDCAA800AA6434 /* Images.xcassets */; };
+		6F8A93FD20FDCAA800AA6434 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F8A93F520FDCAA800AA6434 /* main.m */; };
+		6F8A93FE20FDCAA800AA6434 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F8A93F620FDCAA800AA6434 /* AppDelegate.m */; };
+		6F8A93FF20FDCAA800AA6434 /* DemosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F8A93F920FDCAA800AA6434 /* DemosViewController.m */; };
+		6F8A940220FDCBA600AA6434 /* DemosViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6F8A940120FDCBA600AA6434 /* DemosViewController.storyboard */; };
+		6F8A940320FDD01B00AA6434 /* SRGContentProtection.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F0EB53120FC7F58009C02CF /* SRGContentProtection.framework */; };
+		6F8A940420FDD01B00AA6434 /* SRGContentProtection.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6F0EB53120FC7F58009C02CF /* SRGContentProtection.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6F8A940B20FDEA3000AA6434 /* SRGContentProtectionRequestService.h in Headers */ = {isa = PBXBuildFile; fileRef = 6F8A940920FDEA3000AA6434 /* SRGContentProtectionRequestService.h */; };
+		6F8A940C20FDEA3000AA6434 /* SRGContentProtectionRequestService.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F8A940A20FDEA3000AA6434 /* SRGContentProtectionRequestService.m */; };
 		6FD810F420FCB58500F250B9 /* AVURLAsset+SRGContentProtection.h in Headers */ = {isa = PBXBuildFile; fileRef = 6FD810F220FCB58500F250B9 /* AVURLAsset+SRGContentProtection.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6FD810F520FCB58500F250B9 /* AVURLAsset+SRGContentProtection.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FD810F320FCB58500F250B9 /* AVURLAsset+SRGContentProtection.m */; };
 		6FD810F820FCB7FC00F250B9 /* SRGContentProtectionURL.h in Headers */ = {isa = PBXBuildFile; fileRef = 6FD810F620FCB7FC00F250B9 /* SRGContentProtectionURL.h */; };
 		6FD810F920FCB7FC00F250B9 /* SRGContentProtectionURL.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FD810F720FCB7FC00F250B9 /* SRGContentProtectionURL.m */; };
 		6FD810FC20FCB83A00F250B9 /* SRGContentProtectionConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 6FD810FA20FCB83A00F250B9 /* SRGContentProtectionConstants.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6FD810FD20FCB83A00F250B9 /* SRGContentProtectionConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FD810FB20FCB83A00F250B9 /* SRGContentProtectionConstants.m */; };
 		6FD8110120FCC22500F250B9 /* SRGAkamaiResourceLoaderDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 6FD810FF20FCC22500F250B9 /* SRGAkamaiResourceLoaderDelegate.h */; };
 		6FD8110220FCC22500F250B9 /* SRGAkamaiResourceLoaderDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FD8110020FCC22500F250B9 /* SRGAkamaiResourceLoaderDelegate.m */; };
 		6FDE576520FC9DC700719525 /* SRGContentProtectionError.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FDE576320FC9DC700719525 /* SRGContentProtectionError.m */; };
@@ -25,6 +36,30 @@
 		6FDE576A20FCA00D00719525 /* NSHTTPURLResponse+SRGContentProtection.h in Headers */ = {isa = PBXBuildFile; fileRef = 6FDE576820FCA00D00719525 /* NSHTTPURLResponse+SRGContentProtection.h */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		6F8A940520FDD01B00AA6434 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6F0EB52820FC7F58009C02CF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6F0EB53020FC7F58009C02CF;
+			remoteInfo = SRGContentProtection;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		6F8A940720FDD01B00AA6434 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				6F8A940420FDD01B00AA6434 /* SRGContentProtection.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		6F0EB53120FC7F58009C02CF /* SRGContentProtection.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SRGContentProtection.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F0EB53E20FC7FA9009C02CF /* SRGContentProtection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRGContentProtection.h; sourceTree = "<group>"; };
@@ -32,12 +67,25 @@
 		6F0EB54220FC7FF4009C02CF /* SRGContentProtection.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SRGContentProtection.m; sourceTree = "<group>"; };
 		6F0EB54520FC8049009C02CF /* NSBundle+SRGContentProtection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSBundle+SRGContentProtection.m"; sourceTree = "<group>"; };
 		6F0EB54620FC8049009C02CF /* NSBundle+SRGContentProtection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSBundle+SRGContentProtection.h"; sourceTree = "<group>"; };
+		6F8A93D020FDB3D200AA6434 /* SRGFairPlayResourceLoaderDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SRGFairPlayResourceLoaderDelegate.h; sourceTree = "<group>"; };
+		6F8A93D120FDB3D200AA6434 /* SRGFairPlayResourceLoaderDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SRGFairPlayResourceLoaderDelegate.m; sourceTree = "<group>"; };
+		6F8A93D820FDCA0800AA6434 /* SRGContentProtection-demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SRGContentProtection-demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6F8A93F020FDCAA800AA6434 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		6F8A93F120FDCAA800AA6434 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		6F8A93F420FDCAA800AA6434 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		6F8A93F520FDCAA800AA6434 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		6F8A93F620FDCAA800AA6434 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		6F8A93F820FDCAA800AA6434 /* DemosViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemosViewController.h; sourceTree = "<group>"; };
+		6F8A93F920FDCAA800AA6434 /* DemosViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemosViewController.m; sourceTree = "<group>"; };
+		6F8A93FA20FDCAA800AA6434 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6F8A940120FDCBA600AA6434 /* DemosViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DemosViewController.storyboard; sourceTree = "<group>"; };
+		6F8A940920FDEA3000AA6434 /* SRGContentProtectionRequestService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SRGContentProtectionRequestService.h; sourceTree = "<group>"; };
+		6F8A940A20FDEA3000AA6434 /* SRGContentProtectionRequestService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SRGContentProtectionRequestService.m; sourceTree = "<group>"; };
 		6FD810F220FCB58500F250B9 /* AVURLAsset+SRGContentProtection.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AVURLAsset+SRGContentProtection.h"; sourceTree = "<group>"; };
 		6FD810F320FCB58500F250B9 /* AVURLAsset+SRGContentProtection.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AVURLAsset+SRGContentProtection.m"; sourceTree = "<group>"; };
 		6FD810F620FCB7FC00F250B9 /* SRGContentProtectionURL.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SRGContentProtectionURL.h; sourceTree = "<group>"; };
 		6FD810F720FCB7FC00F250B9 /* SRGContentProtectionURL.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SRGContentProtectionURL.m; sourceTree = "<group>"; };
 		6FD810FA20FCB83A00F250B9 /* SRGContentProtectionConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SRGContentProtectionConstants.h; sourceTree = "<group>"; };
-		6FD810FB20FCB83A00F250B9 /* SRGContentProtectionConstants.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SRGContentProtectionConstants.m; sourceTree = "<group>"; };
 		6FD810FF20FCC22500F250B9 /* SRGAkamaiResourceLoaderDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRGAkamaiResourceLoaderDelegate.h; sourceTree = "<group>"; };
 		6FD8110020FCC22500F250B9 /* SRGAkamaiResourceLoaderDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRGAkamaiResourceLoaderDelegate.m; sourceTree = "<group>"; };
 		6FDE576320FC9DC700719525 /* SRGContentProtectionError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRGContentProtectionError.m; sourceTree = "<group>"; };
@@ -54,12 +102,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		6F8A93D520FDCA0800AA6434 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6F8A940320FDD01B00AA6434 /* SRGContentProtection.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		6F0EB52720FC7F58009C02CF = {
 			isa = PBXGroup;
 			children = (
+				6F8A93EE20FDCAA800AA6434 /* Demo */,
 				6F0EB53C20FC7FA9009C02CF /* Framework */,
 				6F0EB53220FC7F58009C02CF /* Products */,
 			);
@@ -69,6 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				6F0EB53120FC7F58009C02CF /* SRGContentProtection.framework */,
+				6F8A93D820FDCA0800AA6434 /* SRGContentProtection-demo.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -86,11 +144,11 @@
 			isa = PBXGroup;
 			children = (
 				6F0EB54420FC8049009C02CF /* Categories */,
+				6F8A940820FDE94000AA6434 /* Helpers */,
 				6FD810FE20FCC22500F250B9 /* ResourceLoaders */,
 				6F0EB53E20FC7FA9009C02CF /* SRGContentProtection.h */,
 				6F0EB54220FC7FF4009C02CF /* SRGContentProtection.m */,
 				6FD810FA20FCB83A00F250B9 /* SRGContentProtectionConstants.h */,
-				6FD810FB20FCB83A00F250B9 /* SRGContentProtectionConstants.m */,
 				6FDE576420FC9DC700719525 /* SRGContentProtectionError.h */,
 				6FDE576320FC9DC700719525 /* SRGContentProtectionError.m */,
 				6FD810F620FCB7FC00F250B9 /* SRGContentProtectionURL.h */,
@@ -112,11 +170,70 @@
 			path = Categories;
 			sourceTree = "<group>";
 		};
+		6F8A93EE20FDCAA800AA6434 /* Demo */ = {
+			isa = PBXGroup;
+			children = (
+				6F8A93EF20FDCAA800AA6434 /* Resources */,
+				6F8A93F220FDCAA800AA6434 /* Sources */,
+				6F8A93FA20FDCAA800AA6434 /* Info.plist */,
+			);
+			path = Demo;
+			sourceTree = "<group>";
+		};
+		6F8A93EF20FDCAA800AA6434 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				6F8A93F020FDCAA800AA6434 /* LaunchScreen.storyboard */,
+				6F8A93F120FDCAA800AA6434 /* Images.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		6F8A93F220FDCAA800AA6434 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				6F8A93F320FDCAA800AA6434 /* Application */,
+				6F8A93F720FDCAA800AA6434 /* Demos */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		6F8A93F320FDCAA800AA6434 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				6F8A93F420FDCAA800AA6434 /* AppDelegate.h */,
+				6F8A93F620FDCAA800AA6434 /* AppDelegate.m */,
+				6F8A93F520FDCAA800AA6434 /* main.m */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		6F8A93F720FDCAA800AA6434 /* Demos */ = {
+			isa = PBXGroup;
+			children = (
+				6F8A93F820FDCAA800AA6434 /* DemosViewController.h */,
+				6F8A93F920FDCAA800AA6434 /* DemosViewController.m */,
+				6F8A940120FDCBA600AA6434 /* DemosViewController.storyboard */,
+			);
+			path = Demos;
+			sourceTree = "<group>";
+		};
+		6F8A940820FDE94000AA6434 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				6F8A940920FDEA3000AA6434 /* SRGContentProtectionRequestService.h */,
+				6F8A940A20FDEA3000AA6434 /* SRGContentProtectionRequestService.m */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		6FD810FE20FCC22500F250B9 /* ResourceLoaders */ = {
 			isa = PBXGroup;
 			children = (
 				6FD810FF20FCC22500F250B9 /* SRGAkamaiResourceLoaderDelegate.h */,
 				6FD8110020FCC22500F250B9 /* SRGAkamaiResourceLoaderDelegate.m */,
+				6F8A93D020FDB3D200AA6434 /* SRGFairPlayResourceLoaderDelegate.h */,
+				6F8A93D120FDB3D200AA6434 /* SRGFairPlayResourceLoaderDelegate.m */,
 			);
 			path = ResourceLoaders;
 			sourceTree = "<group>";
@@ -132,7 +249,9 @@
 				6F0EB54020FC7FA9009C02CF /* SRGContentProtection.h in Headers */,
 				6FD810F420FCB58500F250B9 /* AVURLAsset+SRGContentProtection.h in Headers */,
 				6FD8110120FCC22500F250B9 /* SRGAkamaiResourceLoaderDelegate.h in Headers */,
+				6F8A93D220FDB3D200AA6434 /* SRGFairPlayResourceLoaderDelegate.h in Headers */,
 				6FDE576620FC9DC700719525 /* SRGContentProtectionError.h in Headers */,
+				6F8A940B20FDEA3000AA6434 /* SRGContentProtectionRequestService.h in Headers */,
 				6FD810F820FCB7FC00F250B9 /* SRGContentProtectionURL.h in Headers */,
 				6F0EB54820FC8049009C02CF /* NSBundle+SRGContentProtection.h in Headers */,
 				6FDE576A20FCA00D00719525 /* NSHTTPURLResponse+SRGContentProtection.h in Headers */,
@@ -160,6 +279,25 @@
 			productReference = 6F0EB53120FC7F58009C02CF /* SRGContentProtection.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		6F8A93D720FDCA0800AA6434 /* SRGContentProtection-demo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6F8A93EB20FDCA0900AA6434 /* Build configuration list for PBXNativeTarget "SRGContentProtection-demo" */;
+			buildPhases = (
+				6F8A93D420FDCA0800AA6434 /* Sources */,
+				6F8A93D520FDCA0800AA6434 /* Frameworks */,
+				6F8A93D620FDCA0800AA6434 /* Resources */,
+				6F8A940720FDD01B00AA6434 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6F8A940620FDD01B00AA6434 /* PBXTargetDependency */,
+			);
+			name = "SRGContentProtection-demo";
+			productName = "SRGContentProtection-demo";
+			productReference = 6F8A93D820FDCA0800AA6434 /* SRGContentProtection-demo.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -172,6 +310,9 @@
 					6F0EB53020FC7F58009C02CF = {
 						CreatedOnToolsVersion = 9.4;
 					};
+					6F8A93D720FDCA0800AA6434 = {
+						CreatedOnToolsVersion = 9.4;
+					};
 				};
 			};
 			buildConfigurationList = 6F0EB52B20FC7F58009C02CF /* Build configuration list for PBXProject "SRGContentProtection" */;
@@ -180,6 +321,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = 6F0EB52720FC7F58009C02CF;
 			productRefGroup = 6F0EB53220FC7F58009C02CF /* Products */;
@@ -187,6 +329,7 @@
 			projectRoot = "";
 			targets = (
 				6F0EB53020FC7F58009C02CF /* SRGContentProtection */,
+				6F8A93D720FDCA0800AA6434 /* SRGContentProtection-demo */,
 			);
 		};
 /* End PBXProject section */
@@ -196,6 +339,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6F8A93D620FDCA0800AA6434 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6F8A93FB20FDCAA800AA6434 /* LaunchScreen.storyboard in Resources */,
+				6F8A940220FDCBA600AA6434 /* DemosViewController.storyboard in Resources */,
+				6F8A93FC20FDCAA800AA6434 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -210,14 +363,33 @@
 				6F0EB54320FC7FF4009C02CF /* SRGContentProtection.m in Sources */,
 				6FD8110220FCC22500F250B9 /* SRGAkamaiResourceLoaderDelegate.m in Sources */,
 				6FDE576520FC9DC700719525 /* SRGContentProtectionError.m in Sources */,
+				6F8A93D320FDB3D200AA6434 /* SRGFairPlayResourceLoaderDelegate.m in Sources */,
 				6FD810F920FCB7FC00F250B9 /* SRGContentProtectionURL.m in Sources */,
-				6FD810FD20FCB83A00F250B9 /* SRGContentProtectionConstants.m in Sources */,
 				6FD810F520FCB58500F250B9 /* AVURLAsset+SRGContentProtection.m in Sources */,
 				6FDE576920FCA00D00719525 /* NSHTTPURLResponse+SRGContentProtection.m in Sources */,
+				6F8A940C20FDEA3000AA6434 /* SRGContentProtectionRequestService.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6F8A93D420FDCA0800AA6434 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6F8A93FE20FDCAA800AA6434 /* AppDelegate.m in Sources */,
+				6F8A93FD20FDCAA800AA6434 /* main.m in Sources */,
+				6F8A93FF20FDCAA800AA6434 /* DemosViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		6F8A940620FDD01B00AA6434 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6F0EB53020FC7F58009C02CF /* SRGContentProtection */;
+			targetProxy = 6F8A940520FDD01B00AA6434 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		6F0EB53720FC7F58009C02CF /* Debug */ = {
@@ -384,6 +556,42 @@
 			};
 			name = Release;
 		};
+		6F8A93EC20FDCA0900AA6434 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = VMGRRW6SG7;
+				INFOPLIST_FILE = Demo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "ch.srgssr.SRGContentProtection-demo";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		6F8A93ED20FDCA0900AA6434 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = VMGRRW6SG7;
+				INFOPLIST_FILE = Demo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "ch.srgssr.SRGContentProtection-demo";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -401,6 +609,15 @@
 			buildConfigurations = (
 				6F0EB53A20FC7F58009C02CF /* Debug */,
 				6F0EB53B20FC7F58009C02CF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6F8A93EB20FDCA0900AA6434 /* Build configuration list for PBXNativeTarget "SRGContentProtection-demo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6F8A93EC20FDCA0900AA6434 /* Debug */,
+				6F8A93ED20FDCA0900AA6434 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
