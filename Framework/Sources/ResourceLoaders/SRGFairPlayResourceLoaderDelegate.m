@@ -6,6 +6,8 @@
 
 #import "SRGFairPlayResourceLoaderDelegate.h"
 
+#import "NSBundle+SRGContentProtection.h"
+#import "SRGContentProtectionError.h"
 #import "SRGContentProtectionURL.h"
 #import "SRGContentProtectionRequestService.h"
 
@@ -61,37 +63,51 @@ static NSURLRequest *SRGFairPlayContentKeyContextRequest(NSURL *URL, NSData *req
     
     self.sessionTask = [[SRGContentProtectionRequestService sharedService] synchronousDataRequest:certificateRequest withCompletionBlock:^(NSData * _Nullable certificateData, NSError * _Nullable error) {
         if (error) {
-            [loadingRequest finishLoadingWithError:error];
+            [self finishLoadingRequest:loadingRequest withContentKeyContextData:nil error:error];
             return;
         }
         
-        // TODO: - Content identifier convention
-        //       - Is the error suitable for display?
+        // TODO: - Content identifier convention?
         NSError *keyError = nil;
         NSData *keyRequestData = [loadingRequest streamingContentKeyRequestDataForApp:certificateData
                                                                     contentIdentifier:[URL.absoluteString dataUsingEncoding:NSUTF8StringEncoding]
                                                                               options:nil
                                                                                 error:&keyError];
         if (keyError) {
-            [loadingRequest finishLoadingWithError:keyError];
+            [self finishLoadingRequest:loadingRequest withContentKeyContextData:nil error:keyError];
             return;
         }
         
         NSURLRequest *contentKeyContextRequest = SRGFairPlayContentKeyContextRequest(URL, keyRequestData);
         self.sessionTask = [[SRGContentProtectionRequestService sharedService] synchronousDataRequest:contentKeyContextRequest withCompletionBlock:^(NSData * _Nullable contentKeyContextData, NSError * _Nullable error) {
             if (error) {
-                [loadingRequest finishLoadingWithError:error];
+                [self finishLoadingRequest:loadingRequest withContentKeyContextData:nil error:error];
                 return;
             }
             
-            [loadingRequest.dataRequest respondWithData:contentKeyContextData];
-            [loadingRequest finishLoading];
+            [self finishLoadingRequest:loadingRequest withContentKeyContextData:contentKeyContextData error:nil];
         }];
         [self.sessionTask resume];
     }];
     [self.sessionTask resume];
     
     return YES;
+}
+
+- (void)finishLoadingRequest:(AVAssetResourceLoadingRequest *)loadingRequest withContentKeyContextData:(NSData *)contentKeyContextData error:(NSError *)error
+{
+    if (contentKeyContextData) {
+        [loadingRequest.dataRequest respondWithData:contentKeyContextData];
+        [loadingRequest finishLoading];
+    }
+    else {
+        NSMutableDictionary *userInfo = [@{ NSLocalizedDescriptionKey : SRGContentProtectionLocalizedString(@"Rights to play the content could not be obtained.", @"User-facing message displayed when an error related to digital rights management (DRM) has been encountered") } mutableCopy];
+        if (error) {
+            userInfo[NSUnderlyingErrorKey] = error;
+        }
+        NSError *friendlyError = [NSError errorWithDomain:SRGContentProtectionErrorDomain code:SRGContentProtectionErrorCodeDigitalRights userInfo:[userInfo copy]];
+        [loadingRequest finishLoadingWithError:friendlyError];
+    }
 }
 
 #pragma mark AVAssetResourceLoaderDelegate protocol

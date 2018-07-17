@@ -25,7 +25,11 @@ typedef NS_ENUM(NSInteger, SRGContentProtectionErrorCode) {
     /**
      *  The data which was received is invalid.
      */
-    SRGContentProtectionErrorCodeInvalidData
+    SRGContentProtectionErrorCodeInvalidData,
+    /**
+     *  Digital rights could not be obtained.
+     */
+    SRGContentProtectionErrorCodeDigitalRights
 };
 
 /**
