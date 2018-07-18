@@ -30,7 +30,7 @@ NS_ASSUME_NONNULL_BEGIN
 OBJC_EXPORT NSURL *SRGContentProtectionRoutingURL(NSURL *URL, SRGContentProtection contentProtection);
 
 /**
- *  Converts back a routing URL to its original routed URL. 
+ *  Converts back a routing URL to its original routed URL. If no routing was detected, the function returns `nil`.
  */
 OBJC_EXPORT NSURL * _Nullable SRGContentProtectionRoutedURL(NSURL *routingURL, SRGContentProtection contentProtection);
 
