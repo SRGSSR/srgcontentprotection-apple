@@ -8,7 +8,7 @@
 
 #import "SRGAkamaiResourceLoaderDelegate.h"
 
-@implementation NSBundle (SRGLetterbox)
+@implementation NSBundle (SRGContentProtection)
 
 #pragma mark Class methods
 

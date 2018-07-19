@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 #define SRGContentProtectionLocalizedString(key, comment) [[NSBundle srg_contentProtectionBundle] localizedStringForKey:(key) value:@"" table:nil]
 
-@interface NSBundle (SRGLetterbox)
+@interface NSBundle (SRGContentProtection)
 
 /**
  *  The SRGContentProtection resource bundle.
