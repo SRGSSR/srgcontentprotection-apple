@@ -34,7 +34,7 @@ NSURL *SRGContentProtectionRoutedURL(NSURL *routingURL, SRGContentProtection con
     NSURLComponents *components = [NSURLComponents componentsWithURL:routingURL resolvingAgainstBaseURL:NO];
     NSArray<NSString *> *schemeComponents = [components.scheme componentsSeparatedByString:@"+"];
     if (schemeComponents.count != 2) {
-        return nil;
+        return routingURL;
     }
     
     NSNumber *contentProtectionNumber = [SRGContentProtectionRoutingPrefixes() allKeysForObject:schemeComponents.firstObject].firstObject;
