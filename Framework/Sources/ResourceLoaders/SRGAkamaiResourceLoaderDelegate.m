@@ -9,17 +9,29 @@
 #import "NSBundle+SRGContentProtection.h"
 #import "SRGContentProtectionError.h"
 #import "SRGContentProtectionURL.h"
-#import "SRGContentProtectionRequestService.h"
+
+#import <SRGNetwork/SRGNetwork.h>
 
 static NSString * const SRGTokenServiceURLString = @"https://tp.srgssr.ch/akahd/token";
 
 @interface SRGAkamaiResourceLoaderDelegate ()
 
-@property (nonatomic) NSURLSessionTask *sessionTask;
+@property (nonatomic) NSURLSession *session;
+@property (nonatomic) SRGNetworkRequest *request;
 
 @end
 
 @implementation SRGAkamaiResourceLoaderDelegate
+
+#pragma mark Object lifecycle
+
+- (instancetype)init
+{
+    if (self = [super init]) {
+        self.session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
+    }
+    return self;
+}
 
 #pragma mark Common resource loading request processing
 
@@ -34,7 +46,7 @@ static NSString * const SRGTokenServiceURLString = @"https://tp.srgssr.ch/akahd/
         return NO;
     }
     
-    self.sessionTask = [SRGAkamaiResourceLoaderDelegate tokenizeURL:URL withCompletionBlock:^(NSURL * _Nullable tokenizedURL, NSError * _Nullable error) {
+    self.request = [self tokenizeURL:URL withCompletionBlock:^(NSURL *tokenizedURL, NSError *error) {
         if (error) {
             [loadingRequest finishLoadingWithError:error];
             return;
@@ -51,14 +63,14 @@ static NSString * const SRGTokenServiceURLString = @"https://tp.srgssr.ch/akahd/
         
         [loadingRequest finishLoading];
     }];
-    [self.sessionTask resume];
+    [self.request resume];
     
     return YES;
 }
 
 #pragma mark Tokenization
 
-+ (NSURLSessionTask *)tokenizeURL:(NSURL *)URL withCompletionBlock:(void (^)(NSURL *URL, NSError *error))completionBlock
+- (SRGNetworkRequest *)tokenizeURL:(NSURL *)URL withCompletionBlock:(void (^)(NSURL *URL, NSError *error))completionBlock
 {
     NSParameterAssert(URL);
     NSParameterAssert(completionBlock);
@@ -70,7 +82,7 @@ static NSString * const SRGTokenServiceURLString = @"https://tp.srgssr.ch/akahd/
     tokenServiceURLComponents.queryItems = @[ [NSURLQueryItem queryItemWithName:@"acl" value:acl] ];
     
     NSURLRequest *request = [NSURLRequest requestWithURL:tokenServiceURLComponents.URL];
-    return [[SRGContentProtectionRequestService sharedService] asynchronousJSONDictionaryRequest:request withCompletionBlock:^(NSDictionary * _Nullable JSONDictionary, NSError * _Nullable error) {
+    return [[SRGNetworkRequest alloc] initWithJSONDictionaryRequest:request session:self.session withCompletionBlock:^(NSDictionary * _Nullable JSONDictionary, NSError * _Nullable error) {
         NSString *token = nil;
         id tokenDictionary = JSONDictionary[@"token"];
         if ([tokenDictionary isKindOfClass:[NSDictionary class]]) {
@@ -80,7 +92,7 @@ static NSString * const SRGTokenServiceURLString = @"https://tp.srgssr.ch/akahd/
         if (! token) {
             dispatch_async(dispatch_get_main_queue(), ^{
                 completionBlock(nil, [NSError errorWithDomain:SRGContentProtectionErrorDomain
-                                                         code:SRGContentProtectionErrorCodeInvalidData
+                                                         code:SRGContentProtectionErrorUnauthorized
                                                      userInfo:@{ NSLocalizedDescriptionKey : SRGContentProtectionLocalizedString(@"The stream could not be secured.", @"The error message when the secure token cannot be retrieved to play the media stream.") }]);
             });
             return;
@@ -119,7 +131,7 @@ static NSString * const SRGTokenServiceURLString = @"https://tp.srgssr.ch/akahd/
 
 - (void)resourceLoader:(AVAssetResourceLoader *)resourceLoader didCancelLoadingRequest:(AVAssetResourceLoadingRequest *)loadingRequest
 {
-    [self.sessionTask cancel];
+    [self.request cancel];
 }
 
 @end

@@ -9,7 +9,8 @@
 #import "NSBundle+SRGContentProtection.h"
 #import "SRGContentProtectionError.h"
 #import "SRGContentProtectionURL.h"
-#import "SRGContentProtectionRequestService.h"
+
+#import <SRGNetwork/SRGNetwork.h>
 
 // TODO: Must be configurable?
 static NSString * const SRGFairPlayApplicationIdentifier = @"stage";
@@ -41,11 +42,22 @@ static NSURLRequest *SRGFairPlayContentKeyContextRequest(NSURL *URL, NSData *req
 
 @interface SRGFairPlayResourceLoaderDelegate ()
 
-@property (nonatomic) NSURLSessionTask *sessionTask;
+@property (nonatomic) NSURLSession *session;
+@property (nonatomic) SRGNetworkRequest *request;
 
 @end
 
 @implementation SRGFairPlayResourceLoaderDelegate
+
+#pragma mark Object lifecycle
+
+- (instancetype)init
+{
+    if (self = [super init]) {
+        self.session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
+    }
+    return self;
+}
 
 #pragma mark Common resource loading request processing
 
@@ -61,35 +73,41 @@ static NSURLRequest *SRGFairPlayContentKeyContextRequest(NSURL *URL, NSData *req
         return NO;
     }
     
-    self.sessionTask = [[SRGContentProtectionRequestService sharedService] synchronousDataRequest:certificateRequest withCompletionBlock:^(NSData * _Nullable certificateData, NSError * _Nullable error) {
-        if (error) {
-            [self finishLoadingRequest:loadingRequest withContentKeyContextData:nil error:error];
-            return;
-        }
-        
-        // TODO: - Content identifier convention?
-        NSError *keyError = nil;
-        NSData *keyRequestData = [loadingRequest streamingContentKeyRequestDataForApp:certificateData
-                                                                    contentIdentifier:[URL.absoluteString dataUsingEncoding:NSUTF8StringEncoding]
-                                                                              options:nil
-                                                                                error:&keyError];
-        if (keyError) {
-            [self finishLoadingRequest:loadingRequest withContentKeyContextData:nil error:keyError];
-            return;
-        }
-        
-        NSURLRequest *contentKeyContextRequest = SRGFairPlayContentKeyContextRequest(URL, keyRequestData);
-        self.sessionTask = [[SRGContentProtectionRequestService sharedService] synchronousDataRequest:contentKeyContextRequest withCompletionBlock:^(NSData * _Nullable contentKeyContextData, NSError * _Nullable error) {
+    self.request = [[SRGNetworkRequest alloc] initWithRequest:certificateRequest session:self.session withCompletionBlock:^(NSData * _Nullable certificateData, NSError * _Nullable error) {
+        // Resource loader methods must be called on the main thread
+        dispatch_async(dispatch_get_main_queue(), ^{
             if (error) {
                 [self finishLoadingRequest:loadingRequest withContentKeyContextData:nil error:error];
                 return;
             }
             
-            [self finishLoadingRequest:loadingRequest withContentKeyContextData:contentKeyContextData error:nil];
-        }];
-        [self.sessionTask resume];
+            // TODO: - Content identifier convention?
+            NSError *keyError = nil;
+            NSData *contentIdentifier = [URL.absoluteString dataUsingEncoding:NSUTF8StringEncoding];
+            NSData *keyRequestData = [loadingRequest streamingContentKeyRequestDataForApp:certificateData
+                                                                        contentIdentifier:contentIdentifier
+                                                                                  options:nil
+                                                                                    error:&keyError];
+            if (keyError) {
+                [self finishLoadingRequest:loadingRequest withContentKeyContextData:nil error:keyError];
+                return;
+            }
+            
+            NSURLRequest *contentKeyContextRequest = SRGFairPlayContentKeyContextRequest(URL, keyRequestData);
+            self.request = [[SRGNetworkRequest alloc] initWithRequest:contentKeyContextRequest session:self.session withCompletionBlock:^(NSData * _Nullable contentKeyContextData, NSError * _Nullable error) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    if (error) {
+                        [self finishLoadingRequest:loadingRequest withContentKeyContextData:nil error:error];
+                        return;
+                    }
+                    
+                    [self finishLoadingRequest:loadingRequest withContentKeyContextData:contentKeyContextData error:nil];
+                });
+            }];
+            [self.request resume];
+        });
     }];
-    [self.sessionTask resume];
+    [self.request resume];
     
     return YES;
 }
@@ -105,7 +123,7 @@ static NSURLRequest *SRGFairPlayContentKeyContextRequest(NSURL *URL, NSData *req
         if (error) {
             userInfo[NSUnderlyingErrorKey] = error;
         }
-        NSError *friendlyError = [NSError errorWithDomain:SRGContentProtectionErrorDomain code:SRGContentProtectionErrorCodeDigitalRights userInfo:[userInfo copy]];
+        NSError *friendlyError = [NSError errorWithDomain:SRGContentProtectionErrorDomain code:SRGContentProtectionErrorUnauthorized userInfo:[userInfo copy]];
         [loadingRequest finishLoadingWithError:friendlyError];
     }
 }
@@ -126,7 +144,7 @@ static NSURLRequest *SRGFairPlayContentKeyContextRequest(NSURL *URL, NSData *req
 
 - (void)resourceLoader:(AVAssetResourceLoader *)resourceLoader didCancelLoadingRequest:(AVAssetResourceLoadingRequest *)loadingRequest
 {
-    [self.sessionTask cancel];
+    [self.request cancel];
 }
 
 @end

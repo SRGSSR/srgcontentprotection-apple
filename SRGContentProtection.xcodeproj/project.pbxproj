@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6F0432BD21006E7A002B090A /* SRGNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F0432BC21006E7A002B090A /* SRGNetwork.framework */; };
+		6F0432BE21007340002B090A /* SRGNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F0432BC21006E7A002B090A /* SRGNetwork.framework */; };
+		6F0432BF21007340002B090A /* SRGNetwork.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6F0432BC21006E7A002B090A /* SRGNetwork.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6F0EB54020FC7FA9009C02CF /* SRGContentProtection.h in Headers */ = {isa = PBXBuildFile; fileRef = 6F0EB53E20FC7FA9009C02CF /* SRGContentProtection.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6F0EB54320FC7FF4009C02CF /* SRGContentProtection.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F0EB54220FC7FF4009C02CF /* SRGContentProtection.m */; };
 		6F0EB54720FC8049009C02CF /* NSBundle+SRGContentProtection.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F0EB54520FC8049009C02CF /* NSBundle+SRGContentProtection.m */; };
@@ -21,8 +24,6 @@
 		6F8A940220FDCBA600AA6434 /* DemosViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6F8A940120FDCBA600AA6434 /* DemosViewController.storyboard */; };
 		6F8A940320FDD01B00AA6434 /* SRGContentProtection.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F0EB53120FC7F58009C02CF /* SRGContentProtection.framework */; };
 		6F8A940420FDD01B00AA6434 /* SRGContentProtection.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6F0EB53120FC7F58009C02CF /* SRGContentProtection.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		6F8A940B20FDEA3000AA6434 /* SRGContentProtectionRequestService.h in Headers */ = {isa = PBXBuildFile; fileRef = 6F8A940920FDEA3000AA6434 /* SRGContentProtectionRequestService.h */; };
-		6F8A940C20FDEA3000AA6434 /* SRGContentProtectionRequestService.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F8A940A20FDEA3000AA6434 /* SRGContentProtectionRequestService.m */; };
 		6FD810F420FCB58500F250B9 /* AVURLAsset+SRGContentProtection.h in Headers */ = {isa = PBXBuildFile; fileRef = 6FD810F220FCB58500F250B9 /* AVURLAsset+SRGContentProtection.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6FD810F520FCB58500F250B9 /* AVURLAsset+SRGContentProtection.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FD810F320FCB58500F250B9 /* AVURLAsset+SRGContentProtection.m */; };
 		6FD810F820FCB7FC00F250B9 /* SRGContentProtectionURL.h in Headers */ = {isa = PBXBuildFile; fileRef = 6FD810F620FCB7FC00F250B9 /* SRGContentProtectionURL.h */; };
@@ -32,8 +33,6 @@
 		6FD8110220FCC22500F250B9 /* SRGAkamaiResourceLoaderDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FD8110020FCC22500F250B9 /* SRGAkamaiResourceLoaderDelegate.m */; };
 		6FDE576520FC9DC700719525 /* SRGContentProtectionError.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FDE576320FC9DC700719525 /* SRGContentProtectionError.m */; };
 		6FDE576620FC9DC700719525 /* SRGContentProtectionError.h in Headers */ = {isa = PBXBuildFile; fileRef = 6FDE576420FC9DC700719525 /* SRGContentProtectionError.h */; };
-		6FDE576920FCA00D00719525 /* NSHTTPURLResponse+SRGContentProtection.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FDE576720FCA00D00719525 /* NSHTTPURLResponse+SRGContentProtection.m */; };
-		6FDE576A20FCA00D00719525 /* NSHTTPURLResponse+SRGContentProtection.h in Headers */ = {isa = PBXBuildFile; fileRef = 6FDE576820FCA00D00719525 /* NSHTTPURLResponse+SRGContentProtection.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +52,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				6F0432BF21007340002B090A /* SRGNetwork.framework in Embed Frameworks */,
 				6F8A940420FDD01B00AA6434 /* SRGContentProtection.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -61,6 +61,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		6F0432BC21006E7A002B090A /* SRGNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SRGNetwork.framework; path = Carthage/Build/iOS/SRGNetwork.framework; sourceTree = "<group>"; };
 		6F0EB53120FC7F58009C02CF /* SRGContentProtection.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SRGContentProtection.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F0EB53E20FC7FA9009C02CF /* SRGContentProtection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRGContentProtection.h; sourceTree = "<group>"; };
 		6F0EB53F20FC7FA9009C02CF /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -79,8 +80,6 @@
 		6F8A93F920FDCAA800AA6434 /* DemosViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemosViewController.m; sourceTree = "<group>"; };
 		6F8A93FA20FDCAA800AA6434 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6F8A940120FDCBA600AA6434 /* DemosViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DemosViewController.storyboard; sourceTree = "<group>"; };
-		6F8A940920FDEA3000AA6434 /* SRGContentProtectionRequestService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SRGContentProtectionRequestService.h; sourceTree = "<group>"; };
-		6F8A940A20FDEA3000AA6434 /* SRGContentProtectionRequestService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SRGContentProtectionRequestService.m; sourceTree = "<group>"; };
 		6FD810F220FCB58500F250B9 /* AVURLAsset+SRGContentProtection.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AVURLAsset+SRGContentProtection.h"; sourceTree = "<group>"; };
 		6FD810F320FCB58500F250B9 /* AVURLAsset+SRGContentProtection.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AVURLAsset+SRGContentProtection.m"; sourceTree = "<group>"; };
 		6FD810F620FCB7FC00F250B9 /* SRGContentProtectionURL.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SRGContentProtectionURL.h; sourceTree = "<group>"; };
@@ -90,8 +89,6 @@
 		6FD8110020FCC22500F250B9 /* SRGAkamaiResourceLoaderDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRGAkamaiResourceLoaderDelegate.m; sourceTree = "<group>"; };
 		6FDE576320FC9DC700719525 /* SRGContentProtectionError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRGContentProtectionError.m; sourceTree = "<group>"; };
 		6FDE576420FC9DC700719525 /* SRGContentProtectionError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRGContentProtectionError.h; sourceTree = "<group>"; };
-		6FDE576720FCA00D00719525 /* NSHTTPURLResponse+SRGContentProtection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSHTTPURLResponse+SRGContentProtection.m"; sourceTree = "<group>"; };
-		6FDE576820FCA00D00719525 /* NSHTTPURLResponse+SRGContentProtection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSHTTPURLResponse+SRGContentProtection.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +96,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6F0432BD21006E7A002B090A /* SRGNetwork.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -106,6 +104,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6F0432BE21007340002B090A /* SRGNetwork.framework in Frameworks */,
 				6F8A940320FDD01B00AA6434 /* SRGContentProtection.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -119,6 +118,7 @@
 				6F8A93EE20FDCAA800AA6434 /* Demo */,
 				6F0EB53C20FC7FA9009C02CF /* Framework */,
 				6F0EB53220FC7F58009C02CF /* Products */,
+				6F8A945521006A9E00AA6434 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -144,7 +144,6 @@
 			isa = PBXGroup;
 			children = (
 				6F0EB54420FC8049009C02CF /* Categories */,
-				6F8A940820FDE94000AA6434 /* Helpers */,
 				6FD810FE20FCC22500F250B9 /* ResourceLoaders */,
 				6F0EB53E20FC7FA9009C02CF /* SRGContentProtection.h */,
 				6F0EB54220FC7FF4009C02CF /* SRGContentProtection.m */,
@@ -164,8 +163,6 @@
 				6FD810F320FCB58500F250B9 /* AVURLAsset+SRGContentProtection.m */,
 				6F0EB54620FC8049009C02CF /* NSBundle+SRGContentProtection.h */,
 				6F0EB54520FC8049009C02CF /* NSBundle+SRGContentProtection.m */,
-				6FDE576820FCA00D00719525 /* NSHTTPURLResponse+SRGContentProtection.h */,
-				6FDE576720FCA00D00719525 /* NSHTTPURLResponse+SRGContentProtection.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -218,13 +215,12 @@
 			path = Demos;
 			sourceTree = "<group>";
 		};
-		6F8A940820FDE94000AA6434 /* Helpers */ = {
+		6F8A945521006A9E00AA6434 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				6F8A940920FDEA3000AA6434 /* SRGContentProtectionRequestService.h */,
-				6F8A940A20FDEA3000AA6434 /* SRGContentProtectionRequestService.m */,
+				6F0432BC21006E7A002B090A /* SRGNetwork.framework */,
 			);
-			path = Helpers;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		6FD810FE20FCC22500F250B9 /* ResourceLoaders */ = {
@@ -251,10 +247,8 @@
 				6FD8110120FCC22500F250B9 /* SRGAkamaiResourceLoaderDelegate.h in Headers */,
 				6F8A93D220FDB3D200AA6434 /* SRGFairPlayResourceLoaderDelegate.h in Headers */,
 				6FDE576620FC9DC700719525 /* SRGContentProtectionError.h in Headers */,
-				6F8A940B20FDEA3000AA6434 /* SRGContentProtectionRequestService.h in Headers */,
 				6FD810F820FCB7FC00F250B9 /* SRGContentProtectionURL.h in Headers */,
 				6F0EB54820FC8049009C02CF /* NSBundle+SRGContentProtection.h in Headers */,
-				6FDE576A20FCA00D00719525 /* NSHTTPURLResponse+SRGContentProtection.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -366,8 +360,6 @@
 				6F8A93D320FDB3D200AA6434 /* SRGFairPlayResourceLoaderDelegate.m in Sources */,
 				6FD810F920FCB7FC00F250B9 /* SRGContentProtectionURL.m in Sources */,
 				6FD810F520FCB58500F250B9 /* AVURLAsset+SRGContentProtection.m in Sources */,
-				6FDE576920FCA00D00719525 /* NSHTTPURLResponse+SRGContentProtection.m in Sources */,
-				6F8A940C20FDEA3000AA6434 /* SRGContentProtectionRequestService.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -519,6 +511,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = Framework/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -542,6 +538,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = Framework/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -562,6 +562,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = VMGRRW6SG7;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = Demo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -580,6 +584,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = VMGRRW6SG7;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = Demo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
