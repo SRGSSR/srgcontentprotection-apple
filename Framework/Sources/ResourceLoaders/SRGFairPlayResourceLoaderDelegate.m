@@ -114,6 +114,8 @@ static NSURLRequest *SRGFairPlayContentKeyContextRequest(NSURL *URL, NSData *req
 
 - (void)finishLoadingRequest:(AVAssetResourceLoadingRequest *)loadingRequest withContentKeyContextData:(NSData *)contentKeyContextData error:(NSError *)error
 {
+    NSAssert([NSThread isMainThread], @"Must only be called from the main thread");
+    
     if (contentKeyContextData) {
         [loadingRequest.dataRequest respondWithData:contentKeyContextData];
         [loadingRequest finishLoading];
