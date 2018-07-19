@@ -73,7 +73,7 @@ static NSURLRequest *SRGFairPlayContentKeyContextRequest(NSURL *URL, NSData *req
         return NO;
     }
     
-    self.request = [[SRGNetworkRequest alloc] initWithRequest:certificateRequest session:self.session withCompletionBlock:^(NSData * _Nullable certificateData, NSError * _Nullable error) {
+    self.request = [[SRGNetworkRequest alloc] initWithRequest:certificateRequest session:self.session options:0 completionBlock:^(NSData * _Nullable certificateData, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         // Resource loader methods must be called on the main thread
         dispatch_async(dispatch_get_main_queue(), ^{
             if (error) {
@@ -94,7 +94,7 @@ static NSURLRequest *SRGFairPlayContentKeyContextRequest(NSURL *URL, NSData *req
             }
             
             NSURLRequest *contentKeyContextRequest = SRGFairPlayContentKeyContextRequest(URL, keyRequestData);
-            self.request = [[SRGNetworkRequest alloc] initWithRequest:contentKeyContextRequest session:self.session withCompletionBlock:^(NSData * _Nullable contentKeyContextData, NSError * _Nullable error) {
+            self.request = [[SRGNetworkRequest alloc] initWithRequest:contentKeyContextRequest session:self.session options:0 completionBlock:^(NSData * _Nullable contentKeyContextData, NSURLResponse * _Nullable response, NSError * _Nullable error) {
                 dispatch_async(dispatch_get_main_queue(), ^{
                     if (error) {
                         [self finishLoadingRequest:loadingRequest withContentKeyContextData:nil error:error];
