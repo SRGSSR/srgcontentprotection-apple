@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 typedef NS_ENUM(NSInteger, SRGContentProtectionErrorCode) {
     /**
-     *  Digital rights could not be obtained.
+     *  Authorization to play a protected stream could not be retrieved.
      */
     SRGContentProtectionErrorUnauthorized
 };

@@ -16,7 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface NSBundle (SRGContentProtection)
 
 /**
- *  The SRGContentProtection resource bundle.
+ *  The framework resource bundle.
  */
 + (NSBundle *)srg_contentProtectionBundle;
 

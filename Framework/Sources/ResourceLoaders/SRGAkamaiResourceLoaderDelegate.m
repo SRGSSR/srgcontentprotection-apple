@@ -70,6 +70,7 @@ static NSString * const SRGTokenServiceURLString = @"https://tp.srgssr.ch/akahd/
 
 #pragma mark Tokenization
 
+// The completion block is called on the main thread
 - (SRGNetworkRequest *)tokenizeURL:(NSURL *)URL withCompletionBlock:(void (^)(NSURL *URL, NSError *error))completionBlock
 {
     NSParameterAssert(URL);
@@ -93,7 +94,7 @@ static NSString * const SRGTokenServiceURLString = @"https://tp.srgssr.ch/akahd/
             dispatch_async(dispatch_get_main_queue(), ^{
                 completionBlock(nil, [NSError errorWithDomain:SRGContentProtectionErrorDomain
                                                          code:SRGContentProtectionErrorUnauthorized
-                                                     userInfo:@{ NSLocalizedDescriptionKey : SRGContentProtectionLocalizedString(@"The stream could not be secured.", @"The error message when the secure token cannot be retrieved to play the media stream.") }]);
+                                                     userInfo:@{ NSLocalizedDescriptionKey : SRGContentProtectionLocalizedString(@"This stream is protected and cannot be read without proper authorization.", @"Error message displayed when a protected stream cannot be read.") }]);
             });
             return;
         }

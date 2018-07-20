@@ -31,6 +31,10 @@ NSURL *SRGContentProtectionRoutingURL(NSURL *URL, SRGContentProtection contentPr
 
 NSURL *SRGContentProtectionRoutedURL(NSURL *routingURL, SRGContentProtection contentProtection)
 {
+    if (contentProtection == SRGContentProtectionNone) {
+        return routingURL;
+    }
+    
     NSURLComponents *components = [NSURLComponents componentsWithURL:routingURL resolvingAgainstBaseURL:NO];
     NSArray<NSString *> *schemeComponents = [components.scheme componentsSeparatedByString:@"+"];
     if (schemeComponents.count != 2) {
