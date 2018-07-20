@@ -28,7 +28,26 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "6FB74D662101D4D200E2D365"
+               BuildableName = "SRGContentProtection-tests.xctest"
+               BlueprintName = "SRGContentProtection-tests"
+               ReferencedContainer = "container:SRGContentProtection.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "6F0EB53020FC7F58009C02CF"
+            BuildableName = "SRGContentProtection.framework"
+            BlueprintName = "SRGContentProtection"
+            ReferencedContainer = "container:SRGContentProtection.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>

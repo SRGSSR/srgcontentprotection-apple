@@ -8,33 +8,52 @@
 
 #import "NSBundle+SRGContentProtection.h"
 #import "SRGContentProtectionError.h"
-#import "SRGContentProtectionURL.h"
-#import "SRGContentProtectionRequestService.h"
+
+#import <SRGNetwork/SRGNetwork.h>
 
 static NSString * const SRGTokenServiceURLString = @"https://tp.srgssr.ch/akahd/token";
 
 @interface SRGAkamaiResourceLoaderDelegate ()
 
-@property (nonatomic) NSURLSessionTask *sessionTask;
+@property (nonatomic) NSURL *URL;
+@property (nonatomic) NSURLSession *session;
+@property (nonatomic) SRGNetworkRequest *request;
 
 @end
 
 @implementation SRGAkamaiResourceLoaderDelegate
 
+#pragma mark Object lifecycle
+
+- (instancetype)initWithURL:(NSURL *)URL
+{
+    if (self = [super init]) {
+        self.URL = URL;
+        self.session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
+    }
+    return self;
+}
+
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-implementations"
+
+- (instancetype)init
+{
+    [self doesNotRecognizeSelector:_cmd];
+    return [self initWithURL:[NSURL new]];
+}
+
+#pragma clang diagnostic pop
+
 #pragma mark Common resource loading request processing
 
 - (BOOL)shouldProcessResourceLoadingRequest:(AVAssetResourceLoadingRequest *)loadingRequest
 {
-    NSURL *URL = SRGContentProtectionRoutedURL(loadingRequest.request.URL, SRGContentProtectionAkamaiToken);
-    if (! URL) {
+    if (! [self.URL.host containsString:@"akamai"]) {
         return NO;
     }
     
-    if (! [URL.host containsString:@"akamai"]) {
-        return NO;
-    }
-    
-    self.sessionTask = [SRGAkamaiResourceLoaderDelegate tokenizeURL:URL withCompletionBlock:^(NSURL * _Nullable tokenizedURL, NSError * _Nullable error) {
+    self.request = [self tokenizeURL:self.URL withCompletionBlock:^(NSURL *tokenizedURL, NSError *error) {
         if (error) {
             [loadingRequest finishLoadingWithError:error];
             return;
@@ -51,14 +70,15 @@ static NSString * const SRGTokenServiceURLString = @"https://tp.srgssr.ch/akahd/
         
         [loadingRequest finishLoading];
     }];
-    [self.sessionTask resume];
+    [self.request resume];
     
     return YES;
 }
 
 #pragma mark Tokenization
 
-+ (NSURLSessionTask *)tokenizeURL:(NSURL *)URL withCompletionBlock:(void (^)(NSURL *URL, NSError *error))completionBlock
+// The completion block is called on the main thread
+- (SRGNetworkRequest *)tokenizeURL:(NSURL *)URL withCompletionBlock:(void (^)(NSURL *URL, NSError *error))completionBlock
 {
     NSParameterAssert(URL);
     NSParameterAssert(completionBlock);
@@ -70,7 +90,7 @@ static NSString * const SRGTokenServiceURLString = @"https://tp.srgssr.ch/akahd/
     tokenServiceURLComponents.queryItems = @[ [NSURLQueryItem queryItemWithName:@"acl" value:acl] ];
     
     NSURLRequest *request = [NSURLRequest requestWithURL:tokenServiceURLComponents.URL];
-    return [[SRGContentProtectionRequestService sharedService] asynchronousJSONDictionaryRequest:request withCompletionBlock:^(NSDictionary * _Nullable JSONDictionary, NSError * _Nullable error) {
+    return [[SRGNetworkRequest alloc] initWithJSONDictionaryURLRequest:request session:self.session options:0 completionBlock:^(NSDictionary * _Nullable JSONDictionary, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         NSString *token = nil;
         id tokenDictionary = JSONDictionary[@"token"];
         if ([tokenDictionary isKindOfClass:[NSDictionary class]]) {
@@ -80,8 +100,8 @@ static NSString * const SRGTokenServiceURLString = @"https://tp.srgssr.ch/akahd/
         if (! token) {
             dispatch_async(dispatch_get_main_queue(), ^{
                 completionBlock(nil, [NSError errorWithDomain:SRGContentProtectionErrorDomain
-                                                         code:SRGContentProtectionErrorCodeInvalidData
-                                                     userInfo:@{ NSLocalizedDescriptionKey : SRGContentProtectionLocalizedString(@"The stream could not be secured.", @"The error message when the secure token cannot be retrieved to play the media stream.") }]);
+                                                         code:SRGContentProtectionErrorUnauthorized
+                                                     userInfo:@{ NSLocalizedDescriptionKey : SRGContentProtectionLocalizedString(@"This stream is protected and cannot be read without proper authorization.", @"Error message displayed when a protected stream cannot be read.") }]);
             });
             return;
         }
@@ -119,7 +139,7 @@ static NSString * const SRGTokenServiceURLString = @"https://tp.srgssr.ch/akahd/
 
 - (void)resourceLoader:(AVAssetResourceLoader *)resourceLoader didCancelLoadingRequest:(AVAssetResourceLoadingRequest *)loadingRequest
 {
-    [self.sessionTask cancel];
+    [self.request cancel];
 }
 
 @end

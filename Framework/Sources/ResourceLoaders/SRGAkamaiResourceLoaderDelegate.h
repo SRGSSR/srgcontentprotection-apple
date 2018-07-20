@@ -13,6 +13,14 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface SRGAkamaiResourceLoaderDelegate : NSObject <AVAssetResourceLoaderDelegate>
 
+- (instancetype)initWithURL:(NSURL *)URL NS_DESIGNATED_INITIALIZER;
+
+@end
+
+@interface SRGAkamaiResourceLoaderDelegate (Unavailable)
+
+- (instancetype)init NS_UNAVAILABLE;
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -4,10 +4,11 @@
 //  License information is available from the LICENSE file.
 //
 
-#import "AVURLAsset+SRGContentProtection.h"
-#import "SRGContentProtectionConstants.h"
-
 #import <Foundation/Foundation.h>
 
 // Official version number.
 FOUNDATION_EXPORT NSString *SRGContentProtectionMarketingVersion(void);
+
+// Public headers.
+#import "AVURLAsset+SRGContentProtection.h"
+#import "SRGContentProtectionConstants.h"
