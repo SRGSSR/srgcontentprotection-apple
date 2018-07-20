@@ -24,6 +24,10 @@
 		6F8A940220FDCBA600AA6434 /* DemosViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6F8A940120FDCBA600AA6434 /* DemosViewController.storyboard */; };
 		6F8A940320FDD01B00AA6434 /* SRGContentProtection.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F0EB53120FC7F58009C02CF /* SRGContentProtection.framework */; };
 		6F8A940420FDD01B00AA6434 /* SRGContentProtection.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6F0EB53120FC7F58009C02CF /* SRGContentProtection.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6FB74D6C2101D4D200E2D365 /* SRGContentProtection.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F0EB53120FC7F58009C02CF /* SRGContentProtection.framework */; };
+		6FB74D772101D5D600E2D365 /* AkamaiResourceLoaderTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FB74D742101D5D600E2D365 /* AkamaiResourceLoaderTestCase.m */; };
+		6FB74D782101D5D600E2D365 /* FairPlayResourceLoaderTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FB74D752101D5D600E2D365 /* FairPlayResourceLoaderTestCase.m */; };
+		6FB74D7B2101D69F00E2D365 /* SRGNetwork.framework in Copy Files */ = {isa = PBXBuildFile; fileRef = 6F0432BC21006E7A002B090A /* SRGNetwork.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6FD810F420FCB58500F250B9 /* AVURLAsset+SRGContentProtection.h in Headers */ = {isa = PBXBuildFile; fileRef = 6FD810F220FCB58500F250B9 /* AVURLAsset+SRGContentProtection.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6FD810F520FCB58500F250B9 /* AVURLAsset+SRGContentProtection.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FD810F320FCB58500F250B9 /* AVURLAsset+SRGContentProtection.m */; };
 		6FD810F820FCB7FC00F250B9 /* SRGContentProtectionURL.h in Headers */ = {isa = PBXBuildFile; fileRef = 6FD810F620FCB7FC00F250B9 /* SRGContentProtectionURL.h */; };
@@ -43,6 +47,13 @@
 			remoteGlobalIDString = 6F0EB53020FC7F58009C02CF;
 			remoteInfo = SRGContentProtection;
 		};
+		6FB74D6D2101D4D200E2D365 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6F0EB52820FC7F58009C02CF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6F0EB53020FC7F58009C02CF;
+			remoteInfo = SRGContentProtection;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -56,6 +67,17 @@
 				6F8A940420FDD01B00AA6434 /* SRGContentProtection.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6FB74D7A2101D68F00E2D365 /* Copy Files */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				6FB74D7B2101D69F00E2D365 /* SRGNetwork.framework in Copy Files */,
+			);
+			name = "Copy Files";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -80,6 +102,10 @@
 		6F8A93F920FDCAA800AA6434 /* DemosViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemosViewController.m; sourceTree = "<group>"; };
 		6F8A93FA20FDCAA800AA6434 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6F8A940120FDCBA600AA6434 /* DemosViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DemosViewController.storyboard; sourceTree = "<group>"; };
+		6FB74D672101D4D200E2D365 /* SRGContentProtection-tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SRGContentProtection-tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6FB74D742101D5D600E2D365 /* AkamaiResourceLoaderTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AkamaiResourceLoaderTestCase.m; sourceTree = "<group>"; };
+		6FB74D752101D5D600E2D365 /* FairPlayResourceLoaderTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FairPlayResourceLoaderTestCase.m; sourceTree = "<group>"; };
+		6FB74D762101D5D600E2D365 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6FD810F220FCB58500F250B9 /* AVURLAsset+SRGContentProtection.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AVURLAsset+SRGContentProtection.h"; sourceTree = "<group>"; };
 		6FD810F320FCB58500F250B9 /* AVURLAsset+SRGContentProtection.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AVURLAsset+SRGContentProtection.m"; sourceTree = "<group>"; };
 		6FD810F620FCB7FC00F250B9 /* SRGContentProtectionURL.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SRGContentProtectionURL.h; sourceTree = "<group>"; };
@@ -109,6 +135,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		6FB74D642101D4D200E2D365 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6FB74D6C2101D4D200E2D365 /* SRGContentProtection.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -117,6 +151,7 @@
 			children = (
 				6F8A93EE20FDCAA800AA6434 /* Demo */,
 				6F0EB53C20FC7FA9009C02CF /* Framework */,
+				6FB74D722101D5D600E2D365 /* Tests */,
 				6F0EB53220FC7F58009C02CF /* Products */,
 				6F8A945521006A9E00AA6434 /* Frameworks */,
 			);
@@ -127,6 +162,7 @@
 			children = (
 				6F0EB53120FC7F58009C02CF /* SRGContentProtection.framework */,
 				6F8A93D820FDCA0800AA6434 /* SRGContentProtection-demo.app */,
+				6FB74D672101D4D200E2D365 /* SRGContentProtection-tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -223,6 +259,24 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		6FB74D722101D5D600E2D365 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				6FB74D732101D5D600E2D365 /* Sources */,
+				6FB74D762101D5D600E2D365 /* Info.plist */,
+			);
+			path = Tests;
+			sourceTree = SOURCE_ROOT;
+		};
+		6FB74D732101D5D600E2D365 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				6FB74D742101D5D600E2D365 /* AkamaiResourceLoaderTestCase.m */,
+				6FB74D752101D5D600E2D365 /* FairPlayResourceLoaderTestCase.m */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
 		6FD810FE20FCC22500F250B9 /* ResourceLoaders */ = {
 			isa = PBXGroup;
 			children = (
@@ -292,6 +346,25 @@
 			productReference = 6F8A93D820FDCA0800AA6434 /* SRGContentProtection-demo.app */;
 			productType = "com.apple.product-type.application";
 		};
+		6FB74D662101D4D200E2D365 /* SRGContentProtection-tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6FB74D712101D4D200E2D365 /* Build configuration list for PBXNativeTarget "SRGContentProtection-tests" */;
+			buildPhases = (
+				6FB74D632101D4D200E2D365 /* Sources */,
+				6FB74D642101D4D200E2D365 /* Frameworks */,
+				6FB74D652101D4D200E2D365 /* Resources */,
+				6FB74D7A2101D68F00E2D365 /* Copy Files */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6FB74D6E2101D4D200E2D365 /* PBXTargetDependency */,
+			);
+			name = "SRGContentProtection-tests";
+			productName = "SRGContentProtection-tests";
+			productReference = 6FB74D672101D4D200E2D365 /* SRGContentProtection-tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -305,6 +378,9 @@
 						CreatedOnToolsVersion = 9.4;
 					};
 					6F8A93D720FDCA0800AA6434 = {
+						CreatedOnToolsVersion = 9.4;
+					};
+					6FB74D662101D4D200E2D365 = {
 						CreatedOnToolsVersion = 9.4;
 					};
 				};
@@ -324,6 +400,7 @@
 			targets = (
 				6F0EB53020FC7F58009C02CF /* SRGContentProtection */,
 				6F8A93D720FDCA0800AA6434 /* SRGContentProtection-demo */,
+				6FB74D662101D4D200E2D365 /* SRGContentProtection-tests */,
 			);
 		};
 /* End PBXProject section */
@@ -343,6 +420,13 @@
 				6F8A93FB20FDCAA800AA6434 /* LaunchScreen.storyboard in Resources */,
 				6F8A940220FDCBA600AA6434 /* DemosViewController.storyboard in Resources */,
 				6F8A93FC20FDCAA800AA6434 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6FB74D652101D4D200E2D365 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -373,6 +457,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		6FB74D632101D4D200E2D365 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6FB74D772101D5D600E2D365 /* AkamaiResourceLoaderTestCase.m in Sources */,
+				6FB74D782101D5D600E2D365 /* FairPlayResourceLoaderTestCase.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -380,6 +473,11 @@
 			isa = PBXTargetDependency;
 			target = 6F0EB53020FC7F58009C02CF /* SRGContentProtection */;
 			targetProxy = 6F8A940520FDD01B00AA6434 /* PBXContainerItemProxy */;
+		};
+		6FB74D6E2101D4D200E2D365 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6F0EB53020FC7F58009C02CF /* SRGContentProtection */;
+			targetProxy = 6FB74D6D2101D4D200E2D365 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -602,6 +700,40 @@
 			};
 			name = Release;
 		};
+		6FB74D6F2101D4D200E2D365 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = Tests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "ch.srgssr.SRGContentProtection-tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		6FB74D702101D4D200E2D365 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = Tests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "ch.srgssr.SRGContentProtection-tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -628,6 +760,15 @@
 			buildConfigurations = (
 				6F8A93EC20FDCA0900AA6434 /* Debug */,
 				6F8A93ED20FDCA0900AA6434 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6FB74D712101D4D200E2D365 /* Build configuration list for PBXNativeTarget "SRGContentProtection-tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6FB74D6F2101D4D200E2D365 /* Debug */,
+				6FB74D702101D4D200E2D365 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
