@@ -8,7 +8,6 @@
 
 #import "NSBundle+SRGContentProtection.h"
 #import "SRGContentProtectionError.h"
-#import "SRGContentProtectionURL.h"
 
 #import <SRGNetwork/SRGNetwork.h>
 
@@ -63,11 +62,7 @@ static NSURLRequest *SRGFairPlayContentKeyContextRequest(NSURL *URL, NSData *req
 
 - (BOOL)shouldProcessResourceLoadingRequest:(AVAssetResourceLoadingRequest *)loadingRequest
 {
-    NSURL *URL = SRGContentProtectionRoutedURL(loadingRequest.request.URL, SRGContentProtectionFairPlay);
-    if (! URL) {
-        return NO;
-    }
-    
+    NSURL *URL = loadingRequest.request.URL;
     NSURLRequest *certificateRequest = SRGFairPlayApplicationCertificateURLRequest(URL);
     if (! certificateRequest) {
         return NO;

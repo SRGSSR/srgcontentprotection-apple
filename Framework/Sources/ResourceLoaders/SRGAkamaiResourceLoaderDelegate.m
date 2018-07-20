@@ -8,7 +8,6 @@
 
 #import "NSBundle+SRGContentProtection.h"
 #import "SRGContentProtectionError.h"
-#import "SRGContentProtectionURL.h"
 
 #import <SRGNetwork/SRGNetwork.h>
 
@@ -16,6 +15,7 @@ static NSString * const SRGTokenServiceURLString = @"https://tp.srgssr.ch/akahd/
 
 @interface SRGAkamaiResourceLoaderDelegate ()
 
+@property (nonatomic) NSURL *URL;
 @property (nonatomic) NSURLSession *session;
 @property (nonatomic) SRGNetworkRequest *request;
 
@@ -25,28 +25,35 @@ static NSString * const SRGTokenServiceURLString = @"https://tp.srgssr.ch/akahd/
 
 #pragma mark Object lifecycle
 
-- (instancetype)init
+- (instancetype)initWithURL:(NSURL *)URL
 {
     if (self = [super init]) {
+        self.URL = URL;
         self.session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
     }
     return self;
 }
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-implementations"
+
+- (instancetype)init
+{
+    [self doesNotRecognizeSelector:_cmd];
+    return [self initWithURL:[NSURL new]];
+}
+
+#pragma clang diagnostic pop
+
 #pragma mark Common resource loading request processing
 
 - (BOOL)shouldProcessResourceLoadingRequest:(AVAssetResourceLoadingRequest *)loadingRequest
 {
-    NSURL *URL = SRGContentProtectionRoutedURL(loadingRequest.request.URL, SRGContentProtectionAkamaiToken);
-    if (! URL) {
+    if (! [self.URL.host containsString:@"akamai"]) {
         return NO;
     }
     
-    if (! [URL.host containsString:@"akamai"]) {
-        return NO;
-    }
-    
-    self.request = [self tokenizeURL:URL withCompletionBlock:^(NSURL *tokenizedURL, NSError *error) {
+    self.request = [self tokenizeURL:self.URL withCompletionBlock:^(NSURL *tokenizedURL, NSError *error) {
         if (error) {
             [loadingRequest finishLoadingWithError:error];
             return;
