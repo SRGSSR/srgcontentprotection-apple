@@ -49,23 +49,24 @@ static NSString * const SRGTokenServiceURLString = @"https://tp.srgssr.ch/akahd/
 
 - (BOOL)shouldProcessResourceLoadingRequest:(AVAssetResourceLoadingRequest *)loadingRequest
 {
-    self.request = [self tokenizeURL:self.URL withCompletionBlock:^(NSURL *tokenizedURL, NSError *error) {
-        // Update original URL with tokenized URL. If token retrieval failed, use the original URL anyway (if we
-        // are lucky, the media did not require any token).
-        NSURL *redirectURL = tokenizedURL ?: self.URL;
-        
-        NSMutableURLRequest *redirect = [loadingRequest.request mutableCopy];
-        redirect.URL = redirectURL;
-        loadingRequest.redirect = [redirect copy];
-        
-        // Force redirect to the new tokenized URL
-        NSHTTPURLResponse *response = [[NSHTTPURLResponse alloc] initWithURL:redirectURL statusCode:303 HTTPVersion:nil headerFields:nil];
-        [loadingRequest setResponse:response];
-        
-        [loadingRequest finishLoading];
-    }];
-    [self.request resume];
-    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        self.request = [self tokenizeURL:self.URL withCompletionBlock:^(NSURL *tokenizedURL, NSError *error) {
+            // Update original URL with tokenized URL. If token retrieval failed, use the original URL anyway (if we
+            // are lucky, the media did not require any token).
+            NSURL *redirectURL = tokenizedURL ?: self.URL;
+            
+            NSMutableURLRequest *redirect = [loadingRequest.request mutableCopy];
+            redirect.URL = redirectURL;
+            loadingRequest.redirect = [redirect copy];
+            
+            // Force redirect to the new tokenized URL
+            NSHTTPURLResponse *response = [[NSHTTPURLResponse alloc] initWithURL:redirectURL statusCode:303 HTTPVersion:nil headerFields:nil];
+            [loadingRequest setResponse:response];
+            
+            [loadingRequest finishLoading];
+        }];
+        [self.request resume];
+    });
     return YES;
 }
 
@@ -133,7 +134,9 @@ static NSString * const SRGTokenServiceURLString = @"https://tp.srgssr.ch/akahd/
 
 - (void)resourceLoader:(AVAssetResourceLoader *)resourceLoader didCancelLoadingRequest:(AVAssetResourceLoadingRequest *)loadingRequest
 {
-    [self.request cancel];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.request cancel];
+    });
 }
 
 @end
