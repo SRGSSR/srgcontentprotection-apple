@@ -49,29 +49,36 @@ static NSString * const SRGTokenServiceURLString = @"https://tp.srgssr.ch/akahd/
 
 - (BOOL)shouldProcessResourceLoadingRequest:(AVAssetResourceLoadingRequest *)loadingRequest
 {
-    if (! [self.URL.host containsString:@"akamai"]) {
-        return NO;
-    }
-    
-    self.request = [self tokenizeURL:self.URL withCompletionBlock:^(NSURL *tokenizedURL, NSError *error) {
-        // TODO: If an error is encountered, use the non-tokenized URL
-        if (error) {
-            [loadingRequest finishLoadingWithError:error];
-            return;
-        }
-        
+    void (^redirect)(NSURL *) = ^(NSURL *redirectURL) {
         // Update original URL with tokenized URL
         NSMutableURLRequest *redirect = [loadingRequest.request mutableCopy];
-        redirect.URL = tokenizedURL;
+        redirect.URL = redirectURL;
         loadingRequest.redirect = [redirect copy];
         
         // Force redirect to the new tokenized URL
-        NSHTTPURLResponse *response = [[NSHTTPURLResponse alloc] initWithURL:tokenizedURL statusCode:303 HTTPVersion:nil headerFields:nil];
+        NSHTTPURLResponse *response = [[NSHTTPURLResponse alloc] initWithURL:redirectURL statusCode:303 HTTPVersion:nil headerFields:nil];
         [loadingRequest setResponse:response];
         
         [loadingRequest finishLoading];
-    }];
-    [self.request resume];
+    };
+    
+    // Must redirect dummy URL triggering the resource loader delegate either to a tokenized URL (Akamai stream)
+    // or to the original URL (other stream).
+    if ([self.URL.host containsString:@"akamai"]) {
+        self.request = [self tokenizeURL:self.URL withCompletionBlock:^(NSURL *tokenizedURL, NSError *error) {
+            // TODO: If an error is encountered, use the non-tokenized URL
+            if (error) {
+                [loadingRequest finishLoadingWithError:error];
+                return;
+            }
+            
+            redirect(tokenizedURL);
+        }];
+        [self.request resume];
+    }
+    else {
+        redirect(self.URL);
+    }
     
     return YES;
 }
