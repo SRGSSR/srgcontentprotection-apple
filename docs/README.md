@@ -19,7 +19,7 @@ github "SRGSSR/srgcontentprotection-ios"
 Then run `carthage update --platform iOS` to update the dependencies. You will need to manually add the following `.framework`s generated in the `Carthage/Build/iOS` folder to your project:
 
   * `SRGContentProtection`: The content protection library framework.
-  * `SRGNetwork`: A network framework.
+  * `SRGNetwork`: A networking framework.
 
 For more information about Carthage and its use, refer to the [official documentation](https://github.com/Carthage/Carthage).
 
