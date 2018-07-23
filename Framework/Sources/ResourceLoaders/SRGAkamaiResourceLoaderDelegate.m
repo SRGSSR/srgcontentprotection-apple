@@ -49,8 +49,11 @@ static NSString * const SRGTokenServiceURLString = @"https://tp.srgssr.ch/akahd/
 
 - (BOOL)shouldProcessResourceLoadingRequest:(AVAssetResourceLoadingRequest *)loadingRequest
 {
-    void (^redirect)(NSURL *) = ^(NSURL *redirectURL) {
-        // Update original URL with tokenized URL
+    self.request = [self tokenizeURL:self.URL withCompletionBlock:^(NSURL *tokenizedURL, NSError *error) {
+        // Update original URL with tokenized URL. If token retrieval failed, use the original URL anyway (if we
+        // are lucky, the media did not require any token).
+        NSURL *redirectURL = tokenizedURL ?: self.URL;
+        
         NSMutableURLRequest *redirect = [loadingRequest.request mutableCopy];
         redirect.URL = redirectURL;
         loadingRequest.redirect = [redirect copy];
@@ -60,21 +63,8 @@ static NSString * const SRGTokenServiceURLString = @"https://tp.srgssr.ch/akahd/
         [loadingRequest setResponse:response];
         
         [loadingRequest finishLoading];
-    };
-    
-    // Must redirect dummy URL triggering the resource loader delegate either to a tokenized URL (Akamai stream)
-    // or to the original URL (other stream).
-    if ([self.URL.host containsString:@"akamai"]) {
-        self.request = [self tokenizeURL:self.URL withCompletionBlock:^(NSURL *tokenizedURL, NSError *error) {
-            // Use the original URL if an error has been encountered (best scenario: the token was not required
-            // and the media play; worst scenario: it does not play).
-            redirect(tokenizedURL ?: self.URL);
-        }];
-        [self.request resume];
-    }
-    else {
-        redirect(self.URL);
-    }
+    }];
+    [self.request resume];
     
     return YES;
 }
