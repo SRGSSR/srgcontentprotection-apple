@@ -54,6 +54,7 @@ static NSString * const SRGTokenServiceURLString = @"https://tp.srgssr.ch/akahd/
     }
     
     self.request = [self tokenizeURL:self.URL withCompletionBlock:^(NSURL *tokenizedURL, NSError *error) {
+        // TODO: If an error is encountered, use the non-tokenized URL
         if (error) {
             [loadingRequest finishLoadingWithError:error];
             return;
