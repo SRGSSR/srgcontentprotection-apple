@@ -66,13 +66,9 @@ static NSString * const SRGTokenServiceURLString = @"https://tp.srgssr.ch/akahd/
     // or to the original URL (other stream).
     if ([self.URL.host containsString:@"akamai"]) {
         self.request = [self tokenizeURL:self.URL withCompletionBlock:^(NSURL *tokenizedURL, NSError *error) {
-            // TODO: If an error is encountered, use the non-tokenized URL
-            if (error) {
-                [loadingRequest finishLoadingWithError:error];
-                return;
-            }
-            
-            redirect(tokenizedURL);
+            // Use the original URL if an error has been encountered (best scenario: the token was not required
+            // and the media play; worst scenario: it does not play).
+            redirect(tokenizedURL ?: self.URL);
         }];
         [self.request resume];
     }
