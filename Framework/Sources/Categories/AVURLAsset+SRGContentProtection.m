@@ -22,26 +22,22 @@ static void *SRGContentProtectionResourceLoaderDelegateKey = &SRGContentProtecti
     
     switch (contentProtection) {
         case SRGContentProtectionAkamaiToken: {
-            // Use non-standard scheme unkwown to AirPlay receivers like the Apple TV. This ensures that the resource
-            // loader delegate is used (if the resource is simply an HTTP one, the receiver thinks it can handle it,
-            // and does not call the resource loader delegate).
-            asset = [AVURLAsset assetWithURL:[NSURL URLWithString:@"akamai://media"]];
-            resourceLoaderDelegate = [[SRGAkamaiResourceLoaderDelegate alloc] initWithURL:URL];
+            URL = [SRGAkamaiResourceLoaderDelegate assetURLForURL:URL];
+            resourceLoaderDelegate = [[SRGAkamaiResourceLoaderDelegate alloc] init];
             break;
         }
             
         case SRGContentProtectionFairPlay: {
-            asset = [AVURLAsset assetWithURL:URL];
             resourceLoaderDelegate = [[SRGFairPlayResourceLoaderDelegate alloc] init];
             break;
         }
             
         case SRGContentProtectionNone: {
-            asset = [AVURLAsset assetWithURL:URL];
             break;
         }
     }
     
+    asset = [AVURLAsset assetWithURL:URL];
     objc_setAssociatedObject(asset, SRGContentProtectionResourceLoaderDelegateKey, resourceLoaderDelegate, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     
     dispatch_queue_t queue = dispatch_queue_create("ch.srg.resourceLoader", DISPATCH_QUEUE_SERIAL);

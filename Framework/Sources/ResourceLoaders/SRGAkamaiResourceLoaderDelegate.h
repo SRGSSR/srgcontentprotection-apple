@@ -13,13 +13,10 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface SRGAkamaiResourceLoaderDelegate : NSObject <AVAssetResourceLoaderDelegate>
 
-- (instancetype)initWithURL:(NSURL *)URL NS_DESIGNATED_INITIALIZER;
-
-@end
-
-@interface SRGAkamaiResourceLoaderDelegate (Unavailable)
-
-- (instancetype)init NS_UNAVAILABLE;
+/**
+ *  Return the asset URL to be played for playback using the Akamai resource loader delegate.
+ */
++ (NSURL *)assetURLForURL:(NSURL *)URL;
 
 @end
 

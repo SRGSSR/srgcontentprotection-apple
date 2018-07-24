@@ -15,7 +15,6 @@ static NSString * const SRGTokenServiceURLString = @"https://tp.srgssr.ch/akahd/
 
 @interface SRGAkamaiResourceLoaderDelegate ()
 
-@property (nonatomic) NSURL *URL;
 @property (nonatomic) NSURLSession *session;
 @property (nonatomic) SRGNetworkRequest *request;
 
@@ -23,34 +22,50 @@ static NSString * const SRGTokenServiceURLString = @"https://tp.srgssr.ch/akahd/
 
 @implementation SRGAkamaiResourceLoaderDelegate
 
+#pragma mark Class methods
+
+/**
+ *  Use non-standard scheme unkwown to AirPlay receivers like the Apple TV. This ensures that the resource
+ *  loader delegate is used (if the resource is simply an HTTP one, the receiver thinks it can handle it,
+ *  and does not call the resource loader delegate).
+ *
+ *  W
+ *
+ *  See https://stackoverflow.com/a/30154884/760435
+ */
++ (NSURL *)assetURLForURL:(NSURL *)URL
+{
+    NSURLComponents *components = [NSURLComponents componentsWithURL:URL resolvingAgainstBaseURL:NO];
+    components.scheme = [@[ @"akamai", components.scheme ] componentsJoinedByString:@"+"];
+    return components.URL;
+}
+
++ (NSURL *)URLForAssetURL:(NSURL *)URL
+{
+    NSURLComponents *components = [NSURLComponents componentsWithURL:URL resolvingAgainstBaseURL:NO];
+    NSArray<NSString *> *schemeComponents = [components.scheme componentsSeparatedByString:@"+"];
+    NSAssert(schemeComponents.count == 2 && [schemeComponents.firstObject isEqualToString:@"akamai"], @"The URL must be a valid Akamai asset URL");
+    components.scheme = schemeComponents.lastObject;
+    return components.URL;
+}
+
 #pragma mark Object lifecycle
 
-- (instancetype)initWithURL:(NSURL *)URL
+- (instancetype)init
 {
     if (self = [super init]) {
-        self.URL = URL;
         self.session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
     }
     return self;
 }
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-implementations"
-
-- (instancetype)init
-{
-    [self doesNotRecognizeSelector:_cmd];
-    return [self initWithURL:[NSURL new]];
-}
-
-#pragma clang diagnostic pop
 
 #pragma mark Common resource loading request processing
 
 - (BOOL)shouldProcessResourceLoadingRequest:(AVAssetResourceLoadingRequest *)loadingRequest
 {
     dispatch_async(dispatch_get_main_queue(), ^{
-        self.request = [self tokenizeURL:self.URL withCompletionBlock:^(NSURL *tokenizedURL) {
+        NSURL *URL = [SRGAkamaiResourceLoaderDelegate URLForAssetURL:loadingRequest.request.URL];
+        self.request = [self tokenizeURL:URL withCompletionBlock:^(NSURL *tokenizedURL) {
             NSMutableURLRequest *redirect = [loadingRequest.request mutableCopy];
             redirect.URL = tokenizedURL;
             loadingRequest.redirect = [redirect copy];
