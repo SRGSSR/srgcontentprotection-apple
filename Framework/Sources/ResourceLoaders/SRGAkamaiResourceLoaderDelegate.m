@@ -50,17 +50,13 @@ static NSString * const SRGTokenServiceURLString = @"https://tp.srgssr.ch/akahd/
 - (BOOL)shouldProcessResourceLoadingRequest:(AVAssetResourceLoadingRequest *)loadingRequest
 {
     dispatch_async(dispatch_get_main_queue(), ^{
-        self.request = [self tokenizeURL:self.URL withCompletionBlock:^(NSURL *tokenizedURL, NSError *error) {
-            // Update original URL with tokenized URL. If token retrieval failed, use the original URL anyway (if we
-            // are lucky, the media did not require any token).
-            NSURL *redirectURL = tokenizedURL ?: self.URL;
-            
+        self.request = [self tokenizeURL:self.URL withCompletionBlock:^(NSURL *tokenizedURL) {
             NSMutableURLRequest *redirect = [loadingRequest.request mutableCopy];
-            redirect.URL = redirectURL;
+            redirect.URL = tokenizedURL;
             loadingRequest.redirect = [redirect copy];
             
             // Force redirect to the new tokenized URL
-            NSHTTPURLResponse *response = [[NSHTTPURLResponse alloc] initWithURL:redirectURL statusCode:303 HTTPVersion:nil headerFields:nil];
+            NSHTTPURLResponse *response = [[NSHTTPURLResponse alloc] initWithURL:tokenizedURL statusCode:303 HTTPVersion:nil headerFields:nil];
             [loadingRequest setResponse:response];
             
             [loadingRequest finishLoading];
@@ -73,7 +69,7 @@ static NSString * const SRGTokenServiceURLString = @"https://tp.srgssr.ch/akahd/
 #pragma mark Tokenization
 
 // The completion block is called on the main thread
-- (SRGNetworkRequest *)tokenizeURL:(NSURL *)URL withCompletionBlock:(void (^)(NSURL *URL, NSError *error))completionBlock
+- (SRGNetworkRequest *)tokenizeURL:(NSURL *)URL withCompletionBlock:(void (^)(NSURL *URL))completionBlock
 {
     NSParameterAssert(URL);
     NSParameterAssert(completionBlock);
@@ -92,12 +88,9 @@ static NSString * const SRGTokenServiceURLString = @"https://tp.srgssr.ch/akahd/
             token = [tokenDictionary objectForKey:@"authparams"];
         }
         
+        // On failure, just return the untokenized URL, which might be playable as is
         if (! token) {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                completionBlock(nil, [NSError errorWithDomain:SRGContentProtectionErrorDomain
-                                                         code:SRGContentProtectionErrorUnauthorized
-                                                     userInfo:@{ NSLocalizedDescriptionKey : SRGContentProtectionLocalizedString(@"This stream is protected and cannot be read without proper authorization.", @"Error message displayed when a protected stream cannot be read.") }]);
-            });
+            completionBlock(URL);
             return;
         }
         
@@ -115,7 +108,7 @@ static NSString * const SRGTokenServiceURLString = @"https://tp.srgssr.ch/akahd/
         tokenizedURLComponents.queryItems = [queryItems copy];
         
         dispatch_async(dispatch_get_main_queue(), ^{
-            completionBlock(tokenizedURLComponents.URL, nil);
+            completionBlock(tokenizedURLComponents.URL);
         });
     }];
 }
