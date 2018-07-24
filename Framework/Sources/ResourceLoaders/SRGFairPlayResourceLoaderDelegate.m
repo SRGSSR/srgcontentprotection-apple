@@ -117,7 +117,7 @@ static NSURLRequest *SRGFairPlayContentKeyContextRequest(NSURL *URL, NSData *req
         [loadingRequest finishLoading];
     }
     else {
-        NSMutableDictionary *userInfo = [@{ NSLocalizedDescriptionKey : SRGContentProtectionLocalizedString(@"Rights to play the content could not be obtained.", @"User-facing message displayed when an error related to digital rights management (DRM) has been encountered") } mutableCopy];
+        NSMutableDictionary *userInfo = [@{ NSLocalizedDescriptionKey : SRGContentProtectionLocalizedString(@"This stream is protected and cannot be read without proper rights.", @"User-facing message displayed when an error related to digital rights management (DRM) has been encountered") } mutableCopy];
         if (error) {
             userInfo[NSUnderlyingErrorKey] = error;
         }
