@@ -68,7 +68,7 @@ static NSURLRequest *SRGFairPlayContentKeyContextRequest(NSURL *URL, NSData *req
 {
     NSURL *URL = loadingRequest.request.URL;
     if (! SRGIsFairPlayURL(URL)) {
-        return nil;
+        return NO;
     }
     
     dispatch_async(dispatch_get_main_queue(), ^{
