@@ -7,15 +7,11 @@
 #import "SRGAkamaiResourceLoaderDelegate.h"
 
 #import "NSBundle+SRGContentProtection.h"
+#import "SRGAkamaiTokenService.h"
 #import "SRGContentProtectionError.h"
-
-#import <SRGNetwork/SRGNetwork.h>
-
-static NSString * const SRGTokenServiceURLString = @"https://tp.srgssr.ch/akahd/token";
 
 @interface SRGAkamaiResourceLoaderDelegate ()
 
-@property (nonatomic) NSURLSession *session;
 @property (nonatomic) SRGNetworkRequest *request;
 
 @end
@@ -47,23 +43,13 @@ static NSString * const SRGTokenServiceURLString = @"https://tp.srgssr.ch/akahd/
     return components.URL;
 }
 
-#pragma mark Object lifecycle
-
-- (instancetype)init
-{
-    if (self = [super init]) {
-        self.session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
-    }
-    return self;
-}
-
 #pragma mark Common resource loading request processing
 
 - (BOOL)shouldProcessResourceLoadingRequest:(AVAssetResourceLoadingRequest *)loadingRequest
 {
     dispatch_async(dispatch_get_main_queue(), ^{
         NSURL *URL = [SRGAkamaiResourceLoaderDelegate URLForAssetURL:loadingRequest.request.URL];
-        self.request = [self tokenizeURL:URL withCompletionBlock:^(NSURL *tokenizedURL) {
+        self.request = [[SRGAkamaiTokenService sharedService] tokenizeURL:URL withCompletionBlock:^(NSURL *tokenizedURL) {
             NSMutableURLRequest *redirect = [loadingRequest.request mutableCopy];
             redirect.URL = tokenizedURL;
             loadingRequest.redirect = [redirect copy];
@@ -77,53 +63,6 @@ static NSString * const SRGTokenServiceURLString = @"https://tp.srgssr.ch/akahd/
         [self.request resume];
     });
     return YES;
-}
-
-#pragma mark Tokenization
-
-// The completion block is called on the main thread
-- (SRGNetworkRequest *)tokenizeURL:(NSURL *)URL withCompletionBlock:(void (^)(NSURL *URL))completionBlock
-{
-    NSParameterAssert(URL);
-    NSParameterAssert(completionBlock);
-    
-    NSURLComponents *URLComponents = [NSURLComponents componentsWithURL:URL resolvingAgainstBaseURL:NO];
-    NSString *acl = [URLComponents.path.stringByDeletingLastPathComponent stringByAppendingPathComponent:@"*"];
-    
-    NSURLComponents *tokenServiceURLComponents = [NSURLComponents componentsWithURL:[NSURL URLWithString:SRGTokenServiceURLString] resolvingAgainstBaseURL:NO];
-    tokenServiceURLComponents.queryItems = @[ [NSURLQueryItem queryItemWithName:@"acl" value:acl] ];
-    
-    NSURLRequest *request = [NSURLRequest requestWithURL:tokenServiceURLComponents.URL];
-    return [[SRGNetworkRequest alloc] initWithJSONDictionaryURLRequest:request session:self.session options:0 completionBlock:^(NSDictionary * _Nullable JSONDictionary, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-        NSString *token = nil;
-        id tokenDictionary = JSONDictionary[@"token"];
-        if ([tokenDictionary isKindOfClass:[NSDictionary class]]) {
-            token = [tokenDictionary objectForKey:@"authparams"];
-        }
-        
-        // On failure, just return the untokenized URL, which might be playable as is
-        if (! token) {
-            completionBlock(URL);
-            return;
-        }
-        
-        // Use components to properly extract the token as query items
-        NSURLComponents *tokenURLComponents = [[NSURLComponents alloc] init];
-        tokenURLComponents.query = token;
-        
-        // Build the tokenized URL, merging token components with existing ones
-        NSURLComponents *tokenizedURLComponents = [NSURLComponents componentsWithURL:URL resolvingAgainstBaseURL:NO];
-        
-        NSMutableArray *queryItems = [tokenizedURLComponents.queryItems mutableCopy] ?: [NSMutableArray array];
-        if (tokenURLComponents.queryItems) {
-            [queryItems addObjectsFromArray:tokenURLComponents.queryItems];
-        }
-        tokenizedURLComponents.queryItems = [queryItems copy];
-        
-        dispatch_async(dispatch_get_main_queue(), ^{
-            completionBlock(tokenizedURLComponents.URL);
-        });
-    }];
 }
 
 #pragma mark AVAssetResourceLoaderDelegate protocol
