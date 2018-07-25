@@ -11,20 +11,10 @@
 
 #import <SRGNetwork/SRGNetwork.h>
 
-// TODO: Must be configurable?
-static NSString * const SRGFairPlayApplicationIdentifier = @"stage";
-
-static NSURLRequest *SRGFairPlayApplicationCertificateURLRequest(NSURL *URL)
+static BOOL SRGIsFairPlayURL(NSURL *URL)
 {
     NSURLComponents *URLComponents = [NSURLComponents componentsWithURL:URL resolvingAgainstBaseURL:NO];
-    if (! [URLComponents.scheme isEqualToString:@"skd"]) {
-        return nil;
-    }
-    
-    URLComponents.scheme = @"https";
-    URLComponents.path = [URLComponents.path.stringByDeletingLastPathComponent stringByAppendingPathComponent:@"getcertificate"];
-    URLComponents.queryItems = @[ [NSURLQueryItem queryItemWithName:@"applicationId" value:SRGFairPlayApplicationIdentifier] ];
-    return [NSURLRequest requestWithURL:URLComponents.URL];
+    return [URLComponents.scheme isEqualToString:@"skd"];
 }
 
 static NSURLRequest *SRGFairPlayContentKeyContextRequest(NSURL *URL, NSData *requestData)
@@ -41,6 +31,8 @@ static NSURLRequest *SRGFairPlayContentKeyContextRequest(NSURL *URL, NSData *req
 
 @interface SRGFairPlayResourceLoaderDelegate ()
 
+@property (nonatomic) NSURL *certificateURL;
+
 @property (nonatomic) NSURLSession *session;
 @property (nonatomic) SRGNetworkRequest *request;
 
@@ -50,26 +42,37 @@ static NSURLRequest *SRGFairPlayContentKeyContextRequest(NSURL *URL, NSData *req
 
 #pragma mark Object lifecycle
 
-- (instancetype)init
+- (instancetype)initWithCertificateURL:(NSURL *)certificateURL
 {
     if (self = [super init]) {
+        self.certificateURL = certificateURL;
         self.session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
     }
     return self;
 }
+
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-implementations"
+
+- (instancetype)init
+{
+    [self doesNotRecognizeSelector:_cmd];
+    return [self initWithCertificateURL:[NSURL new]];
+}
+
+#pragma clang diagnostic pop
 
 #pragma mark Common resource loading request processing
 
 - (BOOL)shouldProcessResourceLoadingRequest:(AVAssetResourceLoadingRequest *)loadingRequest
 {
     NSURL *URL = loadingRequest.request.URL;
-    NSURLRequest *certificateRequest = SRGFairPlayApplicationCertificateURLRequest(URL);
-    if (! certificateRequest) {
-        return NO;
+    if (! SRGIsFairPlayURL(URL)) {
+        return nil;
     }
     
     dispatch_async(dispatch_get_main_queue(), ^{
-        self.request = [[SRGNetworkRequest alloc] initWithURLRequest:certificateRequest session:self.session options:0 completionBlock:^(NSData * _Nullable certificateData, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        self.request = [[SRGNetworkRequest alloc] initWithURLRequest:[NSURLRequest requestWithURL:self.certificateURL] session:self.session options:0 completionBlock:^(NSData * _Nullable certificateData, NSURLResponse * _Nullable response, NSError * _Nullable error) {
             // Resource loader methods must be called on the main thread
             dispatch_async(dispatch_get_main_queue(), ^{
                 if (error) {
@@ -79,7 +82,7 @@ static NSURLRequest *SRGFairPlayContentKeyContextRequest(NSURL *URL, NSData *req
                 
                 // TODO: - Content identifier convention?
                 NSError *keyError = nil;
-                NSData *contentIdentifier = [URL.absoluteString dataUsingEncoding:NSUTF8StringEncoding];
+                NSData *contentIdentifier = [loadingRequest.request.URL.absoluteString dataUsingEncoding:NSUTF8StringEncoding];
                 NSData *keyRequestData = [loadingRequest streamingContentKeyRequestDataForApp:certificateData
                                                                             contentIdentifier:contentIdentifier
                                                                                       options:nil

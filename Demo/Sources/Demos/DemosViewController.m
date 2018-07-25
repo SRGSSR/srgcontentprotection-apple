@@ -49,17 +49,17 @@
     AVURLAsset *asset = nil;
     switch (indexPath.section) {
         case 0: {
-            asset = [AVURLAsset srg_assetWithURL:URL contentProtection:SRGContentProtectionFree];
+            asset = [AVURLAsset assetWithURL:URL];
             break;
         }
             
         case 1: {
-            asset = [AVURLAsset srg_assetWithURL:URL contentProtection:SRGContentProtectionAkamaiToken];
+            asset = [AVURLAsset srg_akamaiTokenProtectedAssetWithURL:URL];
             break;
         }
             
         case 2: {
-            asset = [AVURLAsset srg_assetWithURL:URL contentProtection:SRGContentProtectionFairPlay];
+            asset = [AVURLAsset srg_fairPlayProtectedAssetWithURL:URL certificateURL:[NSURL URLWithString:@"https://rng.stage.ott.irdeto.com/licenseServer/streaming/v1/SRG/getcertificate?applicationId=stage"]];
             break;
         }
             

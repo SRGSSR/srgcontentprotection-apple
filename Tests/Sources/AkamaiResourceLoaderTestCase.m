@@ -20,8 +20,7 @@
 
 - (void)testProtectedResourcePlayback
 {
-    AVURLAsset *asset = [AVURLAsset srg_assetWithURL:[NSURL URLWithString:@"https://srgssruni9ch-lh.akamaihd.net/i/enc9uni_ch@191320/master.m3u8"]
-                                   contentProtection:SRGContentProtectionAkamaiToken];
+    AVURLAsset *asset = [AVURLAsset srg_akamaiTokenProtectedAssetWithURL:[NSURL URLWithString:@"https://srgssruni9ch-lh.akamaihd.net/i/enc9uni_ch@191320/master.m3u8"]];
     AVPlayerItem *playerItem = [AVPlayerItem playerItemWithAsset:asset];
     
     [self keyValueObservingExpectationForObject:playerItem keyPath:@"status" expectedValue:@(AVPlayerItemStatusReadyToPlay)];
@@ -33,8 +32,7 @@
 
 - (void)testNonProtectedResourcePlayback
 {
-    AVURLAsset *asset = [AVURLAsset srg_assetWithURL:[NSURL URLWithString:@"http://tagesschau-lh.akamaihd.net/i/tagesschau_1@119231/master.m3u8"]
-                                   contentProtection:SRGContentProtectionAkamaiToken];
+    AVURLAsset *asset = [AVURLAsset srg_akamaiTokenProtectedAssetWithURL:[NSURL URLWithString:@"http://tagesschau-lh.akamaihd.net/i/tagesschau_1@119231/master.m3u8"]];
     AVPlayerItem *playerItem = [AVPlayerItem playerItemWithAsset:asset];
     
     [self keyValueObservingExpectationForObject:playerItem keyPath:@"status" expectedValue:@(AVPlayerItemStatusReadyToPlay)];
@@ -46,8 +44,7 @@
 
 - (void)testInvalidResourcePlayback
 {
-    AVURLAsset *asset = [AVURLAsset srg_assetWithURL:[NSURL URLWithString:@"http://httpbin.org/status/404"]
-                                   contentProtection:SRGContentProtectionAkamaiToken];
+    AVURLAsset *asset = [AVURLAsset srg_akamaiTokenProtectedAssetWithURL:[NSURL URLWithString:@"http://httpbin.org/status/404"]];
     AVPlayerItem *playerItem = [AVPlayerItem playerItemWithAsset:asset];
     
     [self keyValueObservingExpectationForObject:playerItem keyPath:@"status" expectedValue:@(AVPlayerItemStatusFailed)];

@@ -13,6 +13,17 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface SRGFairPlayResourceLoaderDelegate : NSObject <AVAssetResourceLoaderDelegate>
 
+/**
+ *  Create an instance retrieving certificates at the specified URL.
+ */
+- (instancetype)initWithCertificateURL:(NSURL *)certificateURL NS_DESIGNATED_INITIALIZER;
+
+@end
+
+@interface SRGFairPlayResourceLoaderDelegate (Unavailable)
+
+- (instancetype)init NS_UNAVAILABLE;
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -8,6 +8,11 @@
 #import <SRGContentProtection/SRGContentProtection.h>
 #import <XCTest/XCTest.h>
 
+static NSURL *FairPlayCertificateURL(void)
+{
+    return [NSURL URLWithString:@"https://rng.stage.ott.irdeto.com/licenseServer/streaming/v1/SRG/getcertificate?applicationId=stage"];
+}
+
 @interface FairPlayResourceLoaderTestCase : XCTestCase
 
 @property (nonatomic) AVPlayer *player;
@@ -25,8 +30,8 @@
 
 - (void)testNonProtectedResourcePlayback
 {
-    AVURLAsset *asset = [AVURLAsset srg_assetWithURL:[NSURL URLWithString:@"http://tagesschau-lh.akamaihd.net/i/tagesschau_1@119231/master.m3u8"]
-                                   contentProtection:SRGContentProtectionFairPlay];
+    AVURLAsset *asset = [AVURLAsset srg_fairPlayProtectedAssetWithURL:[NSURL URLWithString:@"http://tagesschau-lh.akamaihd.net/i/tagesschau_1@119231/master.m3u8"]
+                                                       certificateURL:FairPlayCertificateURL()];
     AVPlayerItem *playerItem = [AVPlayerItem playerItemWithAsset:asset];
     
     [self keyValueObservingExpectationForObject:playerItem keyPath:@"status" expectedValue:@(AVPlayerItemStatusReadyToPlay)];
@@ -38,8 +43,8 @@
 
 - (void)testInvalidResourcePlayback
 {
-    AVURLAsset *asset = [AVURLAsset srg_assetWithURL:[NSURL URLWithString:@"http://httpbin.org/status/404"]
-                                   contentProtection:SRGContentProtectionFairPlay];
+    AVURLAsset *asset = [AVURLAsset srg_fairPlayProtectedAssetWithURL:[NSURL URLWithString:@"http://httpbin.org/status/404"]
+                                                       certificateURL:FairPlayCertificateURL()];
     AVPlayerItem *playerItem = [AVPlayerItem playerItemWithAsset:asset];
     
     [self keyValueObservingExpectationForObject:playerItem keyPath:@"status" expectedValue:@(AVPlayerItemStatusFailed)];

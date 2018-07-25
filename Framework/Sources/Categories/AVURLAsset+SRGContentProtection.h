@@ -4,24 +4,38 @@
 //  License information is available from the LICENSE file.
 //
 
-#import "SRGContentProtectionConstants.h"
-
 #import <AVFoundation/AVFoundation.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
 /**
- *  `AVURLAsset` extensions.
+ *  `AVURLAsset` extensions for protected content playback. To play a protected content:
+ *    - Create an asset using the class method matching the content protection associated with the stream.
+ *    - Instantiate an `AVPlayerItem` from this asset.
+ *
+ *  For non-protected content, you can simply use `+[AVURLAsset assetWithURL:]` or the convenience constructor
+ *  `+[AVPlayerItem playerItemWithURL:` when creating the item.
  */
 @interface AVURLAsset (SRGContentProtection)
 
 /**
- *  Create an asset for playback, playing it using the specified content protection.
+ *  Create an asset for an Akamai token-protected stream.
  *
- *  @discussion If the content protection does not match the one of the media, the content might play, but this is not
- *              guaranteed.
+ *  @param URL The Akamai URL to be played.
+ *
+ *  @discussion If the media is not protected with an Akamai token, the content might play, but this is not guaranteed.
  */
-+ (instancetype)srg_assetWithURL:(NSURL *)URL contentProtection:(SRGContentProtection)contentProtection;
++ (instancetype)srg_akamaiTokenProtectedAssetWithURL:(NSURL *)URL;
+
+/**
+ *  Create an asset for a FairPlay-protected stream.
+ *
+ *  @param URL            The FairPlay protected stream URL to be played.
+ *  @param certificateURL The URL at which the FairPlay certificate can be retrieved.
+ *
+ *  @discussion If the media is not protected with FairPlay, the content might play, but this is not guaranteed.
+ */
++ (instancetype)srg_fairPlayProtectedAssetWithURL:(NSURL *)URL certificateURL:(NSURL *)certificateURL;
 
 @end
 
