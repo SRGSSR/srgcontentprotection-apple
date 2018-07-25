@@ -4,44 +4,21 @@
 //  License information is available from the LICENSE file.
 //
 
-#import "SRGAkamaiTokenService.h"
+#import "SRGAkamaiToken.h"
 
 static NSString * const SRGTokenServiceURLString = @"https://tp.srgssr.ch/akahd/token";
 
-@interface SRGAkamaiTokenService ()
+@interface SRGAkamaiToken ()
 
 @property (nonatomic) NSURLSession *session;
 
 @end
 
-@implementation SRGAkamaiTokenService
+@implementation SRGAkamaiToken
 
 #pragma mark Class methods
 
-+ (instancetype)sharedService
-{
-    static dispatch_once_t s_onceToken;
-    static SRGAkamaiTokenService *s_sharedService;
-    dispatch_once(&s_onceToken, ^{
-        s_sharedService = [[SRGAkamaiTokenService alloc] init];
-    });
-    return s_sharedService;
-}
-
-#pragma mark Object lifecycle
-
-- (instancetype)init
-{
-    if (self = [super init]) {
-        self.session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
-    }
-    return self;
-}
-
-#pragma mark Requests
-
-// The completion block is called on the main thread
-- (SRGNetworkRequest *)tokenizeURL:(NSURL *)URL withCompletionBlock:(void (^)(NSURL *URL))completionBlock
++ (SRGNetworkRequest *)tokenizeURL:(NSURL *)URL withSession:(NSURLSession *)session completionBlock:(void (^)(NSURL * _Nonnull))completionBlock
 {
     NSURLComponents *URLComponents = [NSURLComponents componentsWithURL:URL resolvingAgainstBaseURL:NO];
     NSString *acl = [URLComponents.path.stringByDeletingLastPathComponent stringByAppendingPathComponent:@"*"];
@@ -50,7 +27,7 @@ static NSString * const SRGTokenServiceURLString = @"https://tp.srgssr.ch/akahd/
     tokenServiceURLComponents.queryItems = @[ [NSURLQueryItem queryItemWithName:@"acl" value:acl] ];
     
     NSURLRequest *request = [NSURLRequest requestWithURL:tokenServiceURLComponents.URL];
-    return [[SRGNetworkRequest alloc] initWithJSONDictionaryURLRequest:request session:self.session options:0 completionBlock:^(NSDictionary * _Nullable JSONDictionary, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+    return [[SRGNetworkRequest alloc] initWithJSONDictionaryURLRequest:request session:session options:0 completionBlock:^(NSDictionary * _Nullable JSONDictionary, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         NSString *token = nil;
         id tokenDictionary = JSONDictionary[@"token"];
         if ([tokenDictionary isKindOfClass:[NSDictionary class]]) {

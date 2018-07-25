@@ -7,7 +7,7 @@
 #import "SRGAkamaiResourceLoaderDelegate.h"
 
 #import "NSBundle+SRGContentProtection.h"
-#import "SRGAkamaiTokenService.h"
+#import "SRGAkamaiToken.h"
 #import "SRGContentProtectionError.h"
 
 @interface SRGAkamaiResourceLoaderDelegate ()
@@ -60,7 +60,7 @@
 {
     dispatch_async(dispatch_get_main_queue(), ^{
         NSURL *URL = [SRGAkamaiResourceLoaderDelegate URLForAssetURL:loadingRequest.request.URL];
-        self.request = [[SRGAkamaiTokenService sharedService] tokenizeURL:URL withCompletionBlock:^(NSURL *tokenizedURL) {
+        self.request = [SRGAkamaiToken tokenizeURL:URL withSession:self.session completionBlock:^(NSURL *tokenizedURL) {
             NSURLRequest *playlistRequest = [NSURLRequest requestWithURL:tokenizedURL];
             self.request = [[SRGNetworkRequest alloc] initWithURLRequest:playlistRequest session:self.session options:0 completionBlock:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
                 dispatch_async(dispatch_get_main_queue(), ^{

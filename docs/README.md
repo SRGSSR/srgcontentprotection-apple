@@ -62,7 +62,7 @@ To play a protected media with AVPlayer, create an asset through one of the meth
 
 The SRG Content Protection framework does not provide any kind of integration for playback without `AVPlayer`, e.g. when using Google Cast. In such cases you are responsible of retrieving a playable resource and associated credentials to supply to the external context, depending on what it requires (please refer to the associated vendor documentation):
 
-* For Akamai token-protected streams: Use the `SRGAkamaiTokenService` to retrieve a tokenized URL you can play. Note that a token has a limited lifetime and that the tokenized URL must be played as early as possible after it has been retrieved. If you wait too much the URL might become unplayable.
+* For Akamai token-protected streams: Use `SRGAkamaiToken` to create a request for a playable tokenized URL. Note that a token has a limited lifetime and that the tokenized URL must be played as early as possible after it has been retrieved. If you wait too much the URL might become unplayable.
 * For streams protected with DRMs (except FairPlay which requires the use of `AVPlayer`, see above), your application is responsible of getting credentials to be supplied to the external context, depending on which DRMs are available and supported. Please get in touch with the team delivering streams and metadata for your application.
 
 ## License

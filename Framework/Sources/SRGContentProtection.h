@@ -11,4 +11,4 @@ FOUNDATION_EXPORT NSString *SRGContentProtectionMarketingVersion(void);
 
 // Public headers.
 #import "AVURLAsset+SRGContentProtection.h"
-#import "SRGAkamaiTokenService.h"
+#import "SRGAkamaiToken.h"
