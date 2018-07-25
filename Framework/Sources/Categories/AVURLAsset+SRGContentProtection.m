@@ -32,6 +32,7 @@ static void *SRGContentProtectionResourceLoaderDelegateKey = &SRGContentProtecti
             break;
         }
             
+        case SRGContentProtectionFree:
         case SRGContentProtectionNone: {
             break;
         }

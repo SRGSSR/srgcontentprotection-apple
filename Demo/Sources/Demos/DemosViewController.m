@@ -49,7 +49,7 @@
     AVURLAsset *asset = nil;
     switch (indexPath.section) {
         case 0: {
-            asset = [AVURLAsset srg_assetWithURL:URL contentProtection:SRGContentProtectionNone];
+            asset = [AVURLAsset srg_assetWithURL:URL contentProtection:SRGContentProtectionFree];
             break;
         }
             

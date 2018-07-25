@@ -13,9 +13,13 @@ NS_ASSUME_NONNULL_BEGIN
  */
 typedef NS_ENUM(NSInteger, SRGContentProtection) {
     /**
-     *  No content protection.
+     *  Not specified.
      */
     SRGContentProtectionNone = 0,
+    /**
+     *  Free from any content protection mechanism.
+     */
+    SRGContentProtectionFree,
     /**
      *  Akamai token-based protection.
      */
