@@ -29,8 +29,6 @@ static NSString * const SRGTokenServiceURLString = @"https://tp.srgssr.ch/akahd/
  *  loader delegate is used (if the resource is simply an HTTP one, the receiver thinks it can handle it,
  *  and does not call the resource loader delegate).
  *
- *  W
- *
  *  See https://stackoverflow.com/a/30154884/760435
  */
 + (NSURL *)assetURLForURL:(NSURL *)URL
