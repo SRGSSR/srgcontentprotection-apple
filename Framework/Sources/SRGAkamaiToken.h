@@ -24,7 +24,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param completionBlock The block to be called on completion.
  *
  *  @discussion If the request fails, the original URL is returned in the completion block and can be used to attempt
- *              playback (without guarantee that this will succeed, though).
+ *              playback (without guarantee that this will succeed, though). If the specified URL is not an Akamai
+ *              URL, attempting to play the returned URL leads to undefined behavior (it might play or not).
  */
 + (SRGNetworkRequest *)tokenizeURL:(NSURL *)URL withSession:(NSURLSession *)session completionBlock:(void (^)(NSURL *URL))completionBlock;
 
