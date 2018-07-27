@@ -58,33 +58,32 @@
 
 - (BOOL)shouldProcessResourceLoadingRequest:(AVAssetResourceLoadingRequest *)loadingRequest
 {
-    dispatch_async(dispatch_get_main_queue(), ^{
-        NSURL *URL = [SRGAkamaiResourceLoaderDelegate URLForAssetURL:loadingRequest.request.URL];
-        self.request = [SRGAkamaiToken tokenizeURL:URL withSession:self.session completionBlock:^(NSURL *tokenizedURL) {
-            NSMutableURLRequest *playlistRequest = [loadingRequest.request mutableCopy];
-            playlistRequest.URL = tokenizedURL;
-            self.request = [[SRGNetworkRequest alloc] initWithURLRequest:playlistRequest session:self.session options:0 completionBlock:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    loadingRequest.response = response;
-                    if (error) {
-                        NSMutableDictionary *userInfo = [@{ NSLocalizedDescriptionKey : SRGContentProtectionLocalizedString(@"This stream is protected and cannot be read without proper rights.", @"User-facing message displayed when an error related to digital rights management (DRM) has been encountered") } mutableCopy];
-                        if (error) {
-                            userInfo[NSUnderlyingErrorKey] = error;
-                        }
-                        NSError *friendlyError = [NSError errorWithDomain:SRGContentProtectionErrorDomain code:SRGContentProtectionErrorUnauthorized userInfo:[userInfo copy]];
-                        [loadingRequest finishLoadingWithError:friendlyError];
-                        return;
-                    }
-                    else {
-                        [loadingRequest.dataRequest respondWithData:data];
-                        [loadingRequest finishLoading];
-                    }
-                });
-            }];
-            [self.request resume];
+    // About thread-safety considerations: The delegate methods are called from background threads, and though there is
+    // no explicit documentation, Apple examples show that completion calls are also made from background threads. There
+    // is probably therefore no need to dispatch any work to the main thread.
+    NSURL *URL = [SRGAkamaiResourceLoaderDelegate URLForAssetURL:loadingRequest.request.URL];
+    self.request = [SRGAkamaiToken tokenizeURL:URL withSession:self.session completionBlock:^(NSURL *tokenizedURL) {
+        NSMutableURLRequest *playlistRequest = [loadingRequest.request mutableCopy];
+        playlistRequest.URL = tokenizedURL;
+        self.request = [[SRGNetworkRequest alloc] initWithURLRequest:playlistRequest session:self.session options:0 completionBlock:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+            loadingRequest.response = response;
+            if (error) {
+                NSMutableDictionary *userInfo = [@{ NSLocalizedDescriptionKey : SRGContentProtectionLocalizedString(@"This stream is protected and cannot be read without proper rights.", @"User-facing message displayed when an error related to digital rights management (DRM) has been encountered") } mutableCopy];
+                if (error) {
+                    userInfo[NSUnderlyingErrorKey] = error;
+                }
+                NSError *friendlyError = [NSError errorWithDomain:SRGContentProtectionErrorDomain code:SRGContentProtectionErrorUnauthorized userInfo:[userInfo copy]];
+                [loadingRequest finishLoadingWithError:friendlyError];
+                return;
+            }
+            else {
+                [loadingRequest.dataRequest respondWithData:data];
+                [loadingRequest finishLoading];
+            }
         }];
         [self.request resume];
-    });
+    }];
+    [self.request resume];
     return YES;
 }
 
@@ -102,9 +101,7 @@
 
 - (void)resourceLoader:(AVAssetResourceLoader *)resourceLoader didCancelLoadingRequest:(AVAssetResourceLoadingRequest *)loadingRequest
 {
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [self.request cancel];
-    });
+    [self.request cancel];
 }
 
 @end
