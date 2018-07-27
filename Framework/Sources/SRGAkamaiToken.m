@@ -53,9 +53,7 @@ static NSString * const SRGTokenServiceURLString = @"https://tp.srgssr.ch/akahd/
         }
         tokenizedURLComponents.queryItems = [queryItems copy];
         
-        dispatch_async(dispatch_get_main_queue(), ^{
-            completionBlock(tokenizedURLComponents.URL);
-        });
+        completionBlock(tokenizedURLComponents.URL);
     }];
 }
 

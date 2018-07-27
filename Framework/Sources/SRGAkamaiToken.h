@@ -19,9 +19,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  tokenization in client code. When preparing an item for `AVPlayer` playback, build your asset using the
  *  methods from the `AVURLAsset (SRGContentProtection)` category instead.
  *
+ *  The token request can be created and started from any thread.
+ *
  *  @param URL             The Akamai URL to tokenize.
  *  @param session         The session for which the request is executed.
- *  @param completionBlock The block to be called on completion.
+ *  @param completionBlock The block to be called on completion (the thread the block is called on depends on the
+ *                         session settings).
  *
  *  @discussion If the request fails, the original URL is returned in the completion block and can be used to attempt
  *              playback (without guarantee that this will succeed, though). If the specified URL is not an Akamai
