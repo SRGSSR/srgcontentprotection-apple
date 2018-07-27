@@ -68,7 +68,7 @@
         self.request = [[SRGNetworkRequest alloc] initWithURLRequest:playlistRequest session:self.session options:0 completionBlock:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
             loadingRequest.response = response;
             if (error) {
-                NSMutableDictionary *userInfo = [@{ NSLocalizedDescriptionKey : SRGContentProtectionLocalizedString(@"This stream is protected and cannot be read without proper rights.", @"User-facing message displayed when an error related to digital rights management (DRM) has been encountered") } mutableCopy];
+                NSMutableDictionary *userInfo = [@{ NSLocalizedDescriptionKey : SRGContentProtectionLocalizedString(@"This content is protected and cannot be played without proper rights.", @"User-facing message displayed when an error related to digital rights management (DRM) has been encountered") } mutableCopy];
                 if (error) {
                     userInfo[NSUnderlyingErrorKey] = error;
                 }
