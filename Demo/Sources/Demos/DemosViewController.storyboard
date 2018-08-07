@@ -127,7 +127,7 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Akamai token support" id="gWK-gE-tSb">
+                            <tableViewSection headerTitle="Standard content protection" id="gWK-gE-tSb">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="PpS-Q7-Ik8">
                                         <rect key="frame" x="0.0" y="276" width="375" height="44"/>
@@ -236,7 +236,7 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="FairPlay support" id="zp2-1m-kB1">
+                            <tableViewSection headerTitle="FairPlay content protection" id="zp2-1m-kB1">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="kvj-Th-oaZ">
                                         <rect key="frame" x="0.0" y="524" width="375" height="44"/>
