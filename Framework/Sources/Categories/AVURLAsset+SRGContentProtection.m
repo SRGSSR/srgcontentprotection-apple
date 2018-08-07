@@ -15,7 +15,9 @@ static void *SRGContentProtectionResourceLoaderDelegateKey = &SRGContentProtecti
 
 @implementation AVURLAsset (SRGContentProtection)
 
-+ (instancetype)srg_assetWithURL:(NSURL *)URL resourceLoaderDelegate:(id<AVAssetResourceLoaderDelegate>)resourceLoaderDelegate
+#pragma mark Class methods
+
++ (instancetype)srg_assetWithURL:(NSURL *)URL resourceLoaderDelegate:(id<SRGResourceLoaderDelegate>)resourceLoaderDelegate
 {
     AVURLAsset *asset = [AVURLAsset assetWithURL:URL];
     objc_setAssociatedObject(asset, SRGContentProtectionResourceLoaderDelegateKey, resourceLoaderDelegate, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
@@ -26,16 +28,16 @@ static void *SRGContentProtectionResourceLoaderDelegateKey = &SRGContentProtecti
     return asset;
 }
 
-+ (instancetype)srg_akamaiTokenProtectedAssetWithURL:(NSURL *)URL
++ (instancetype)srg_assetWithURL:(NSURL *)URL
 {
-    id<AVAssetResourceLoaderDelegate> resourceLoaderDelegate = [[SRGAkamaiResourceLoaderDelegate alloc] init];
-    return [self srg_assetWithURL:[SRGAkamaiResourceLoaderDelegate assetURLForURL:URL] resourceLoaderDelegate:resourceLoaderDelegate];
+    return [self srg_assetWithURL:URL licenseURL:nil];
 }
 
-+ (instancetype)srg_fairPlayProtectedAssetWithURL:(NSURL *)URL certificateURL:(NSURL *)certificateURL
++ (instancetype)srg_assetWithURL:(NSURL *)URL licenseURL:(NSURL *)licenseURL
 {
-    id<AVAssetResourceLoaderDelegate> resourceLoaderDelegate = [[SRGFairPlayResourceLoaderDelegate alloc] initWithCertificateURL:certificateURL];
-    return [self srg_assetWithURL:URL resourceLoaderDelegate:resourceLoaderDelegate];
+    id<SRGResourceLoaderDelegate> resourceLoaderDelegate = licenseURL ? [[SRGFairPlayResourceLoaderDelegate alloc] initWithCertificateURL:licenseURL] : [[SRGAkamaiResourceLoaderDelegate alloc] init];
+    NSURL *assetURL = [resourceLoaderDelegate respondsToSelector:@selector(assetURLForURL:)] ? [resourceLoaderDelegate assetURLForURL:URL] : URL;
+    return [self srg_assetWithURL:assetURL resourceLoaderDelegate:resourceLoaderDelegate];
 }
 
 @end

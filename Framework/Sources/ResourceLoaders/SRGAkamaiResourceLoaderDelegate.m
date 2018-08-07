@@ -21,21 +21,7 @@
 
 #pragma mark Class methods
 
-/**
- *  Use non-standard scheme unkwown to AirPlay receivers like the Apple TV. This ensures that the resource
- *  loader delegate is used (if the resource is simply an HTTP one, the receiver thinks it can handle it,
- *  and does not call the resource loader delegate).
- *
- *  See https://stackoverflow.com/a/30154884/760435
- */
-+ (NSURL *)assetURLForURL:(NSURL *)URL
-{
-    NSURLComponents *components = [NSURLComponents componentsWithURL:URL resolvingAgainstBaseURL:NO];
-    components.scheme = [@[ @"akamai", components.scheme ] componentsJoinedByString:@"+"];
-    return components.URL;
-}
-
-+ (NSURL *)URLForAssetURL:(NSURL *)URL
+- (NSURL *)URLForAssetURL:(NSURL *)URL
 {
     NSURLComponents *components = [NSURLComponents componentsWithURL:URL resolvingAgainstBaseURL:NO];
     NSArray<NSString *> *schemeComponents = [components.scheme componentsSeparatedByString:@"+"];
@@ -59,9 +45,9 @@
 - (BOOL)shouldProcessResourceLoadingRequest:(AVAssetResourceLoadingRequest *)loadingRequest
 {
     // About thread-safety considerations: The delegate methods are called from background threads, and though there is
-    // no explicit documentation, Apple examples show that completion calls are also made from background threads. There
-    // is probably therefore no need to dispatch any work to the main thread.
-    NSURL *URL = [SRGAkamaiResourceLoaderDelegate URLForAssetURL:loadingRequest.request.URL];
+    // no explicit documentation, Apple examples show that completion calls can be made from background threads. There
+    // is probably no need to dispatch any work to the main thread.
+    NSURL *URL = [self URLForAssetURL:loadingRequest.request.URL];
     self.request = [SRGAkamaiToken tokenizeURL:URL withSession:self.session completionBlock:^(NSURL *tokenizedURL) {
         NSMutableURLRequest *playlistRequest = [loadingRequest.request mutableCopy];
         playlistRequest.URL = tokenizedURL;
@@ -87,7 +73,21 @@
     return YES;
 }
 
-#pragma mark AVAssetResourceLoaderDelegate protocol
+#pragma mark SRGResourceLoaderDelegate protocol
+
+- (NSURL *)assetURLForURL:(NSURL *)URL
+{
+    /**
+     *  Use non-standard scheme unkwown to AirPlay receivers like the Apple TV. This ensures that the resource
+     *  loader delegate is used (if the resource is simply an HTTP one, the receiver thinks it can handle it,
+     *  and does not call the resource loader delegate).
+     *
+     *  See https://stackoverflow.com/a/30154884/760435
+     */
+    NSURLComponents *components = [NSURLComponents componentsWithURL:URL resolvingAgainstBaseURL:NO];
+    components.scheme = [@[ @"akamai", components.scheme ] componentsJoinedByString:@"+"];
+    return components.URL;
+}
 
 - (BOOL)resourceLoader:(AVAssetResourceLoader *)resourceLoader shouldWaitForLoadingOfRequestedResource:(AVAssetResourceLoadingRequest *)loadingRequest
 {

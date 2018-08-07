@@ -38,6 +38,7 @@
 		6FD8110220FCC22500F250B9 /* SRGAkamaiResourceLoaderDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FD8110020FCC22500F250B9 /* SRGAkamaiResourceLoaderDelegate.m */; };
 		6FDE576520FC9DC700719525 /* SRGContentProtectionError.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FDE576320FC9DC700719525 /* SRGContentProtectionError.m */; };
 		6FDE576620FC9DC700719525 /* SRGContentProtectionError.h in Headers */ = {isa = PBXBuildFile; fileRef = 6FDE576420FC9DC700719525 /* SRGContentProtectionError.h */; };
+		6FE021DD2119B58800DF6617 /* SRGResourceLoaderDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 6FE021DC2119B58800DF6617 /* SRGResourceLoaderDelegate.h */; };
 		6FE91E7B2108A36A001B5E8F /* SRGNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F0432BC21006E7A002B090A /* SRGNetwork.framework */; };
 /* End PBXBuildFile section */
 
@@ -122,6 +123,7 @@
 		6FD8110020FCC22500F250B9 /* SRGAkamaiResourceLoaderDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRGAkamaiResourceLoaderDelegate.m; sourceTree = "<group>"; };
 		6FDE576320FC9DC700719525 /* SRGContentProtectionError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRGContentProtectionError.m; sourceTree = "<group>"; };
 		6FDE576420FC9DC700719525 /* SRGContentProtectionError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRGContentProtectionError.h; sourceTree = "<group>"; };
+		6FE021DC2119B58800DF6617 /* SRGResourceLoaderDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRGResourceLoaderDelegate.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -301,6 +303,7 @@
 				6FD8110020FCC22500F250B9 /* SRGAkamaiResourceLoaderDelegate.m */,
 				6F8A93D020FDB3D200AA6434 /* SRGFairPlayResourceLoaderDelegate.h */,
 				6F8A93D120FDB3D200AA6434 /* SRGFairPlayResourceLoaderDelegate.m */,
+				6FE021DC2119B58800DF6617 /* SRGResourceLoaderDelegate.h */,
 			);
 			path = ResourceLoaders;
 			sourceTree = "<group>";
@@ -319,6 +322,7 @@
 				6FDE576620FC9DC700719525 /* SRGContentProtectionError.h in Headers */,
 				6F0EB54820FC8049009C02CF /* NSBundle+SRGContentProtection.h in Headers */,
 				6F7B786A2108A05C001E3BBE /* SRGAkamaiToken.h in Headers */,
+				6FE021DD2119B58800DF6617 /* SRGResourceLoaderDelegate.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

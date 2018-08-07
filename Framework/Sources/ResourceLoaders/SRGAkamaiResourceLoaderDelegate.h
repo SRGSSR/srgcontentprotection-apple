@@ -4,19 +4,19 @@
 //  License information is available from the LICENSE file.
 //
 
-#import <AVFoundation/AVFoundation.h>
+#import "SRGResourceLoaderDelegate.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Resource loader delegate for Akamai token-protected streams.
  */
-@interface SRGAkamaiResourceLoaderDelegate : NSObject <AVAssetResourceLoaderDelegate>
+@interface SRGAkamaiResourceLoaderDelegate : NSObject <SRGResourceLoaderDelegate>
 
 /**
  *  Return the asset URL to be played for playback using the Akamai resource loader delegate.
  */
-+ (NSURL *)assetURLForURL:(NSURL *)URL;
+- (NSURL *)assetURLForURL:(NSURL *)URL;
 
 @end
 

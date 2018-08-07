@@ -56,7 +56,7 @@ import SRGContentProtection
 
 ### Playing a protected media with AVPlayer
 
-To play a protected media with AVPlayer, create an asset through one of the methods from the `AVURLAsset (SRGContentProtection)` category, and use it to instantiate the `AVPlayerItem` which will be played. Based on the content protection you choose, and provided it matches the one of the stream, the SRG Content Provider ensures the stream can be played, whether on the device or using AirPlay.
+To play a protected media with AVPlayer, create an asset through one of the methods from the `AVURLAsset (SRGContentProtection)` category, and use it to instantiate the `AVPlayerItem` which will be played.
 
 ### Playing a protected media outside AVPlayer context
 

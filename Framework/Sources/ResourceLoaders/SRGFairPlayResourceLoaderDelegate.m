@@ -119,7 +119,7 @@ static NSURLRequest *SRGFairPlayContentKeyContextRequest(NSURL *URL, NSData *req
     }
 }
 
-#pragma mark AVAssetResourceLoaderDelegate protocol
+#pragma mark SRGResourceLoaderDelegate protocol
 
 // For FairPlay-protected streams, only called on a device
 - (BOOL)resourceLoader:(AVAssetResourceLoader *)resourceLoader shouldWaitForLoadingOfRequestedResource:(AVAssetResourceLoadingRequest *)loadingRequest
