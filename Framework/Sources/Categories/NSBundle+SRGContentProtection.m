@@ -6,7 +6,7 @@
 
 #import "NSBundle+SRGContentProtection.h"
 
-#import "SRGAkamaiResourceLoaderDelegate.h"
+#import "SRGAkamaiAssetResourceLoaderDelegate.h"
 
 @implementation NSBundle (SRGContentProtection)
 
@@ -17,7 +17,7 @@
     static NSBundle *bundle;
     static dispatch_once_t once;
     dispatch_once(&once, ^{
-        bundle = [NSBundle bundleForClass:[SRGAkamaiResourceLoaderDelegate class]];
+        bundle = [NSBundle bundleForClass:[SRGAkamaiAssetResourceLoaderDelegate class]];
     });
     return bundle;
 }

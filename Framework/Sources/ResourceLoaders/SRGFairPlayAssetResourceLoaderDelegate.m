@@ -4,7 +4,7 @@
 //  License information is available from the LICENSE file.
 //
 
-#import "SRGFairPlayResourceLoaderDelegate.h"
+#import "SRGFairPlayAssetResourceLoaderDelegate.h"
 
 #import "NSBundle+SRGContentProtection.h"
 #import "SRGContentProtectionError.h"
@@ -29,7 +29,7 @@ static NSURLRequest *SRGFairPlayContentKeyContextRequest(NSURL *URL, NSData *req
     return [request copy];
 }
 
-@interface SRGFairPlayResourceLoaderDelegate ()
+@interface SRGFairPlayAssetResourceLoaderDelegate ()
 
 @property (nonatomic) NSURL *certificateURL;
 
@@ -38,7 +38,7 @@ static NSURLRequest *SRGFairPlayContentKeyContextRequest(NSURL *URL, NSData *req
 
 @end
 
-@implementation SRGFairPlayResourceLoaderDelegate
+@implementation SRGFairPlayAssetResourceLoaderDelegate
 
 #pragma mark Object lifecycle
 
@@ -119,7 +119,7 @@ static NSURLRequest *SRGFairPlayContentKeyContextRequest(NSURL *URL, NSData *req
     }
 }
 
-#pragma mark SRGResourceLoaderDelegate protocol
+#pragma mark SRGAssetResourceLoaderDelegate protocol
 
 // For FairPlay-protected streams, only called on a device
 - (BOOL)resourceLoader:(AVAssetResourceLoader *)resourceLoader shouldWaitForLoadingOfRequestedResource:(AVAssetResourceLoadingRequest *)loadingRequest

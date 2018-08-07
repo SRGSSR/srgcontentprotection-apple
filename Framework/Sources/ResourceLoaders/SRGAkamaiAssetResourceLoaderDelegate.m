@@ -4,20 +4,22 @@
 //  License information is available from the LICENSE file.
 //
 
-#import "SRGAkamaiResourceLoaderDelegate.h"
+#import "SRGAkamaiAssetResourceLoaderDelegate.h"
 
 #import "NSBundle+SRGContentProtection.h"
 #import "SRGAkamaiToken.h"
 #import "SRGContentProtectionError.h"
 
-@interface SRGAkamaiResourceLoaderDelegate ()
+static NSString * const SRGStandardURLSchemePrefix = @"akamai";
+
+@interface SRGAkamaiAssetResourceLoaderDelegate ()
 
 @property (nonatomic) NSURLSession *session;
 @property (nonatomic) SRGNetworkRequest *request;
 
 @end
 
-@implementation SRGAkamaiResourceLoaderDelegate
+@implementation SRGAkamaiAssetResourceLoaderDelegate
 
 #pragma mark Class methods
 
@@ -25,7 +27,7 @@
 {
     NSURLComponents *components = [NSURLComponents componentsWithURL:URL resolvingAgainstBaseURL:NO];
     NSArray<NSString *> *schemeComponents = [components.scheme componentsSeparatedByString:@"+"];
-    NSAssert(schemeComponents.count == 2 && [schemeComponents.firstObject isEqualToString:@"akamai"], @"The URL must be a valid Akamai asset URL");
+    NSAssert(schemeComponents.count == 2 && [schemeComponents.firstObject isEqualToString:SRGStandardURLSchemePrefix], @"The URL must be a valid Akamai URL");
     components.scheme = schemeComponents.lastObject;
     return components.URL;
 }
@@ -54,7 +56,7 @@
         self.request = [[SRGNetworkRequest alloc] initWithURLRequest:playlistRequest session:self.session options:0 completionBlock:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
             loadingRequest.response = response;
             if (error) {
-                NSMutableDictionary *userInfo = [@{ NSLocalizedDescriptionKey : SRGContentProtectionLocalizedString(@"This content is protected and cannot be played without proper rights.", @"User-facing message displayed when an error related to digital rights management (DRM) has been encountered") } mutableCopy];
+                NSMutableDictionary *userInfo = [@{ NSLocalizedDescriptionKey : SRGContentProtectionLocalizedString(@"This content is protected and cannot be played without proper rights.", @"User-facing message displayed proper authorization to play a stream has not been obtained") } mutableCopy];
                 if (error) {
                     userInfo[NSUnderlyingErrorKey] = error;
                 }
@@ -73,7 +75,7 @@
     return YES;
 }
 
-#pragma mark SRGResourceLoaderDelegate protocol
+#pragma mark SRGAssetResourceLoaderDelegate protocol
 
 - (NSURL *)assetURLForURL:(NSURL *)URL
 {
@@ -85,7 +87,7 @@
      *  See https://stackoverflow.com/a/30154884/760435
      */
     NSURLComponents *components = [NSURLComponents componentsWithURL:URL resolvingAgainstBaseURL:NO];
-    components.scheme = [@[ @"akamai", components.scheme ] componentsJoinedByString:@"+"];
+    components.scheme = [@[ SRGStandardURLSchemePrefix, components.scheme ] componentsJoinedByString:@"+"];
     return components.URL;
 }
 

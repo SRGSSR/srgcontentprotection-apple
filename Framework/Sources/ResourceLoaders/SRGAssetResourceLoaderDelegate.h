@@ -11,7 +11,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Resource loader delegate protocol.
  */
-@protocol SRGResourceLoaderDelegate <AVAssetResourceLoaderDelegate>
+@protocol SRGAssetResourceLoaderDelegate <AVAssetResourceLoaderDelegate>
 
 @optional
 
