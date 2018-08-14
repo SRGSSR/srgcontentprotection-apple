@@ -30,8 +30,8 @@ static NSURL *FairPlayCertificateURL(void)
 
 - (void)testNonProtectedResourcePlayback
 {
-    AVURLAsset *asset = [AVURLAsset srg_fairPlayProtectedAssetWithURL:[NSURL URLWithString:@"http://tagesschau-lh.akamaihd.net/i/tagesschau_1@119231/master.m3u8"]
-                                                       certificateURL:FairPlayCertificateURL()];
+    AVURLAsset *asset = [AVURLAsset srg_assetWithURL:[NSURL URLWithString:@"http://tagesschau-lh.akamaihd.net/i/tagesschau_1@119231/master.m3u8"]
+                                          licenseURL:FairPlayCertificateURL()];
     AVPlayerItem *playerItem = [AVPlayerItem playerItemWithAsset:asset];
     
     [self keyValueObservingExpectationForObject:playerItem keyPath:@"status" expectedValue:@(AVPlayerItemStatusReadyToPlay)];
@@ -43,8 +43,8 @@ static NSURL *FairPlayCertificateURL(void)
 
 - (void)testInvalidResourcePlayback
 {
-    AVURLAsset *asset = [AVURLAsset srg_fairPlayProtectedAssetWithURL:[NSURL URLWithString:@"http://httpbin.org/status/404"]
-                                                       certificateURL:FairPlayCertificateURL()];
+    AVURLAsset *asset = [AVURLAsset srg_assetWithURL:[NSURL URLWithString:@"http://httpbin.org/status/404"]
+                                          licenseURL:FairPlayCertificateURL()];
     AVPlayerItem *playerItem = [AVPlayerItem playerItemWithAsset:asset];
     
     [self keyValueObservingExpectationForObject:playerItem keyPath:@"status" expectedValue:@(AVPlayerItemStatusFailed)];

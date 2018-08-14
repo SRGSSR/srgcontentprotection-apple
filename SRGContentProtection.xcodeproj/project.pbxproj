@@ -16,8 +16,8 @@
 		6F0EB54820FC8049009C02CF /* NSBundle+SRGContentProtection.h in Headers */ = {isa = PBXBuildFile; fileRef = 6F0EB54620FC8049009C02CF /* NSBundle+SRGContentProtection.h */; };
 		6F7B786A2108A05C001E3BBE /* SRGAkamaiToken.h in Headers */ = {isa = PBXBuildFile; fileRef = 6F7B78682108A05C001E3BBE /* SRGAkamaiToken.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6F7B786B2108A05C001E3BBE /* SRGAkamaiToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F7B78692108A05C001E3BBE /* SRGAkamaiToken.m */; };
-		6F8A93D220FDB3D200AA6434 /* SRGFairPlayResourceLoaderDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 6F8A93D020FDB3D200AA6434 /* SRGFairPlayResourceLoaderDelegate.h */; };
-		6F8A93D320FDB3D200AA6434 /* SRGFairPlayResourceLoaderDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F8A93D120FDB3D200AA6434 /* SRGFairPlayResourceLoaderDelegate.m */; };
+		6F8A93D220FDB3D200AA6434 /* SRGFairPlayAssetResourceLoaderDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 6F8A93D020FDB3D200AA6434 /* SRGFairPlayAssetResourceLoaderDelegate.h */; };
+		6F8A93D320FDB3D200AA6434 /* SRGFairPlayAssetResourceLoaderDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F8A93D120FDB3D200AA6434 /* SRGFairPlayAssetResourceLoaderDelegate.m */; };
 		6F8A93FB20FDCAA800AA6434 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6F8A93F020FDCAA800AA6434 /* LaunchScreen.storyboard */; };
 		6F8A93FC20FDCAA800AA6434 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6F8A93F120FDCAA800AA6434 /* Images.xcassets */; };
 		6F8A93FD20FDCAA800AA6434 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F8A93F520FDCAA800AA6434 /* main.m */; };
@@ -34,10 +34,11 @@
 		6FCBFEF9210B578B006BC355 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6FCBFEF7210B578B006BC355 /* Localizable.strings */; };
 		6FD810F420FCB58500F250B9 /* AVURLAsset+SRGContentProtection.h in Headers */ = {isa = PBXBuildFile; fileRef = 6FD810F220FCB58500F250B9 /* AVURLAsset+SRGContentProtection.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6FD810F520FCB58500F250B9 /* AVURLAsset+SRGContentProtection.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FD810F320FCB58500F250B9 /* AVURLAsset+SRGContentProtection.m */; };
-		6FD8110120FCC22500F250B9 /* SRGAkamaiResourceLoaderDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 6FD810FF20FCC22500F250B9 /* SRGAkamaiResourceLoaderDelegate.h */; };
-		6FD8110220FCC22500F250B9 /* SRGAkamaiResourceLoaderDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FD8110020FCC22500F250B9 /* SRGAkamaiResourceLoaderDelegate.m */; };
+		6FD8110120FCC22500F250B9 /* SRGAkamaiAssetResourceLoaderDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 6FD810FF20FCC22500F250B9 /* SRGAkamaiAssetResourceLoaderDelegate.h */; };
+		6FD8110220FCC22500F250B9 /* SRGAkamaiAssetResourceLoaderDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FD8110020FCC22500F250B9 /* SRGAkamaiAssetResourceLoaderDelegate.m */; };
 		6FDE576520FC9DC700719525 /* SRGContentProtectionError.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FDE576320FC9DC700719525 /* SRGContentProtectionError.m */; };
 		6FDE576620FC9DC700719525 /* SRGContentProtectionError.h in Headers */ = {isa = PBXBuildFile; fileRef = 6FDE576420FC9DC700719525 /* SRGContentProtectionError.h */; };
+		6FE021DD2119B58800DF6617 /* SRGAssetResourceLoaderDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 6FE021DC2119B58800DF6617 /* SRGAssetResourceLoaderDelegate.h */; };
 		6FE91E7B2108A36A001B5E8F /* SRGNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F0432BC21006E7A002B090A /* SRGNetwork.framework */; };
 /* End PBXBuildFile section */
 
@@ -94,8 +95,8 @@
 		6F0EB54620FC8049009C02CF /* NSBundle+SRGContentProtection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSBundle+SRGContentProtection.h"; sourceTree = "<group>"; };
 		6F7B78682108A05C001E3BBE /* SRGAkamaiToken.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SRGAkamaiToken.h; sourceTree = "<group>"; };
 		6F7B78692108A05C001E3BBE /* SRGAkamaiToken.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SRGAkamaiToken.m; sourceTree = "<group>"; };
-		6F8A93D020FDB3D200AA6434 /* SRGFairPlayResourceLoaderDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SRGFairPlayResourceLoaderDelegate.h; sourceTree = "<group>"; };
-		6F8A93D120FDB3D200AA6434 /* SRGFairPlayResourceLoaderDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SRGFairPlayResourceLoaderDelegate.m; sourceTree = "<group>"; };
+		6F8A93D020FDB3D200AA6434 /* SRGFairPlayAssetResourceLoaderDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SRGFairPlayAssetResourceLoaderDelegate.h; sourceTree = "<group>"; };
+		6F8A93D120FDB3D200AA6434 /* SRGFairPlayAssetResourceLoaderDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SRGFairPlayAssetResourceLoaderDelegate.m; sourceTree = "<group>"; };
 		6F8A93D820FDCA0800AA6434 /* SRGContentProtection-demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SRGContentProtection-demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F8A93F020FDCAA800AA6434 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6F8A93F120FDCAA800AA6434 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -118,10 +119,11 @@
 		6FCBFEFD210B57BE006BC355 /* rm */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = rm; path = rm.lproj/Localizable.strings; sourceTree = "<group>"; };
 		6FD810F220FCB58500F250B9 /* AVURLAsset+SRGContentProtection.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AVURLAsset+SRGContentProtection.h"; sourceTree = "<group>"; };
 		6FD810F320FCB58500F250B9 /* AVURLAsset+SRGContentProtection.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AVURLAsset+SRGContentProtection.m"; sourceTree = "<group>"; };
-		6FD810FF20FCC22500F250B9 /* SRGAkamaiResourceLoaderDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRGAkamaiResourceLoaderDelegate.h; sourceTree = "<group>"; };
-		6FD8110020FCC22500F250B9 /* SRGAkamaiResourceLoaderDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRGAkamaiResourceLoaderDelegate.m; sourceTree = "<group>"; };
+		6FD810FF20FCC22500F250B9 /* SRGAkamaiAssetResourceLoaderDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRGAkamaiAssetResourceLoaderDelegate.h; sourceTree = "<group>"; };
+		6FD8110020FCC22500F250B9 /* SRGAkamaiAssetResourceLoaderDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRGAkamaiAssetResourceLoaderDelegate.m; sourceTree = "<group>"; };
 		6FDE576320FC9DC700719525 /* SRGContentProtectionError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRGContentProtectionError.m; sourceTree = "<group>"; };
 		6FDE576420FC9DC700719525 /* SRGContentProtectionError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRGContentProtectionError.h; sourceTree = "<group>"; };
+		6FE021DC2119B58800DF6617 /* SRGAssetResourceLoaderDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRGAssetResourceLoaderDelegate.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -297,10 +299,11 @@
 		6FD810FE20FCC22500F250B9 /* ResourceLoaders */ = {
 			isa = PBXGroup;
 			children = (
-				6FD810FF20FCC22500F250B9 /* SRGAkamaiResourceLoaderDelegate.h */,
-				6FD8110020FCC22500F250B9 /* SRGAkamaiResourceLoaderDelegate.m */,
-				6F8A93D020FDB3D200AA6434 /* SRGFairPlayResourceLoaderDelegate.h */,
-				6F8A93D120FDB3D200AA6434 /* SRGFairPlayResourceLoaderDelegate.m */,
+				6FD810FF20FCC22500F250B9 /* SRGAkamaiAssetResourceLoaderDelegate.h */,
+				6FD8110020FCC22500F250B9 /* SRGAkamaiAssetResourceLoaderDelegate.m */,
+				6FE021DC2119B58800DF6617 /* SRGAssetResourceLoaderDelegate.h */,
+				6F8A93D020FDB3D200AA6434 /* SRGFairPlayAssetResourceLoaderDelegate.h */,
+				6F8A93D120FDB3D200AA6434 /* SRGFairPlayAssetResourceLoaderDelegate.m */,
 			);
 			path = ResourceLoaders;
 			sourceTree = "<group>";
@@ -314,11 +317,12 @@
 			files = (
 				6F0EB54020FC7FA9009C02CF /* SRGContentProtection.h in Headers */,
 				6FD810F420FCB58500F250B9 /* AVURLAsset+SRGContentProtection.h in Headers */,
-				6FD8110120FCC22500F250B9 /* SRGAkamaiResourceLoaderDelegate.h in Headers */,
-				6F8A93D220FDB3D200AA6434 /* SRGFairPlayResourceLoaderDelegate.h in Headers */,
+				6FD8110120FCC22500F250B9 /* SRGAkamaiAssetResourceLoaderDelegate.h in Headers */,
+				6F8A93D220FDB3D200AA6434 /* SRGFairPlayAssetResourceLoaderDelegate.h in Headers */,
 				6FDE576620FC9DC700719525 /* SRGContentProtectionError.h in Headers */,
 				6F0EB54820FC8049009C02CF /* NSBundle+SRGContentProtection.h in Headers */,
 				6F7B786A2108A05C001E3BBE /* SRGAkamaiToken.h in Headers */,
+				6FE021DD2119B58800DF6617 /* SRGAssetResourceLoaderDelegate.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -460,10 +464,10 @@
 			files = (
 				6F0EB54720FC8049009C02CF /* NSBundle+SRGContentProtection.m in Sources */,
 				6F0EB54320FC7FF4009C02CF /* SRGContentProtection.m in Sources */,
-				6FD8110220FCC22500F250B9 /* SRGAkamaiResourceLoaderDelegate.m in Sources */,
+				6FD8110220FCC22500F250B9 /* SRGAkamaiAssetResourceLoaderDelegate.m in Sources */,
 				6F7B786B2108A05C001E3BBE /* SRGAkamaiToken.m in Sources */,
 				6FDE576520FC9DC700719525 /* SRGContentProtectionError.m in Sources */,
-				6F8A93D320FDB3D200AA6434 /* SRGFairPlayResourceLoaderDelegate.m in Sources */,
+				6F8A93D320FDB3D200AA6434 /* SRGFairPlayAssetResourceLoaderDelegate.m in Sources */,
 				6FD810F520FCB58500F250B9 /* AVURLAsset+SRGContentProtection.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
