@@ -15,8 +15,8 @@
 + (instancetype)srg_contentProtectionBundle
 {
     static NSBundle *s_bundle;
-    static dispatch_once_t s_once;
-    dispatch_once(&s_once, ^{
+    static dispatch_once_t s_onceToken;
+    dispatch_once(&s_onceToken, ^{
         NSString *bundlePath = [[NSBundle bundleForClass:[SRGAkamaiAssetResourceLoaderDelegate class]].bundlePath stringByAppendingPathComponent:@"SRGContentProtection.bundle"];
         s_bundle = [NSBundle bundleWithPath:bundlePath];
         NSAssert(s_bundle, @"Please add SRGContentProtection.bundle to your project resources");
