@@ -28,9 +28,27 @@ static NSURL *FairPlayCertificateURL(void)
     // Cannot be tested in the simulator, works only on a device
 }
 
+- (void)testProtectedResourcePlaybackWithParameter
+{
+    // Cannot be tested in the simulator, works only on a device
+}
+
 - (void)testNonProtectedResourcePlayback
 {
     AVURLAsset *asset = [AVURLAsset srg_assetWithURL:[NSURL URLWithString:@"http://tagesschau-lh.akamaihd.net/i/tagesschau_1@119231/master.m3u8"]
+                                          licenseURL:FairPlayCertificateURL()];
+    AVPlayerItem *playerItem = [AVPlayerItem playerItemWithAsset:asset];
+    
+    [self keyValueObservingExpectationForObject:playerItem keyPath:@"status" expectedValue:@(AVPlayerItemStatusReadyToPlay)];
+    
+    self.player = [AVPlayer playerWithPlayerItem:playerItem];
+    
+    [self waitForExpectationsWithTimeout:10. handler:nil];
+}
+
+- (void)testNonProtectedResourcePlaybackWithParameter
+{
+    AVURLAsset *asset = [AVURLAsset srg_assetWithURL:[NSURL URLWithString:@"http://tagesschau-lh.akamaihd.net/i/tagesschau_1@119231/master.m3u8?__b__=800"]
                                           licenseURL:FairPlayCertificateURL()];
     AVPlayerItem *playerItem = [AVPlayerItem playerItemWithAsset:asset];
     

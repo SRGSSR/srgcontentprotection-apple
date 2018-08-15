@@ -31,9 +31,35 @@
     [self waitForExpectationsWithTimeout:10. handler:nil];
 }
 
+- (void)testProtectedResourcePlaybackWithParameter
+{
+    AVURLAsset *asset = [AVURLAsset srg_assetWithURL:[NSURL URLWithString:@"https://srgssruni9ch-lh.akamaihd.net/i/enc9uni_ch@191320/master.m3u8?__b__=800"]
+                                          licenseURL:nil];
+    AVPlayerItem *playerItem = [AVPlayerItem playerItemWithAsset:asset];
+    
+    [self keyValueObservingExpectationForObject:playerItem keyPath:@"status" expectedValue:@(AVPlayerItemStatusReadyToPlay)];
+    
+    self.player = [AVPlayer playerWithPlayerItem:playerItem];
+    
+    [self waitForExpectationsWithTimeout:10. handler:nil];
+}
+
 - (void)testNonProtectedResourcePlayback
 {
     AVURLAsset *asset = [AVURLAsset srg_assetWithURL:[NSURL URLWithString:@"http://tagesschau-lh.akamaihd.net/i/tagesschau_1@119231/master.m3u8"]
+                                          licenseURL:nil];
+    AVPlayerItem *playerItem = [AVPlayerItem playerItemWithAsset:asset];
+    
+    [self keyValueObservingExpectationForObject:playerItem keyPath:@"status" expectedValue:@(AVPlayerItemStatusReadyToPlay)];
+    
+    self.player = [AVPlayer playerWithPlayerItem:playerItem];
+    
+    [self waitForExpectationsWithTimeout:10. handler:nil];
+}
+
+- (void)testNonProtectedResourcePlaybackWithParameter
+{
+    AVURLAsset *asset = [AVURLAsset srg_assetWithURL:[NSURL URLWithString:@"http://tagesschau-lh.akamaihd.net/i/tagesschau_1@119231/master.m3u8?__b__=800"]
                                           licenseURL:nil];
     AVPlayerItem *playerItem = [AVPlayerItem playerItemWithAsset:asset];
     
