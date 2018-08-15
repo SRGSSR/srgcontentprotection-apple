@@ -40,7 +40,7 @@ static void *SRGContentProtectionResourceLoaderDelegateKey = &SRGContentProtecti
     if (licenseURL) {
         resourceLoaderDelegate = [[SRGFairPlayAssetResourceLoaderDelegate alloc] initWithCertificateURL:licenseURL];
     }
-    else if ([URL.host containsString:@"akamai"]) {
+    else if ([URL.host containsString:@"akamai"] && [URL.absoluteString.pathExtension isEqualToString:@"m3u8"]) {
         resourceLoaderDelegate = [[SRGAkamaiAssetResourceLoaderDelegate alloc] init];
     }
     return [self srg_assetWithURL:URL resourceLoaderDelegate:resourceLoaderDelegate];
