@@ -1,2 +1,2 @@
 /* User-facing message displayed when an error related to digital rights management (DRM) has been encountered */
-"This content is protected and cannot be played without proper rights." = "This content is protected and cannot be played without proper rights.";
+"This content is protected and cannot be played without proper rights." = "Dieser Inhalt ist verschlüsselt. Ihre Berechtigung konnte leider nicht geprüft werden.";
