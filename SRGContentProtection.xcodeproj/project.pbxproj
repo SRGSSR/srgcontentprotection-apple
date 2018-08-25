@@ -233,8 +233,8 @@
 		6F8A93EE20FDCAA800AA6434 /* Demo */ = {
 			isa = PBXGroup;
 			children = (
-				6F8A93EF20FDCAA800AA6434 /* Resources */,
 				6F8A93F220FDCAA800AA6434 /* Sources */,
+				6F8A93EF20FDCAA800AA6434 /* Resources */,
 				6F8A93FA20FDCAA800AA6434 /* Info.plist */,
 			);
 			path = Demo;
