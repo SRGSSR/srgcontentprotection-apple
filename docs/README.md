@@ -86,6 +86,10 @@ The SRG Content Protection framework does not provide any kind of integration fo
 * For Akamai token-protected streams: Use `SRGAkamaiToken` to create a request for a playable tokenized URL. Note that a token has a limited lifetime and that the tokenized URL must be played as early as possible after it has been retrieved. If you wait too much the URL might become unplayable.
 * For streams protected with DRMs (except FairPlay which requires the use of `AVPlayer`, see above), your application is responsible of getting credentials to be supplied to the external context, depending on which DRMs are available and supported. Please get in touch with the team delivering streams and metadata for your application.
 
+## Known limitations
+
+FairPlay stream playback requires a physical iOS device. Streams will not play in the simulator.
+
 ## License
 
 See the [LICENSE](../LICENSE) file for more information.
