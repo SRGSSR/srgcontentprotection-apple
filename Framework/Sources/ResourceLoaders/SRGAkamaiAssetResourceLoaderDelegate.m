@@ -49,10 +49,10 @@ static NSString * const SRGStandardURLSchemePrefix = @"akamai";
     // About thread-safety considerations: The delegate methods are called from background threads, and though there is
     // no explicit documentation, Apple examples show that completion calls can be made from background threads. There
     // is probably no need to dispatch any work to the main thread.
-    NSURL *URL = [self URLForAssetURL:loadingRequest.request.URL];
-    self.request = [SRGAkamaiToken tokenizeURL:URL withSession:self.session completionBlock:^(NSURL *tokenizedURL) {
+    NSURL *requestURL = [self URLForAssetURL:loadingRequest.request.URL];
+    self.request = [SRGAkamaiToken tokenizeURL:requestURL withSession:self.session completionBlock:^(NSURL * _Nonnull URL, NSHTTPURLResponse * _Nonnull HTTPResponse) {
         NSMutableURLRequest *playlistRequest = [loadingRequest.request mutableCopy];
-        playlistRequest.URL = tokenizedURL;
+        playlistRequest.URL = URL;
         self.request = [[SRGNetworkRequest alloc] initWithURLRequest:playlistRequest session:self.session options:0 completionBlock:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
             loadingRequest.response = response;
             if (error) {

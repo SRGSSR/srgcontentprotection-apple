@@ -18,7 +18,7 @@ static NSString * const SRGTokenServiceURLString = @"https://tp.srgssr.ch/akahd/
 
 #pragma mark Class methods
 
-+ (SRGNetworkRequest *)tokenizeURL:(NSURL *)URL withSession:(NSURLSession *)session completionBlock:(void (^)(NSURL * _Nonnull))completionBlock
++ (SRGNetworkRequest *)tokenizeURL:(NSURL *)URL withSession:(NSURLSession *)session completionBlock:(nonnull void (^)(NSURL * _Nonnull, NSHTTPURLResponse * _Nonnull))completionBlock
 {
     NSURLComponents *URLComponents = [NSURLComponents componentsWithURL:URL resolvingAgainstBaseURL:NO];
     NSString *acl = [URLComponents.path.stringByDeletingLastPathComponent stringByAppendingPathComponent:@"*"];
@@ -28,6 +28,8 @@ static NSString * const SRGTokenServiceURLString = @"https://tp.srgssr.ch/akahd/
     
     NSURLRequest *request = [NSURLRequest requestWithURL:tokenServiceURLComponents.URL];
     return [[SRGNetworkRequest alloc] initWithJSONDictionaryURLRequest:request session:session options:0 completionBlock:^(NSDictionary * _Nullable JSONDictionary, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        NSHTTPURLResponse *HTTPResponse = [response isKindOfClass:NSHTTPURLResponse.class] ? (NSHTTPURLResponse *)response : nil;
+        
         NSString *token = nil;
         id tokenDictionary = JSONDictionary[@"token"];
         if ([tokenDictionary isKindOfClass:[NSDictionary class]]) {
@@ -36,7 +38,7 @@ static NSString * const SRGTokenServiceURLString = @"https://tp.srgssr.ch/akahd/
         
         // On failure, just return the untokenized URL, which might be playable as is
         if (! token) {
-            completionBlock(URL);
+            completionBlock(URL, HTTPResponse);
             return;
         }
         
@@ -53,7 +55,7 @@ static NSString * const SRGTokenServiceURLString = @"https://tp.srgssr.ch/akahd/
         }
         tokenizedURLComponents.queryItems = [queryItems copy];
         
-        completionBlock(tokenizedURLComponents.URL);
+        completionBlock(tokenizedURLComponents.URL, HTTPResponse);
     }];
 }
 
