@@ -1,2 +1,5 @@
-/* User-facing message displayed when an error related to digital rights management (DRM) has been encountered */
+/* User-facing message displayed proper authorization to play a stream has not been obtained */
 "This content is protected and cannot be played without proper rights." = "Questo contenuto è protetto e non può essere riprodotti senza diritti appropriati.";
+
+/* User-facing message displayed when an error related to digital rights management (DRM) has been encountered, and inviting the user to contact customer support */
+"This content is protected and cannot be played without proper rights. Contact customer support for further help." = "This content is protected and cannot be played without proper rights. Contact customer support for further help.";
