@@ -49,6 +49,16 @@ If your target is building an application, a few more steps are required:
 3. Also add any resource bundle `.bundle` found within the `.framework` folders to your target directly.
 4. Add the `-all_load` flag to your target _Other linker flags_.
 
+## Building the project
+
+A [Makefile](../Makefile) provides several targets to build and package the library. The available targets can be listed by running the following command from the project root folder:
+
+```
+make help
+```
+
+Alternatively, you can of course open the project with Xcode and use the available schemes.
+
 ## Usage
 
 When you want to use classes or functions provided by the library in your code, you must import it from your source files first.
