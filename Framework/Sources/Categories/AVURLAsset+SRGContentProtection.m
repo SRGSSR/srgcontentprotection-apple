@@ -11,8 +11,6 @@
 
 #import <objc/runtime.h>
 
-NSString * const SRGContentProtectionURNKey = @"SRGContentProtectionURN";
-
 static void *SRGContentProtectionResourceLoaderDelegateKey = &SRGContentProtectionResourceLoaderDelegateKey;
 
 @implementation AVURLAsset (SRGContentProtection)

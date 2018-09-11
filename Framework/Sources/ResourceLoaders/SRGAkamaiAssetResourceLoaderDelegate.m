@@ -8,7 +8,10 @@
 
 #import "NSBundle+SRGContentProtection.h"
 #import "SRGAkamaiToken.h"
+#import "SRGContentProtectionConstants.h"
 #import "SRGContentProtectionError.h"
+
+#import <SRGDiagnostics/SRGDiagnostics.h>
 
 static NSString * const SRGStandardURLSchemePrefix = @"akamai";
 
@@ -42,6 +45,14 @@ static NSString * const SRGStandardURLSchemePrefix = @"akamai";
     return self;
 }
 
+#pragma mark Getters and setters
+
+- (SRGDiagnosticInformation *)diagnosticInformation
+{
+    NSString *URN = self.userInfo[SRGContentProtectionURNKey];
+    return URN ? [[[SRGDiagnosticsService serviceWithName:@"SRGPlaybackMetrics"] reportWithName:URN] informationForKey:@"tokenResult"] : nil;
+}
+
 #pragma mark Subclassing hooks
 
 - (NSURL *)assetURLForURL:(NSURL *)URL
@@ -60,6 +71,9 @@ static NSString * const SRGStandardURLSchemePrefix = @"akamai";
 
 - (BOOL)shouldProcessResourceLoadingRequest:(AVAssetResourceLoadingRequest *)loadingRequest
 {
+    SRGDiagnosticInformation *diagnosticInformation = [self diagnosticInformation];
+    [diagnosticInformation startTimeMeasurementForKey:@"duration"];
+    
     // About thread-safety considerations: The delegate methods are called from background threads, and though there is
     // no explicit documentation, Apple examples show that completion calls can be made from background threads. There
     // is probably no need to dispatch any work to the main thread.
@@ -82,6 +96,11 @@ static NSString * const SRGStandardURLSchemePrefix = @"akamai";
                 [loadingRequest.dataRequest respondWithData:data];
                 [loadingRequest finishLoading];
             }
+            
+            [diagnosticInformation setURL:URL forKey:@"url"];
+            [diagnosticInformation setInteger:HTTPResponse.statusCode forKey:@"httpStatusCode"];
+            [diagnosticInformation setString:error.localizedDescription forKey:@"message"];
+            [diagnosticInformation stopTimeMeasurementForKey:@"duration"];
         }];
         [self.request resume];
     }];

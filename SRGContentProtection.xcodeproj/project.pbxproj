@@ -39,6 +39,8 @@
 		6FBF24342147F4C900E576A2 /* SRGDiagnostics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FBF24302147F3ED00E576A2 /* SRGDiagnostics.framework */; };
 		6FBF24352147F4C900E576A2 /* SRGDiagnostics.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6FBF24302147F3ED00E576A2 /* SRGDiagnostics.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6FBF24372147FE2E00E576A2 /* SRGAssetResourceLoaderDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FBF24362147FE2E00E576A2 /* SRGAssetResourceLoaderDelegate.m */; };
+		6FBF243A21480DB300E576A2 /* SRGContentProtectionConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 6FBF243821480DB300E576A2 /* SRGContentProtectionConstants.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6FBF243B21480DB300E576A2 /* SRGContentProtectionConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FBF243921480DB300E576A2 /* SRGContentProtectionConstants.m */; };
 		6FD810F420FCB58500F250B9 /* AVURLAsset+SRGContentProtection.h in Headers */ = {isa = PBXBuildFile; fileRef = 6FD810F220FCB58500F250B9 /* AVURLAsset+SRGContentProtection.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6FD810F520FCB58500F250B9 /* AVURLAsset+SRGContentProtection.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FD810F320FCB58500F250B9 /* AVURLAsset+SRGContentProtection.m */; };
 		6FD8110120FCC22500F250B9 /* SRGAkamaiAssetResourceLoaderDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 6FD810FF20FCC22500F250B9 /* SRGAkamaiAssetResourceLoaderDelegate.h */; };
@@ -131,6 +133,8 @@
 		6FBCA7402109A9F4004CD02D /* AkamaiTokenTestCase.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AkamaiTokenTestCase.m; sourceTree = "<group>"; };
 		6FBF24302147F3ED00E576A2 /* SRGDiagnostics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SRGDiagnostics.framework; path = Carthage/Build/iOS/SRGDiagnostics.framework; sourceTree = "<group>"; };
 		6FBF24362147FE2E00E576A2 /* SRGAssetResourceLoaderDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SRGAssetResourceLoaderDelegate.m; sourceTree = "<group>"; };
+		6FBF243821480DB300E576A2 /* SRGContentProtectionConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SRGContentProtectionConstants.h; sourceTree = "<group>"; };
+		6FBF243921480DB300E576A2 /* SRGContentProtectionConstants.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SRGContentProtectionConstants.m; sourceTree = "<group>"; };
 		6FCBFEF8210B578B006BC355 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		6FCBFEFA210B57BD006BC355 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
 		6FCBFEFB210B57BD006BC355 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -227,6 +231,8 @@
 				6F7B78692108A05C001E3BBE /* SRGAkamaiToken.m */,
 				6F0EB53E20FC7FA9009C02CF /* SRGContentProtection.h */,
 				6F0EB54220FC7FF4009C02CF /* SRGContentProtection.m */,
+				6FBF243821480DB300E576A2 /* SRGContentProtectionConstants.h */,
+				6FBF243921480DB300E576A2 /* SRGContentProtectionConstants.m */,
 				6FDE576420FC9DC700719525 /* SRGContentProtectionError.h */,
 				6FDE576320FC9DC700719525 /* SRGContentProtectionError.m */,
 			);
@@ -351,6 +357,7 @@
 			files = (
 				6F0EB54020FC7FA9009C02CF /* SRGContentProtection.h in Headers */,
 				6FD810F420FCB58500F250B9 /* AVURLAsset+SRGContentProtection.h in Headers */,
+				6FBF243A21480DB300E576A2 /* SRGContentProtectionConstants.h in Headers */,
 				6FD8110120FCC22500F250B9 /* SRGAkamaiAssetResourceLoaderDelegate.h in Headers */,
 				6F8A93D220FDB3D200AA6434 /* SRGFairPlayAssetResourceLoaderDelegate.h in Headers */,
 				6FDE576620FC9DC700719525 /* SRGContentProtectionError.h in Headers */,
@@ -541,6 +548,7 @@
 				6FDE576520FC9DC700719525 /* SRGContentProtectionError.m in Sources */,
 				6F8A93D320FDB3D200AA6434 /* SRGFairPlayAssetResourceLoaderDelegate.m in Sources */,
 				6FD810F520FCB58500F250B9 /* AVURLAsset+SRGContentProtection.m in Sources */,
+				6FBF243B21480DB300E576A2 /* SRGContentProtectionConstants.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
