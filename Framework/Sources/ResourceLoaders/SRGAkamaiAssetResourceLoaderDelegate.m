@@ -42,7 +42,21 @@ static NSString * const SRGStandardURLSchemePrefix = @"akamai";
     return self;
 }
 
-#pragma mark Common resource loading request processing
+#pragma mark Subclassing hooks
+
+- (NSURL *)assetURLForURL:(NSURL *)URL
+{
+    /**
+     *  Use non-standard scheme unkwown to AirPlay receivers like the Apple TV. This ensures that the resource
+     *  loader delegate is used (if the resource is simply an HTTP one, the receiver thinks it can handle it,
+     *  and does not call the resource loader delegate).
+     *
+     *  See https://stackoverflow.com/a/30154884/760435
+     */
+    NSURLComponents *components = [NSURLComponents componentsWithURL:URL resolvingAgainstBaseURL:NO];
+    components.scheme = [@[ SRGStandardURLSchemePrefix, components.scheme ] componentsJoinedByString:@"+"];
+    return components.URL;
+}
 
 - (BOOL)shouldProcessResourceLoadingRequest:(AVAssetResourceLoadingRequest *)loadingRequest
 {
@@ -75,33 +89,7 @@ static NSString * const SRGStandardURLSchemePrefix = @"akamai";
     return YES;
 }
 
-#pragma mark SRGAssetResourceLoaderDelegate protocol
-
-- (NSURL *)assetURLForURL:(NSURL *)URL
-{
-    /**
-     *  Use non-standard scheme unkwown to AirPlay receivers like the Apple TV. This ensures that the resource
-     *  loader delegate is used (if the resource is simply an HTTP one, the receiver thinks it can handle it,
-     *  and does not call the resource loader delegate).
-     *
-     *  See https://stackoverflow.com/a/30154884/760435
-     */
-    NSURLComponents *components = [NSURLComponents componentsWithURL:URL resolvingAgainstBaseURL:NO];
-    components.scheme = [@[ SRGStandardURLSchemePrefix, components.scheme ] componentsJoinedByString:@"+"];
-    return components.URL;
-}
-
-- (BOOL)resourceLoader:(AVAssetResourceLoader *)resourceLoader shouldWaitForLoadingOfRequestedResource:(AVAssetResourceLoadingRequest *)loadingRequest
-{
-    return [self shouldProcessResourceLoadingRequest:loadingRequest];
-}
-
-- (BOOL)resourceLoader:(AVAssetResourceLoader *)resourceLoader shouldWaitForRenewalOfRequestedResource:(AVAssetResourceRenewalRequest *)renewalRequest
-{
-    return [self shouldProcessResourceLoadingRequest:renewalRequest];
-}
-
-- (void)resourceLoader:(AVAssetResourceLoader *)resourceLoader didCancelLoadingRequest:(AVAssetResourceLoadingRequest *)loadingRequest
+- (void)didCancelResourceLoadingRequest:(AVAssetResourceLoadingRequest *)loadingRequest
 {
     [self.request cancel];
 }

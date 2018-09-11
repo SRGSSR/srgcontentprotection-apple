@@ -62,8 +62,9 @@ static NSURLRequest *SRGFairPlayContentKeyContextRequest(NSURL *URL, NSData *req
 
 #pragma clang diagnostic pop
 
-#pragma mark Common resource loading request processing
+#pragma mark Subclassing hooks
 
+// For FairPlay-protected streams, only called on a device
 - (BOOL)shouldProcessResourceLoadingRequest:(AVAssetResourceLoadingRequest *)loadingRequest
 {
     // About thread-safety considerations: The delegate methods are called from background threads, and though there is
@@ -103,6 +104,13 @@ static NSURLRequest *SRGFairPlayContentKeyContextRequest(NSURL *URL, NSData *req
     return YES;
 }
 
+- (void)didCancelResourceLoadingRequest:(AVAssetResourceLoadingRequest *)loadingRequest
+{
+    [self.request cancel];
+}
+
+#pragma mark Helpers
+
 - (void)finishLoadingRequest:(AVAssetResourceLoadingRequest *)loadingRequest withContentKeyContextData:(NSData *)contentKeyContextData error:(NSError *)error
 {
     if (contentKeyContextData) {
@@ -117,25 +125,6 @@ static NSURLRequest *SRGFairPlayContentKeyContextRequest(NSURL *URL, NSData *req
         NSError *friendlyError = [NSError errorWithDomain:SRGContentProtectionErrorDomain code:SRGContentProtectionErrorUnauthorized userInfo:[userInfo copy]];
         [loadingRequest finishLoadingWithError:friendlyError];
     }
-}
-
-#pragma mark SRGAssetResourceLoaderDelegate protocol
-
-// For FairPlay-protected streams, only called on a device
-- (BOOL)resourceLoader:(AVAssetResourceLoader *)resourceLoader shouldWaitForLoadingOfRequestedResource:(AVAssetResourceLoadingRequest *)loadingRequest
-{
-    return [self shouldProcessResourceLoadingRequest:loadingRequest];
-}
-
-// For FairPlay-protected streams, only called on a device
-- (BOOL)resourceLoader:(AVAssetResourceLoader *)resourceLoader shouldWaitForRenewalOfRequestedResource:(AVAssetResourceRenewalRequest *)renewalRequest
-{
-    return [self shouldProcessResourceLoadingRequest:renewalRequest];
-}
-
-- (void)resourceLoader:(AVAssetResourceLoader *)resourceLoader didCancelLoadingRequest:(AVAssetResourceLoadingRequest *)loadingRequest
-{
-    [self.request cancel];
 }
 
 @end
