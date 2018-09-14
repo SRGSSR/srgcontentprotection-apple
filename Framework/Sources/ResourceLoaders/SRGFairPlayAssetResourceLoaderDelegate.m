@@ -66,8 +66,14 @@ static NSURLRequest *SRGFairPlayContentKeyContextRequest(NSURL *URL, NSData *req
 
 - (SRGDiagnosticInformation *)diagnosticInformation
 {
-    NSString *URN = self.userInfo[SRGContentProtectionURNKey];
-    return URN ? [[[SRGDiagnosticsService serviceWithName:@"SRGPlaybackMetrics"] reportWithName:URN] informationForKey:@"drmResult"] : nil;
+    NSString *serviceName = self.options[SRGAssetOptionDiagnosticServiceNameKey];
+    NSString *reportName = self.options[SRGAssetOptionDiagnosticReportNameKey];
+    if (serviceName && reportName) {
+        return [[[SRGDiagnosticsService serviceWithName:serviceName] reportWithName:reportName] informationForKey:@"drmResult"];
+    }
+    else {
+        return nil;
+    }
 }
 
 #pragma clang diagnostic pop

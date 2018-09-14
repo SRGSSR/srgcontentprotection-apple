@@ -4,6 +4,8 @@
 //  License information is available from the LICENSE file.
 //
 
+#import "SRGContentProtectionConstants.h"
+
 #import <AVFoundation/AVFoundation.h>
 
 NS_ASSUME_NONNULL_BEGIN
@@ -34,7 +36,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Optional information associated with the receiver.
  */
-@property (nonatomic, nullable) NSDictionary *userInfo;
+@property (nonatomic, nullable) NSDictionary<SRGAssetOption, id> *options;
 
 @end
 

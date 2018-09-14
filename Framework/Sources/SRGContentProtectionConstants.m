@@ -6,4 +6,5 @@
 
 #import "SRGContentProtectionConstants.h"
 
-NSString * const SRGContentProtectionURNKey = @"SRGContentProtectionURN";
+NSString * const SRGAssetOptionDiagnosticServiceNameKey = @"SRGAssetOptionDiagnosticServiceName";
+NSString * const SRGAssetOptionDiagnosticReportNameKey = @"SRGAssetOptionDiagnosticReportName";

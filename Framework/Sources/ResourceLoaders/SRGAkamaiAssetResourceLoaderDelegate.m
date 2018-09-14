@@ -8,7 +8,6 @@
 
 #import "NSBundle+SRGContentProtection.h"
 #import "SRGAkamaiToken.h"
-#import "SRGContentProtectionConstants.h"
 #import "SRGContentProtectionError.h"
 
 #import <SRGDiagnostics/SRGDiagnostics.h>
@@ -49,8 +48,14 @@ static NSString * const SRGStandardURLSchemePrefix = @"akamai";
 
 - (SRGDiagnosticInformation *)diagnosticInformation
 {
-    NSString *URN = self.userInfo[SRGContentProtectionURNKey];
-    return URN ? [[[SRGDiagnosticsService serviceWithName:@"SRGPlaybackMetrics"] reportWithName:URN] informationForKey:@"tokenResult"] : nil;
+    NSString *serviceName = self.options[SRGAssetOptionDiagnosticServiceNameKey];
+    NSString *reportName = self.options[SRGAssetOptionDiagnosticReportNameKey];
+    if (serviceName && reportName) {
+        return [[[SRGDiagnosticsService serviceWithName:serviceName] reportWithName:reportName] informationForKey:@"tokenResult"];
+    }
+    else {
+        return nil;
+    }
 }
 
 #pragma mark Subclassing hooks
