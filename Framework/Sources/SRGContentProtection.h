@@ -9,6 +9,9 @@
 // Official version number.
 FOUNDATION_EXPORT NSString *SRGContentProtectionMarketingVersion(void);
 
+//  Return `YES` iff run in a public (open source) setup. Always `NO`.
+FOUNDATION_EXPORT BOOL SRGContentProtectionIsPublic(void);
+
 // Public headers.
 #import "AVURLAsset+SRGContentProtection.h"
 #import "SRGAkamaiToken.h"
