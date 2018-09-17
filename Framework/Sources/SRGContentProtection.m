@@ -13,7 +13,11 @@ NSString *SRGContentProtectionMarketingVersion(void)
     return [NSBundle srg_contentProtectionBundle].infoDictionary[@"CFBundleShortVersionString"];
 }
 
-BOOL SRGContentProtectionIsPublic(void)
+@implementation NSBundle (SRGContentProtectionVersion)
+
++ (BOOL)srg_contentProtectionIsPublic
 {
     return NO;
 }
+
+@end
