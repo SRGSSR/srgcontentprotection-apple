@@ -30,6 +30,7 @@ For more information about Carthage and its use, refer to the [official document
 The library requires the following frameworks to be added to any target requiring it:
 
 * `SRGContentProtection`: The content protection library framework.
+* `SRGDiagnostics`: Framework for collecting diagnostic information.
 * `SRGNetwork`: A networking framework.
 
 ### Dynamic framework integration

@@ -11,7 +11,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Resource loader delegate for Akamai token-protected streams.
  */
-@interface SRGAkamaiAssetResourceLoaderDelegate : NSObject <SRGAssetResourceLoaderDelegate>
+@interface SRGAkamaiAssetResourceLoaderDelegate : SRGAssetResourceLoaderDelegate
 
 @end
 

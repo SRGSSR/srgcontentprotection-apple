@@ -10,6 +10,8 @@
 #import "SRGAkamaiToken.h"
 #import "SRGContentProtectionError.h"
 
+#import <SRGDiagnostics/SRGDiagnostics.h>
+
 static NSString * const SRGStandardURLSchemePrefix = @"akamai";
 
 @interface SRGAkamaiAssetResourceLoaderDelegate ()
@@ -42,10 +44,41 @@ static NSString * const SRGStandardURLSchemePrefix = @"akamai";
     return self;
 }
 
-#pragma mark Common resource loading request processing
+#pragma mark Getters and setters
+
+- (SRGDiagnosticInformation *)diagnosticInformation
+{
+    NSString *serviceName = self.options[SRGAssetOptionDiagnosticServiceNameKey];
+    NSString *reportName = self.options[SRGAssetOptionDiagnosticReportNameKey];
+    if (serviceName && reportName) {
+        return [[[SRGDiagnosticsService serviceWithName:serviceName] reportWithName:reportName] informationForKey:@"tokenResult"];
+    }
+    else {
+        return nil;
+    }
+}
+
+#pragma mark Subclassing hooks
+
+- (NSURL *)assetURLForURL:(NSURL *)URL
+{
+    /**
+     *  Use non-standard scheme unkwown to AirPlay receivers like the Apple TV. This ensures that the resource
+     *  loader delegate is used (if the resource is simply an HTTP one, the receiver thinks it can handle it,
+     *  and does not call the resource loader delegate).
+     *
+     *  See https://stackoverflow.com/a/30154884/760435
+     */
+    NSURLComponents *components = [NSURLComponents componentsWithURL:URL resolvingAgainstBaseURL:NO];
+    components.scheme = [@[ SRGStandardURLSchemePrefix, components.scheme ] componentsJoinedByString:@"+"];
+    return components.URL;
+}
 
 - (BOOL)shouldProcessResourceLoadingRequest:(AVAssetResourceLoadingRequest *)loadingRequest
 {
+    SRGDiagnosticInformation *diagnosticInformation = [self diagnosticInformation];
+    [diagnosticInformation startTimeMeasurementForKey:@"duration"];
+    
     // About thread-safety considerations: The delegate methods are called from background threads, and though there is
     // no explicit documentation, Apple examples show that completion calls can be made from background threads. There
     // is probably no need to dispatch any work to the main thread.
@@ -68,6 +101,11 @@ static NSString * const SRGStandardURLSchemePrefix = @"akamai";
                 [loadingRequest.dataRequest respondWithData:data];
                 [loadingRequest finishLoading];
             }
+            
+            [diagnosticInformation setURL:URL forKey:@"url"];
+            [diagnosticInformation setInteger:HTTPResponse.statusCode forKey:@"httpStatusCode"];
+            [diagnosticInformation setString:error.localizedDescription forKey:@"message"];
+            [diagnosticInformation stopTimeMeasurementForKey:@"duration"];
         }];
         [self.request resume];
     }];
@@ -75,33 +113,7 @@ static NSString * const SRGStandardURLSchemePrefix = @"akamai";
     return YES;
 }
 
-#pragma mark SRGAssetResourceLoaderDelegate protocol
-
-- (NSURL *)assetURLForURL:(NSURL *)URL
-{
-    /**
-     *  Use non-standard scheme unkwown to AirPlay receivers like the Apple TV. This ensures that the resource
-     *  loader delegate is used (if the resource is simply an HTTP one, the receiver thinks it can handle it,
-     *  and does not call the resource loader delegate).
-     *
-     *  See https://stackoverflow.com/a/30154884/760435
-     */
-    NSURLComponents *components = [NSURLComponents componentsWithURL:URL resolvingAgainstBaseURL:NO];
-    components.scheme = [@[ SRGStandardURLSchemePrefix, components.scheme ] componentsJoinedByString:@"+"];
-    return components.URL;
-}
-
-- (BOOL)resourceLoader:(AVAssetResourceLoader *)resourceLoader shouldWaitForLoadingOfRequestedResource:(AVAssetResourceLoadingRequest *)loadingRequest
-{
-    return [self shouldProcessResourceLoadingRequest:loadingRequest];
-}
-
-- (BOOL)resourceLoader:(AVAssetResourceLoader *)resourceLoader shouldWaitForRenewalOfRequestedResource:(AVAssetResourceRenewalRequest *)renewalRequest
-{
-    return [self shouldProcessResourceLoadingRequest:renewalRequest];
-}
-
-- (void)resourceLoader:(AVAssetResourceLoader *)resourceLoader didCancelLoadingRequest:(AVAssetResourceLoadingRequest *)loadingRequest
+- (void)didCancelResourceLoadingRequest:(AVAssetResourceLoadingRequest *)loadingRequest
 {
     [self.request cancel];
 }

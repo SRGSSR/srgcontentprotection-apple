@@ -7,8 +7,10 @@
 #import "SRGFairPlayAssetResourceLoaderDelegate.h"
 
 #import "NSBundle+SRGContentProtection.h"
+#import "SRGContentProtectionConstants.h"
 #import "SRGContentProtectionError.h"
 
+#import <SRGDiagnostics/SRGDiagnostics.h>
 #import <SRGNetwork/SRGNetwork.h>
 
 static BOOL SRGIsFairPlayURL(NSURL *URL)
@@ -60,10 +62,25 @@ static NSURLRequest *SRGFairPlayContentKeyContextRequest(NSURL *URL, NSData *req
     return [self initWithCertificateURL:[NSURL new]];
 }
 
+#pragma mark Getters and setters
+
+- (SRGDiagnosticInformation *)diagnosticInformation
+{
+    NSString *serviceName = self.options[SRGAssetOptionDiagnosticServiceNameKey];
+    NSString *reportName = self.options[SRGAssetOptionDiagnosticReportNameKey];
+    if (serviceName && reportName) {
+        return [[[SRGDiagnosticsService serviceWithName:serviceName] reportWithName:reportName] informationForKey:@"drmResult"];
+    }
+    else {
+        return nil;
+    }
+}
+
 #pragma clang diagnostic pop
 
-#pragma mark Common resource loading request processing
+#pragma mark Subclassing hooks
 
+// For FairPlay-protected streams, only called on a device
 - (BOOL)shouldProcessResourceLoadingRequest:(AVAssetResourceLoadingRequest *)loadingRequest
 {
     // About thread-safety considerations: The delegate methods are called from background threads, and though there is
@@ -73,6 +90,9 @@ static NSURLRequest *SRGFairPlayContentKeyContextRequest(NSURL *URL, NSData *req
     if (! SRGIsFairPlayURL(URL)) {
         return NO;
     }
+    
+    SRGDiagnosticInformation *diagnosticInformation = [self diagnosticInformation];
+    [diagnosticInformation startTimeMeasurementForKey:@"duration"];
     
     self.request = [[SRGNetworkRequest alloc] initWithURLRequest:[NSURLRequest requestWithURL:self.certificateURL] session:self.session options:0 completionBlock:^(NSData * _Nullable certificateData, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         // Resource loader methods must be called on the main thread
@@ -103,6 +123,13 @@ static NSURLRequest *SRGFairPlayContentKeyContextRequest(NSURL *URL, NSData *req
     return YES;
 }
 
+- (void)didCancelResourceLoadingRequest:(AVAssetResourceLoadingRequest *)loadingRequest
+{
+    [self.request cancel];
+}
+
+#pragma mark Helpers
+
 - (void)finishLoadingRequest:(AVAssetResourceLoadingRequest *)loadingRequest withContentKeyContextData:(NSData *)contentKeyContextData error:(NSError *)error
 {
     if (contentKeyContextData) {
@@ -117,25 +144,14 @@ static NSURLRequest *SRGFairPlayContentKeyContextRequest(NSURL *URL, NSData *req
         NSError *friendlyError = [NSError errorWithDomain:SRGContentProtectionErrorDomain code:SRGContentProtectionErrorUnauthorized userInfo:[userInfo copy]];
         [loadingRequest finishLoadingWithError:friendlyError];
     }
-}
-
-#pragma mark SRGAssetResourceLoaderDelegate protocol
-
-// For FairPlay-protected streams, only called on a device
-- (BOOL)resourceLoader:(AVAssetResourceLoader *)resourceLoader shouldWaitForLoadingOfRequestedResource:(AVAssetResourceLoadingRequest *)loadingRequest
-{
-    return [self shouldProcessResourceLoadingRequest:loadingRequest];
-}
-
-// For FairPlay-protected streams, only called on a device
-- (BOOL)resourceLoader:(AVAssetResourceLoader *)resourceLoader shouldWaitForRenewalOfRequestedResource:(AVAssetResourceRenewalRequest *)renewalRequest
-{
-    return [self shouldProcessResourceLoadingRequest:renewalRequest];
-}
-
-- (void)resourceLoader:(AVAssetResourceLoader *)resourceLoader didCancelLoadingRequest:(AVAssetResourceLoadingRequest *)loadingRequest
-{
-    [self.request cancel];
+    
+    SRGDiagnosticInformation *diagnosticInformation = [self diagnosticInformation];
+    [diagnosticInformation setURL:loadingRequest.request.URL forKey:@"url"];
+    
+    NSHTTPURLResponse *HTTPResponse = [loadingRequest.response isKindOfClass:[NSHTTPURLResponse class]] ? (NSHTTPURLResponse *)loadingRequest.response : nil;
+    [diagnosticInformation setInteger:HTTPResponse.statusCode forKey:@"httpStatusCode"];
+    [diagnosticInformation setString:error.localizedDescription forKey:@"message"];
+    [diagnosticInformation stopTimeMeasurementForKey:@"duration"];
 }
 
 @end
