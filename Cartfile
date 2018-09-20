@@ -1,2 +1,2 @@
-github "SRGSSR/srgdiagnostics-ios" "17e32379a13b5e5435233cd83a609a3f2d9b5317"
-github "SRGSSR/srgnetwork-ios" "0.2"
+github "SRGSSR/srgdiagnostics-ios" "develop"
+github "SRGSSR/srgnetwork-ios" "feature/ios12-xcode10"
