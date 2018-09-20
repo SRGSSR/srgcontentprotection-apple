@@ -32,7 +32,7 @@ static NSString * const SRGTokenServiceURLString = @"https://tp.srgssr.ch/akahd/
         
         NSString *token = nil;
         id tokenDictionary = JSONDictionary[@"token"];
-        if ([tokenDictionary isKindOfClass:[NSDictionary class]]) {
+        if ([tokenDictionary isKindOfClass:NSDictionary.class]) {
             token = [tokenDictionary objectForKey:@"authparams"];
         }
         
