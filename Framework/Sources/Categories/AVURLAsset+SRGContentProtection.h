@@ -35,18 +35,18 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Create an asset supporting standard SRG SSR content protection. Digital rights management can optionally be enabled
- *  by supplying a URL to retrieve licenses from.
+ *  by supplying a URL to retrieve certificate from.
  *
- *  @param URL        The URL to be played.
- *  @param licenseURL The URL where licenses must be retrieved.
- *  @param options    Asset playback options.
+ *  @param URL            The URL to be played.
+ *  @param certificateURL The URL where certificate must be retrieved.
+ *  @param options        Asset playback options.
  */
-+ (instancetype)srg_assetWithURL:(NSURL *)URL licenseURL:(nullable NSURL *)licenseURL options:(nullable NSDictionary<SRGAssetOption, id> *)options;
++ (instancetype)srg_assetWithURL:(NSURL *)URL certificateURL:(nullable NSURL *)certificateURL options:(nullable NSDictionary<SRGAssetOption, id> *)options;
 
 /**
- *  Same as `-srg_assetWithURL:licenseURL:userInfo:`, but without user information dictionary.
+ *  Same as `-srg_assetWithURL:certificateURL:userInfo:`, but without user information dictionary.
  */
-+ (instancetype)srg_assetWithURL:(NSURL *)URL licenseURL:(nullable NSURL *)licenseURL;
++ (instancetype)srg_assetWithURL:(NSURL *)URL certificateURL:(nullable NSURL *)certificateURL;
 
 @end
 
