@@ -16,7 +16,7 @@
 		6F0EB54320FC7FF4009C02CF /* SRGContentProtection.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F0EB54220FC7FF4009C02CF /* SRGContentProtection.m */; };
 		6F0EB54720FC8049009C02CF /* NSBundle+SRGContentProtection.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F0EB54520FC8049009C02CF /* NSBundle+SRGContentProtection.m */; };
 		6F0EB54820FC8049009C02CF /* NSBundle+SRGContentProtection.h in Headers */ = {isa = PBXBuildFile; fileRef = 6F0EB54620FC8049009C02CF /* NSBundle+SRGContentProtection.h */; };
-		6F7B786A2108A05C001E3BBE /* SRGAkamaiToken.h in Headers */ = {isa = PBXBuildFile; fileRef = 6F7B78682108A05C001E3BBE /* SRGAkamaiToken.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6F7B786A2108A05C001E3BBE /* SRGAkamaiToken.h in Headers */ = {isa = PBXBuildFile; fileRef = 6F7B78682108A05C001E3BBE /* SRGAkamaiToken.h */; };
 		6F7B786B2108A05C001E3BBE /* SRGAkamaiToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F7B78692108A05C001E3BBE /* SRGAkamaiToken.m */; };
 		6F8A93D220FDB3D200AA6434 /* SRGFairPlayAssetResourceLoaderDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 6F8A93D020FDB3D200AA6434 /* SRGFairPlayAssetResourceLoaderDelegate.h */; };
 		6F8A93D320FDB3D200AA6434 /* SRGFairPlayAssetResourceLoaderDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F8A93D120FDB3D200AA6434 /* SRGFairPlayAssetResourceLoaderDelegate.m */; };

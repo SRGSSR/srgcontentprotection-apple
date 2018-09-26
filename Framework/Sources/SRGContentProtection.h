@@ -14,5 +14,4 @@ FOUNDATION_EXPORT BOOL SRGContentProtectionIsPublic(void);
 
 // Public headers.
 #import "AVURLAsset+SRGContentProtection.h"
-#import "SRGAkamaiToken.h"
 #import "SRGContentProtectionConstants.h"
