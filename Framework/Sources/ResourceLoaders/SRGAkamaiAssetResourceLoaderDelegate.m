@@ -83,7 +83,12 @@ static NSString * const SRGStandardURLSchemePrefix = @"akamai";
     // no explicit documentation, Apple examples show that completion calls can be made from background threads. There
     // is probably no need to dispatch any work to the main thread.
     NSURL *requestURL = [self URLForAssetURL:loadingRequest.request.URL];
-    self.request = [SRGAkamaiToken tokenizeURL:requestURL withSession:self.session completionBlock:^(NSURL * _Nonnull URL, NSHTTPURLResponse * _Nonnull HTTPResponse) {
+    self.request = [SRGAkamaiToken tokenizeURL:requestURL withSession:self.session completionBlock:^(NSURL * _Nonnull URL, NSHTTPURLResponse * _Nonnull HTTPResponse, NSError * _Nullable error) {
+        [diagnosticInformation setURL:HTTPResponse.URL forKey:@"url"];
+        [diagnosticInformation setInteger:HTTPResponse.statusCode forKey:@"httpStatusCode"];
+        [diagnosticInformation setString:error.localizedDescription forKey:@"message"];
+        [diagnosticInformation stopTimeMeasurementForKey:@"duration"];
+        
         NSMutableURLRequest *playlistRequest = [loadingRequest.request mutableCopy];
         playlistRequest.URL = URL;
         self.request = [[SRGNetworkRequest alloc] initWithURLRequest:playlistRequest session:self.session options:0 completionBlock:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
@@ -101,11 +106,6 @@ static NSString * const SRGStandardURLSchemePrefix = @"akamai";
                 [loadingRequest.dataRequest respondWithData:data];
                 [loadingRequest finishLoading];
             }
-            
-            [diagnosticInformation setURL:URL forKey:@"url"];
-            [diagnosticInformation setInteger:HTTPResponse.statusCode forKey:@"httpStatusCode"];
-            [diagnosticInformation setString:error.localizedDescription forKey:@"message"];
-            [diagnosticInformation stopTimeMeasurementForKey:@"duration"];
         }];
         [self.request resume];
     }];
