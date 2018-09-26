@@ -21,7 +21,7 @@
 - (void)testProtectedResourcePlayback
 {
     AVURLAsset *asset = [AVURLAsset srg_assetWithURL:[NSURL URLWithString:@"https://srgssruni9ch-lh.akamaihd.net/i/enc9uni_ch@191320/master.m3u8"]
-                                          certificateURL:nil];
+                                      certificateURL:nil];
     AVPlayerItem *playerItem = [AVPlayerItem playerItemWithAsset:asset];
     
     [self keyValueObservingExpectationForObject:playerItem keyPath:@"status" expectedValue:@(AVPlayerItemStatusReadyToPlay)];
@@ -34,7 +34,7 @@
 - (void)testProtectedResourcePlaybackWithParameter
 {
     AVURLAsset *asset = [AVURLAsset srg_assetWithURL:[NSURL URLWithString:@"https://srgssruni9ch-lh.akamaihd.net/i/enc9uni_ch@191320/master.m3u8?__b__=800"]
-                                          certificateURL:nil];
+                                      certificateURL:nil];
     AVPlayerItem *playerItem = [AVPlayerItem playerItemWithAsset:asset];
     
     [self keyValueObservingExpectationForObject:playerItem keyPath:@"status" expectedValue:@(AVPlayerItemStatusReadyToPlay)];
@@ -47,7 +47,7 @@
 - (void)testNonProtectedResourcePlayback
 {
     AVURLAsset *asset = [AVURLAsset srg_assetWithURL:[NSURL URLWithString:@"http://tagesschau-lh.akamaihd.net/i/tagesschau_1@119231/master.m3u8"]
-                                          certificateURL:nil];
+                                      certificateURL:nil];
     AVPlayerItem *playerItem = [AVPlayerItem playerItemWithAsset:asset];
     
     [self keyValueObservingExpectationForObject:playerItem keyPath:@"status" expectedValue:@(AVPlayerItemStatusReadyToPlay)];
@@ -60,7 +60,7 @@
 - (void)testNonProtectedResourcePlaybackWithParameter
 {
     AVURLAsset *asset = [AVURLAsset srg_assetWithURL:[NSURL URLWithString:@"http://tagesschau-lh.akamaihd.net/i/tagesschau_1@119231/master.m3u8?__b__=800"]
-                                          certificateURL:nil];
+                                      certificateURL:nil];
     AVPlayerItem *playerItem = [AVPlayerItem playerItemWithAsset:asset];
     
     [self keyValueObservingExpectationForObject:playerItem keyPath:@"status" expectedValue:@(AVPlayerItemStatusReadyToPlay)];
@@ -73,7 +73,7 @@
 - (void)testInvalidResourcePlayback
 {
     AVURLAsset *asset = [AVURLAsset srg_assetWithURL:[NSURL URLWithString:@"http://httpbin.org/status/404"]
-                                          certificateURL:nil];
+                                      certificateURL:nil];
     AVPlayerItem *playerItem = [AVPlayerItem playerItemWithAsset:asset];
     
     [self keyValueObservingExpectationForObject:playerItem keyPath:@"status" expectedValue:@(AVPlayerItemStatusFailed)];
@@ -86,7 +86,7 @@
 - (void)testAkamaiMP3ResourcePlayback
 {
     AVURLAsset *asset = [AVURLAsset srg_assetWithURL:[NSURL URLWithString:@"https://srfaudio-a.akamaihd.net/delivery/world/75f44907-4638-422d-bc80-bbb14c9d9c93.mp3"]
-                                          certificateURL:nil];
+                                      certificateURL:nil];
     AVPlayerItem *playerItem = [AVPlayerItem playerItemWithAsset:asset];
     
     [self keyValueObservingExpectationForObject:playerItem keyPath:@"status" expectedValue:@(AVPlayerItemStatusReadyToPlay)];
