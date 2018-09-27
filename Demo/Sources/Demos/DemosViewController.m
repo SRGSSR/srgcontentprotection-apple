@@ -55,12 +55,12 @@
         }
             
         case 1: {
-            asset = [AVURLAsset srg_assetWithURL:URL licenseURL:nil];
+            asset = [AVURLAsset srg_assetWithURL:URL certificateURL:nil];
             break;
         }
             
         case 2: {
-            asset = [AVURLAsset srg_assetWithURL:URL licenseURL:[NSURL URLWithString:@"https://rng.stage.ott.irdeto.com/licenseServer/streaming/v1/SRG/getcertificate?applicationId=stage"]];
+            asset = [AVURLAsset srg_assetWithURL:URL certificateURL:[NSURL URLWithString:@"https://rng.stage.ott.irdeto.com/licenseServer/streaming/v1/SRG/getcertificate?applicationId=stage"]];
             break;
         }
             

@@ -31,7 +31,7 @@ static void *SRGContentProtectionResourceLoaderDelegateKey = &SRGContentProtecti
 
 + (instancetype)srg_assetWithURL:(NSURL *)URL options:(NSDictionary<SRGAssetOption,id> *)options
 {
-    return [self srg_assetWithURL:URL licenseURL:nil options:options];
+    return [self srg_assetWithURL:URL certificateURL:nil options:options];
 }
 
 + (instancetype)srg_assetWithURL:(NSURL *)URL
@@ -39,11 +39,11 @@ static void *SRGContentProtectionResourceLoaderDelegateKey = &SRGContentProtecti
     return [self srg_assetWithURL:URL];
 }
 
-+ (instancetype)srg_assetWithURL:(NSURL *)URL licenseURL:(NSURL *)licenseURL options:(NSDictionary<SRGAssetOption,id> *)options
++ (instancetype)srg_assetWithURL:(NSURL *)URL certificateURL:(NSURL *)certificateURL options:(NSDictionary<SRGAssetOption,id> *)options
 {
     SRGAssetResourceLoaderDelegate *resourceLoaderDelegate = nil;
-    if (licenseURL) {
-        resourceLoaderDelegate = [[SRGFairPlayAssetResourceLoaderDelegate alloc] initWithCertificateURL:licenseURL];
+    if (certificateURL) {
+        resourceLoaderDelegate = [[SRGFairPlayAssetResourceLoaderDelegate alloc] initWithCertificateURL:certificateURL];
     }
     else if ([URL.host containsString:@"akamai"] && [URL.path.pathExtension isEqualToString:@"m3u8"]) {
         resourceLoaderDelegate = [[SRGAkamaiAssetResourceLoaderDelegate alloc] init];
@@ -53,9 +53,9 @@ static void *SRGContentProtectionResourceLoaderDelegateKey = &SRGContentProtecti
     return [self srg_assetWithURL:URL resourceLoaderDelegate:resourceLoaderDelegate];
 }
 
-+ (instancetype)srg_assetWithURL:(NSURL *)URL licenseURL:(NSURL *)licenseURL
++ (instancetype)srg_assetWithURL:(NSURL *)URL certificateURL:(NSURL *)certificateURL
 {
-    return [self srg_assetWithURL:URL licenseURL:licenseURL options:nil];
+    return [self srg_assetWithURL:URL certificateURL:certificateURL options:nil];
 }
 
 @end
