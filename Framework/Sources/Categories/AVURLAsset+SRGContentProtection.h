@@ -4,6 +4,8 @@
 //  License information is available from the LICENSE file.
 //
 
+#import "SRGContentProtectionConstants.h"
+
 #import <AVFoundation/AVFoundation.h>
 
 NS_ASSUME_NONNULL_BEGIN
@@ -21,18 +23,30 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Create an asset supporting standard SRG SSR content protection.
  *
- *  @param URL The URL to be played.
+ *  @param URL     The URL to be played.
+ *  @param options Asset playback options.
+ */
++ (instancetype)srg_assetWithURL:(NSURL *)URL options:(nullable NSDictionary<SRGAssetOption, id> *)options;
+
+/**
+ *  Same as `-srg_assetWithURL:userInfo:`, but without user information dictionary.
  */
 + (instancetype)srg_assetWithURL:(NSURL *)URL;
 
 /**
  *  Create an asset supporting standard SRG SSR content protection. Digital rights management can optionally be enabled
- *  by supplying a URL to retrieve licenses from.
+ *  by supplying a URL to retrieve the certificate from.
  *
- *  @param URL        The URL to be played.
- *  @param licenseURL The URL where licenses must be retrieved.
+ *  @param URL            The URL to be played.
+ *  @param certificateURL The URL where the certificate must be retrieved.
+ *  @param options        Asset playback options.
  */
-+ (instancetype)srg_assetWithURL:(NSURL *)URL licenseURL:(nullable NSURL *)licenseURL;
++ (instancetype)srg_assetWithURL:(NSURL *)URL certificateURL:(nullable NSURL *)certificateURL options:(nullable NSDictionary<SRGAssetOption, id> *)options;
+
+/**
+ *  Same as `-srg_assetWithURL:certificateURL:userInfo:`, but without user information dictionary.
+ */
++ (instancetype)srg_assetWithURL:(NSURL *)URL certificateURL:(nullable NSURL *)certificateURL;
 
 @end
 

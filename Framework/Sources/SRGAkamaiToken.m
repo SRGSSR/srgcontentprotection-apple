@@ -18,7 +18,7 @@ static NSString * const SRGTokenServiceURLString = @"https://tp.srgssr.ch/akahd/
 
 #pragma mark Class methods
 
-+ (SRGNetworkRequest *)tokenizeURL:(NSURL *)URL withSession:(NSURLSession *)session completionBlock:(nonnull void (^)(NSURL * _Nonnull, NSHTTPURLResponse * _Nonnull))completionBlock
++ (SRGNetworkRequest *)tokenizeURL:(NSURL *)URL withSession:(NSURLSession *)session completionBlock:(nonnull void (^)(NSURL * _Nonnull, NSHTTPURLResponse * _Nonnull, NSError * _Nullable))completionBlock
 {
     NSURLComponents *URLComponents = [NSURLComponents componentsWithURL:URL resolvingAgainstBaseURL:NO];
     NSString *acl = [URLComponents.path.stringByDeletingLastPathComponent stringByAppendingPathComponent:@"*"];
@@ -32,13 +32,13 @@ static NSString * const SRGTokenServiceURLString = @"https://tp.srgssr.ch/akahd/
         
         NSString *token = nil;
         id tokenDictionary = JSONDictionary[@"token"];
-        if ([tokenDictionary isKindOfClass:[NSDictionary class]]) {
+        if ([tokenDictionary isKindOfClass:NSDictionary.class]) {
             token = [tokenDictionary objectForKey:@"authparams"];
         }
         
         // On failure, just return the untokenized URL, which might be playable as is
         if (! token) {
-            completionBlock(URL, HTTPResponse);
+            completionBlock(URL, HTTPResponse, error);
             return;
         }
         
@@ -55,7 +55,7 @@ static NSString * const SRGTokenServiceURLString = @"https://tp.srgssr.ch/akahd/
         }
         tokenizedURLComponents.queryItems = [queryItems copy];
         
-        completionBlock(tokenizedURLComponents.URL, HTTPResponse);
+        completionBlock(tokenizedURLComponents.URL, HTTPResponse, error);
     }];
 }
 

@@ -11,7 +11,11 @@ The SRG Content Protection framework contains the sensitive logic required for p
 
 ## Compatibility
 
-The library is suitable for applications running on iOS 9 and above. The project is meant to be opened with the latest Xcode version (currently Xcode 9).
+The library is suitable for applications running on iOS 9 and above. The project is meant to be opened with the latest Xcode version (currently Xcode 10).
+
+## Contributing
+
+If you want to contribute to the project, have a look at our [contributing guide](CONTRIBUTING.md).
 
 ## Installation
 
@@ -21,8 +25,6 @@ The library can be added to a project using [Carthage](https://github.com/Cartha
 github "SRGSSR/srgcontentprotection-ios"
 ```
 
-Until Carthage 0.30, only dynamic frameworks could be integrated. Starting with Carthage 0.30, though, frameworks can be integrated statically as well, which avoids slow application startups usually associated with the use of too many dynamic frameworks.
-
 For more information about Carthage and its use, refer to the [official documentation](https://github.com/Carthage/Carthage).
 
 ### Dependencies
@@ -30,6 +32,7 @@ For more information about Carthage and its use, refer to the [official document
 The library requires the following frameworks to be added to any target requiring it:
 
 * `SRGContentProtection`: The content protection library framework.
+* `SRGDiagnostics`: Framework for collecting diagnostic information.
 * `SRGNetwork`: A networking framework.
 
 ### Dynamic framework integration
@@ -85,16 +88,9 @@ Import the module where needed:
 import SRGContentProtection
 ```
 
-### Playing a protected media with AVPlayer
+### Playing a protected media
 
 To play a protected media with AVPlayer, create an asset through one of the methods from the `AVURLAsset (SRGContentProtection)` category, and use it to instantiate the `AVPlayerItem` which will be played.
-
-### Playing a protected media outside AVPlayer context
-
-The SRG Content Protection framework does not provide any kind of integration for playback without `AVPlayer`, e.g. when using Google Cast with the standard receiver. In such cases you are responsible of retrieving a playable resource and associated credentials to supply to the external context, depending on what it requires (please refer to the associated vendor documentation):
-
-* For Akamai token-protected streams: Use `SRGAkamaiToken` to create a request for a playable tokenized URL. Note that a token has a limited lifetime and that the tokenized URL must be played as early as possible after it has been retrieved. If you wait too much the URL might become unplayable.
-* For streams protected with DRMs (except FairPlay which requires the use of `AVPlayer`, see above), your application is responsible of getting credentials to be supplied to the external context, depending on which DRMs are available and supported. Please get in touch with the team delivering streams and metadata for your application.
 
 ## Known limitations
 

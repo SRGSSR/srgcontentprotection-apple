@@ -17,9 +17,9 @@ static void *SRGContentProtectionResourceLoaderDelegateKey = &SRGContentProtecti
 
 #pragma mark Class methods
 
-+ (instancetype)srg_assetWithURL:(NSURL *)URL resourceLoaderDelegate:(id<SRGAssetResourceLoaderDelegate>)resourceLoaderDelegate
++ (instancetype)srg_assetWithURL:(NSURL *)URL resourceLoaderDelegate:(SRGAssetResourceLoaderDelegate *)resourceLoaderDelegate
 {
-    NSURL *assetURL = [resourceLoaderDelegate respondsToSelector:@selector(assetURLForURL:)] ? [resourceLoaderDelegate assetURLForURL:URL] : URL;
+    NSURL *assetURL = resourceLoaderDelegate ? [resourceLoaderDelegate assetURLForURL:URL] : URL;
     AVURLAsset *asset = [AVURLAsset assetWithURL:assetURL];
     objc_setAssociatedObject(asset, SRGContentProtectionResourceLoaderDelegateKey, resourceLoaderDelegate, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     
@@ -29,21 +29,33 @@ static void *SRGContentProtectionResourceLoaderDelegateKey = &SRGContentProtecti
     return asset;
 }
 
-+ (instancetype)srg_assetWithURL:(NSURL *)URL
++ (instancetype)srg_assetWithURL:(NSURL *)URL options:(NSDictionary<SRGAssetOption,id> *)options
 {
-    return [self srg_assetWithURL:URL licenseURL:nil];
+    return [self srg_assetWithURL:URL certificateURL:nil options:options];
 }
 
-+ (instancetype)srg_assetWithURL:(NSURL *)URL licenseURL:(NSURL *)licenseURL
++ (instancetype)srg_assetWithURL:(NSURL *)URL
 {
-    id<SRGAssetResourceLoaderDelegate> resourceLoaderDelegate = nil;
-    if (licenseURL) {
-        resourceLoaderDelegate = [[SRGFairPlayAssetResourceLoaderDelegate alloc] initWithCertificateURL:licenseURL];
+    return [self srg_assetWithURL:URL];
+}
+
++ (instancetype)srg_assetWithURL:(NSURL *)URL certificateURL:(NSURL *)certificateURL options:(NSDictionary<SRGAssetOption,id> *)options
+{
+    SRGAssetResourceLoaderDelegate *resourceLoaderDelegate = nil;
+    if (certificateURL) {
+        resourceLoaderDelegate = [[SRGFairPlayAssetResourceLoaderDelegate alloc] initWithCertificateURL:certificateURL];
     }
     else if ([URL.host containsString:@"akamai"] && [URL.path.pathExtension isEqualToString:@"m3u8"]) {
         resourceLoaderDelegate = [[SRGAkamaiAssetResourceLoaderDelegate alloc] init];
     }
+    resourceLoaderDelegate.options = options;
+    
     return [self srg_assetWithURL:URL resourceLoaderDelegate:resourceLoaderDelegate];
+}
+
++ (instancetype)srg_assetWithURL:(NSURL *)URL certificateURL:(NSURL *)certificateURL
+{
+    return [self srg_assetWithURL:URL certificateURL:certificateURL options:nil];
 }
 
 @end

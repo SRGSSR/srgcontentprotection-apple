@@ -11,7 +11,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Resource loader delegate for streams encrypted with FairPlay.
  */
-@interface SRGFairPlayAssetResourceLoaderDelegate : NSObject <SRGAssetResourceLoaderDelegate>
+@interface SRGFairPlayAssetResourceLoaderDelegate : SRGAssetResourceLoaderDelegate
 
 /**
  *  Create an instance retrieving certificates at the specified URL.
