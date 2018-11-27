@@ -95,9 +95,11 @@ static NSURLRequest *SRGFairPlayContentKeyContextRequest(NSURL *URL, NSData *req
     [diagnosticInformation startTimeMeasurementForKey:@"duration"];
     
     self.request = [[SRGNetworkRequest alloc] initWithURLRequest:[NSURLRequest requestWithURL:self.certificateURL] session:self.session options:0 completionBlock:^(NSData * _Nullable certificateData, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        NSHTTPURLResponse *HTTPResponse = [response isKindOfClass:[NSHTTPURLResponse class]] ? (NSHTTPURLResponse *)response : nil;
+        
         // Resource loader methods must be called on the main thread
         if (error) {
-            [self finishLoadingRequest:loadingRequest withContentKeyContextData:nil error:error];
+            [self finishLoadingRequest:loadingRequest withContentKeyContextData:nil HTTPResponse:HTTPResponse error:error];
             return;
         }
         
@@ -109,13 +111,14 @@ static NSURLRequest *SRGFairPlayContentKeyContextRequest(NSURL *URL, NSData *req
                                                                               options:nil
                                                                                 error:&keyError];
         if (keyError) {
-            [self finishLoadingRequest:loadingRequest withContentKeyContextData:nil error:keyError];
+            [self finishLoadingRequest:loadingRequest withContentKeyContextData:nil HTTPResponse:HTTPResponse error:keyError];
             return;
         }
         
         NSURLRequest *contentKeyContextRequest = SRGFairPlayContentKeyContextRequest(URL, keyRequestData);
         self.request = [[SRGNetworkRequest alloc] initWithURLRequest:contentKeyContextRequest session:self.session options:0 completionBlock:^(NSData * _Nullable contentKeyContextData, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-            [self finishLoadingRequest:loadingRequest withContentKeyContextData:contentKeyContextData error:error];
+            NSHTTPURLResponse *HTTPResponse = [response isKindOfClass:[NSHTTPURLResponse class]] ? (NSHTTPURLResponse *)response : nil;
+            [self finishLoadingRequest:loadingRequest withContentKeyContextData:contentKeyContextData HTTPResponse:HTTPResponse error:error];
         }];
         [self.request resume];
     }];
@@ -130,7 +133,7 @@ static NSURLRequest *SRGFairPlayContentKeyContextRequest(NSURL *URL, NSData *req
 
 #pragma mark Helpers
 
-- (void)finishLoadingRequest:(AVAssetResourceLoadingRequest *)loadingRequest withContentKeyContextData:(NSData *)contentKeyContextData error:(NSError *)error
+- (void)finishLoadingRequest:(AVAssetResourceLoadingRequest *)loadingRequest withContentKeyContextData:(NSData *)contentKeyContextData HTTPResponse:(NSHTTPURLResponse *)HTTPResponse error:(NSError *)error
 {
     if (contentKeyContextData) {
         [loadingRequest.dataRequest respondWithData:contentKeyContextData];
@@ -148,7 +151,6 @@ static NSURLRequest *SRGFairPlayContentKeyContextRequest(NSURL *URL, NSData *req
     SRGDiagnosticInformation *diagnosticInformation = [self diagnosticInformation];
     [diagnosticInformation setURL:loadingRequest.request.URL forKey:@"url"];
     
-    NSHTTPURLResponse *HTTPResponse = [loadingRequest.response isKindOfClass:NSHTTPURLResponse.class] ? (NSHTTPURLResponse *)loadingRequest.response : nil;
     [diagnosticInformation setInteger:HTTPResponse.statusCode forKey:@"httpStatusCode"];
     [diagnosticInformation setString:error.localizedDescription forKey:@"message"];
     [diagnosticInformation stopTimeMeasurementForKey:@"duration"];
