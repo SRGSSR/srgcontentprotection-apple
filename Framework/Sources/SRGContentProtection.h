@@ -15,3 +15,4 @@ FOUNDATION_EXPORT BOOL SRGContentProtectionIsPublic(void);
 // Public headers.
 #import "AVURLAsset+SRGContentProtection.h"
 #import "SRGContentProtectionConstants.h"
+#import "SRGContentProtectionError.h"

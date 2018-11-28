@@ -46,7 +46,7 @@
 		6FD8110120FCC22500F250B9 /* SRGAkamaiAssetResourceLoaderDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 6FD810FF20FCC22500F250B9 /* SRGAkamaiAssetResourceLoaderDelegate.h */; };
 		6FD8110220FCC22500F250B9 /* SRGAkamaiAssetResourceLoaderDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FD8110020FCC22500F250B9 /* SRGAkamaiAssetResourceLoaderDelegate.m */; };
 		6FDE576520FC9DC700719525 /* SRGContentProtectionError.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FDE576320FC9DC700719525 /* SRGContentProtectionError.m */; };
-		6FDE576620FC9DC700719525 /* SRGContentProtectionError.h in Headers */ = {isa = PBXBuildFile; fileRef = 6FDE576420FC9DC700719525 /* SRGContentProtectionError.h */; };
+		6FDE576620FC9DC700719525 /* SRGContentProtectionError.h in Headers */ = {isa = PBXBuildFile; fileRef = 6FDE576420FC9DC700719525 /* SRGContentProtectionError.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6FE021DD2119B58800DF6617 /* SRGAssetResourceLoaderDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 6FE021DC2119B58800DF6617 /* SRGAssetResourceLoaderDelegate.h */; };
 		6FE91E7B2108A36A001B5E8F /* SRGNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F0432BC21006E7A002B090A /* SRGNetwork.framework */; };
 /* End PBXBuildFile section */
