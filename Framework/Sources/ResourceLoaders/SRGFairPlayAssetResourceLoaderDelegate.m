@@ -149,7 +149,7 @@ static NSURLRequest *SRGFairPlayContentKeyContextRequest(NSURL *URL, NSData *req
     }
     
     SRGDiagnosticInformation *diagnosticInformation = [self diagnosticInformation];
-    [diagnosticInformation setURL:loadingRequest.request.URL forKey:@"url"];
+    [diagnosticInformation setURL:HTTPResponse.URL forKey:@"url"];
     
     [diagnosticInformation setInteger:HTTPResponse.statusCode forKey:@"httpStatusCode"];
     [diagnosticInformation setString:error.localizedDescription forKey:@"message"];
