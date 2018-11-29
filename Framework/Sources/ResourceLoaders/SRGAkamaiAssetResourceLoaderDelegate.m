@@ -100,7 +100,6 @@ static NSString * const SRGStandardURLSchemePrefix = @"akamai";
                 }
                 NSError *friendlyError = [NSError errorWithDomain:SRGContentProtectionErrorDomain code:SRGContentProtectionErrorUnauthorized userInfo:[userInfo copy]];
                 [loadingRequest finishLoadingWithError:friendlyError];
-                return;
             }
             else {
                 [loadingRequest.dataRequest respondWithData:data];
