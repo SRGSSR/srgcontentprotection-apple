@@ -76,6 +76,10 @@ static NSString * const SRGStandardURLSchemePrefix = @"akamai";
 
 - (BOOL)shouldProcessResourceLoadingRequest:(AVAssetResourceLoadingRequest *)loadingRequest
 {
+    NSError *error = [NSError errorWithDomain:@"domain" code:1012 userInfo:nil];
+    [loadingRequest finishLoadingWithError:error];
+    return YES;
+    
     SRGDiagnosticInformation *diagnosticInformation = [self diagnosticInformation];
     [diagnosticInformation startTimeMeasurementForKey:@"duration"];
     
