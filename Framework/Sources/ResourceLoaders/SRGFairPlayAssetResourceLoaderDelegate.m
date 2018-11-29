@@ -91,38 +91,8 @@ static NSURLRequest *SRGFairPlayContentKeyContextRequest(NSURL *URL, NSData *req
         return NO;
     }
     
-    SRGDiagnosticInformation *diagnosticInformation = [self diagnosticInformation];
-    [diagnosticInformation startTimeMeasurementForKey:@"duration"];
-    
-    self.request = [[SRGNetworkRequest alloc] initWithURLRequest:[NSURLRequest requestWithURL:self.certificateURL] session:self.session options:0 completionBlock:^(NSData * _Nullable certificateData, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-        NSHTTPURLResponse *HTTPResponse = [response isKindOfClass:[NSHTTPURLResponse class]] ? (NSHTTPURLResponse *)response : nil;
-        
-        // Resource loader methods must be called on the main thread
-        if (error) {
-            [self finishLoadingRequest:loadingRequest withContentKeyContextData:nil HTTPResponse:HTTPResponse error:error];
-            return;
-        }
-        
-        // TODO: - Content identifier convention?
-        NSError *keyError = nil;
-        NSData *contentIdentifier = [loadingRequest.request.URL.absoluteString dataUsingEncoding:NSUTF8StringEncoding];
-        NSData *keyRequestData = [loadingRequest streamingContentKeyRequestDataForApp:certificateData
-                                                                    contentIdentifier:contentIdentifier
-                                                                              options:nil
-                                                                                error:&keyError];
-        if (keyError) {
-            [self finishLoadingRequest:loadingRequest withContentKeyContextData:nil HTTPResponse:HTTPResponse error:keyError];
-            return;
-        }
-        
-        NSURLRequest *contentKeyContextRequest = SRGFairPlayContentKeyContextRequest(URL, keyRequestData);
-        self.request = [[SRGNetworkRequest alloc] initWithURLRequest:contentKeyContextRequest session:self.session options:0 completionBlock:^(NSData * _Nullable contentKeyContextData, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-            NSHTTPURLResponse *HTTPResponse = [response isKindOfClass:[NSHTTPURLResponse class]] ? (NSHTTPURLResponse *)response : nil;
-            [self finishLoadingRequest:loadingRequest withContentKeyContextData:contentKeyContextData HTTPResponse:HTTPResponse error:error];
-        }];
-        [self.request resume];
-    }];
-    [self.request resume];
+    NSError *error = [NSError errorWithDomain:@"domain" code:1012 userInfo:nil];
+    [self finishLoadingRequest:loadingRequest withContentKeyContextData:nil HTTPResponse:nil error:error];
     return YES;
 }
 
