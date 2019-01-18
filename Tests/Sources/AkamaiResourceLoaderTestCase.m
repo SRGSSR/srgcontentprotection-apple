@@ -83,17 +83,4 @@
     [self waitForExpectationsWithTimeout:10. handler:nil];
 }
 
-- (void)testAkamaiMP3ResourcePlayback
-{
-    NSURL *URL = [NSURL URLWithString:@"https://srfaudio-a.akamaihd.net/delivery/world/75f44907-4638-422d-bc80-bbb14c9d9c93.mp3"];
-    AVURLAsset *asset = [AVURLAsset srg_akamaiTokenProtectedAssetWithURL:URL options:nil];
-    AVPlayerItem *playerItem = [AVPlayerItem playerItemWithAsset:asset];
-    
-    [self keyValueObservingExpectationForObject:playerItem keyPath:@"status" expectedValue:@(AVPlayerItemStatusFailed)];
-    
-    self.player = [AVPlayer playerWithPlayerItem:playerItem];
-    
-    [self waitForExpectationsWithTimeout:10. handler:nil];
-}
-
 @end
