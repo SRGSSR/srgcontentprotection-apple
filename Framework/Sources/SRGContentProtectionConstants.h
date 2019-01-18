@@ -7,18 +7,18 @@
 #import <Foundation/Foundation.h>
 
 /**
- *  Options for asset playback.
+ *  Options applied when loading a resource.
  */
-typedef NSString * SRGAssetOption NS_TYPED_ENUM;
+typedef NSString * SRGResourceLoaderOption NS_TYPED_ENUM;
 
 /**
  *  The diagnostics service which internal information should be sent to. If omitted, no diagnostic information will be
- *  generated.
+ *  generated when loading the resource.
  */
-OBJC_EXPORT NSString * const SRGAssetOptionDiagnosticServiceNameKey;
+OBJC_EXPORT NSString * const SRGResourceLoaderOptionDiagnosticServiceNameKey;
 
 /**
  *  The name of the diagnostic report to associate information with. If omitted, no diagnostic information will be
- *  generated.
+ *  generated when loading the resource.
  */
-OBJC_EXPORT NSString * const SRGAssetOptionDiagnosticReportNameKey;
+OBJC_EXPORT NSString * const SRGResourceLoaderOptionDiagnosticReportNameKey;

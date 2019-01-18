@@ -55,12 +55,13 @@
         }
             
         case 1: {
-            asset = [AVURLAsset srg_assetWithURL:URL certificateURL:nil];
+            asset = [AVURLAsset srg_akamaiTokenProtectedAssetWithURL:URL options:nil];
             break;
         }
             
         case 2: {
-            asset = [AVURLAsset srg_assetWithURL:URL certificateURL:[NSURL URLWithString:@"https://srg.live.ott.irdeto.com/licenseServer/streaming/v1/SRG/getcertificate?applicationId=live"]];
+            NSURL *certificateURL = [NSURL URLWithString:@"https://srg.live.ott.irdeto.com/licenseServer/streaming/v1/SRG/getcertificate?applicationId=live"];
+            asset = [AVURLAsset srg_fairPlayProtectedAssetWithURL:URL certificateURL:certificateURL options:nil];
             break;
         }
             
