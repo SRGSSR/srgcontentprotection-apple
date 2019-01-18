@@ -28,8 +28,12 @@ static NSString * const SRGStandardURLSchemePrefix = @"akamai";
 - (NSURL *)URLForAssetURL:(NSURL *)URL
 {
     NSURLComponents *components = [NSURLComponents componentsWithURL:URL resolvingAgainstBaseURL:NO];
+    
     NSArray<NSString *> *schemeComponents = [components.scheme componentsSeparatedByString:@"+"];
-    NSAssert(schemeComponents.count == 2 && [schemeComponents.firstObject isEqualToString:SRGStandardURLSchemePrefix], @"The URL must be a valid Akamai URL");
+    if (schemeComponents.count != 2 || ! [schemeComponents.firstObject isEqualToString:SRGStandardURLSchemePrefix]) {
+        return nil;
+    }
+    
     components.scheme = schemeComponents.lastObject;
     return components.URL;
 }
@@ -85,6 +89,10 @@ static NSString * const SRGStandardURLSchemePrefix = @"akamai";
     // no explicit documentation, Apple examples show that completion calls can be made from background threads. There
     // is probably no need to dispatch any work to the main thread.
     NSURL *requestURL = [self URLForAssetURL:loadingRequest.request.URL];
+    if (! requestURL) {
+        return NO;
+    }
+
     SRGRequest *request = [[SRGAkamaiToken tokenizeURL:requestURL withSession:self.session completionBlock:^(NSURL * _Nonnull URL, NSHTTPURLResponse * _Nonnull HTTPResponse, NSError * _Nullable error) {
         [diagnosticInformation setURL:HTTPResponse.URL forKey:@"url"];
         [diagnosticInformation setInteger:HTTPResponse.statusCode forKey:@"httpStatusCode"];
