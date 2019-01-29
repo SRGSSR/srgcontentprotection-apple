@@ -18,7 +18,7 @@ static NSString * const SRGTokenServiceURLString = @"https://tp.srgssr.ch/akahd/
 
 #pragma mark Class methods
 
-+ (SRGNetworkRequest *)tokenizeURL:(NSURL *)URL withSession:(NSURLSession *)session completionBlock:(nonnull void (^)(NSURL * _Nonnull, NSHTTPURLResponse * _Nonnull, NSError * _Nullable))completionBlock
++ (SRGRequest *)tokenizeURL:(NSURL *)URL withSession:(NSURLSession *)session completionBlock:(nonnull void (^)(NSURL * _Nonnull, NSHTTPURLResponse * _Nonnull, NSError * _Nullable))completionBlock
 {
     NSURLComponents *URLComponents = [NSURLComponents componentsWithURL:URL resolvingAgainstBaseURL:NO];
     NSString *acl = [URLComponents.path.stringByDeletingLastPathComponent stringByAppendingPathComponent:@"*"];
@@ -27,7 +27,7 @@ static NSString * const SRGTokenServiceURLString = @"https://tp.srgssr.ch/akahd/
     tokenServiceURLComponents.queryItems = @[ [NSURLQueryItem queryItemWithName:@"acl" value:acl] ];
     
     NSURLRequest *request = [NSURLRequest requestWithURL:tokenServiceURLComponents.URL];
-    return [[SRGNetworkRequest alloc] initWithJSONDictionaryURLRequest:request session:session options:0 completionBlock:^(NSDictionary * _Nullable JSONDictionary, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+    return [SRGRequest JSONDictionaryRequestWithURLRequest:request session:session options:0 completionBlock:^(NSDictionary * _Nullable JSONDictionary, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         NSHTTPURLResponse *HTTPResponse = [response isKindOfClass:NSHTTPURLResponse.class] ? (NSHTTPURLResponse *)response : nil;
         
         NSString *token = nil;

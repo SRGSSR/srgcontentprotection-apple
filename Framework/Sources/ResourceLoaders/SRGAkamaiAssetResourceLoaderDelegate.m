@@ -17,7 +17,7 @@ static NSString * const SRGStandardURLSchemePrefix = @"akamai";
 @interface SRGAkamaiAssetResourceLoaderDelegate ()
 
 @property (nonatomic) NSURLSession *session;
-@property (nonatomic) SRGNetworkRequest *request;
+@property (nonatomic) SRGRequest *request;
 
 @end
 
@@ -91,7 +91,7 @@ static NSString * const SRGStandardURLSchemePrefix = @"akamai";
         
         NSMutableURLRequest *playlistRequest = [loadingRequest.request mutableCopy];
         playlistRequest.URL = URL;
-        self.request = [[SRGNetworkRequest alloc] initWithURLRequest:playlistRequest session:self.session options:0 completionBlock:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        self.request = [SRGRequest dataRequestWithURLRequest:playlistRequest session:self.session options:0 completionBlock:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
             loadingRequest.response = response;
             if (error) {
                 NSMutableDictionary *userInfo = [@{ NSLocalizedDescriptionKey : SRGContentProtectionLocalizedString(@"This content is protected and cannot be played without proper rights.", @"User-facing message displayed proper authorization to play a stream has not been obtained") } mutableCopy];

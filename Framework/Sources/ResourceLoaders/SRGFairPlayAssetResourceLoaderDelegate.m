@@ -36,7 +36,7 @@ static NSURLRequest *SRGFairPlayContentKeyContextRequest(NSURL *URL, NSData *req
 @property (nonatomic) NSURL *certificateURL;
 
 @property (nonatomic) NSURLSession *session;
-@property (nonatomic) SRGNetworkRequest *request;
+@property (nonatomic) SRGRequest *request;
 
 @end
 
@@ -94,7 +94,7 @@ static NSURLRequest *SRGFairPlayContentKeyContextRequest(NSURL *URL, NSData *req
     SRGDiagnosticInformation *diagnosticInformation = [self diagnosticInformation];
     [diagnosticInformation startTimeMeasurementForKey:@"duration"];
     
-    self.request = [[SRGNetworkRequest alloc] initWithURLRequest:[NSURLRequest requestWithURL:self.certificateURL] session:self.session options:0 completionBlock:^(NSData * _Nullable certificateData, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+    self.request = [SRGRequest dataRequestWithURLRequest:[NSURLRequest requestWithURL:self.certificateURL] session:self.session options:0 completionBlock:^(NSData * _Nullable certificateData, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         NSHTTPURLResponse *HTTPResponse = [response isKindOfClass:[NSHTTPURLResponse class]] ? (NSHTTPURLResponse *)response : nil;
         
         // Resource loader methods must be called on the main thread
@@ -116,7 +116,7 @@ static NSURLRequest *SRGFairPlayContentKeyContextRequest(NSURL *URL, NSData *req
         }
         
         NSURLRequest *contentKeyContextRequest = SRGFairPlayContentKeyContextRequest(URL, keyRequestData);
-        self.request = [[SRGNetworkRequest alloc] initWithURLRequest:contentKeyContextRequest session:self.session options:0 completionBlock:^(NSData * _Nullable contentKeyContextData, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        self.request = [SRGRequest dataRequestWithURLRequest:contentKeyContextRequest session:self.session options:0 completionBlock:^(NSData * _Nullable contentKeyContextData, NSURLResponse * _Nullable response, NSError * _Nullable error) {
             NSHTTPURLResponse *HTTPResponse = [response isKindOfClass:[NSHTTPURLResponse class]] ? (NSHTTPURLResponse *)response : nil;
             [self finishLoadingRequest:loadingRequest withContentKeyContextData:contentKeyContextData HTTPResponse:HTTPResponse error:error];
         }];

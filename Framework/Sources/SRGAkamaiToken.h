@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface SRGAkamaiToken : NSObject
 
 /**
- *  Return a network request for retrieving an Akamai token for the specified URL. Except in special cases where
+ *  Return a SRG request for retrieving an Akamai token for the specified URL. Except in special cases where
  *  you need to provide the URL to another context (e.g. Google Cast), there is in general no need for explicit
  *  tokenization in client code. When preparing an item for `AVPlayer` playback, build your asset using the
  *  methods from the `AVURLAsset (SRGContentProtection)` category instead.
@@ -30,7 +30,7 @@ NS_ASSUME_NONNULL_BEGIN
  *              playback (without guarantee that this will succeed, though). If the specified URL is not an Akamai
  *              URL, attempting to play the returned URL leads to undefined behavior (it might play or not).
  */
-+ (SRGNetworkRequest *)tokenizeURL:(NSURL *)URL withSession:(NSURLSession *)session completionBlock:(void (^)(NSURL *URL, NSHTTPURLResponse *HTTPResponse, NSError * _Nullable error))completionBlock;
++ (SRGRequest *)tokenizeURL:(NSURL *)URL withSession:(NSURLSession *)session completionBlock:(void (^)(NSURL *URL, NSHTTPURLResponse *HTTPResponse, NSError * _Nullable error))completionBlock;
 
 @end
 
