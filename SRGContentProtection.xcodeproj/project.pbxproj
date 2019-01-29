@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0858B6922200FD85000F00CF /* libextobjc.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08B1945A220093CC00C9B634 /* libextobjc.framework */; };
+		0858B6932200FD99000F00CF /* MAKVONotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08B1945D220093F300C9B634 /* MAKVONotificationCenter.framework */; };
+		0858B6942200FDAC000F00CF /* SRGLogger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08B194632200952300C9B634 /* SRGLogger.framework */; };
 		08B1945B220093CC00C9B634 /* libextobjc.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08B1945A220093CC00C9B634 /* libextobjc.framework */; };
 		08B1945C220093CC00C9B634 /* libextobjc.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 08B1945A220093CC00C9B634 /* libextobjc.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		08B1945E220093F300C9B634 /* MAKVONotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08B1945D220093F300C9B634 /* MAKVONotificationCenter.framework */; };
@@ -175,6 +178,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0858B6942200FDAC000F00CF /* SRGLogger.framework in Frameworks */,
+				0858B6932200FD99000F00CF /* MAKVONotificationCenter.framework in Frameworks */,
+				0858B6922200FD85000F00CF /* libextobjc.framework in Frameworks */,
 				6FBF24312147F3ED00E576A2 /* SRGDiagnostics.framework in Frameworks */,
 				6F0432BD21006E7A002B090A /* SRGNetwork.framework in Frameworks */,
 			);
