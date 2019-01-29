@@ -118,7 +118,6 @@
 /* Begin PBXFileReference section */
 		08B1945A220093CC00C9B634 /* libextobjc.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = libextobjc.framework; path = Carthage/Build/iOS/libextobjc.framework; sourceTree = "<group>"; };
 		08B1945D220093F300C9B634 /* MAKVONotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MAKVONotificationCenter.framework; path = Carthage/Build/iOS/MAKVONotificationCenter.framework; sourceTree = "<group>"; };
-		08B194602200940800C9B634 /* SRGLogger_Swift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SRGLogger_Swift.framework; path = Carthage/Build/iOS/SRGLogger_Swift.framework; sourceTree = "<group>"; };
 		08B194632200952300C9B634 /* SRGLogger.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SRGLogger.framework; path = Carthage/Build/iOS/SRGLogger.framework; sourceTree = "<group>"; };
 		6F0432BC21006E7A002B090A /* SRGNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SRGNetwork.framework; path = Carthage/Build/iOS/SRGNetwork.framework; sourceTree = "<group>"; };
 		6F0C98E62121E1C200073AB6 /* SRGContentProtection.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SRGContentProtection.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -216,7 +215,6 @@
 			isa = PBXGroup;
 			children = (
 				08B194632200952300C9B634 /* SRGLogger.framework */,
-				08B194602200940800C9B634 /* SRGLogger_Swift.framework */,
 				08B1945D220093F300C9B634 /* MAKVONotificationCenter.framework */,
 				08B1945A220093CC00C9B634 /* libextobjc.framework */,
 				6F0EB53C20FC7FA9009C02CF /* Framework */,
