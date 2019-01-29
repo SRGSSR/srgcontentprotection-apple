@@ -31,8 +31,11 @@ For more information about Carthage and its use, refer to the [official document
 
 The library requires the following frameworks to be added to any target requiring it:
 
+* `libextobjc`: A utility framework.
+* `MAKVONotificationCenter`: A safe KVO framework.
 * `SRGContentProtection`: The content protection library framework.
 * `SRGDiagnostics`: Framework for collecting diagnostic information.
+* `SRGLogger`: The framework used for internal logging.
 * `SRGNetwork`: A networking framework.
 
 ### Dynamic framework integration
