@@ -8,6 +8,11 @@
 
 #import "SRGAkamaiAssetResourceLoaderDelegate.h"
 
+NSString *SRGContentProtectionNonLocalizedString(NSString *string)
+{
+    return string;
+}
+
 @implementation NSBundle (SRGContentProtection)
 
 #pragma mark Class methods

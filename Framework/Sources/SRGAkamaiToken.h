@@ -26,7 +26,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param completionBlock The block to be called on completion (the thread the block is called on depends on the
  *                         session settings).
  *
- *  @discussion If the request fails, the original URL is returned in the completion block and can be used to attempt
+ *  @discussion Even if the request fails, the original URL is returned in the completion block and can be used to attempt
  *              playback (without guarantee that this will succeed, though). If the specified URL is not an Akamai
  *              URL, attempting to play the returned URL leads to undefined behavior (it might play or not).
  */

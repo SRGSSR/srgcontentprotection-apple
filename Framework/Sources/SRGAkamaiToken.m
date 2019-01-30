@@ -6,6 +6,9 @@
 
 #import "SRGAkamaiToken.h"
 
+#import "NSBundle+SRGContentProtection.h"
+#import "SRGContentProtectionError.h"
+
 static NSString * const SRGTokenServiceURLString = @"https://tp.srgssr.ch/akahd/token";
 
 @interface SRGAkamaiToken ()
@@ -29,13 +32,27 @@ static NSString * const SRGTokenServiceURLString = @"https://tp.srgssr.ch/akahd/
     NSURLRequest *URLRequest = [NSURLRequest requestWithURL:tokenServiceURLComponents.URL];
     return [SRGRequest objectRequestWithURLRequest:URLRequest session:session parser:^id _Nullable(NSData * _Nonnull data, NSError * _Nullable __autoreleasing * _Nullable pError) {
         NSDictionary *JSONDictionary = SRGNetworkJSONDictionaryParser(data, pError);
+        if (! JSONDictionary) {
+            return nil;
+        }
+        
         id tokenDictionary = JSONDictionary[@"token"];
         if (! [tokenDictionary isKindOfClass:NSDictionary.class]) {
+            if (pError) {
+                *pError = [NSError errorWithDomain:SRGContentProtectionErrorDomain
+                                              code:SRGContentProtectionErrorUnauthorized
+                                          userInfo:@{ NSLocalizedDescriptionKey : SRGContentProtectionNonLocalizedString(@"No token dictionary was found") }];
+            }
             return nil;
         }
         
         NSString *token = [tokenDictionary objectForKey:@"authparams"];
         if (! token) {
+            if (pError) {
+                *pError = [NSError errorWithDomain:SRGContentProtectionErrorDomain
+                                              code:SRGContentProtectionErrorUnauthorized
+                                          userInfo:@{ NSLocalizedDescriptionKey : SRGContentProtectionNonLocalizedString(@"No token was found") }];
+            }
             return nil;
         }
         
