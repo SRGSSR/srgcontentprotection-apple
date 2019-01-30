@@ -27,7 +27,7 @@ static NSString * const SRGTokenServiceURLString = @"https://tp.srgssr.ch/akahd/
     tokenServiceURLComponents.queryItems = @[ [NSURLQueryItem queryItemWithName:@"acl" value:acl] ];
     
     NSURLRequest *request = [NSURLRequest requestWithURL:tokenServiceURLComponents.URL];
-    return [SRGRequest JSONDictionaryRequestWithURLRequest:request session:session options:0 completionBlock:^(NSDictionary * _Nullable JSONDictionary, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+    return [SRGRequest JSONDictionaryRequestWithURLRequest:request session:session completionBlock:^(NSDictionary * _Nullable JSONDictionary, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         NSHTTPURLResponse *HTTPResponse = [response isKindOfClass:NSHTTPURLResponse.class] ? (NSHTTPURLResponse *)response : nil;
         
         NSString *token = nil;
