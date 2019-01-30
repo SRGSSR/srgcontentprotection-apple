@@ -49,7 +49,6 @@ static NSURLRequest *SRGFairPlayContentKeyContextRequest(NSURL *URL, NSData *req
     if (self = [super init]) {
         self.certificateURL = certificateURL;
         self.session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
-        self.requestQueue = [[SRGRequestQueue alloc] init];
     }
     return self;
 }
@@ -95,7 +94,9 @@ static NSURLRequest *SRGFairPlayContentKeyContextRequest(NSURL *URL, NSData *req
     SRGDiagnosticInformation *diagnosticInformation = [self diagnosticInformation];
     [diagnosticInformation startTimeMeasurementForKey:@"duration"];
     
-    SRGRequest *request = [SRGRequest dataRequestWithURLRequest:[NSURLRequest requestWithURL:self.certificateURL] session:self.session completionBlock:^(NSData * _Nullable certificateData, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+    self.requestQueue = [[SRGRequestQueue alloc] init];
+    
+    SRGRequest *request = [[SRGRequest dataRequestWithURLRequest:[NSURLRequest requestWithURL:self.certificateURL] session:self.session completionBlock:^(NSData * _Nullable certificateData, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         NSHTTPURLResponse *HTTPResponse = [response isKindOfClass:[NSHTTPURLResponse class]] ? (NSHTTPURLResponse *)response : nil;
         
         // Resource loader methods must be called on the main thread
@@ -117,12 +118,12 @@ static NSURLRequest *SRGFairPlayContentKeyContextRequest(NSURL *URL, NSData *req
         }
         
         NSURLRequest *contentKeyContextRequest = SRGFairPlayContentKeyContextRequest(URL, keyRequestData);
-        SRGRequest *request = [SRGRequest dataRequestWithURLRequest:contentKeyContextRequest session:self.session completionBlock:^(NSData * _Nullable contentKeyContextData, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        SRGRequest *request = [[SRGRequest dataRequestWithURLRequest:contentKeyContextRequest session:self.session completionBlock:^(NSData * _Nullable contentKeyContextData, NSURLResponse * _Nullable response, NSError * _Nullable error) {
             NSHTTPURLResponse *HTTPResponse = [response isKindOfClass:[NSHTTPURLResponse class]] ? (NSHTTPURLResponse *)response : nil;
             [self finishLoadingRequest:loadingRequest withContentKeyContextData:contentKeyContextData HTTPResponse:HTTPResponse error:error];
-        }];
+        }] requestWithOptions:SRGNetworkRequestBackgroundThreadCompletionEnabled];
         [self.requestQueue addRequest:request resume:YES];
-    }];
+    }] requestWithOptions:SRGNetworkRequestBackgroundThreadCompletionEnabled];
     [self.requestQueue addRequest:request resume:YES];
     return YES;
 }
