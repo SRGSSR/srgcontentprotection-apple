@@ -7,6 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0858B69822010C9E000F00CF /* SRGLogger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0858B69522010C9E000F00CF /* SRGLogger.framework */; };
+		0858B69A22010C9E000F00CF /* SRGLogger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0858B69522010C9E000F00CF /* SRGLogger.framework */; };
+		0858B69B22010C9E000F00CF /* libextobjc.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0858B69622010C9E000F00CF /* libextobjc.framework */; };
+		0858B69C22010C9E000F00CF /* libextobjc.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0858B69622010C9E000F00CF /* libextobjc.framework */; };
+		0858B69D22010C9E000F00CF /* libextobjc.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0858B69622010C9E000F00CF /* libextobjc.framework */; };
+		0858B69E22010C9E000F00CF /* MAKVONotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0858B69722010C9E000F00CF /* MAKVONotificationCenter.framework */; };
+		0858B6A022010C9E000F00CF /* MAKVONotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0858B69722010C9E000F00CF /* MAKVONotificationCenter.framework */; };
+		0858B6A222010CD6000F00CF /* libextobjc.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0858B69622010C9E000F00CF /* libextobjc.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		0858B6A322010CD6000F00CF /* MAKVONotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0858B69722010C9E000F00CF /* MAKVONotificationCenter.framework */; };
+		0858B6A422010CD6000F00CF /* MAKVONotificationCenter.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0858B69722010C9E000F00CF /* MAKVONotificationCenter.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		0858B6A522010CD6000F00CF /* SRGLogger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0858B69522010C9E000F00CF /* SRGLogger.framework */; };
+		0858B6A622010CD6000F00CF /* SRGLogger.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0858B69522010C9E000F00CF /* SRGLogger.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6F0432BD21006E7A002B090A /* SRGNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F0432BC21006E7A002B090A /* SRGNetwork.framework */; };
 		6F0432BE21007340002B090A /* SRGNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F0432BC21006E7A002B090A /* SRGNetwork.framework */; };
 		6F0432BF21007340002B090A /* SRGNetwork.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6F0432BC21006E7A002B090A /* SRGNetwork.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -16,6 +28,9 @@
 		6F0EB54320FC7FF4009C02CF /* SRGContentProtection.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F0EB54220FC7FF4009C02CF /* SRGContentProtection.m */; };
 		6F0EB54720FC8049009C02CF /* NSBundle+SRGContentProtection.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F0EB54520FC8049009C02CF /* NSBundle+SRGContentProtection.m */; };
 		6F0EB54820FC8049009C02CF /* NSBundle+SRGContentProtection.h in Headers */ = {isa = PBXBuildFile; fileRef = 6F0EB54620FC8049009C02CF /* NSBundle+SRGContentProtection.h */; };
+		6F3246172201B1CA0017D00E /* libextobjc.framework in Copy Files */ = {isa = PBXBuildFile; fileRef = 0858B69622010C9E000F00CF /* libextobjc.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6F3246182201B1CD0017D00E /* MAKVONotificationCenter.framework in Copy Files */ = {isa = PBXBuildFile; fileRef = 0858B69722010C9E000F00CF /* MAKVONotificationCenter.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6F3246192201B1D20017D00E /* SRGLogger.framework in Copy Files */ = {isa = PBXBuildFile; fileRef = 0858B69522010C9E000F00CF /* SRGLogger.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6F7B786A2108A05C001E3BBE /* SRGAkamaiToken.h in Headers */ = {isa = PBXBuildFile; fileRef = 6F7B78682108A05C001E3BBE /* SRGAkamaiToken.h */; };
 		6F7B786B2108A05C001E3BBE /* SRGAkamaiToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F7B78692108A05C001E3BBE /* SRGAkamaiToken.m */; };
 		6F8A93D220FDB3D200AA6434 /* SRGFairPlayAssetResourceLoaderDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 6F8A93D020FDB3D200AA6434 /* SRGFairPlayAssetResourceLoaderDelegate.h */; };
@@ -83,8 +98,11 @@
 			dstSubfolderSpec = 10;
 			files = (
 				6F0432BF21007340002B090A /* SRGNetwork.framework in Embed Frameworks */,
+				0858B6A422010CD6000F00CF /* MAKVONotificationCenter.framework in Embed Frameworks */,
 				6FBF24352147F4C900E576A2 /* SRGDiagnostics.framework in Embed Frameworks */,
+				0858B6A222010CD6000F00CF /* libextobjc.framework in Embed Frameworks */,
 				6F8A940420FDD01B00AA6434 /* SRGContentProtection.framework in Embed Frameworks */,
+				0858B6A622010CD6000F00CF /* SRGLogger.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -95,6 +113,9 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				6F3246192201B1D20017D00E /* SRGLogger.framework in Copy Files */,
+				6F3246182201B1CD0017D00E /* MAKVONotificationCenter.framework in Copy Files */,
+				6F3246172201B1CA0017D00E /* libextobjc.framework in Copy Files */,
 				6FBF24332147F4C200E576A2 /* SRGDiagnostics.framework in Copy Files */,
 				6FB74D7B2101D69F00E2D365 /* SRGNetwork.framework in Copy Files */,
 			);
@@ -104,6 +125,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0858B69522010C9E000F00CF /* SRGLogger.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SRGLogger.framework; path = Carthage/Build/iOS/SRGLogger.framework; sourceTree = "<group>"; };
+		0858B69622010C9E000F00CF /* libextobjc.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = libextobjc.framework; path = Carthage/Build/iOS/libextobjc.framework; sourceTree = "<group>"; };
+		0858B69722010C9E000F00CF /* MAKVONotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MAKVONotificationCenter.framework; path = Carthage/Build/iOS/MAKVONotificationCenter.framework; sourceTree = "<group>"; };
 		6F0432BC21006E7A002B090A /* SRGNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SRGNetwork.framework; path = Carthage/Build/iOS/SRGNetwork.framework; sourceTree = "<group>"; };
 		6F0C98E62121E1C200073AB6 /* SRGContentProtection.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SRGContentProtection.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F0EB53120FC7F58009C02CF /* SRGContentProtection.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SRGContentProtection.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -163,7 +187,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				6FBF24312147F3ED00E576A2 /* SRGDiagnostics.framework in Frameworks */,
+				0858B69E22010C9E000F00CF /* MAKVONotificationCenter.framework in Frameworks */,
 				6F0432BD21006E7A002B090A /* SRGNetwork.framework in Frameworks */,
+				0858B69B22010C9E000F00CF /* libextobjc.framework in Frameworks */,
+				0858B69822010C9E000F00CF /* SRGLogger.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -172,6 +199,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				6F0432BE21007340002B090A /* SRGNetwork.framework in Frameworks */,
+				0858B6A322010CD6000F00CF /* MAKVONotificationCenter.framework in Frameworks */,
+				0858B6A522010CD6000F00CF /* SRGLogger.framework in Frameworks */,
+				0858B69C22010C9E000F00CF /* libextobjc.framework in Frameworks */,
 				6FBF24342147F4C900E576A2 /* SRGDiagnostics.framework in Frameworks */,
 				6F8A940320FDD01B00AA6434 /* SRGContentProtection.framework in Frameworks */,
 			);
@@ -182,8 +212,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				6FBF24322147F4BC00E576A2 /* SRGDiagnostics.framework in Frameworks */,
+				0858B6A022010C9E000F00CF /* MAKVONotificationCenter.framework in Frameworks */,
+				0858B69D22010C9E000F00CF /* libextobjc.framework in Frameworks */,
 				6FE91E7B2108A36A001B5E8F /* SRGNetwork.framework in Frameworks */,
 				6FB74D6C2101D4D200E2D365 /* SRGContentProtection.framework in Frameworks */,
+				0858B69A22010C9E000F00CF /* SRGLogger.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -301,7 +334,10 @@
 		6F8A945521006A9E00AA6434 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0858B69622010C9E000F00CF /* libextobjc.framework */,
+				0858B69722010C9E000F00CF /* MAKVONotificationCenter.framework */,
 				6FBF24302147F3ED00E576A2 /* SRGDiagnostics.framework */,
+				0858B69522010C9E000F00CF /* SRGLogger.framework */,
 				6F0432BC21006E7A002B090A /* SRGNetwork.framework */,
 			);
 			name = Frameworks;
@@ -450,7 +486,7 @@
 		6F0EB52820FC7F58009C02CF /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1000;
+				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = "SRG SSR";
 				TargetAttributes = {
 					6F0C98E52121E1C200073AB6 = {

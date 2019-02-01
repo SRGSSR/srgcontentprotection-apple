@@ -39,7 +39,7 @@
     dispatch_once(&s_onceToken, ^{
         s_URLs = @{ @0 : [NSURL URLWithString:@"https://rtsvodww-vh.akamaihd.net/i/genhi/2018/genhi_20180126_full_f_1067247-,301k,101k,701k,1201k,2001k,fra-ad,.mp4.csmil/master.m3u8"],
                     @1 : [NSURL URLWithString:@"https://srgssruni9ch-lh.akamaihd.net/i/enc9uni_ch@191320/master.m3u8"],
-                    @2 : [NSURL URLWithString:@"https://accountdigitalinnovation.streaming.mediaservices.windows.net/7e157f65-a8a0-4810-897c-fcc49c946a1c/bbd11abe-936f-4b71-ae4c-6d651d86e6b0.ism/manifest(format=m3u8-aapl)"],
+                    @2 : [NSURL URLWithString:@"https://rtsun-euwe.akamaized.net/bdccbf01-80a7-4f6b-979c-1d216e81b05c/rts1.ism/manifest(format=m3u8-aapl,encryption=cbcs-aapl)"],
                     @3 : [NSURL URLWithString:@"https://lsaplus.swisstxt.ch/audio/la-1ere_96.stream/playlist.m3u8"],
                     @4 : [NSURL URLWithString:@"http://stream.srg-ssr.ch/m/la-1ere/mp3_128"],
                     @5 : [NSURL URLWithString:@"https://srfaudio-a.akamaihd.net/delivery/world/75f44907-4638-422d-bc80-bbb14c9d9c93.mp3"] };
@@ -60,7 +60,7 @@
         }
             
         case 2: {
-            asset = [AVURLAsset srg_assetWithURL:URL certificateURL:[NSURL URLWithString:@"https://rng.stage.ott.irdeto.com/licenseServer/streaming/v1/SRG/getcertificate?applicationId=stage"]];
+            asset = [AVURLAsset srg_assetWithURL:URL certificateURL:[NSURL URLWithString:@"https://srg.live.ott.irdeto.com/licenseServer/streaming/v1/SRG/getcertificate?applicationId=live"]];
             break;
         }
             
