@@ -39,7 +39,7 @@ static NSString * const SRGStandardURLSchemePrefix = @"akamai";
 - (instancetype)init
 {
     if (self = [super init]) {
-        self.session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
+        self.session = [NSURLSession sessionWithConfiguration:NSURLSessionConfiguration.defaultSessionConfiguration];
     }
     return self;
 }
