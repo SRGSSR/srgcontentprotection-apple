@@ -80,11 +80,6 @@ static NSString * const SRGStandardURLSchemePrefix = @"akamai";
 
 - (BOOL)shouldProcessResourceLoadingRequest:(AVAssetResourceLoadingRequest *)loadingRequest
 {
-    SRGDiagnosticInformation *diagnosticInformation = [self diagnosticInformation];
-    [diagnosticInformation startTimeMeasurementForKey:@"duration"];
-    
-    self.requestQueue = [[SRGRequestQueue alloc] init];
-    
     // About thread-safety considerations: The delegate methods are called from background threads, and though there is
     // no explicit documentation, Apple examples show that completion calls can be made from background threads. There
     // is probably no need to dispatch any work to the main thread.
@@ -92,6 +87,11 @@ static NSString * const SRGStandardURLSchemePrefix = @"akamai";
     if (! requestURL) {
         return NO;
     }
+    
+    SRGDiagnosticInformation *diagnosticInformation = [self diagnosticInformation];
+    [diagnosticInformation startTimeMeasurementForKey:@"duration"];
+    
+    self.requestQueue = [[SRGRequestQueue alloc] init];
 
     SRGRequest *request = [[SRGAkamaiToken tokenizeURL:requestURL withSession:self.session completionBlock:^(NSURL * _Nonnull URL, NSHTTPURLResponse * _Nonnull HTTPResponse, NSError * _Nullable error) {
         [diagnosticInformation setURL:HTTPResponse.URL forKey:@"url"];
