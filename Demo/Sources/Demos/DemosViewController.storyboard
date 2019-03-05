@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="6D0-1o-AG5">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="6D0-1o-AG5">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -28,7 +28,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unprotected Akamai stream" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fvF-dc-guZ">
-                                                    <rect key="frame" x="12" y="11.5" width="351" height="21"/>
+                                                    <rect key="frame" x="20" y="11.5" width="335" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -36,8 +36,8 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="fvF-dc-guZ" firstAttribute="centerY" secondItem="nGO-rF-eZb" secondAttribute="centerY" id="g9U-VN-AgH"/>
-                                                <constraint firstItem="fvF-dc-guZ" firstAttribute="leading" secondItem="nGO-rF-eZb" secondAttribute="leading" constant="12" id="tnM-mL-wtF"/>
-                                                <constraint firstAttribute="trailing" secondItem="fvF-dc-guZ" secondAttribute="trailing" constant="12" id="yYQ-Fz-7oJ"/>
+                                                <constraint firstItem="fvF-dc-guZ" firstAttribute="leading" secondItem="nGO-rF-eZb" secondAttribute="leading" constant="20" id="tnM-mL-wtF"/>
+                                                <constraint firstAttribute="trailing" secondItem="fvF-dc-guZ" secondAttribute="trailing" constant="20" id="yYQ-Fz-7oJ"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -49,16 +49,16 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Akamai token-protected stream" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KGN-1s-Vi1">
-                                                    <rect key="frame" x="12" y="11.5" width="351" height="21"/>
+                                                    <rect key="frame" x="20" y="11.5" width="335" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="KGN-1s-Vi1" secondAttribute="trailing" constant="12" id="IWh-x4-bcQ"/>
+                                                <constraint firstAttribute="trailing" secondItem="KGN-1s-Vi1" secondAttribute="trailing" constant="20" id="IWh-x4-bcQ"/>
                                                 <constraint firstItem="KGN-1s-Vi1" firstAttribute="centerY" secondItem="Oy5-wk-hrz" secondAttribute="centerY" id="Yq7-nA-pYD"/>
-                                                <constraint firstItem="KGN-1s-Vi1" firstAttribute="leading" secondItem="Oy5-wk-hrz" secondAttribute="leading" constant="12" id="iPW-VK-na6"/>
+                                                <constraint firstItem="KGN-1s-Vi1" firstAttribute="leading" secondItem="Oy5-wk-hrz" secondAttribute="leading" constant="20" id="iPW-VK-na6"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -70,15 +70,15 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FairPlay-protected stream" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jI2-dS-HRE">
-                                                    <rect key="frame" x="12" y="11.5" width="351" height="21"/>
+                                                    <rect key="frame" x="20" y="11.5" width="335" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="jI2-dS-HRE" secondAttribute="trailing" constant="12" id="aHk-1f-DFg"/>
-                                                <constraint firstItem="jI2-dS-HRE" firstAttribute="leading" secondItem="8fO-lb-UWh" secondAttribute="leading" constant="12" id="pV3-ca-2hc"/>
+                                                <constraint firstAttribute="trailing" secondItem="jI2-dS-HRE" secondAttribute="trailing" constant="20" id="aHk-1f-DFg"/>
+                                                <constraint firstItem="jI2-dS-HRE" firstAttribute="leading" secondItem="8fO-lb-UWh" secondAttribute="leading" constant="20" id="pV3-ca-2hc"/>
                                                 <constraint firstItem="jI2-dS-HRE" firstAttribute="centerY" secondItem="8fO-lb-UWh" secondAttribute="centerY" id="ppd-Gh-Pit"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -91,15 +91,15 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Non-Akamai stream" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eNO-no-J4b">
-                                                    <rect key="frame" x="12" y="11.5" width="351" height="21"/>
+                                                    <rect key="frame" x="20" y="11.5" width="335" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="eNO-no-J4b" firstAttribute="leading" secondItem="8eo-3u-Abv" secondAttribute="leading" constant="12" id="8jO-0k-w23"/>
-                                                <constraint firstAttribute="trailing" secondItem="eNO-no-J4b" secondAttribute="trailing" constant="12" id="l0h-he-YaL"/>
+                                                <constraint firstItem="eNO-no-J4b" firstAttribute="leading" secondItem="8eo-3u-Abv" secondAttribute="leading" constant="20" id="8jO-0k-w23"/>
+                                                <constraint firstAttribute="trailing" secondItem="eNO-no-J4b" secondAttribute="trailing" constant="20" id="l0h-he-YaL"/>
                                                 <constraint firstItem="eNO-no-J4b" firstAttribute="centerY" secondItem="8eo-3u-Abv" secondAttribute="centerY" id="sXR-i2-F8L"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -112,16 +112,16 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Non-Akamai HTTP stream" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WCu-2B-Xdv">
-                                                    <rect key="frame" x="12" y="11.5" width="351" height="21"/>
+                                                    <rect key="frame" x="20" y="11.5" width="335" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="WCu-2B-Xdv" firstAttribute="leading" secondItem="jwZ-at-rjz" secondAttribute="leading" constant="12" id="B73-N8-VBN"/>
+                                                <constraint firstItem="WCu-2B-Xdv" firstAttribute="leading" secondItem="jwZ-at-rjz" secondAttribute="leading" constant="20" id="B73-N8-VBN"/>
                                                 <constraint firstItem="WCu-2B-Xdv" firstAttribute="centerY" secondItem="jwZ-at-rjz" secondAttribute="centerY" id="EPJ-4I-b5v"/>
-                                                <constraint firstAttribute="trailing" secondItem="WCu-2B-Xdv" secondAttribute="trailing" constant="12" id="WsR-UD-mkp"/>
+                                                <constraint firstAttribute="trailing" secondItem="WCu-2B-Xdv" secondAttribute="trailing" constant="20" id="WsR-UD-mkp"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -132,16 +132,16 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Akamai non-HLS stream" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Ae-Sj-BSd">
-                                                    <rect key="frame" x="12" y="11.5" width="351" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unprotected Akamai MP3 stream" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Ae-Sj-BSd">
+                                                    <rect key="frame" x="20" y="11.5" width="335" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="8Ae-Sj-BSd" secondAttribute="trailing" constant="12" id="esH-cG-Ixx"/>
-                                                <constraint firstItem="8Ae-Sj-BSd" firstAttribute="leading" secondItem="ghV-3Q-UMZ" secondAttribute="leading" constant="12" id="psj-uQ-IPU"/>
+                                                <constraint firstAttribute="trailing" secondItem="8Ae-Sj-BSd" secondAttribute="trailing" constant="20" id="esH-cG-Ixx"/>
+                                                <constraint firstItem="8Ae-Sj-BSd" firstAttribute="leading" secondItem="ghV-3Q-UMZ" secondAttribute="leading" constant="20" id="psj-uQ-IPU"/>
                                                 <constraint firstItem="8Ae-Sj-BSd" firstAttribute="centerY" secondItem="ghV-3Q-UMZ" secondAttribute="centerY" id="skG-wg-DUu"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -158,15 +158,15 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unprotected Akamai stream" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SWV-Q9-pvU">
-                                                    <rect key="frame" x="12" y="11.5" width="351" height="21"/>
+                                                    <rect key="frame" x="20" y="11.5" width="335" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="SWV-Q9-pvU" secondAttribute="trailing" constant="12" id="nRo-E5-UEK"/>
-                                                <constraint firstItem="SWV-Q9-pvU" firstAttribute="leading" secondItem="Dey-MS-7hI" secondAttribute="leading" constant="12" id="vzo-kD-Ezn"/>
+                                                <constraint firstAttribute="trailing" secondItem="SWV-Q9-pvU" secondAttribute="trailing" constant="20" id="nRo-E5-UEK"/>
+                                                <constraint firstItem="SWV-Q9-pvU" firstAttribute="leading" secondItem="Dey-MS-7hI" secondAttribute="leading" constant="20" id="vzo-kD-Ezn"/>
                                                 <constraint firstItem="SWV-Q9-pvU" firstAttribute="centerY" secondItem="Dey-MS-7hI" secondAttribute="centerY" id="yZy-1E-gvP"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -179,7 +179,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Akamai token-protected stream" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mqr-Y0-Ekh">
-                                                    <rect key="frame" x="12" y="11.5" width="351" height="21"/>
+                                                    <rect key="frame" x="20" y="11.5" width="335" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -187,8 +187,8 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="Mqr-Y0-Ekh" firstAttribute="centerY" secondItem="eYo-ap-9ai" secondAttribute="centerY" id="XIE-Vj-m3K"/>
-                                                <constraint firstItem="Mqr-Y0-Ekh" firstAttribute="leading" secondItem="eYo-ap-9ai" secondAttribute="leading" constant="12" id="brM-pU-8dM"/>
-                                                <constraint firstAttribute="trailing" secondItem="Mqr-Y0-Ekh" secondAttribute="trailing" constant="12" id="cqQ-8q-oRp"/>
+                                                <constraint firstItem="Mqr-Y0-Ekh" firstAttribute="leading" secondItem="eYo-ap-9ai" secondAttribute="leading" constant="20" id="brM-pU-8dM"/>
+                                                <constraint firstAttribute="trailing" secondItem="Mqr-Y0-Ekh" secondAttribute="trailing" constant="20" id="cqQ-8q-oRp"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -200,15 +200,15 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FairPlay-protected stream" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pYN-zL-IBm">
-                                                    <rect key="frame" x="12" y="11.5" width="351" height="21"/>
+                                                    <rect key="frame" x="20" y="11.5" width="335" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="pYN-zL-IBm" secondAttribute="trailing" constant="12" id="JGS-94-APM"/>
-                                                <constraint firstItem="pYN-zL-IBm" firstAttribute="leading" secondItem="h6V-dL-mI2" secondAttribute="leading" constant="12" id="ThY-LK-0bi"/>
+                                                <constraint firstAttribute="trailing" secondItem="pYN-zL-IBm" secondAttribute="trailing" constant="20" id="JGS-94-APM"/>
+                                                <constraint firstItem="pYN-zL-IBm" firstAttribute="leading" secondItem="h6V-dL-mI2" secondAttribute="leading" constant="20" id="ThY-LK-0bi"/>
                                                 <constraint firstItem="pYN-zL-IBm" firstAttribute="centerY" secondItem="h6V-dL-mI2" secondAttribute="centerY" id="wxo-0Q-4vT"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -221,15 +221,15 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Non-Akamai stream" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nVa-fW-qHQ">
-                                                    <rect key="frame" x="12" y="11.5" width="351" height="21"/>
+                                                    <rect key="frame" x="20" y="11.5" width="335" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="nVa-fW-qHQ" secondAttribute="trailing" constant="12" id="1TD-ep-ckp"/>
-                                                <constraint firstItem="nVa-fW-qHQ" firstAttribute="leading" secondItem="666-KP-swm" secondAttribute="leading" constant="12" id="7HP-78-vLP"/>
+                                                <constraint firstAttribute="trailing" secondItem="nVa-fW-qHQ" secondAttribute="trailing" constant="20" id="1TD-ep-ckp"/>
+                                                <constraint firstItem="nVa-fW-qHQ" firstAttribute="leading" secondItem="666-KP-swm" secondAttribute="leading" constant="20" id="7HP-78-vLP"/>
                                                 <constraint firstItem="nVa-fW-qHQ" firstAttribute="centerY" secondItem="666-KP-swm" secondAttribute="centerY" id="orJ-OO-XW6"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -242,15 +242,15 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Non-Akamai HTTP stream" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ON1-KJ-xq9">
-                                                    <rect key="frame" x="12" y="11.5" width="351" height="21"/>
+                                                    <rect key="frame" x="20" y="11.5" width="335" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="ON1-KJ-xq9" secondAttribute="trailing" constant="12" id="CzS-Kt-jxr"/>
-                                                <constraint firstItem="ON1-KJ-xq9" firstAttribute="leading" secondItem="0YK-AG-WxO" secondAttribute="leading" constant="12" id="Siu-8t-jBh"/>
+                                                <constraint firstAttribute="trailing" secondItem="ON1-KJ-xq9" secondAttribute="trailing" constant="20" id="CzS-Kt-jxr"/>
+                                                <constraint firstItem="ON1-KJ-xq9" firstAttribute="leading" secondItem="0YK-AG-WxO" secondAttribute="leading" constant="20" id="Siu-8t-jBh"/>
                                                 <constraint firstItem="ON1-KJ-xq9" firstAttribute="centerY" secondItem="0YK-AG-WxO" secondAttribute="centerY" id="l2U-92-tH2"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -262,8 +262,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Akamai non-HLS stream" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NNP-xy-awf">
-                                                    <rect key="frame" x="12" y="11.5" width="351" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unprotected Akamai MP3 stream" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NNP-xy-awf" userLabel="MP3 Akamaistream">
+                                                    <rect key="frame" x="20" y="11.5" width="335" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -271,8 +271,8 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="NNP-xy-awf" firstAttribute="centerY" secondItem="JsB-pQ-HeU" secondAttribute="centerY" id="24P-Ra-w6w"/>
-                                                <constraint firstItem="NNP-xy-awf" firstAttribute="leading" secondItem="JsB-pQ-HeU" secondAttribute="leading" constant="12" id="N7C-7R-Chk"/>
-                                                <constraint firstAttribute="trailing" secondItem="NNP-xy-awf" secondAttribute="trailing" constant="12" id="aVb-CL-1hK"/>
+                                                <constraint firstItem="NNP-xy-awf" firstAttribute="leading" secondItem="JsB-pQ-HeU" secondAttribute="leading" constant="20" id="N7C-7R-Chk"/>
+                                                <constraint firstAttribute="trailing" secondItem="NNP-xy-awf" secondAttribute="trailing" constant="20" id="aVb-CL-1hK"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -288,16 +288,16 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unprotected Akamai stream" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aOC-wf-o23">
-                                                    <rect key="frame" x="12" y="11.5" width="351" height="21"/>
+                                                    <rect key="frame" x="20" y="11.5" width="335" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="aOC-wf-o23" firstAttribute="leading" secondItem="dN1-zu-nCK" secondAttribute="leading" constant="12" id="S33-da-g5n"/>
+                                                <constraint firstItem="aOC-wf-o23" firstAttribute="leading" secondItem="dN1-zu-nCK" secondAttribute="leading" constant="20" id="S33-da-g5n"/>
                                                 <constraint firstItem="aOC-wf-o23" firstAttribute="centerY" secondItem="dN1-zu-nCK" secondAttribute="centerY" id="p3m-Pc-czf"/>
-                                                <constraint firstAttribute="trailing" secondItem="aOC-wf-o23" secondAttribute="trailing" constant="12" id="xpl-L5-pzg"/>
+                                                <constraint firstAttribute="trailing" secondItem="aOC-wf-o23" secondAttribute="trailing" constant="20" id="xpl-L5-pzg"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -309,15 +309,15 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Akamai token-protected stream" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r12-XD-Qu2">
-                                                    <rect key="frame" x="12" y="11.5" width="351" height="21"/>
+                                                    <rect key="frame" x="20" y="11.5" width="335" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="r12-XD-Qu2" firstAttribute="leading" secondItem="oMI-pT-SYl" secondAttribute="leading" constant="12" id="FXV-ou-00E"/>
-                                                <constraint firstAttribute="trailing" secondItem="r12-XD-Qu2" secondAttribute="trailing" constant="12" id="HkJ-jc-tGb"/>
+                                                <constraint firstItem="r12-XD-Qu2" firstAttribute="leading" secondItem="oMI-pT-SYl" secondAttribute="leading" constant="20" id="FXV-ou-00E"/>
+                                                <constraint firstAttribute="trailing" secondItem="r12-XD-Qu2" secondAttribute="trailing" constant="20" id="HkJ-jc-tGb"/>
                                                 <constraint firstItem="r12-XD-Qu2" firstAttribute="centerY" secondItem="oMI-pT-SYl" secondAttribute="centerY" id="kIx-Wz-wuS"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -330,16 +330,16 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FairPlay-protected stream" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2B8-JV-1WH">
-                                                    <rect key="frame" x="12" y="11.5" width="351" height="21"/>
+                                                    <rect key="frame" x="20" y="11.5" width="335" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="2B8-JV-1WH" firstAttribute="leading" secondItem="Kff-oH-p8n" secondAttribute="leading" constant="12" id="6Bw-St-m9u"/>
+                                                <constraint firstItem="2B8-JV-1WH" firstAttribute="leading" secondItem="Kff-oH-p8n" secondAttribute="leading" constant="20" id="6Bw-St-m9u"/>
                                                 <constraint firstItem="2B8-JV-1WH" firstAttribute="centerY" secondItem="Kff-oH-p8n" secondAttribute="centerY" id="RVA-uQ-uZ5"/>
-                                                <constraint firstAttribute="trailing" secondItem="2B8-JV-1WH" secondAttribute="trailing" constant="12" id="eS9-7v-3U3"/>
+                                                <constraint firstAttribute="trailing" secondItem="2B8-JV-1WH" secondAttribute="trailing" constant="20" id="eS9-7v-3U3"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -351,15 +351,15 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Non-Akamai stream" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EHj-Rx-08q">
-                                                    <rect key="frame" x="12" y="11.5" width="351" height="21"/>
+                                                    <rect key="frame" x="20" y="11.5" width="335" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="EHj-Rx-08q" secondAttribute="trailing" constant="12" id="6OS-tk-iry"/>
-                                                <constraint firstItem="EHj-Rx-08q" firstAttribute="leading" secondItem="c3g-Gk-1lW" secondAttribute="leading" constant="12" id="Qnr-OO-Vbh"/>
+                                                <constraint firstAttribute="trailing" secondItem="EHj-Rx-08q" secondAttribute="trailing" constant="20" id="6OS-tk-iry"/>
+                                                <constraint firstItem="EHj-Rx-08q" firstAttribute="leading" secondItem="c3g-Gk-1lW" secondAttribute="leading" constant="20" id="Qnr-OO-Vbh"/>
                                                 <constraint firstItem="EHj-Rx-08q" firstAttribute="centerY" secondItem="c3g-Gk-1lW" secondAttribute="centerY" id="cXi-rT-X5W"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -372,16 +372,16 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Non-Akamai HTTP stream" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pbv-qZ-zl7">
-                                                    <rect key="frame" x="12" y="11.5" width="351" height="21"/>
+                                                    <rect key="frame" x="20" y="11.5" width="335" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="pbv-qZ-zl7" firstAttribute="leading" secondItem="L5z-cH-1HG" secondAttribute="leading" constant="12" id="1Gj-0e-zS6"/>
+                                                <constraint firstItem="pbv-qZ-zl7" firstAttribute="leading" secondItem="L5z-cH-1HG" secondAttribute="leading" constant="20" id="1Gj-0e-zS6"/>
                                                 <constraint firstItem="pbv-qZ-zl7" firstAttribute="centerY" secondItem="L5z-cH-1HG" secondAttribute="centerY" id="UhW-mE-Nfe"/>
-                                                <constraint firstAttribute="trailing" secondItem="pbv-qZ-zl7" secondAttribute="trailing" constant="12" id="rB0-r2-TTP"/>
+                                                <constraint firstAttribute="trailing" secondItem="pbv-qZ-zl7" secondAttribute="trailing" constant="20" id="rB0-r2-TTP"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -392,8 +392,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Akamai non-HLS stream" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TR4-f1-2rS">
-                                                    <rect key="frame" x="12" y="11.5" width="351" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unprotected Akamai MP3 stream" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TR4-f1-2rS" userLabel="MP3 stream">
+                                                    <rect key="frame" x="20" y="11.5" width="335" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -401,8 +401,8 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="TR4-f1-2rS" firstAttribute="centerY" secondItem="6pp-La-RlC" secondAttribute="centerY" id="FOB-IA-F6P"/>
-                                                <constraint firstAttribute="trailing" secondItem="TR4-f1-2rS" secondAttribute="trailing" constant="12" id="WKZ-iE-Nrl"/>
-                                                <constraint firstItem="TR4-f1-2rS" firstAttribute="leading" secondItem="6pp-La-RlC" secondAttribute="leading" constant="12" id="gMp-WW-N3y"/>
+                                                <constraint firstAttribute="trailing" secondItem="TR4-f1-2rS" secondAttribute="trailing" constant="20" id="WKZ-iE-Nrl"/>
+                                                <constraint firstItem="TR4-f1-2rS" firstAttribute="leading" secondItem="6pp-La-RlC" secondAttribute="leading" constant="20" id="gMp-WW-N3y"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
