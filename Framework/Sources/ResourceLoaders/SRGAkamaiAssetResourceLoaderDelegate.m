@@ -115,9 +115,9 @@ static NSString * const SRGStandardURLSchemePrefix = @"akamai";
                 [loadingRequest.dataRequest respondWithData:data];
                 [loadingRequest finishLoading];
             }
-        }] requestWithOptions:SRGNetworkRequestBackgroundThreadCompletionEnabled];
+        }] requestWithOptions:SRGRequestOptionBackgroundCompletionEnabled];
         [self.requestQueue addRequest:request resume:YES];
-    }] requestWithOptions:SRGNetworkRequestBackgroundThreadCompletionEnabled];
+    }] requestWithOptions:SRGRequestOptionBackgroundCompletionEnabled];
     [self.requestQueue addRequest:request resume:YES];
     return YES;
 }

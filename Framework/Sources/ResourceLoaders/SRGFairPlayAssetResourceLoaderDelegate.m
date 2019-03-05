@@ -121,9 +121,9 @@ static NSURLRequest *SRGFairPlayContentKeyContextRequest(NSURL *URL, NSData *req
         SRGRequest *request = [[SRGRequest dataRequestWithURLRequest:contentKeyContextRequest session:self.session completionBlock:^(NSData * _Nullable contentKeyContextData, NSURLResponse * _Nullable response, NSError * _Nullable error) {
             NSHTTPURLResponse *HTTPResponse = [response isKindOfClass:[NSHTTPURLResponse class]] ? (NSHTTPURLResponse *)response : nil;
             [self finishLoadingRequest:loadingRequest withContentKeyContextData:contentKeyContextData HTTPResponse:HTTPResponse error:error];
-        }] requestWithOptions:SRGNetworkRequestBackgroundThreadCompletionEnabled];
+        }] requestWithOptions:SRGRequestOptionBackgroundCompletionEnabled];
         [self.requestQueue addRequest:request resume:YES];
-    }] requestWithOptions:SRGNetworkRequestBackgroundThreadCompletionEnabled];
+    }] requestWithOptions:SRGRequestOptionBackgroundCompletionEnabled];
     [self.requestQueue addRequest:request resume:YES];
     return YES;
 }
