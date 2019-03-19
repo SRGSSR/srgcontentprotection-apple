@@ -6,6 +6,9 @@
 
 #import "SRGAkamaiToken.h"
 
+#import "NSBundle+SRGContentProtection.h"
+#import "SRGContentProtectionError.h"
+
 static NSString * const SRGTokenServiceURLString = @"https://tp.srgssr.ch/akahd/token";
 
 @interface SRGAkamaiToken ()
@@ -18,7 +21,7 @@ static NSString * const SRGTokenServiceURLString = @"https://tp.srgssr.ch/akahd/
 
 #pragma mark Class methods
 
-+ (SRGNetworkRequest *)tokenizeURL:(NSURL *)URL withSession:(NSURLSession *)session completionBlock:(nonnull void (^)(NSURL * _Nonnull, NSHTTPURLResponse * _Nonnull, NSError * _Nullable))completionBlock
++ (SRGRequest *)tokenizeURL:(NSURL *)URL withSession:(NSURLSession *)session completionBlock:(nonnull void (^)(NSURL * _Nonnull, NSHTTPURLResponse * _Nonnull, NSError * _Nullable))completionBlock
 {
     NSURLComponents *URLComponents = [NSURLComponents componentsWithURL:URL resolvingAgainstBaseURL:NO];
     NSString *acl = [URLComponents.path.stringByDeletingLastPathComponent stringByAppendingPathComponent:@"*"];
@@ -26,20 +29,31 @@ static NSString * const SRGTokenServiceURLString = @"https://tp.srgssr.ch/akahd/
     NSURLComponents *tokenServiceURLComponents = [NSURLComponents componentsWithURL:[NSURL URLWithString:SRGTokenServiceURLString] resolvingAgainstBaseURL:NO];
     tokenServiceURLComponents.queryItems = @[ [NSURLQueryItem queryItemWithName:@"acl" value:acl] ];
     
-    NSURLRequest *request = [NSURLRequest requestWithURL:tokenServiceURLComponents.URL];
-    return [[SRGNetworkRequest alloc] initWithJSONDictionaryURLRequest:request session:session options:0 completionBlock:^(NSDictionary * _Nullable JSONDictionary, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-        NSHTTPURLResponse *HTTPResponse = [response isKindOfClass:NSHTTPURLResponse.class] ? (NSHTTPURLResponse *)response : nil;
-        
-        NSString *token = nil;
-        id tokenDictionary = JSONDictionary[@"token"];
-        if ([tokenDictionary isKindOfClass:NSDictionary.class]) {
-            token = [tokenDictionary objectForKey:@"authparams"];
+    NSURLRequest *URLRequest = [NSURLRequest requestWithURL:tokenServiceURLComponents.URL];
+    return [SRGRequest objectRequestWithURLRequest:URLRequest session:session parser:^id _Nullable(NSData * _Nonnull data, NSError * _Nullable __autoreleasing * _Nullable pError) {
+        NSDictionary *JSONDictionary = SRGNetworkJSONDictionaryParser(data, pError);
+        if (! JSONDictionary) {
+            return nil;
         }
         
-        // On failure, just return the untokenized URL, which might be playable as is
+        id tokenDictionary = JSONDictionary[@"token"];
+        if (! [tokenDictionary isKindOfClass:NSDictionary.class]) {
+            if (pError) {
+                *pError = [NSError errorWithDomain:SRGContentProtectionErrorDomain
+                                              code:SRGContentProtectionErrorUnauthorized
+                                          userInfo:@{ NSLocalizedDescriptionKey : SRGContentProtectionNonLocalizedString(@"No token dictionary was found") }];
+            }
+            return nil;
+        }
+        
+        NSString *token = [tokenDictionary objectForKey:@"authparams"];
         if (! token) {
-            completionBlock(URL, HTTPResponse, error);
-            return;
+            if (pError) {
+                *pError = [NSError errorWithDomain:SRGContentProtectionErrorDomain
+                                              code:SRGContentProtectionErrorUnauthorized
+                                          userInfo:@{ NSLocalizedDescriptionKey : SRGContentProtectionNonLocalizedString(@"No token was found") }];
+            }
+            return nil;
         }
         
         // Use components to properly extract the token as query items
@@ -47,15 +61,19 @@ static NSString * const SRGTokenServiceURLString = @"https://tp.srgssr.ch/akahd/
         tokenURLComponents.query = token;
         
         // Build the tokenized URL, merging token components with existing ones
-        NSURLComponents *tokenizedURLComponents = [NSURLComponents componentsWithURL:URL resolvingAgainstBaseURL:NO];
+        NSURLComponents *URLComponents = [NSURLComponents componentsWithURL:URL resolvingAgainstBaseURL:NO];
         
-        NSMutableArray *queryItems = [tokenizedURLComponents.queryItems mutableCopy] ?: [NSMutableArray array];
+        NSMutableArray *queryItems = [URLComponents.queryItems mutableCopy] ?: [NSMutableArray array];
         if (tokenURLComponents.queryItems) {
             [queryItems addObjectsFromArray:tokenURLComponents.queryItems];
         }
-        tokenizedURLComponents.queryItems = [queryItems copy];
+        URLComponents.queryItems = [queryItems copy];
         
-        completionBlock(tokenizedURLComponents.URL, HTTPResponse, error);
+        return URLComponents.URL;
+    } completionBlock:^(id _Nullable object, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        // On failure, just return the untokenized URL, which might be playable as is
+        NSHTTPURLResponse *HTTPResponse = [response isKindOfClass:NSHTTPURLResponse.class] ? (NSHTTPURLResponse *)response : nil;
+        completionBlock(object ?: URL, HTTPResponse, error);
     }];
 }
 

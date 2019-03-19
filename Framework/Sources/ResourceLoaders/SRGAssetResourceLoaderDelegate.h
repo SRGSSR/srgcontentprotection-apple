@@ -36,7 +36,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Optional information associated with the receiver.
  */
-@property (nonatomic, nullable) NSDictionary<SRGAssetOption, id> *options;
+@property (nonatomic, nullable) NSDictionary<SRGResourceLoaderOption, id> *options;
 
 @end
 

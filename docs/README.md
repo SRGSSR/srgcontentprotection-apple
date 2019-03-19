@@ -31,8 +31,11 @@ For more information about Carthage and its use, refer to the [official document
 
 The library requires the following frameworks to be added to any target requiring it:
 
+* `libextobjc`: A utility framework.
+* `MAKVONotificationCenter`: A safe KVO framework.
 * `SRGContentProtection`: The content protection library framework.
 * `SRGDiagnostics`: Framework for collecting diagnostic information.
+* `SRGLogger`: The framework used for internal logging.
 * `SRGNetwork`: A networking framework.
 
 ### Dynamic framework integration
@@ -90,7 +93,9 @@ import SRGContentProtection
 
 ### Playing a protected media
 
-To play a protected media with AVPlayer, create an asset through one of the methods from the `AVURLAsset (SRGContentProtection)` category, and use it to instantiate the `AVPlayerItem` which will be played.
+To play a protected content with AVPlayer, create an asset through one of the methods from the `AVURLAsset (SRGContentProtection)` category, and use it to instantiate the `AVPlayerItem` which will be played.
+
+If the protection used does not match the one required by the content, playback will likely fail.
 
 ## Known limitations
 

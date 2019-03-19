@@ -35,8 +35,8 @@ static NSURL *FairPlayCertificateURL(void)
 
 - (void)testNonProtectedResourcePlayback
 {
-    AVURLAsset *asset = [AVURLAsset srg_assetWithURL:[NSURL URLWithString:@"http://tagesschau-lh.akamaihd.net/i/tagesschau_1@119231/master.m3u8"]
-                                      certificateURL:FairPlayCertificateURL()];
+    NSURL *URL = [NSURL URLWithString:@"http://tagesschau-lh.akamaihd.net/i/tagesschau_1@119231/master.m3u8"];
+    AVURLAsset *asset = [AVURLAsset srg_fairPlayProtectedAssetWithURL:URL certificateURL:FairPlayCertificateURL() options:nil];
     AVPlayerItem *playerItem = [AVPlayerItem playerItemWithAsset:asset];
     
     [self keyValueObservingExpectationForObject:playerItem keyPath:@"status" expectedValue:@(AVPlayerItemStatusReadyToPlay)];
@@ -48,8 +48,8 @@ static NSURL *FairPlayCertificateURL(void)
 
 - (void)testNonProtectedResourcePlaybackWithParameter
 {
-    AVURLAsset *asset = [AVURLAsset srg_assetWithURL:[NSURL URLWithString:@"http://tagesschau-lh.akamaihd.net/i/tagesschau_1@119231/master.m3u8?__b__=800"]
-                                      certificateURL:FairPlayCertificateURL()];
+    NSURL *URL = [NSURL URLWithString:@"http://tagesschau-lh.akamaihd.net/i/tagesschau_1@119231/master.m3u8?__b__=800"];
+    AVURLAsset *asset = [AVURLAsset srg_fairPlayProtectedAssetWithURL:URL certificateURL:FairPlayCertificateURL() options:nil];
     AVPlayerItem *playerItem = [AVPlayerItem playerItemWithAsset:asset];
     
     [self keyValueObservingExpectationForObject:playerItem keyPath:@"status" expectedValue:@(AVPlayerItemStatusReadyToPlay)];
@@ -61,8 +61,8 @@ static NSURL *FairPlayCertificateURL(void)
 
 - (void)testInvalidResourcePlayback
 {
-    AVURLAsset *asset = [AVURLAsset srg_assetWithURL:[NSURL URLWithString:@"http://httpbin.org/status/404"]
-                                      certificateURL:FairPlayCertificateURL()];
+    NSURL *URL = [NSURL URLWithString:@"http://httpbin.org/status/404"];
+    AVURLAsset *asset = [AVURLAsset srg_fairPlayProtectedAssetWithURL:URL certificateURL:FairPlayCertificateURL() options:nil];
     AVPlayerItem *playerItem = [AVPlayerItem playerItemWithAsset:asset];
     
     [self keyValueObservingExpectationForObject:playerItem keyPath:@"status" expectedValue:@(AVPlayerItemStatusFailed)];
@@ -74,8 +74,8 @@ static NSURL *FairPlayCertificateURL(void)
 
 - (void)testAkamaiMP3ResourcePlayback
 {
-    AVURLAsset *asset = [AVURLAsset srg_assetWithURL:[NSURL URLWithString:@"https://srfaudio-a.akamaihd.net/delivery/world/75f44907-4638-422d-bc80-bbb14c9d9c93.mp3"]
-                                      certificateURL:FairPlayCertificateURL()];
+    NSURL *URL = [NSURL URLWithString:@"https://srfaudio-a.akamaihd.net/delivery/world/75f44907-4638-422d-bc80-bbb14c9d9c93.mp3"];
+    AVURLAsset *asset = [AVURLAsset srg_fairPlayProtectedAssetWithURL:URL certificateURL:FairPlayCertificateURL() options:nil];
     AVPlayerItem *playerItem = [AVPlayerItem playerItemWithAsset:asset];
     
     [self keyValueObservingExpectationForObject:playerItem keyPath:@"status" expectedValue:@(AVPlayerItemStatusReadyToPlay)];

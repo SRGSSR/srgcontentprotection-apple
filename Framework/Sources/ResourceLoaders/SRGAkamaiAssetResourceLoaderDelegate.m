@@ -17,7 +17,7 @@ static NSString * const SRGStandardURLSchemePrefix = @"akamai";
 @interface SRGAkamaiAssetResourceLoaderDelegate ()
 
 @property (nonatomic) NSURLSession *session;
-@property (nonatomic) SRGNetworkRequest *request;
+@property (nonatomic) SRGRequestQueue *requestQueue;
 
 @end
 
@@ -28,8 +28,12 @@ static NSString * const SRGStandardURLSchemePrefix = @"akamai";
 - (NSURL *)URLForAssetURL:(NSURL *)URL
 {
     NSURLComponents *components = [NSURLComponents componentsWithURL:URL resolvingAgainstBaseURL:NO];
+    
     NSArray<NSString *> *schemeComponents = [components.scheme componentsSeparatedByString:@"+"];
-    NSAssert(schemeComponents.count == 2 && [schemeComponents.firstObject isEqualToString:SRGStandardURLSchemePrefix], @"The URL must be a valid Akamai URL");
+    if (schemeComponents.count != 2 || ! [schemeComponents.firstObject isEqualToString:SRGStandardURLSchemePrefix]) {
+        return nil;
+    }
+    
     components.scheme = schemeComponents.lastObject;
     return components.URL;
 }
@@ -39,7 +43,7 @@ static NSString * const SRGStandardURLSchemePrefix = @"akamai";
 - (instancetype)init
 {
     if (self = [super init]) {
-        self.session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
+        self.session = [NSURLSession sessionWithConfiguration:NSURLSessionConfiguration.defaultSessionConfiguration];
     }
     return self;
 }
@@ -48,8 +52,8 @@ static NSString * const SRGStandardURLSchemePrefix = @"akamai";
 
 - (SRGDiagnosticInformation *)diagnosticInformation
 {
-    NSString *serviceName = self.options[SRGAssetOptionDiagnosticServiceNameKey];
-    NSString *reportName = self.options[SRGAssetOptionDiagnosticReportNameKey];
+    NSString *serviceName = self.options[SRGResourceLoaderOptionDiagnosticServiceNameKey];
+    NSString *reportName = self.options[SRGResourceLoaderOptionDiagnosticReportNameKey];
     if (serviceName && reportName) {
         return [[[SRGDiagnosticsService serviceWithName:serviceName] reportWithName:reportName] informationForKey:@"tokenResult"];
     }
@@ -76,14 +80,20 @@ static NSString * const SRGStandardURLSchemePrefix = @"akamai";
 
 - (BOOL)shouldProcessResourceLoadingRequest:(AVAssetResourceLoadingRequest *)loadingRequest
 {
-    SRGDiagnosticInformation *diagnosticInformation = [self diagnosticInformation];
-    [diagnosticInformation startTimeMeasurementForKey:@"duration"];
-    
     // About thread-safety considerations: The delegate methods are called from background threads, and though there is
     // no explicit documentation, Apple examples show that completion calls can be made from background threads. There
     // is probably no need to dispatch any work to the main thread.
     NSURL *requestURL = [self URLForAssetURL:loadingRequest.request.URL];
-    self.request = [SRGAkamaiToken tokenizeURL:requestURL withSession:self.session completionBlock:^(NSURL * _Nonnull URL, NSHTTPURLResponse * _Nonnull HTTPResponse, NSError * _Nullable error) {
+    if (! requestURL) {
+        return NO;
+    }
+    
+    SRGDiagnosticInformation *diagnosticInformation = [self diagnosticInformation];
+    [diagnosticInformation startTimeMeasurementForKey:@"duration"];
+    
+    self.requestQueue = [[SRGRequestQueue alloc] init];
+
+    SRGRequest *request = [[SRGAkamaiToken tokenizeURL:requestURL withSession:self.session completionBlock:^(NSURL * _Nonnull URL, NSHTTPURLResponse * _Nonnull HTTPResponse, NSError * _Nullable error) {
         [diagnosticInformation setURL:HTTPResponse.URL forKey:@"url"];
         [diagnosticInformation setInteger:HTTPResponse.statusCode forKey:@"httpStatusCode"];
         [diagnosticInformation setString:error.localizedDescription forKey:@"message"];
@@ -91,7 +101,7 @@ static NSString * const SRGStandardURLSchemePrefix = @"akamai";
         
         NSMutableURLRequest *playlistRequest = [loadingRequest.request mutableCopy];
         playlistRequest.URL = URL;
-        self.request = [[SRGNetworkRequest alloc] initWithURLRequest:playlistRequest session:self.session options:0 completionBlock:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        SRGRequest *request = [[SRGRequest dataRequestWithURLRequest:playlistRequest session:self.session completionBlock:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
             loadingRequest.response = response;
             if (error) {
                 NSMutableDictionary *userInfo = [@{ NSLocalizedDescriptionKey : SRGContentProtectionLocalizedString(@"This content is protected and cannot be played without proper rights.", @"User-facing message displayed proper authorization to play a stream has not been obtained") } mutableCopy];
@@ -105,16 +115,16 @@ static NSString * const SRGStandardURLSchemePrefix = @"akamai";
                 [loadingRequest.dataRequest respondWithData:data];
                 [loadingRequest finishLoading];
             }
-        }];
-        [self.request resume];
-    }];
-    [self.request resume];
+        }] requestWithOptions:SRGRequestOptionBackgroundCompletionEnabled];
+        [self.requestQueue addRequest:request resume:YES];
+    }] requestWithOptions:SRGRequestOptionBackgroundCompletionEnabled];
+    [self.requestQueue addRequest:request resume:YES];
     return YES;
 }
 
 - (void)didCancelResourceLoadingRequest:(AVAssetResourceLoadingRequest *)loadingRequest
 {
-    [self.request cancel];
+    [self.requestQueue cancel];
 }
 
 @end

@@ -36,7 +36,7 @@ static NSURLRequest *SRGFairPlayContentKeyContextRequest(NSURL *URL, NSData *req
 @property (nonatomic) NSURL *certificateURL;
 
 @property (nonatomic) NSURLSession *session;
-@property (nonatomic) SRGNetworkRequest *request;
+@property (nonatomic) SRGRequestQueue *requestQueue;
 
 @end
 
@@ -48,7 +48,7 @@ static NSURLRequest *SRGFairPlayContentKeyContextRequest(NSURL *URL, NSData *req
 {
     if (self = [super init]) {
         self.certificateURL = certificateURL;
-        self.session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
+        self.session = [NSURLSession sessionWithConfiguration:NSURLSessionConfiguration.defaultSessionConfiguration];
     }
     return self;
 }
@@ -66,8 +66,8 @@ static NSURLRequest *SRGFairPlayContentKeyContextRequest(NSURL *URL, NSData *req
 
 - (SRGDiagnosticInformation *)diagnosticInformation
 {
-    NSString *serviceName = self.options[SRGAssetOptionDiagnosticServiceNameKey];
-    NSString *reportName = self.options[SRGAssetOptionDiagnosticReportNameKey];
+    NSString *serviceName = self.options[SRGResourceLoaderOptionDiagnosticServiceNameKey];
+    NSString *reportName = self.options[SRGResourceLoaderOptionDiagnosticReportNameKey];
     if (serviceName && reportName) {
         return [[[SRGDiagnosticsService serviceWithName:serviceName] reportWithName:reportName] informationForKey:@"drmResult"];
     }
@@ -94,7 +94,9 @@ static NSURLRequest *SRGFairPlayContentKeyContextRequest(NSURL *URL, NSData *req
     SRGDiagnosticInformation *diagnosticInformation = [self diagnosticInformation];
     [diagnosticInformation startTimeMeasurementForKey:@"duration"];
     
-    self.request = [[SRGNetworkRequest alloc] initWithURLRequest:[NSURLRequest requestWithURL:self.certificateURL] session:self.session options:0 completionBlock:^(NSData * _Nullable certificateData, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+    self.requestQueue = [[SRGRequestQueue alloc] init];
+    
+    SRGRequest *request = [[SRGRequest dataRequestWithURLRequest:[NSURLRequest requestWithURL:self.certificateURL] session:self.session completionBlock:^(NSData * _Nullable certificateData, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         NSHTTPURLResponse *HTTPResponse = [response isKindOfClass:[NSHTTPURLResponse class]] ? (NSHTTPURLResponse *)response : nil;
         
         // Resource loader methods must be called on the main thread
@@ -116,19 +118,19 @@ static NSURLRequest *SRGFairPlayContentKeyContextRequest(NSURL *URL, NSData *req
         }
         
         NSURLRequest *contentKeyContextRequest = SRGFairPlayContentKeyContextRequest(URL, keyRequestData);
-        self.request = [[SRGNetworkRequest alloc] initWithURLRequest:contentKeyContextRequest session:self.session options:0 completionBlock:^(NSData * _Nullable contentKeyContextData, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        SRGRequest *request = [[SRGRequest dataRequestWithURLRequest:contentKeyContextRequest session:self.session completionBlock:^(NSData * _Nullable contentKeyContextData, NSURLResponse * _Nullable response, NSError * _Nullable error) {
             NSHTTPURLResponse *HTTPResponse = [response isKindOfClass:[NSHTTPURLResponse class]] ? (NSHTTPURLResponse *)response : nil;
             [self finishLoadingRequest:loadingRequest withContentKeyContextData:contentKeyContextData HTTPResponse:HTTPResponse error:error];
-        }];
-        [self.request resume];
-    }];
-    [self.request resume];
+        }] requestWithOptions:SRGRequestOptionBackgroundCompletionEnabled];
+        [self.requestQueue addRequest:request resume:YES];
+    }] requestWithOptions:SRGRequestOptionBackgroundCompletionEnabled];
+    [self.requestQueue addRequest:request resume:YES];
     return YES;
 }
 
 - (void)didCancelResourceLoadingRequest:(AVAssetResourceLoadingRequest *)loadingRequest
 {
-    [self.request cancel];
+    [self.requestQueue cancel];
 }
 
 #pragma mark Helpers
