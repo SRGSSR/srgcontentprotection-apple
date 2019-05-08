@@ -96,7 +96,7 @@ static NSString * const SRGStandardURLSchemePrefix = @"akamai";
     SRGRequest *request = [[SRGAkamaiToken tokenizeURL:requestURL withSession:self.session completionBlock:^(NSURL * _Nonnull URL, NSHTTPURLResponse * _Nonnull HTTPResponse, NSError * _Nullable error) {
         [diagnosticInformation setURL:HTTPResponse.URL forKey:@"url"];
         [diagnosticInformation setInteger:HTTPResponse.statusCode forKey:@"httpStatusCode"];
-        [diagnosticInformation setString:error.localizedDescription forKey:@"message"];
+        [diagnosticInformation setString:error.localizedDescription forKey:@"errorMessage"];
         [diagnosticInformation stopTimeMeasurementForKey:@"duration"];
         
         NSMutableURLRequest *playlistRequest = [loadingRequest.request mutableCopy];
