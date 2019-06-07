@@ -43,7 +43,7 @@ static NSURL *FairPlayCertificateURL(void)
     
     self.player = [AVPlayer playerWithPlayerItem:playerItem];
     
-    [self waitForExpectationsWithTimeout:10. handler:nil];
+    [self waitForExpectationsWithTimeout:20. handler:nil];
 }
 
 - (void)testNonProtectedResourcePlaybackWithParameter
@@ -56,7 +56,7 @@ static NSURL *FairPlayCertificateURL(void)
     
     self.player = [AVPlayer playerWithPlayerItem:playerItem];
     
-    [self waitForExpectationsWithTimeout:10. handler:nil];
+    [self waitForExpectationsWithTimeout:20. handler:nil];
 }
 
 - (void)testInvalidResourcePlayback
@@ -69,7 +69,7 @@ static NSURL *FairPlayCertificateURL(void)
     
     self.player = [AVPlayer playerWithPlayerItem:playerItem];
     
-    [self waitForExpectationsWithTimeout:10. handler:nil];
+    [self waitForExpectationsWithTimeout:20. handler:nil];
 }
 
 - (void)testAkamaiMP3ResourcePlayback
@@ -82,7 +82,7 @@ static NSURL *FairPlayCertificateURL(void)
     
     self.player = [AVPlayer playerWithPlayerItem:playerItem];
     
-    [self waitForExpectationsWithTimeout:10. handler:nil];
+    [self waitForExpectationsWithTimeout:20. handler:nil];
 }
 
 @end

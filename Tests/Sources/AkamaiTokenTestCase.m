@@ -37,7 +37,7 @@ static NSString *TestURLParameter(NSURL *URL, NSString *parameter)
         [expectation fulfill];
     }] resume];
     
-    [self waitForExpectationsWithTimeout:10. handler:nil];
+    [self waitForExpectationsWithTimeout:20. handler:nil];
 }
 
 - (void)testTokenizeAkamaiURLWithParameters
@@ -53,7 +53,7 @@ static NSString *TestURLParameter(NSURL *URL, NSString *parameter)
         [expectation fulfill];
     }] resume];
     
-    [self waitForExpectationsWithTimeout:10. handler:nil];
+    [self waitForExpectationsWithTimeout:20. handler:nil];
 }
 
 - (void)testTokenizeNonAkamaiURL
@@ -68,7 +68,7 @@ static NSString *TestURLParameter(NSURL *URL, NSString *parameter)
         [expectation fulfill];
     }] resume];
     
-    [self waitForExpectationsWithTimeout:10. handler:nil];
+    [self waitForExpectationsWithTimeout:20. handler:nil];
 }
 
 @end

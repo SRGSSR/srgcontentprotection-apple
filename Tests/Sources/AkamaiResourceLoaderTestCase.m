@@ -28,7 +28,7 @@
     
     self.player = [AVPlayer playerWithPlayerItem:playerItem];
     
-    [self waitForExpectationsWithTimeout:10. handler:nil];
+    [self waitForExpectationsWithTimeout:20. handler:nil];
 }
 
 - (void)testProtectedResourcePlaybackWithParameter
@@ -41,7 +41,7 @@
     
     self.player = [AVPlayer playerWithPlayerItem:playerItem];
     
-    [self waitForExpectationsWithTimeout:10. handler:nil];
+    [self waitForExpectationsWithTimeout:20. handler:nil];
 }
 
 - (void)testNonProtectedResourcePlayback
@@ -54,7 +54,7 @@
     
     self.player = [AVPlayer playerWithPlayerItem:playerItem];
     
-    [self waitForExpectationsWithTimeout:10. handler:nil];
+    [self waitForExpectationsWithTimeout:20. handler:nil];
 }
 
 - (void)testNonProtectedResourcePlaybackWithParameter
@@ -67,7 +67,7 @@
     
     self.player = [AVPlayer playerWithPlayerItem:playerItem];
     
-    [self waitForExpectationsWithTimeout:10. handler:nil];
+    [self waitForExpectationsWithTimeout:20. handler:nil];
 }
 
 - (void)testInvalidResourcePlayback
@@ -80,7 +80,7 @@
     
     self.player = [AVPlayer playerWithPlayerItem:playerItem];
     
-    [self waitForExpectationsWithTimeout:10. handler:nil];
+    [self waitForExpectationsWithTimeout:20. handler:nil];
 }
 
 @end

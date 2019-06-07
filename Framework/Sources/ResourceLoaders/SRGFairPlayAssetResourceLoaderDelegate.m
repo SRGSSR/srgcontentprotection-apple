@@ -156,7 +156,7 @@ static NSURLRequest *SRGFairPlayContentKeyContextRequest(NSURL *URL, NSData *req
         [diagnosticInformation setInteger:HTTPResponse.statusCode forKey:@"httpStatusCode"];
     }
     
-    [diagnosticInformation setString:error.localizedDescription forKey:@"message"];
+    [diagnosticInformation setString:error.localizedDescription forKey:@"errorMessage"];
     [diagnosticInformation stopTimeMeasurementForKey:@"duration"];
 }
 
