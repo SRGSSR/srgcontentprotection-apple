@@ -76,6 +76,27 @@ static NSURLRequest *SRGFairPlayContentKeyContextRequest(NSURL *URL, NSData *req
     }
 }
 
+- (NSString *)contentKeysDirectoryURLString
+{
+    static NSString *s_contentKeysDirectoryURLString;
+    static dispatch_once_t s_onceToken;
+    dispatch_once(&s_onceToken, ^{
+        NSString *libraryDirectory = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES).firstObject;
+        s_contentKeysDirectoryURLString = [[libraryDirectory stringByAppendingPathComponent:NSBundle.srg_contentProtectionBundle.bundleIdentifier] stringByAppendingPathComponent:@".keys"];
+        NSError *error = nil;
+        [NSFileManager.defaultManager createDirectoryAtPath:s_contentKeysDirectoryURLString
+                                withIntermediateDirectories:YES
+                                                 attributes:nil
+                                                      error:&error];
+    });
+    return s_contentKeysDirectoryURLString;
+}
+
+- (NSString *)contentKeyStoreURLStringForIdentifier:(NSData *)identifier
+{
+    return [[self contentKeysDirectoryURLString] stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.key", @(identifier.hash)]];
+}
+
 #pragma clang diagnostic pop
 
 #pragma mark Subclassing hooks
@@ -94,33 +115,62 @@ static NSURLRequest *SRGFairPlayContentKeyContextRequest(NSURL *URL, NSData *req
     SRGDiagnosticInformation *diagnosticInformation = [self diagnosticInformation];
     [diagnosticInformation startTimeMeasurementForKey:@"duration"];
     
+    AVAssetResourceLoadingContentInformationRequest *contentInformationRequest = loadingRequest.contentInformationRequest;
+    NSData *contentIdentifier = [loadingRequest.request.URL.absoluteString dataUsingEncoding:NSUTF8StringEncoding];
+    
     self.requestQueue = [[SRGRequestQueue alloc] init];
+    
+    if (@available(iOS 11.2, *)) {
+        if ([contentInformationRequest.allowedContentTypes containsObject:AVStreamingKeyDeliveryPersistentContentKeyType]) {
+            contentInformationRequest.contentType = AVStreamingKeyDeliveryPersistentContentKeyType;
+            
+            NSData *persistentContentKeyData = [self persistentContentKeyForIdentifier:contentIdentifier];
+            if (persistentContentKeyData) {
+                NSURLComponents *components = [NSURLComponents componentsWithURL:URL resolvingAgainstBaseURL:NO];
+                components.scheme = @"https";
+                [self finishLoadingRequest:loadingRequest withContentKeyContextData:persistentContentKeyData HTTPResponse:nil offlineURL:components.URL error:nil];
+                return YES;
+            }
+        }
+    }
     
     SRGRequest *request = [[SRGRequest dataRequestWithURLRequest:[NSURLRequest requestWithURL:self.certificateURL] session:self.session completionBlock:^(NSData * _Nullable certificateData, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         NSHTTPURLResponse *HTTPResponse = [response isKindOfClass:[NSHTTPURLResponse class]] ? (NSHTTPURLResponse *)response : nil;
         
         // Resource loader methods must be called on the main thread
         if (error) {
-            [self finishLoadingRequest:loadingRequest withContentKeyContextData:nil HTTPResponse:HTTPResponse error:error];
+            [self finishLoadingRequest:loadingRequest withContentKeyContextData:nil HTTPResponse:HTTPResponse offlineURL:nil error:error];
             return;
         }
         
         // TODO: - Content identifier convention?
         NSError *keyError = nil;
+        NSDictionary *options = nil;
         NSData *contentIdentifier = [loadingRequest.request.URL.absoluteString dataUsingEncoding:NSUTF8StringEncoding];
+        if (contentInformationRequest.contentType == AVStreamingKeyDeliveryPersistentContentKeyType) {
+            options = @{ AVAssetResourceLoadingRequestStreamingContentKeyRequestRequiresPersistentKey : @YES };
+        }
         NSData *keyRequestData = [loadingRequest streamingContentKeyRequestDataForApp:certificateData
                                                                     contentIdentifier:contentIdentifier
-                                                                              options:nil
+                                                                              options:options
                                                                                 error:&keyError];
         if (keyError) {
-            [self finishLoadingRequest:loadingRequest withContentKeyContextData:nil HTTPResponse:HTTPResponse error:keyError];
+            [self finishLoadingRequest:loadingRequest withContentKeyContextData:nil HTTPResponse:HTTPResponse offlineURL:nil error:keyError];
             return;
         }
         
         NSURLRequest *contentKeyContextRequest = SRGFairPlayContentKeyContextRequest(URL, keyRequestData);
         SRGRequest *request = [[SRGRequest dataRequestWithURLRequest:contentKeyContextRequest session:self.session completionBlock:^(NSData * _Nullable contentKeyContextData, NSURLResponse * _Nullable response, NSError * _Nullable error) {
             NSHTTPURLResponse *HTTPResponse = [response isKindOfClass:[NSHTTPURLResponse class]] ? (NSHTTPURLResponse *)response : nil;
-            [self finishLoadingRequest:loadingRequest withContentKeyContextData:contentKeyContextData HTTPResponse:HTTPResponse error:error];
+            if (contentInformationRequest.contentType == AVStreamingKeyDeliveryPersistentContentKeyType) {
+                NSError *persistentContentKeyError = nil;
+                NSData *persistentContentKeyData = [loadingRequest persistentContentKeyFromKeyVendorResponse:contentKeyContextData options:nil error:&persistentContentKeyError];
+                if (! persistentContentKeyError && persistentContentKeyData) {
+                    [self savePersistentContentKey:persistentContentKeyData forIdentifier:contentIdentifier];
+                    contentKeyContextData = persistentContentKeyData;
+                }
+            }
+            [self finishLoadingRequest:loadingRequest withContentKeyContextData:contentKeyContextData HTTPResponse:HTTPResponse offlineURL:nil error:error];
         }] requestWithOptions:SRGRequestOptionBackgroundCompletionEnabled];
         [self.requestQueue addRequest:request resume:YES];
     }] requestWithOptions:SRGRequestOptionBackgroundCompletionEnabled];
@@ -135,7 +185,7 @@ static NSURLRequest *SRGFairPlayContentKeyContextRequest(NSURL *URL, NSData *req
 
 #pragma mark Helpers
 
-- (void)finishLoadingRequest:(AVAssetResourceLoadingRequest *)loadingRequest withContentKeyContextData:(NSData *)contentKeyContextData HTTPResponse:(NSHTTPURLResponse *)HTTPResponse error:(NSError *)error
+- (void)finishLoadingRequest:(AVAssetResourceLoadingRequest *)loadingRequest withContentKeyContextData:(NSData *)contentKeyContextData HTTPResponse:(NSHTTPURLResponse *)HTTPResponse offlineURL:(NSURL *)offlineURL error:(NSError *)error
 {
     if (contentKeyContextData) {
         [loadingRequest.dataRequest respondWithData:contentKeyContextData];
@@ -154,10 +204,28 @@ static NSURLRequest *SRGFairPlayContentKeyContextRequest(NSURL *URL, NSData *req
     if (HTTPResponse) {
         [diagnosticInformation setURL:HTTPResponse.URL forKey:@"url"];
         [diagnosticInformation setInteger:HTTPResponse.statusCode forKey:@"httpStatusCode"];
+        [diagnosticInformation setBool:NO forKey:@"offline"];
+    }
+    
+    if (offlineURL) {
+        [diagnosticInformation setURL:offlineURL forKey:@"url"];
+        [diagnosticInformation setBool:YES forKey:@"offline"];
     }
     
     [diagnosticInformation setString:error.localizedDescription forKey:@"errorMessage"];
     [diagnosticInformation stopTimeMeasurementForKey:@"duration"];
+}
+
+- (void)savePersistentContentKey:(NSData *)persistentContentKey forIdentifier:(NSData *)identifier
+{
+    if (! [persistentContentKey writeToFile:[self contentKeyStoreURLStringForIdentifier:identifier] atomically:YES]) {
+        NSAssert(NO, @"Could not save contentKey. Not safe. See error above.");
+    }
+}
+
+- (NSData *)persistentContentKeyForIdentifier:(NSData *)identifier
+{
+    return [NSData dataWithContentsOfFile:[self contentKeyStoreURLStringForIdentifier:identifier]];
 }
 
 @end
