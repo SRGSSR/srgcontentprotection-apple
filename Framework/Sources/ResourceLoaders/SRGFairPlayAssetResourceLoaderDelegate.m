@@ -83,7 +83,7 @@ static NSURLRequest *SRGFairPlayContentKeyContextRequest(NSURL *URL, NSData *req
     static dispatch_once_t s_onceToken;
     dispatch_once(&s_onceToken, ^{
         NSString *libraryDirectory = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES).firstObject;
-        s_contentKeysDirectoryURLString = [[libraryDirectory stringByAppendingPathComponent:NSBundle.srg_contentProtectionBundle.bundleIdentifier] stringByAppendingPathComponent:@".keys"];
+        s_contentKeysDirectoryURLString = [[libraryDirectory stringByAppendingPathComponent:[NSBundle.srg_contentProtectionBundle objectForInfoDictionaryKey:(NSString*)kCFBundleNameKey]] stringByAppendingPathComponent:@".keys"];
         NSError *error = nil;
         [NSFileManager.defaultManager createDirectoryAtPath:s_contentKeysDirectoryURLString
                                 withIntermediateDirectories:YES
