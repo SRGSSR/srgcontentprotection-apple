@@ -19,6 +19,8 @@
 		0858B6A422010CD6000F00CF /* MAKVONotificationCenter.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0858B69722010C9E000F00CF /* MAKVONotificationCenter.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0858B6A522010CD6000F00CF /* SRGLogger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0858B69522010C9E000F00CF /* SRGLogger.framework */; };
 		0858B6A622010CD6000F00CF /* SRGLogger.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0858B69522010C9E000F00CF /* SRGLogger.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		08B0722722B95AA1007C0AD4 /* NSData+SRGContentProtection.m in Sources */ = {isa = PBXBuildFile; fileRef = 08B0722522B95AA1007C0AD4 /* NSData+SRGContentProtection.m */; };
+		08B0722822B95AA1007C0AD4 /* NSData+SRGContentProtection.h in Headers */ = {isa = PBXBuildFile; fileRef = 08B0722622B95AA1007C0AD4 /* NSData+SRGContentProtection.h */; };
 		6F0432BD21006E7A002B090A /* SRGNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F0432BC21006E7A002B090A /* SRGNetwork.framework */; };
 		6F0432BE21007340002B090A /* SRGNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F0432BC21006E7A002B090A /* SRGNetwork.framework */; };
 		6F0432BF21007340002B090A /* SRGNetwork.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6F0432BC21006E7A002B090A /* SRGNetwork.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -128,6 +130,8 @@
 		0858B69522010C9E000F00CF /* SRGLogger.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SRGLogger.framework; path = Carthage/Build/iOS/SRGLogger.framework; sourceTree = "<group>"; };
 		0858B69622010C9E000F00CF /* libextobjc.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = libextobjc.framework; path = Carthage/Build/iOS/libextobjc.framework; sourceTree = "<group>"; };
 		0858B69722010C9E000F00CF /* MAKVONotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MAKVONotificationCenter.framework; path = Carthage/Build/iOS/MAKVONotificationCenter.framework; sourceTree = "<group>"; };
+		08B0722522B95AA1007C0AD4 /* NSData+SRGContentProtection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+SRGContentProtection.m"; sourceTree = "<group>"; };
+		08B0722622B95AA1007C0AD4 /* NSData+SRGContentProtection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+SRGContentProtection.h"; sourceTree = "<group>"; };
 		6F0432BC21006E7A002B090A /* SRGNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SRGNetwork.framework; path = Carthage/Build/iOS/SRGNetwork.framework; sourceTree = "<group>"; };
 		6F0C98E62121E1C200073AB6 /* SRGContentProtection.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SRGContentProtection.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F0EB53120FC7F58009C02CF /* SRGContentProtection.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SRGContentProtection.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -279,6 +283,8 @@
 				6FD810F320FCB58500F250B9 /* AVURLAsset+SRGContentProtection.m */,
 				6F0EB54620FC8049009C02CF /* NSBundle+SRGContentProtection.h */,
 				6F0EB54520FC8049009C02CF /* NSBundle+SRGContentProtection.m */,
+				08B0722622B95AA1007C0AD4 /* NSData+SRGContentProtection.h */,
+				08B0722522B95AA1007C0AD4 /* NSData+SRGContentProtection.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -399,6 +405,7 @@
 				6FDE576620FC9DC700719525 /* SRGContentProtectionError.h in Headers */,
 				6F0EB54820FC8049009C02CF /* NSBundle+SRGContentProtection.h in Headers */,
 				6F7B786A2108A05C001E3BBE /* SRGAkamaiToken.h in Headers */,
+				08B0722822B95AA1007C0AD4 /* NSData+SRGContentProtection.h in Headers */,
 				6FE021DD2119B58800DF6617 /* SRGAssetResourceLoaderDelegate.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -579,6 +586,7 @@
 				6F0EB54720FC8049009C02CF /* NSBundle+SRGContentProtection.m in Sources */,
 				6F0EB54320FC7FF4009C02CF /* SRGContentProtection.m in Sources */,
 				6FBF24372147FE2E00E576A2 /* SRGAssetResourceLoaderDelegate.m in Sources */,
+				08B0722722B95AA1007C0AD4 /* NSData+SRGContentProtection.m in Sources */,
 				6FD8110220FCC22500F250B9 /* SRGAkamaiAssetResourceLoaderDelegate.m in Sources */,
 				6F7B786B2108A05C001E3BBE /* SRGAkamaiToken.m in Sources */,
 				6FDE576520FC9DC700719525 /* SRGContentProtectionError.m in Sources */,

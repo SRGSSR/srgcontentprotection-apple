@@ -7,6 +7,7 @@
 #import "SRGFairPlayAssetResourceLoaderDelegate.h"
 
 #import "NSBundle+SRGContentProtection.h"
+#import "NSData+SRGContentProtection.h"
 #import "SRGContentProtectionConstants.h"
 #import "SRGContentProtectionError.h"
 
@@ -94,7 +95,7 @@ static NSURLRequest *SRGFairPlayContentKeyContextRequest(NSURL *URL, NSData *req
 
 - (NSString *)contentKeyStoreURLStringForIdentifier:(NSData *)identifier
 {
-    return [[self contentKeysDirectoryURLString] stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.key", @(identifier.hash)]];
+    return [[self contentKeysDirectoryURLString] stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.key", identifier.sha1]];
 }
 
 #pragma clang diagnostic pop
