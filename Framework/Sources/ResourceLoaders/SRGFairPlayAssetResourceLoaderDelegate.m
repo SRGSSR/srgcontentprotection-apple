@@ -179,6 +179,19 @@ static NSURLRequest *SRGFairPlayContentKeyContextRequest(NSURL *URL, NSData *req
     return YES;
 }
 
+- (BOOL)resourceLoader:(AVAssetResourceLoader *)resourceLoader shouldWaitForRenewalOfRequestedResource:(AVAssetResourceRenewalRequest *)renewalRequest
+{
+    NSURL *URL = renewalRequest.request.URL;
+    if (! SRGIsFairPlayURL(URL)) {
+        return NO;
+    }
+    
+    NSData *contentIdentifier = [renewalRequest.request.URL.absoluteString dataUsingEncoding:NSUTF8StringEncoding];
+    [self removePersistentContentKeyForIdentifier:contentIdentifier];
+    
+    return [self shouldProcessResourceLoadingRequest:renewalRequest];
+}
+
 - (void)didCancelResourceLoadingRequest:(AVAssetResourceLoadingRequest *)loadingRequest
 {
     [self.requestQueue cancel];
@@ -227,6 +240,11 @@ static NSURLRequest *SRGFairPlayContentKeyContextRequest(NSURL *URL, NSData *req
 - (NSData *)persistentContentKeyForIdentifier:(NSData *)identifier
 {
     return [NSData dataWithContentsOfFile:[self contentKeyStoreURLStringForIdentifier:identifier]];
+}
+
+- (void)removePersistentContentKeyForIdentifier:(NSData *)identifier
+{
+    [NSFileManager.defaultManager removeItemAtPath:[self contentKeyStoreURLStringForIdentifier:identifier] error:nil];
 }
 
 @end
