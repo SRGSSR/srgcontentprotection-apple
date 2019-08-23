@@ -9,10 +9,6 @@
 #import <AVKit/AVKit.h>
 #import <SRGContentProtection/SRGContentProtection.h>
 
-@interface DemosViewController ()
-
-@end
-
 @implementation DemosViewController
 
 #pragma mark Object lifecycle
