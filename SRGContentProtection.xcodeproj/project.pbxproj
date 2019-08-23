@@ -72,6 +72,10 @@
 		08E2AF5D23105E4E00DCCE74 /* SRGNetwork.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0897CEA8230F0EA400555054 /* SRGNetwork.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		08E2AF6123105F6000DCCE74 /* TVDemosViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08E2AF5F23105F6000DCCE74 /* TVDemosViewController.storyboard */; };
 		08E2AF6223105F6000DCCE74 /* TVDemosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08E2AF6023105F6000DCCE74 /* TVDemosViewController.m */; };
+		08E2AF6423108D8F00DCCE74 /* MediaDemoConfiguration.plist in Resources */ = {isa = PBXBuildFile; fileRef = 08E2AF6323108D8F00DCCE74 /* MediaDemoConfiguration.plist */; };
+		08E2AF6523108D8F00DCCE74 /* MediaDemoConfiguration.plist in Resources */ = {isa = PBXBuildFile; fileRef = 08E2AF6323108D8F00DCCE74 /* MediaDemoConfiguration.plist */; };
+		08E2AF6923108EBA00DCCE74 /* Media.m in Sources */ = {isa = PBXBuildFile; fileRef = 08E2AF6823108EBA00DCCE74 /* Media.m */; };
+		08E2AF6A23108EBA00DCCE74 /* Media.m in Sources */ = {isa = PBXBuildFile; fileRef = 08E2AF6823108EBA00DCCE74 /* Media.m */; };
 		6F0432BD21006E7A002B090A /* SRGNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F0432BC21006E7A002B090A /* SRGNetwork.framework */; };
 		6F0432BE21007340002B090A /* SRGNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F0432BC21006E7A002B090A /* SRGNetwork.framework */; };
 		6F0432BF21007340002B090A /* SRGNetwork.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6F0432BC21006E7A002B090A /* SRGNetwork.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -248,6 +252,9 @@
 		08E2AF5E23105F6000DCCE74 /* TVDemosViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TVDemosViewController.h; sourceTree = "<group>"; };
 		08E2AF5F23105F6000DCCE74 /* TVDemosViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TVDemosViewController.storyboard; sourceTree = "<group>"; };
 		08E2AF6023105F6000DCCE74 /* TVDemosViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TVDemosViewController.m; sourceTree = "<group>"; };
+		08E2AF6323108D8F00DCCE74 /* MediaDemoConfiguration.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = MediaDemoConfiguration.plist; sourceTree = "<group>"; };
+		08E2AF6723108EBA00DCCE74 /* Media.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Media.h; sourceTree = "<group>"; };
+		08E2AF6823108EBA00DCCE74 /* Media.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Media.m; sourceTree = "<group>"; };
 		6F0432BC21006E7A002B090A /* SRGNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SRGNetwork.framework; path = Carthage/Build/iOS/SRGNetwork.framework; sourceTree = "<group>"; };
 		6F0C98E62121E1C200073AB6 /* SRGContentProtection.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SRGContentProtection.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F0EB53120FC7F58009C02CF /* SRGContentProtection.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SRGContentProtection.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -426,6 +433,15 @@
 			path = Demos;
 			sourceTree = "<group>";
 		};
+		08E2AF6623108EBA00DCCE74 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				08E2AF6723108EBA00DCCE74 /* Media.h */,
+				08E2AF6823108EBA00DCCE74 /* Media.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		6F0EB52720FC7F58009C02CF = {
 			isa = PBXGroup;
 			children = (
@@ -503,6 +519,7 @@
 		6F8A93EF20FDCAA800AA6434 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				08E2AF6323108D8F00DCCE74 /* MediaDemoConfiguration.plist */,
 				6F8A93F020FDCAA800AA6434 /* LaunchScreen.storyboard */,
 				6F8A93F120FDCAA800AA6434 /* Images.xcassets */,
 			);
@@ -514,6 +531,7 @@
 			children = (
 				6F8A93F320FDCAA800AA6434 /* Application */,
 				6F8A93F720FDCAA800AA6434 /* Demos */,
+				08E2AF6623108EBA00DCCE74 /* Models */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -838,6 +856,7 @@
 			files = (
 				08E2AF6123105F6000DCCE74 /* TVDemosViewController.storyboard in Resources */,
 				08E2AF4B23105D5700DCCE74 /* Assets.xcassets in Resources */,
+				08E2AF6523108D8F00DCCE74 /* MediaDemoConfiguration.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -864,6 +883,7 @@
 			files = (
 				6F8A93FB20FDCAA800AA6434 /* LaunchScreen.storyboard in Resources */,
 				6F8A940220FDCBA600AA6434 /* DemosViewController.storyboard in Resources */,
+				08E2AF6423108D8F00DCCE74 /* MediaDemoConfiguration.plist in Resources */,
 				6F8A93FC20FDCAA800AA6434 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -910,6 +930,7 @@
 			files = (
 				08E2AF4223105D1800DCCE74 /* main.m in Sources */,
 				08E2AF4423105D1800DCCE74 /* TVAppDelegate.m in Sources */,
+				08E2AF6A23108EBA00DCCE74 /* Media.m in Sources */,
 				08E2AF6223105F6000DCCE74 /* TVDemosViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -943,6 +964,7 @@
 			files = (
 				6F8A93FE20FDCAA800AA6434 /* AppDelegate.m in Sources */,
 				6F8A93FD20FDCAA800AA6434 /* main.m in Sources */,
+				08E2AF6923108EBA00DCCE74 /* Media.m in Sources */,
 				6F8A93FF20FDCAA800AA6434 /* DemosViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
