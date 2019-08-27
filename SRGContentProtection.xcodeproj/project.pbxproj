@@ -8,55 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		0858B69822010C9E000F00CF /* SRGLogger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0858B69522010C9E000F00CF /* SRGLogger.framework */; };
-		0858B69A22010C9E000F00CF /* SRGLogger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0858B69522010C9E000F00CF /* SRGLogger.framework */; };
 		0858B69B22010C9E000F00CF /* libextobjc.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0858B69622010C9E000F00CF /* libextobjc.framework */; };
 		0858B69C22010C9E000F00CF /* libextobjc.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0858B69622010C9E000F00CF /* libextobjc.framework */; };
-		0858B69D22010C9E000F00CF /* libextobjc.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0858B69622010C9E000F00CF /* libextobjc.framework */; };
 		0858B69E22010C9E000F00CF /* MAKVONotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0858B69722010C9E000F00CF /* MAKVONotificationCenter.framework */; };
-		0858B6A022010C9E000F00CF /* MAKVONotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0858B69722010C9E000F00CF /* MAKVONotificationCenter.framework */; };
 		0858B6A222010CD6000F00CF /* libextobjc.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0858B69622010C9E000F00CF /* libextobjc.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0858B6A322010CD6000F00CF /* MAKVONotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0858B69722010C9E000F00CF /* MAKVONotificationCenter.framework */; };
 		0858B6A422010CD6000F00CF /* MAKVONotificationCenter.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0858B69722010C9E000F00CF /* MAKVONotificationCenter.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0858B6A522010CD6000F00CF /* SRGLogger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0858B69522010C9E000F00CF /* SRGLogger.framework */; };
 		0858B6A622010CD6000F00CF /* SRGLogger.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0858B69522010C9E000F00CF /* SRGLogger.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		0897CE69230F0C0900555054 /* NSBundle+SRGContentProtection.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F0EB54520FC8049009C02CF /* NSBundle+SRGContentProtection.m */; };
-		0897CE6A230F0C0900555054 /* SRGContentProtection.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F0EB54220FC7FF4009C02CF /* SRGContentProtection.m */; };
-		0897CE6B230F0C0900555054 /* SRGAssetResourceLoaderDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FBF24362147FE2E00E576A2 /* SRGAssetResourceLoaderDelegate.m */; };
-		0897CE6C230F0C0900555054 /* SRGAkamaiAssetResourceLoaderDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FD8110020FCC22500F250B9 /* SRGAkamaiAssetResourceLoaderDelegate.m */; };
-		0897CE6D230F0C0900555054 /* SRGAkamaiToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F7B78692108A05C001E3BBE /* SRGAkamaiToken.m */; };
-		0897CE6E230F0C0900555054 /* SRGContentProtectionError.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FDE576320FC9DC700719525 /* SRGContentProtectionError.m */; };
-		0897CE6F230F0C0900555054 /* SRGFairPlayAssetResourceLoaderDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F8A93D120FDB3D200AA6434 /* SRGFairPlayAssetResourceLoaderDelegate.m */; };
-		0897CE70230F0C0900555054 /* AVURLAsset+SRGContentProtection.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FD810F320FCB58500F250B9 /* AVURLAsset+SRGContentProtection.m */; };
-		0897CE71230F0C0900555054 /* SRGContentProtectionConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FBF243921480DB300E576A2 /* SRGContentProtectionConstants.m */; };
-		0897CE79230F0C0900555054 /* SRGContentProtection.h in Headers */ = {isa = PBXBuildFile; fileRef = 6F0EB53E20FC7FA9009C02CF /* SRGContentProtection.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		0897CE7A230F0C0900555054 /* AVURLAsset+SRGContentProtection.h in Headers */ = {isa = PBXBuildFile; fileRef = 6FD810F220FCB58500F250B9 /* AVURLAsset+SRGContentProtection.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		0897CE7B230F0C0900555054 /* SRGContentProtectionConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 6FBF243821480DB300E576A2 /* SRGContentProtectionConstants.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		0897CE7C230F0C0900555054 /* SRGAkamaiAssetResourceLoaderDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 6FD810FF20FCC22500F250B9 /* SRGAkamaiAssetResourceLoaderDelegate.h */; };
-		0897CE7D230F0C0900555054 /* SRGFairPlayAssetResourceLoaderDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 6F8A93D020FDB3D200AA6434 /* SRGFairPlayAssetResourceLoaderDelegate.h */; };
-		0897CE7E230F0C0900555054 /* SRGContentProtectionError.h in Headers */ = {isa = PBXBuildFile; fileRef = 6FDE576420FC9DC700719525 /* SRGContentProtectionError.h */; };
-		0897CE7F230F0C0900555054 /* NSBundle+SRGContentProtection.h in Headers */ = {isa = PBXBuildFile; fileRef = 6F0EB54620FC8049009C02CF /* NSBundle+SRGContentProtection.h */; };
-		0897CE80230F0C0900555054 /* SRGAkamaiToken.h in Headers */ = {isa = PBXBuildFile; fileRef = 6F7B78682108A05C001E3BBE /* SRGAkamaiToken.h */; };
-		0897CE81230F0C0900555054 /* SRGAssetResourceLoaderDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 6FE021DC2119B58800DF6617 /* SRGAssetResourceLoaderDelegate.h */; };
-		0897CE83230F0C0900555054 /* SRGContentProtection.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6F0C98E62121E1C200073AB6 /* SRGContentProtection.bundle */; };
-		0897CE8F230F0C4500555054 /* AkamaiResourceLoaderTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FB74D742101D5D600E2D365 /* AkamaiResourceLoaderTestCase.m */; };
-		0897CE90230F0C4500555054 /* FairPlayResourceLoaderTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FB74D752101D5D600E2D365 /* FairPlayResourceLoaderTestCase.m */; };
-		0897CE91230F0C4500555054 /* AkamaiTokenTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FBCA7402109A9F4004CD02D /* AkamaiTokenTestCase.m */; };
-		0897CEAC230F0EA400555054 /* SRGLogger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0897CEA7230F0EA400555054 /* SRGLogger.framework */; };
-		0897CEAD230F0EA400555054 /* SRGNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0897CEA8230F0EA400555054 /* SRGNetwork.framework */; };
-		0897CEAE230F0EA400555054 /* MAKVONotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0897CEA9230F0EA400555054 /* MAKVONotificationCenter.framework */; };
-		0897CEB0230F0EA400555054 /* SRGDiagnostics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0897CEAB230F0EA400555054 /* SRGDiagnostics.framework */; };
-		0897CEB5230F104100555054 /* SRGContentProtection.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0897CE89230F0C0900555054 /* SRGContentProtection.framework */; };
-		0897CEB7230F104D00555054 /* MAKVONotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0897CEA9230F0EA400555054 /* MAKVONotificationCenter.framework */; };
-		0897CEB8230F104D00555054 /* SRGDiagnostics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0897CEAB230F0EA400555054 /* SRGDiagnostics.framework */; };
-		0897CEB9230F104D00555054 /* SRGLogger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0897CEA7230F0EA400555054 /* SRGLogger.framework */; };
-		0897CEBA230F104D00555054 /* SRGNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0897CEA8230F0EA400555054 /* SRGNetwork.framework */; };
-		0897CEC1230F106C00555054 /* MAKVONotificationCenter.framework in Copy Files */ = {isa = PBXBuildFile; fileRef = 0897CEA9230F0EA400555054 /* MAKVONotificationCenter.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		0897CEC2230F106C00555054 /* SRGDiagnostics.framework in Copy Files */ = {isa = PBXBuildFile; fileRef = 0897CEAB230F0EA400555054 /* SRGDiagnostics.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		0897CEC3230F106C00555054 /* SRGLogger.framework in Copy Files */ = {isa = PBXBuildFile; fileRef = 0897CEA7230F0EA400555054 /* SRGLogger.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		0897CEC4230F106C00555054 /* SRGNetwork.framework in Copy Files */ = {isa = PBXBuildFile; fileRef = 0897CEA8230F0EA400555054 /* SRGNetwork.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		08E2AF2323105B3900DCCE74 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 08E2AF1423105B3900DCCE74 /* Assets.xcassets */; };
-		08E2AF3E23105C7500DCCE74 /* SRGContentProtection.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0897CE89230F0C0900555054 /* SRGContentProtection.framework */; };
-		08E2AF3F23105C7500DCCE74 /* SRGContentProtection.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0897CE89230F0C0900555054 /* SRGContentProtection.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		08E2AF4223105D1800DCCE74 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 08E2AF1823105B3900DCCE74 /* main.m */; };
 		08E2AF4423105D1800DCCE74 /* TVAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 08E2AF1923105B3900DCCE74 /* TVAppDelegate.m */; };
 		08E2AF4B23105D5700DCCE74 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 08E2AF1423105B3900DCCE74 /* Assets.xcassets */; };
@@ -85,9 +45,6 @@
 		6F0EB54320FC7FF4009C02CF /* SRGContentProtection.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F0EB54220FC7FF4009C02CF /* SRGContentProtection.m */; };
 		6F0EB54720FC8049009C02CF /* NSBundle+SRGContentProtection.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F0EB54520FC8049009C02CF /* NSBundle+SRGContentProtection.m */; };
 		6F0EB54820FC8049009C02CF /* NSBundle+SRGContentProtection.h in Headers */ = {isa = PBXBuildFile; fileRef = 6F0EB54620FC8049009C02CF /* NSBundle+SRGContentProtection.h */; };
-		6F3246172201B1CA0017D00E /* libextobjc.framework in Copy Files */ = {isa = PBXBuildFile; fileRef = 0858B69622010C9E000F00CF /* libextobjc.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		6F3246182201B1CD0017D00E /* MAKVONotificationCenter.framework in Copy Files */ = {isa = PBXBuildFile; fileRef = 0858B69722010C9E000F00CF /* MAKVONotificationCenter.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		6F3246192201B1D20017D00E /* SRGLogger.framework in Copy Files */ = {isa = PBXBuildFile; fileRef = 0858B69522010C9E000F00CF /* SRGLogger.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6F7B786A2108A05C001E3BBE /* SRGAkamaiToken.h in Headers */ = {isa = PBXBuildFile; fileRef = 6F7B78682108A05C001E3BBE /* SRGAkamaiToken.h */; };
 		6F7B786B2108A05C001E3BBE /* SRGAkamaiToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F7B78692108A05C001E3BBE /* SRGAkamaiToken.m */; };
 		6F8A93D220FDB3D200AA6434 /* SRGFairPlayAssetResourceLoaderDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 6F8A93D020FDB3D200AA6434 /* SRGFairPlayAssetResourceLoaderDelegate.h */; };
@@ -103,11 +60,8 @@
 		6FB74D6C2101D4D200E2D365 /* SRGContentProtection.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F0EB53120FC7F58009C02CF /* SRGContentProtection.framework */; };
 		6FB74D772101D5D600E2D365 /* AkamaiResourceLoaderTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FB74D742101D5D600E2D365 /* AkamaiResourceLoaderTestCase.m */; };
 		6FB74D782101D5D600E2D365 /* FairPlayResourceLoaderTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FB74D752101D5D600E2D365 /* FairPlayResourceLoaderTestCase.m */; };
-		6FB74D7B2101D69F00E2D365 /* SRGNetwork.framework in Copy Files */ = {isa = PBXBuildFile; fileRef = 6F0432BC21006E7A002B090A /* SRGNetwork.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6FBCA7412109A9F4004CD02D /* AkamaiTokenTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FBCA7402109A9F4004CD02D /* AkamaiTokenTestCase.m */; };
 		6FBF24312147F3ED00E576A2 /* SRGDiagnostics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FBF24302147F3ED00E576A2 /* SRGDiagnostics.framework */; };
-		6FBF24322147F4BC00E576A2 /* SRGDiagnostics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FBF24302147F3ED00E576A2 /* SRGDiagnostics.framework */; };
-		6FBF24332147F4C200E576A2 /* SRGDiagnostics.framework in Copy Files */ = {isa = PBXBuildFile; fileRef = 6FBF24302147F3ED00E576A2 /* SRGDiagnostics.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6FBF24342147F4C900E576A2 /* SRGDiagnostics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FBF24302147F3ED00E576A2 /* SRGDiagnostics.framework */; };
 		6FBF24352147F4C900E576A2 /* SRGDiagnostics.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6FBF24302147F3ED00E576A2 /* SRGDiagnostics.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6FBF24372147FE2E00E576A2 /* SRGAssetResourceLoaderDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FBF24362147FE2E00E576A2 /* SRGAssetResourceLoaderDelegate.m */; };
@@ -120,31 +74,9 @@
 		6FDE576520FC9DC700719525 /* SRGContentProtectionError.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FDE576320FC9DC700719525 /* SRGContentProtectionError.m */; };
 		6FDE576620FC9DC700719525 /* SRGContentProtectionError.h in Headers */ = {isa = PBXBuildFile; fileRef = 6FDE576420FC9DC700719525 /* SRGContentProtectionError.h */; };
 		6FE021DD2119B58800DF6617 /* SRGAssetResourceLoaderDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 6FE021DC2119B58800DF6617 /* SRGAssetResourceLoaderDelegate.h */; };
-		6FE91E7B2108A36A001B5E8F /* SRGNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F0432BC21006E7A002B090A /* SRGNetwork.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		0897CE67230F0C0900555054 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 6F0EB52820FC7F58009C02CF /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 6F0C98E52121E1C200073AB6;
-			remoteInfo = "SRGContentProtection-resources";
-		};
-		0897CEB3230F101100555054 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 6F0EB52820FC7F58009C02CF /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 0897CE65230F0C0900555054;
-			remoteInfo = "SRGContentProtection-tvOS";
-		};
-		08E2AF4023105C7500DCCE74 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 6F0EB52820FC7F58009C02CF /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 0897CE65230F0C0900555054;
-			remoteInfo = "SRGContentProtection-tvOS";
-		};
 		6F0C98EF2121E26400073AB6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 6F0EB52820FC7F58009C02CF /* Project object */;
@@ -169,20 +101,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		0897CE9A230F0C4500555054 /* Copy Files */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				0897CEC1230F106C00555054 /* MAKVONotificationCenter.framework in Copy Files */,
-				0897CEC2230F106C00555054 /* SRGDiagnostics.framework in Copy Files */,
-				0897CEC3230F106C00555054 /* SRGLogger.framework in Copy Files */,
-				0897CEC4230F106C00555054 /* SRGNetwork.framework in Copy Files */,
-			);
-			name = "Copy Files";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		08E2AF3D23105C5300DCCE74 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -194,7 +112,6 @@
 				08E2AF5B23105E4E00DCCE74 /* SRGDiagnostics.framework in Embed Frameworks */,
 				08E2AF5C23105E4E00DCCE74 /* SRGLogger.framework in Embed Frameworks */,
 				08E2AF5D23105E4E00DCCE74 /* SRGNetwork.framework in Embed Frameworks */,
-				08E2AF3F23105C7500DCCE74 /* SRGContentProtection.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -215,29 +132,12 @@
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6FB74D7A2101D68F00E2D365 /* Copy Files */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				6F3246192201B1D20017D00E /* SRGLogger.framework in Copy Files */,
-				6F3246182201B1CD0017D00E /* MAKVONotificationCenter.framework in Copy Files */,
-				6F3246172201B1CA0017D00E /* libextobjc.framework in Copy Files */,
-				6FBF24332147F4C200E576A2 /* SRGDiagnostics.framework in Copy Files */,
-				6FB74D7B2101D69F00E2D365 /* SRGNetwork.framework in Copy Files */,
-			);
-			name = "Copy Files";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		0858B69522010C9E000F00CF /* SRGLogger.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SRGLogger.framework; path = Carthage/Build/iOS/SRGLogger.framework; sourceTree = "<group>"; };
 		0858B69622010C9E000F00CF /* libextobjc.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = libextobjc.framework; path = Carthage/Build/iOS/libextobjc.framework; sourceTree = "<group>"; };
 		0858B69722010C9E000F00CF /* MAKVONotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MAKVONotificationCenter.framework; path = Carthage/Build/iOS/MAKVONotificationCenter.framework; sourceTree = "<group>"; };
-		0897CE89230F0C0900555054 /* SRGContentProtection.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SRGContentProtection.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		0897CEA5230F0C4500555054 /* SRGContentProtection-tvOS-tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SRGContentProtection-tvOS-tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0897CEA7230F0EA400555054 /* SRGLogger.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SRGLogger.framework; path = Carthage/Build/tvOS/SRGLogger.framework; sourceTree = "<group>"; };
 		0897CEA8230F0EA400555054 /* SRGNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SRGNetwork.framework; path = Carthage/Build/tvOS/SRGNetwork.framework; sourceTree = "<group>"; };
 		0897CEA9230F0EA400555054 /* MAKVONotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MAKVONotificationCenter.framework; path = Carthage/Build/tvOS/MAKVONotificationCenter.framework; sourceTree = "<group>"; };
@@ -267,7 +167,7 @@
 		6F7B78692108A05C001E3BBE /* SRGAkamaiToken.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SRGAkamaiToken.m; sourceTree = "<group>"; };
 		6F8A93D020FDB3D200AA6434 /* SRGFairPlayAssetResourceLoaderDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SRGFairPlayAssetResourceLoaderDelegate.h; sourceTree = "<group>"; };
 		6F8A93D120FDB3D200AA6434 /* SRGFairPlayAssetResourceLoaderDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SRGFairPlayAssetResourceLoaderDelegate.m; sourceTree = "<group>"; };
-		6F8A93D820FDCA0800AA6434 /* SRGContentProtection-demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SRGContentProtection-demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6F8A93D820FDCA0800AA6434 /* SRGContentProtection-iOS-demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SRGContentProtection-iOS-demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F8A93F020FDCAA800AA6434 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6F8A93F120FDCAA800AA6434 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		6F8A93F420FDCAA800AA6434 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -277,7 +177,7 @@
 		6F8A93F920FDCAA800AA6434 /* DemosViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemosViewController.m; sourceTree = "<group>"; };
 		6F8A93FA20FDCAA800AA6434 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6F8A940120FDCBA600AA6434 /* DemosViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DemosViewController.storyboard; sourceTree = "<group>"; };
-		6FB74D672101D4D200E2D365 /* SRGContentProtection-iOS-tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SRGContentProtection-iOS-tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6FB74D672101D4D200E2D365 /* SRGContentProtection-tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SRGContentProtection-tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6FB74D742101D5D600E2D365 /* AkamaiResourceLoaderTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AkamaiResourceLoaderTestCase.m; sourceTree = "<group>"; };
 		6FB74D752101D5D600E2D365 /* FairPlayResourceLoaderTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FairPlayResourceLoaderTestCase.m; sourceTree = "<group>"; };
 		6FB74D762101D5D600E2D365 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -299,32 +199,11 @@
 		6FDE576420FC9DC700719525 /* SRGContentProtectionError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRGContentProtectionError.h; sourceTree = "<group>"; };
 		6FE021DC2119B58800DF6617 /* SRGAssetResourceLoaderDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRGAssetResourceLoaderDelegate.h; sourceTree = "<group>"; };
 		6FE6E5E32148DC1D00228573 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6FEDF728231576E000BEE8E1 /* Framework.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Framework.xcconfig; sourceTree = "<group>"; };
+		6FEDF729231576F400BEE8E1 /* Tests.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Tests.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		0897CE72230F0C0900555054 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				0897CEAC230F0EA400555054 /* SRGLogger.framework in Frameworks */,
-				0897CEAD230F0EA400555054 /* SRGNetwork.framework in Frameworks */,
-				0897CEAE230F0EA400555054 /* MAKVONotificationCenter.framework in Frameworks */,
-				0897CEB0230F0EA400555054 /* SRGDiagnostics.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		0897CE92230F0C4500555054 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				0897CEB7230F104D00555054 /* MAKVONotificationCenter.framework in Frameworks */,
-				0897CEB8230F104D00555054 /* SRGDiagnostics.framework in Frameworks */,
-				0897CEB9230F104D00555054 /* SRGLogger.framework in Frameworks */,
-				0897CEBA230F104D00555054 /* SRGNetwork.framework in Frameworks */,
-				0897CEB5230F104100555054 /* SRGContentProtection.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		08E2AEF923105B0800DCCE74 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -334,7 +213,6 @@
 				08E2AF4F23105E3100DCCE74 /* SRGDiagnostics.framework in Frameworks */,
 				08E2AF5023105E3100DCCE74 /* SRGLogger.framework in Frameworks */,
 				08E2AF5123105E3100DCCE74 /* SRGNetwork.framework in Frameworks */,
-				08E2AF3E23105C7500DCCE74 /* SRGContentProtection.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -374,12 +252,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6FBF24322147F4BC00E576A2 /* SRGDiagnostics.framework in Frameworks */,
-				0858B6A022010C9E000F00CF /* MAKVONotificationCenter.framework in Frameworks */,
-				0858B69D22010C9E000F00CF /* libextobjc.framework in Frameworks */,
-				6FE91E7B2108A36A001B5E8F /* SRGNetwork.framework in Frameworks */,
 				6FB74D6C2101D4D200E2D365 /* SRGContentProtection.framework in Frameworks */,
-				0858B69A22010C9E000F00CF /* SRGLogger.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -458,11 +331,9 @@
 			isa = PBXGroup;
 			children = (
 				6F0EB53120FC7F58009C02CF /* SRGContentProtection.framework */,
-				6F8A93D820FDCA0800AA6434 /* SRGContentProtection-demo.app */,
-				6FB74D672101D4D200E2D365 /* SRGContentProtection-iOS-tests.xctest */,
+				6F8A93D820FDCA0800AA6434 /* SRGContentProtection-iOS-demo.app */,
+				6FB74D672101D4D200E2D365 /* SRGContentProtection-tests.xctest */,
 				6F0C98E62121E1C200073AB6 /* SRGContentProtection.bundle */,
-				0897CE89230F0C0900555054 /* SRGContentProtection.framework */,
-				0897CEA5230F0C4500555054 /* SRGContentProtection-tvOS-tests.xctest */,
 				08E2AF1023105B0800DCCE74 /* SRGContentProtection-tvOS-demo.app */,
 			);
 			name = Products;
@@ -474,6 +345,7 @@
 				6F0EB53D20FC7FA9009C02CF /* Sources */,
 				6FCBFEF6210B571C006BC355 /* Resources */,
 				6F0EB53F20FC7FA9009C02CF /* Info.plist */,
+				6FEDF728231576E000BEE8E1 /* Framework.xcconfig */,
 			);
 			path = Framework;
 			sourceTree = "<group>";
@@ -560,14 +432,14 @@
 			isa = PBXGroup;
 			children = (
 				08E2AF5223105E3200DCCE74 /* libextobjc.framework */,
-				0897CEA9230F0EA400555054 /* MAKVONotificationCenter.framework */,
-				0897CEAB230F0EA400555054 /* SRGDiagnostics.framework */,
-				0897CEA7230F0EA400555054 /* SRGLogger.framework */,
-				0897CEA8230F0EA400555054 /* SRGNetwork.framework */,
 				0858B69622010C9E000F00CF /* libextobjc.framework */,
+				0897CEA9230F0EA400555054 /* MAKVONotificationCenter.framework */,
 				0858B69722010C9E000F00CF /* MAKVONotificationCenter.framework */,
+				0897CEAB230F0EA400555054 /* SRGDiagnostics.framework */,
 				6FBF24302147F3ED00E576A2 /* SRGDiagnostics.framework */,
+				0897CEA7230F0EA400555054 /* SRGLogger.framework */,
 				0858B69522010C9E000F00CF /* SRGLogger.framework */,
+				0897CEA8230F0EA400555054 /* SRGNetwork.framework */,
 				6F0432BC21006E7A002B090A /* SRGNetwork.framework */,
 			);
 			name = Frameworks;
@@ -578,6 +450,7 @@
 			children = (
 				6FB74D732101D5D600E2D365 /* Sources */,
 				6FB74D762101D5D600E2D365 /* Info.plist */,
+				6FEDF729231576F400BEE8E1 /* Tests.xcconfig */,
 			);
 			path = Tests;
 			sourceTree = SOURCE_ROOT;
@@ -617,22 +490,6 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		0897CE78230F0C0900555054 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				0897CE79230F0C0900555054 /* SRGContentProtection.h in Headers */,
-				0897CE7A230F0C0900555054 /* AVURLAsset+SRGContentProtection.h in Headers */,
-				0897CE7B230F0C0900555054 /* SRGContentProtectionConstants.h in Headers */,
-				0897CE7C230F0C0900555054 /* SRGAkamaiAssetResourceLoaderDelegate.h in Headers */,
-				0897CE7D230F0C0900555054 /* SRGFairPlayAssetResourceLoaderDelegate.h in Headers */,
-				0897CE7E230F0C0900555054 /* SRGContentProtectionError.h in Headers */,
-				0897CE7F230F0C0900555054 /* NSBundle+SRGContentProtection.h in Headers */,
-				0897CE80230F0C0900555054 /* SRGAkamaiToken.h in Headers */,
-				0897CE81230F0C0900555054 /* SRGAssetResourceLoaderDelegate.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		6F0EB52E20FC7F58009C02CF /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -652,44 +509,6 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		0897CE65230F0C0900555054 /* SRGContentProtection-tvOS */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 0897CE84230F0C0900555054 /* Build configuration list for PBXNativeTarget "SRGContentProtection-tvOS" */;
-			buildPhases = (
-				0897CE68230F0C0900555054 /* Sources */,
-				0897CE72230F0C0900555054 /* Frameworks */,
-				0897CE78230F0C0900555054 /* Headers */,
-				0897CE82230F0C0900555054 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				0897CE66230F0C0900555054 /* PBXTargetDependency */,
-			);
-			name = "SRGContentProtection-tvOS";
-			productName = SRGContentProtection;
-			productReference = 0897CE89230F0C0900555054 /* SRGContentProtection.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		0897CE8B230F0C4500555054 /* SRGContentProtection-tvOS-tests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 0897CEA0230F0C4500555054 /* Build configuration list for PBXNativeTarget "SRGContentProtection-tvOS-tests" */;
-			buildPhases = (
-				0897CE8E230F0C4500555054 /* Sources */,
-				0897CE92230F0C4500555054 /* Frameworks */,
-				0897CE99230F0C4500555054 /* Resources */,
-				0897CE9A230F0C4500555054 /* Copy Files */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				0897CEB4230F101100555054 /* PBXTargetDependency */,
-			);
-			name = "SRGContentProtection-tvOS-tests";
-			productName = "SRGContentProtection-tests";
-			productReference = 0897CEA5230F0C4500555054 /* SRGContentProtection-tvOS-tests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 		08E2AEF223105B0800DCCE74 /* SRGContentProtection-tvOS-demo */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 08E2AF0B23105B0800DCCE74 /* Build configuration list for PBXNativeTarget "SRGContentProtection-tvOS-demo" */;
@@ -702,7 +521,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				08E2AF4123105C7500DCCE74 /* PBXTargetDependency */,
 			);
 			name = "SRGContentProtection-tvOS-demo";
 			productName = "SRGContentProtection-demo";
@@ -726,9 +544,9 @@
 			productReference = 6F0C98E62121E1C200073AB6 /* SRGContentProtection.bundle */;
 			productType = "com.apple.product-type.bundle";
 		};
-		6F0EB53020FC7F58009C02CF /* SRGContentProtection-iOS */ = {
+		6F0EB53020FC7F58009C02CF /* SRGContentProtection */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6F0EB53920FC7F58009C02CF /* Build configuration list for PBXNativeTarget "SRGContentProtection-iOS" */;
+			buildConfigurationList = 6F0EB53920FC7F58009C02CF /* Build configuration list for PBXNativeTarget "SRGContentProtection" */;
 			buildPhases = (
 				6F0EB52C20FC7F58009C02CF /* Sources */,
 				6F0EB52D20FC7F58009C02CF /* Frameworks */,
@@ -740,14 +558,14 @@
 			dependencies = (
 				6F0C98F02121E26400073AB6 /* PBXTargetDependency */,
 			);
-			name = "SRGContentProtection-iOS";
+			name = SRGContentProtection;
 			productName = SRGContentProtection;
 			productReference = 6F0EB53120FC7F58009C02CF /* SRGContentProtection.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		6F8A93D720FDCA0800AA6434 /* SRGContentProtection-demo */ = {
+		6F8A93D720FDCA0800AA6434 /* SRGContentProtection-iOS-demo */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6F8A93EB20FDCA0900AA6434 /* Build configuration list for PBXNativeTarget "SRGContentProtection-demo" */;
+			buildConfigurationList = 6F8A93EB20FDCA0900AA6434 /* Build configuration list for PBXNativeTarget "SRGContentProtection-iOS-demo" */;
 			buildPhases = (
 				6F8A93D420FDCA0800AA6434 /* Sources */,
 				6F8A93D520FDCA0800AA6434 /* Frameworks */,
@@ -759,28 +577,27 @@
 			dependencies = (
 				6F8A940620FDD01B00AA6434 /* PBXTargetDependency */,
 			);
-			name = "SRGContentProtection-demo";
+			name = "SRGContentProtection-iOS-demo";
 			productName = "SRGContentProtection-demo";
-			productReference = 6F8A93D820FDCA0800AA6434 /* SRGContentProtection-demo.app */;
+			productReference = 6F8A93D820FDCA0800AA6434 /* SRGContentProtection-iOS-demo.app */;
 			productType = "com.apple.product-type.application";
 		};
-		6FB74D662101D4D200E2D365 /* SRGContentProtection-iOS-tests */ = {
+		6FB74D662101D4D200E2D365 /* SRGContentProtection-tests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6FB74D712101D4D200E2D365 /* Build configuration list for PBXNativeTarget "SRGContentProtection-iOS-tests" */;
+			buildConfigurationList = 6FB74D712101D4D200E2D365 /* Build configuration list for PBXNativeTarget "SRGContentProtection-tests" */;
 			buildPhases = (
 				6FB74D632101D4D200E2D365 /* Sources */,
 				6FB74D642101D4D200E2D365 /* Frameworks */,
 				6FB74D652101D4D200E2D365 /* Resources */,
-				6FB74D7A2101D68F00E2D365 /* Copy Files */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				6FB74D6E2101D4D200E2D365 /* PBXTargetDependency */,
 			);
-			name = "SRGContentProtection-iOS-tests";
+			name = "SRGContentProtection-tests";
 			productName = "SRGContentProtection-tests";
-			productReference = 6FB74D672101D4D200E2D365 /* SRGContentProtection-iOS-tests.xctest */;
+			productReference = 6FB74D672101D4D200E2D365 /* SRGContentProtection-tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -823,33 +640,16 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				6F0EB53020FC7F58009C02CF /* SRGContentProtection-iOS */,
+				6F0EB53020FC7F58009C02CF /* SRGContentProtection */,
 				6F0C98E52121E1C200073AB6 /* SRGContentProtection-resources */,
-				6F8A93D720FDCA0800AA6434 /* SRGContentProtection-demo */,
-				6FB74D662101D4D200E2D365 /* SRGContentProtection-iOS-tests */,
-				0897CE65230F0C0900555054 /* SRGContentProtection-tvOS */,
-				0897CE8B230F0C4500555054 /* SRGContentProtection-tvOS-tests */,
+				6FB74D662101D4D200E2D365 /* SRGContentProtection-tests */,
+				6F8A93D720FDCA0800AA6434 /* SRGContentProtection-iOS-demo */,
 				08E2AEF223105B0800DCCE74 /* SRGContentProtection-tvOS-demo */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		0897CE82230F0C0900555054 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				0897CE83230F0C0900555054 /* SRGContentProtection.bundle in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		0897CE99230F0C4500555054 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		08E2AF0023105B0800DCCE74 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -898,32 +698,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		0897CE68230F0C0900555054 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				0897CE69230F0C0900555054 /* NSBundle+SRGContentProtection.m in Sources */,
-				0897CE6A230F0C0900555054 /* SRGContentProtection.m in Sources */,
-				0897CE6B230F0C0900555054 /* SRGAssetResourceLoaderDelegate.m in Sources */,
-				0897CE6C230F0C0900555054 /* SRGAkamaiAssetResourceLoaderDelegate.m in Sources */,
-				0897CE6D230F0C0900555054 /* SRGAkamaiToken.m in Sources */,
-				0897CE6E230F0C0900555054 /* SRGContentProtectionError.m in Sources */,
-				0897CE6F230F0C0900555054 /* SRGFairPlayAssetResourceLoaderDelegate.m in Sources */,
-				0897CE70230F0C0900555054 /* AVURLAsset+SRGContentProtection.m in Sources */,
-				0897CE71230F0C0900555054 /* SRGContentProtectionConstants.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		0897CE8E230F0C4500555054 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				0897CE8F230F0C4500555054 /* AkamaiResourceLoaderTestCase.m in Sources */,
-				0897CE90230F0C4500555054 /* FairPlayResourceLoaderTestCase.m in Sources */,
-				0897CE91230F0C4500555054 /* AkamaiTokenTestCase.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		08E2AEF523105B0800DCCE74 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -982,21 +756,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		0897CE66230F0C0900555054 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 6F0C98E52121E1C200073AB6 /* SRGContentProtection-resources */;
-			targetProxy = 0897CE67230F0C0900555054 /* PBXContainerItemProxy */;
-		};
-		0897CEB4230F101100555054 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 0897CE65230F0C0900555054 /* SRGContentProtection-tvOS */;
-			targetProxy = 0897CEB3230F101100555054 /* PBXContainerItemProxy */;
-		};
-		08E2AF4123105C7500DCCE74 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 0897CE65230F0C0900555054 /* SRGContentProtection-tvOS */;
-			targetProxy = 08E2AF4023105C7500DCCE74 /* PBXContainerItemProxy */;
-		};
 		6F0C98F02121E26400073AB6 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 6F0C98E52121E1C200073AB6 /* SRGContentProtection-resources */;
@@ -1004,12 +763,12 @@
 		};
 		6F8A940620FDD01B00AA6434 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 6F0EB53020FC7F58009C02CF /* SRGContentProtection-iOS */;
+			target = 6F0EB53020FC7F58009C02CF /* SRGContentProtection */;
 			targetProxy = 6F8A940520FDD01B00AA6434 /* PBXContainerItemProxy */;
 		};
 		6FB74D6E2101D4D200E2D365 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 6F0EB53020FC7F58009C02CF /* SRGContentProtection-iOS */;
+			target = 6F0EB53020FC7F58009C02CF /* SRGContentProtection */;
 			targetProxy = 6FB74D6D2101D4D200E2D365 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -1030,216 +789,6 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		0897CE85230F0C0900555054 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				APPLICATION_EXTENSION_API_ONLY = YES;
-				CODE_SIGN_IDENTITY = "";
-				CODE_SIGN_STYLE = Automatic;
-				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = VMGRRW6SG7;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/tvOS",
-				);
-				INFOPLIST_FILE = Framework/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = ch.srgssr.SRGContentProtection;
-				PRODUCT_NAME = SRGContentProtection;
-				SDKROOT = appletvos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = 3;
-				VERSIONING_SYSTEM = "apple-generic";
-			};
-			name = Debug;
-		};
-		0897CE86230F0C0900555054 /* Debug-static */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				APPLICATION_EXTENSION_API_ONLY = YES;
-				CLANG_ENABLE_CODE_COVERAGE = NO;
-				CODE_SIGN_IDENTITY = "";
-				CODE_SIGN_STYLE = Automatic;
-				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = VMGRRW6SG7;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/tvOS/Static",
-					"$(PROJECT_DIR)/Carthage/Build/tvOS",
-				);
-				INFOPLIST_FILE = Framework/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				PRODUCT_BUNDLE_IDENTIFIER = ch.srgssr.SRGContentProtection;
-				PRODUCT_NAME = SRGContentProtection;
-				SDKROOT = appletvos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = 3;
-				VERSIONING_SYSTEM = "apple-generic";
-			};
-			name = "Debug-static";
-		};
-		0897CE87230F0C0900555054 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				APPLICATION_EXTENSION_API_ONLY = YES;
-				CODE_SIGN_IDENTITY = "";
-				CODE_SIGN_STYLE = Automatic;
-				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = VMGRRW6SG7;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/tvOS",
-				);
-				INFOPLIST_FILE = Framework/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = ch.srgssr.SRGContentProtection;
-				PRODUCT_NAME = SRGContentProtection;
-				SDKROOT = appletvos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = 3;
-				VERSIONING_SYSTEM = "apple-generic";
-			};
-			name = Release;
-		};
-		0897CE88230F0C0900555054 /* Release-static */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				APPLICATION_EXTENSION_API_ONLY = YES;
-				CLANG_ENABLE_CODE_COVERAGE = NO;
-				CODE_SIGN_IDENTITY = "";
-				CODE_SIGN_STYLE = Automatic;
-				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = VMGRRW6SG7;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/tvOS/Static",
-					"$(PROJECT_DIR)/Carthage/Build/tvOS",
-				);
-				INFOPLIST_FILE = Framework/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				PRODUCT_BUNDLE_IDENTIFIER = ch.srgssr.SRGContentProtection;
-				PRODUCT_NAME = SRGContentProtection;
-				SDKROOT = appletvos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = 3;
-				VERSIONING_SYSTEM = "apple-generic";
-			};
-			name = "Release-static";
-		};
-		0897CEA1230F0C4500555054 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/tvOS",
-				);
-				INFOPLIST_FILE = Tests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "ch.srgssr.SRGContentProtection-tests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = appletvos;
-				TARGETED_DEVICE_FAMILY = 3;
-			};
-			name = Debug;
-		};
-		0897CEA2230F0C4500555054 /* Debug-static */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/tvOS",
-				);
-				INFOPLIST_FILE = Tests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "ch.srgssr.SRGContentProtection-tests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = appletvos;
-				TARGETED_DEVICE_FAMILY = 3;
-			};
-			name = "Debug-static";
-		};
-		0897CEA3230F0C4500555054 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/tvOS",
-				);
-				INFOPLIST_FILE = Tests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "ch.srgssr.SRGContentProtection-tests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = appletvos;
-				TARGETED_DEVICE_FAMILY = 3;
-			};
-			name = Release;
-		};
-		0897CEA4230F0C4500555054 /* Release-static */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/tvOS",
-				);
-				INFOPLIST_FILE = Tests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "ch.srgssr.SRGContentProtection-tests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = appletvos;
-				TARGETED_DEVICE_FAMILY = 3;
-			};
-			name = "Release-static";
-		};
 		08E2AF0C23105B0800DCCE74 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1391,8 +940,8 @@
 				MARKETING_VERSION = 1.2.4;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				PRODUCT_BUNDLE_IDENTIFIER = "ch.srgssr.$(TARGET_NAME)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				TVOS_DEPLOYMENT_TARGET = 9.0;
 				WATCHOS_DEPLOYMENT_TARGET = 3.0;
 			};
@@ -1400,6 +949,7 @@
 		};
 		6F0C98DB2121E14000073AB6 /* Debug-static */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6FEDF728231576E000BEE8E1 /* Framework.xcconfig */;
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ENABLE_CODE_COVERAGE = NO;
@@ -1410,8 +960,8 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-					"$(PROJECT_DIR)/Carthage/Build/iOS/Static",
+					"$(PROJECT_DIR)/Carthage/Build/$(CARTHAGE_SUBPATH)",
+					"$(PROJECT_DIR)/Carthage/Build/$(CARTHAGE_SUBPATH)/Static",
 				);
 				INFOPLIST_FILE = Framework/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -1445,22 +995,26 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "ch.srgssr.SRGContentProtection-demo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = "Debug-static";
 		};
 		6F0C98DD2121E14000073AB6 /* Debug-static */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6FEDF729231576F400BEE8E1 /* Tests.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/Carthage/Build/$(CARTHAGE_SUBPATH)",
 				);
 				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
+					"$(FRAMEWORK_SEARCH_PATHS)",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "ch.srgssr.SRGContentProtection-tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1519,8 +1073,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MARKETING_VERSION = 1.2.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				PRODUCT_BUNDLE_IDENTIFIER = "ch.srgssr.$(TARGET_NAME)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				TVOS_DEPLOYMENT_TARGET = 9.0;
 				VALIDATE_PRODUCT = YES;
 				WATCHOS_DEPLOYMENT_TARGET = 3.0;
@@ -1529,6 +1083,7 @@
 		};
 		6F0C98DF2121E14600073AB6 /* Release-static */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6FEDF728231576E000BEE8E1 /* Framework.xcconfig */;
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ENABLE_CODE_COVERAGE = NO;
@@ -1539,8 +1094,8 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-					"$(PROJECT_DIR)/Carthage/Build/iOS/Static",
+					"$(PROJECT_DIR)/Carthage/Build/$(CARTHAGE_SUBPATH)",
+					"$(PROJECT_DIR)/Carthage/Build/$(CARTHAGE_SUBPATH)/Static",
 				);
 				INFOPLIST_FILE = Framework/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -1574,22 +1129,26 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "ch.srgssr.SRGContentProtection-demo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = "Release-static";
 		};
 		6F0C98E12121E14600073AB6 /* Release-static */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6FEDF729231576F400BEE8E1 /* Tests.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/Carthage/Build/$(CARTHAGE_SUBPATH)",
 				);
 				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
+					"$(FRAMEWORK_SEARCH_PATHS)",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "ch.srgssr.SRGContentProtection-tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1598,6 +1157,7 @@
 		};
 		6F0C98EA2121E1C200073AB6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6FEDF728231576E000BEE8E1 /* Framework.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
@@ -1606,13 +1166,13 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "ch.srgssr.SRGContentProtection-resources";
 				PRODUCT_NAME = SRGContentProtection;
 				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2,3";
 				WRAPPER_EXTENSION = bundle;
 			};
 			name = Debug;
 		};
 		6F0C98EB2121E1C200073AB6 /* Debug-static */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6FEDF728231576E000BEE8E1 /* Framework.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
@@ -1621,13 +1181,13 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "ch.srgssr.SRGContentProtection-resources";
 				PRODUCT_NAME = SRGContentProtection;
 				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2,3";
 				WRAPPER_EXTENSION = bundle;
 			};
 			name = "Debug-static";
 		};
 		6F0C98EC2121E1C200073AB6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6FEDF728231576E000BEE8E1 /* Framework.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
@@ -1636,13 +1196,13 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "ch.srgssr.SRGContentProtection-resources";
 				PRODUCT_NAME = SRGContentProtection;
 				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2,3";
 				WRAPPER_EXTENSION = bundle;
 			};
 			name = Release;
 		};
 		6F0C98ED2121E1C200073AB6 /* Release-static */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6FEDF728231576E000BEE8E1 /* Framework.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
@@ -1651,7 +1211,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "ch.srgssr.SRGContentProtection-resources";
 				PRODUCT_NAME = SRGContentProtection;
 				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2,3";
 				WRAPPER_EXTENSION = bundle;
 			};
 			name = "Release-static";
@@ -1715,8 +1274,8 @@
 				MARKETING_VERSION = 1.2.4;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				PRODUCT_BUNDLE_IDENTIFIER = "ch.srgssr.$(TARGET_NAME)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				TVOS_DEPLOYMENT_TARGET = 9.0;
 				WATCHOS_DEPLOYMENT_TARGET = 3.0;
 			};
@@ -1774,8 +1333,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MARKETING_VERSION = 1.2.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				PRODUCT_BUNDLE_IDENTIFIER = "ch.srgssr.$(TARGET_NAME)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				TVOS_DEPLOYMENT_TARGET = 9.0;
 				VALIDATE_PRODUCT = YES;
 				WATCHOS_DEPLOYMENT_TARGET = 3.0;
@@ -1784,6 +1343,7 @@
 		};
 		6F0EB53A20FC7F58009C02CF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6FEDF728231576E000BEE8E1 /* Framework.xcconfig */;
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CODE_SIGN_IDENTITY = "";
@@ -1793,7 +1353,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/Carthage/Build/$(CARTHAGE_SUBPATH)",
 				);
 				INFOPLIST_FILE = Framework/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -1811,6 +1371,7 @@
 		};
 		6F0EB53B20FC7F58009C02CF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6FEDF728231576E000BEE8E1 /* Framework.xcconfig */;
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CODE_SIGN_IDENTITY = "";
@@ -1820,7 +1381,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/Carthage/Build/$(CARTHAGE_SUBPATH)",
 				);
 				INFOPLIST_FILE = Framework/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -1853,6 +1414,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "ch.srgssr.SRGContentProtection-demo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -1873,22 +1436,26 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "ch.srgssr.SRGContentProtection-demo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
 		6FB74D6F2101D4D200E2D365 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6FEDF729231576F400BEE8E1 /* Tests.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/Carthage/Build/$(CARTHAGE_SUBPATH)",
 				);
 				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
+					"$(FRAMEWORK_SEARCH_PATHS)",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "ch.srgssr.SRGContentProtection-tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1897,17 +1464,19 @@
 		};
 		6FB74D702101D4D200E2D365 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6FEDF729231576F400BEE8E1 /* Tests.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/Carthage/Build/$(CARTHAGE_SUBPATH)",
 				);
 				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
+					"$(FRAMEWORK_SEARCH_PATHS)",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "ch.srgssr.SRGContentProtection-tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1917,28 +1486,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		0897CE84230F0C0900555054 /* Build configuration list for PBXNativeTarget "SRGContentProtection-tvOS" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				0897CE85230F0C0900555054 /* Debug */,
-				0897CE86230F0C0900555054 /* Debug-static */,
-				0897CE87230F0C0900555054 /* Release */,
-				0897CE88230F0C0900555054 /* Release-static */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		0897CEA0230F0C4500555054 /* Build configuration list for PBXNativeTarget "SRGContentProtection-tvOS-tests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				0897CEA1230F0C4500555054 /* Debug */,
-				0897CEA2230F0C4500555054 /* Debug-static */,
-				0897CEA3230F0C4500555054 /* Release */,
-				0897CEA4230F0C4500555054 /* Release-static */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		08E2AF0B23105B0800DCCE74 /* Build configuration list for PBXNativeTarget "SRGContentProtection-tvOS-demo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1972,7 +1519,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6F0EB53920FC7F58009C02CF /* Build configuration list for PBXNativeTarget "SRGContentProtection-iOS" */ = {
+		6F0EB53920FC7F58009C02CF /* Build configuration list for PBXNativeTarget "SRGContentProtection" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6F0EB53A20FC7F58009C02CF /* Debug */,
@@ -1983,7 +1530,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6F8A93EB20FDCA0900AA6434 /* Build configuration list for PBXNativeTarget "SRGContentProtection-demo" */ = {
+		6F8A93EB20FDCA0900AA6434 /* Build configuration list for PBXNativeTarget "SRGContentProtection-iOS-demo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6F8A93EC20FDCA0900AA6434 /* Debug */,
@@ -1994,7 +1541,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6FB74D712101D4D200E2D365 /* Build configuration list for PBXNativeTarget "SRGContentProtection-iOS-tests" */ = {
+		6FB74D712101D4D200E2D365 /* Build configuration list for PBXNativeTarget "SRGContentProtection-tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6FB74D6F2101D4D200E2D365 /* Debug */,

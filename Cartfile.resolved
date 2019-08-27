@@ -1,5 +1,5 @@
 github "SRGSSR/MAKVONotificationCenter" "acf9ce3d6a33592480da2a581dcdc30ed647deac"
 github "SRGSSR/libextobjc" "33fa3553081acde18089f594051a25710180f679"
-github "SRGSSR/srgdiagnostics-ios" "a8485ee315fed7cc5ccf8e91077ca24817dd02d6"
-github "SRGSSR/srglogger-ios" "8fb34990d24da69494afe065b16634624cbd1976"
-github "SRGSSR/srgnetwork-ios" "817d10c05d19220ea2910a0140562ed3f4eadde8"
+github "SRGSSR/srgdiagnostics-ios" "7a419799fe0f2c7ab5e7ceaa9c78b743bdc29a32"
+github "SRGSSR/srglogger-ios" "0ce5da9fb122e6617c3eaa623ab801c44ce2a459"
+github "SRGSSR/srgnetwork-ios" "64b3920381081526c67db735b8b4e82f35eccccd"
