@@ -10,6 +10,7 @@
 
 @property (nonatomic, copy) NSString *name;
 @property (nonatomic) NSURL *URL;
+@property (nonatomic) NSURL *certificateURL;
 
 @end
 
@@ -42,6 +43,9 @@
         if (! self.URL) {
             return nil;
         }
+        
+        NSString *certificateURLString = dictionary[@"certificateUrl"];
+        self.certificateURL = certificateURLString ? [NSURL URLWithString:certificateURLString] : nil;
     }
     return self;
 }

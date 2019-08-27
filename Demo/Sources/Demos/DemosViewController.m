@@ -111,7 +111,7 @@
         }
             
         case 2: {
-            NSURL *certificateURL = [NSURL URLWithString:@"https://srg.live.ott.irdeto.com/licenseServer/streaming/v1/SRG/getcertificate?applicationId=live"];
+            NSURL *certificateURL = self.medias[indexPath.row].certificateURL;
             asset = [AVURLAsset srg_fairPlayProtectedAssetWithURL:URL certificateURL:certificateURL options:nil];
             break;
         }

@@ -18,9 +18,27 @@
 		</dict>
 		<dict>
 			<key>name</key>
-			<string>FairPlay-protected HLS stream</string>
+			<string>FairPlay-protected HLS live stream</string>
 			<key>url</key>
 			<string>https://rtsun-euwe.akamaized.net/864ee887-f93b-4b65-8175-761fd3b6bb06/rts1.ism/manifest(format=m3u8-aapl,encryption=cbcs-aapl)</string>
+			<key>certificateUrl</key>
+			<string>https://srg.live.ott.irdeto.com/licenseServer/streaming/v1/SRG/getcertificate?applicationId=live</string>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>FairPlay-protected HLS VoD HD stream</string>
+			<key>url</key>
+			<string>https://srgssrvoddeveuwe-euwe.streaming.media.azure.net/7d783d3a-003b-4b54-8b3a-1220301363e6/RSIVOD-aba09806-b93c.ism/manifest(format=m3u8-aapl,encryption=cbcs-aapl)</string>
+			<key>certificateUrl</key>
+			<string>https://rng.stage.ott.irdeto.com/licenseServer/streaming/v1/SRG/getcertificate?applicationId=stage</string>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>FairPlay-protected HLS VoD SD stream</string>
+			<key>url</key>
+			<string>https://srgssrvoddeveuwe-euwe.streaming.media.azure.net/da04c626-0e80-476d-a052-dc0af8d7fd18/RSIVOD-aba09806-b93c.ism/manifest(format=m3u8-aapl,encryption=cbcs-aapl)</string>
+			<key>certificateUrl</key>
+			<string>https://rng.stage.ott.irdeto.com/licenseServer/streaming/v1/SRG/getcertificate?applicationId=stage</string>
 		</dict>
 		<dict>
 			<key>name</key>

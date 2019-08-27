@@ -14,6 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, readonly, copy) NSString *name;
 @property (nonatomic, readonly) NSURL *URL;
+@property (nonatomic, readonly, nullable) NSURL *certificateURL;
 
 @end
 
