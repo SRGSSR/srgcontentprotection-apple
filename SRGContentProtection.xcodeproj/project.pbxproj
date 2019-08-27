@@ -262,8 +262,8 @@
 		08E2AF1223105B3900DCCE74 /* DemoTV */ = {
 			isa = PBXGroup;
 			children = (
-				08E2AF1323105B3900DCCE74 /* Resources */,
 				08E2AF1523105B3900DCCE74 /* Sources */,
+				08E2AF1323105B3900DCCE74 /* Resources */,
 				08E2AF2223105B3900DCCE74 /* Info.plist */,
 			);
 			path = DemoTV;
