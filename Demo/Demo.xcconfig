@@ -16,3 +16,10 @@ EXCLUDED_SOURCE_FILE_NAMES = $(IOS_FILES) $(TVOS_FILES)
 INCLUDED_SOURCE_FILE_NAMES =
 INCLUDED_SOURCE_FILE_NAMES[sdk=iphone*] = $(IOS_FILES)
 INCLUDED_SOURCE_FILE_NAMES[sdk=appletv*] = $(TVOS_FILES)
+
+// Application settings
+LAUNCH_SCREEN[sdk=iphone*] = 
+LAUNCH_SCREEN[sdk=appletv*] = LaunchScreen~ios
+
+APP_ICONS_SOURCE[sdk=iphone*] = AppIcon
+APP_ICONS_SOURCE[sdk=appletv*] = App Icon & Top Shelf Image

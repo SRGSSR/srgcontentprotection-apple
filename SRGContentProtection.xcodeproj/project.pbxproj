@@ -11,34 +11,12 @@
 		0858B69B22010C9E000F00CF /* libextobjc.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0858B69622010C9E000F00CF /* libextobjc.framework */; };
 		0858B69C22010C9E000F00CF /* libextobjc.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0858B69622010C9E000F00CF /* libextobjc.framework */; };
 		0858B69E22010C9E000F00CF /* MAKVONotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0858B69722010C9E000F00CF /* MAKVONotificationCenter.framework */; };
-		0858B6A222010CD6000F00CF /* libextobjc.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0858B69622010C9E000F00CF /* libextobjc.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0858B6A322010CD6000F00CF /* MAKVONotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0858B69722010C9E000F00CF /* MAKVONotificationCenter.framework */; };
-		0858B6A422010CD6000F00CF /* MAKVONotificationCenter.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0858B69722010C9E000F00CF /* MAKVONotificationCenter.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0858B6A522010CD6000F00CF /* SRGLogger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0858B69522010C9E000F00CF /* SRGLogger.framework */; };
-		0858B6A622010CD6000F00CF /* SRGLogger.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0858B69522010C9E000F00CF /* SRGLogger.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		08E2AF2323105B3900DCCE74 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 08E2AF1423105B3900DCCE74 /* Assets.xcassets */; };
-		08E2AF4223105D1800DCCE74 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 08E2AF1823105B3900DCCE74 /* main.m */; };
-		08E2AF4423105D1800DCCE74 /* TVAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 08E2AF1923105B3900DCCE74 /* TVAppDelegate.m */; };
-		08E2AF4B23105D5700DCCE74 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 08E2AF1423105B3900DCCE74 /* Assets.xcassets */; };
-		08E2AF4E23105E3100DCCE74 /* MAKVONotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0897CEA9230F0EA400555054 /* MAKVONotificationCenter.framework */; };
-		08E2AF4F23105E3100DCCE74 /* SRGDiagnostics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0897CEAB230F0EA400555054 /* SRGDiagnostics.framework */; };
-		08E2AF5023105E3100DCCE74 /* SRGLogger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0897CEA7230F0EA400555054 /* SRGLogger.framework */; };
-		08E2AF5123105E3100DCCE74 /* SRGNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0897CEA8230F0EA400555054 /* SRGNetwork.framework */; };
-		08E2AF5323105E3200DCCE74 /* libextobjc.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08E2AF5223105E3200DCCE74 /* libextobjc.framework */; };
-		08E2AF5923105E4E00DCCE74 /* libextobjc.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 08E2AF5223105E3200DCCE74 /* libextobjc.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		08E2AF5A23105E4E00DCCE74 /* MAKVONotificationCenter.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0897CEA9230F0EA400555054 /* MAKVONotificationCenter.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		08E2AF5B23105E4E00DCCE74 /* SRGDiagnostics.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0897CEAB230F0EA400555054 /* SRGDiagnostics.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		08E2AF5C23105E4E00DCCE74 /* SRGLogger.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0897CEA7230F0EA400555054 /* SRGLogger.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		08E2AF5D23105E4E00DCCE74 /* SRGNetwork.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0897CEA8230F0EA400555054 /* SRGNetwork.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		08E2AF6123105F6000DCCE74 /* TVDemosViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08E2AF5F23105F6000DCCE74 /* TVDemosViewController.storyboard */; };
-		08E2AF6223105F6000DCCE74 /* TVDemosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08E2AF6023105F6000DCCE74 /* TVDemosViewController.m */; };
 		08E2AF6423108D8F00DCCE74 /* MediaDemoConfiguration.plist in Resources */ = {isa = PBXBuildFile; fileRef = 08E2AF6323108D8F00DCCE74 /* MediaDemoConfiguration.plist */; };
-		08E2AF6523108D8F00DCCE74 /* MediaDemoConfiguration.plist in Resources */ = {isa = PBXBuildFile; fileRef = 08E2AF6323108D8F00DCCE74 /* MediaDemoConfiguration.plist */; };
 		08E2AF6923108EBA00DCCE74 /* Media.m in Sources */ = {isa = PBXBuildFile; fileRef = 08E2AF6823108EBA00DCCE74 /* Media.m */; };
-		08E2AF6A23108EBA00DCCE74 /* Media.m in Sources */ = {isa = PBXBuildFile; fileRef = 08E2AF6823108EBA00DCCE74 /* Media.m */; };
 		6F0432BD21006E7A002B090A /* SRGNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F0432BC21006E7A002B090A /* SRGNetwork.framework */; };
 		6F0432BE21007340002B090A /* SRGNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F0432BC21006E7A002B090A /* SRGNetwork.framework */; };
-		6F0432BF21007340002B090A /* SRGNetwork.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6F0432BC21006E7A002B090A /* SRGNetwork.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6F0C98EE2121E1D600073AB6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6FCBFEF7210B578B006BC355 /* Localizable.strings */; };
 		6F0C98F12121E26A00073AB6 /* SRGContentProtection.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6F0C98E62121E1C200073AB6 /* SRGContentProtection.bundle */; };
 		6F0EB54020FC7FA9009C02CF /* SRGContentProtection.h in Headers */ = {isa = PBXBuildFile; fileRef = 6F0EB53E20FC7FA9009C02CF /* SRGContentProtection.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -49,26 +27,26 @@
 		6F7B786B2108A05C001E3BBE /* SRGAkamaiToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F7B78692108A05C001E3BBE /* SRGAkamaiToken.m */; };
 		6F8A93D220FDB3D200AA6434 /* SRGFairPlayAssetResourceLoaderDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 6F8A93D020FDB3D200AA6434 /* SRGFairPlayAssetResourceLoaderDelegate.h */; };
 		6F8A93D320FDB3D200AA6434 /* SRGFairPlayAssetResourceLoaderDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F8A93D120FDB3D200AA6434 /* SRGFairPlayAssetResourceLoaderDelegate.m */; };
-		6F8A93FB20FDCAA800AA6434 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6F8A93F020FDCAA800AA6434 /* LaunchScreen.storyboard */; };
+		6F8A93FB20FDCAA800AA6434 /* LaunchScreen~ios.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6F8A93F020FDCAA800AA6434 /* LaunchScreen~ios.storyboard */; };
 		6F8A93FC20FDCAA800AA6434 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6F8A93F120FDCAA800AA6434 /* Images.xcassets */; };
 		6F8A93FD20FDCAA800AA6434 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F8A93F520FDCAA800AA6434 /* main.m */; };
 		6F8A93FE20FDCAA800AA6434 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F8A93F620FDCAA800AA6434 /* AppDelegate.m */; };
 		6F8A93FF20FDCAA800AA6434 /* DemosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F8A93F920FDCAA800AA6434 /* DemosViewController.m */; };
-		6F8A940220FDCBA600AA6434 /* DemosViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6F8A940120FDCBA600AA6434 /* DemosViewController.storyboard */; };
+		6F8A940220FDCBA600AA6434 /* DemosViewController~ios.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6F8A940120FDCBA600AA6434 /* DemosViewController~ios.storyboard */; };
 		6F8A940320FDD01B00AA6434 /* SRGContentProtection.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F0EB53120FC7F58009C02CF /* SRGContentProtection.framework */; };
-		6F8A940420FDD01B00AA6434 /* SRGContentProtection.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6F0EB53120FC7F58009C02CF /* SRGContentProtection.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6FB74D6C2101D4D200E2D365 /* SRGContentProtection.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F0EB53120FC7F58009C02CF /* SRGContentProtection.framework */; };
 		6FB74D772101D5D600E2D365 /* AkamaiResourceLoaderTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FB74D742101D5D600E2D365 /* AkamaiResourceLoaderTestCase.m */; };
 		6FB74D782101D5D600E2D365 /* FairPlayResourceLoaderTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FB74D752101D5D600E2D365 /* FairPlayResourceLoaderTestCase.m */; };
 		6FBCA7412109A9F4004CD02D /* AkamaiTokenTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FBCA7402109A9F4004CD02D /* AkamaiTokenTestCase.m */; };
 		6FBF24312147F3ED00E576A2 /* SRGDiagnostics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FBF24302147F3ED00E576A2 /* SRGDiagnostics.framework */; };
 		6FBF24342147F4C900E576A2 /* SRGDiagnostics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FBF24302147F3ED00E576A2 /* SRGDiagnostics.framework */; };
-		6FBF24352147F4C900E576A2 /* SRGDiagnostics.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6FBF24302147F3ED00E576A2 /* SRGDiagnostics.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6FBF24372147FE2E00E576A2 /* SRGAssetResourceLoaderDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FBF24362147FE2E00E576A2 /* SRGAssetResourceLoaderDelegate.m */; };
 		6FBF243A21480DB300E576A2 /* SRGContentProtectionConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 6FBF243821480DB300E576A2 /* SRGContentProtectionConstants.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6FBF243B21480DB300E576A2 /* SRGContentProtectionConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FBF243921480DB300E576A2 /* SRGContentProtectionConstants.m */; };
-		6FCAB6BA23164F8F0043432E /* SRGContentProtection.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F0EB53120FC7F58009C02CF /* SRGContentProtection.framework */; };
-		6FCAB6BB23164F8F0043432E /* SRGContentProtection.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6F0EB53120FC7F58009C02CF /* SRGContentProtection.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6FCAB6BF23165A020043432E /* DemosViewController~tvos.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6FCAB6BE23165A020043432E /* DemosViewController~tvos.storyboard */; };
+		6FCAB6C123165B0E0043432E /* Demo.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 6FCAB6C023165B0D0043432E /* Demo.xcconfig */; };
+		6FCAB6CE231673B00043432E /* SRGContentProtection.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F0EB53120FC7F58009C02CF /* SRGContentProtection.framework */; };
+		6FCAB6CF231673B00043432E /* SRGContentProtection.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6F0EB53120FC7F58009C02CF /* SRGContentProtection.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6FD810F420FCB58500F250B9 /* AVURLAsset+SRGContentProtection.h in Headers */ = {isa = PBXBuildFile; fileRef = 6FD810F220FCB58500F250B9 /* AVURLAsset+SRGContentProtection.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6FD810F520FCB58500F250B9 /* AVURLAsset+SRGContentProtection.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FD810F320FCB58500F250B9 /* AVURLAsset+SRGContentProtection.m */; };
 		6FD8110120FCC22500F250B9 /* SRGAkamaiAssetResourceLoaderDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 6FD810FF20FCC22500F250B9 /* SRGAkamaiAssetResourceLoaderDelegate.h */; };
@@ -100,44 +78,16 @@
 			remoteGlobalIDString = 6F0EB53020FC7F58009C02CF;
 			remoteInfo = SRGContentProtection;
 		};
-		6FCAB6BC23164F8F0043432E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 6F0EB52820FC7F58009C02CF /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 6F0EB53020FC7F58009C02CF;
-			remoteInfo = SRGContentProtection;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		08E2AF3D23105C5300DCCE74 /* Embed Frameworks */ = {
+		6FCAB6D0231673B00043432E /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				08E2AF5923105E4E00DCCE74 /* libextobjc.framework in Embed Frameworks */,
-				08E2AF5A23105E4E00DCCE74 /* MAKVONotificationCenter.framework in Embed Frameworks */,
-				08E2AF5B23105E4E00DCCE74 /* SRGDiagnostics.framework in Embed Frameworks */,
-				08E2AF5C23105E4E00DCCE74 /* SRGLogger.framework in Embed Frameworks */,
-				6FCAB6BB23164F8F0043432E /* SRGContentProtection.framework in Embed Frameworks */,
-				08E2AF5D23105E4E00DCCE74 /* SRGNetwork.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		6F8A940720FDD01B00AA6434 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				6F0432BF21007340002B090A /* SRGNetwork.framework in Embed Frameworks */,
-				0858B6A422010CD6000F00CF /* MAKVONotificationCenter.framework in Embed Frameworks */,
-				6FBF24352147F4C900E576A2 /* SRGDiagnostics.framework in Embed Frameworks */,
-				0858B6A222010CD6000F00CF /* libextobjc.framework in Embed Frameworks */,
-				6F8A940420FDD01B00AA6434 /* SRGContentProtection.framework in Embed Frameworks */,
-				0858B6A622010CD6000F00CF /* SRGLogger.framework in Embed Frameworks */,
+				6FCAB6CF231673B00043432E /* SRGContentProtection.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -148,20 +98,6 @@
 		0858B69522010C9E000F00CF /* SRGLogger.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SRGLogger.framework; path = Carthage/Build/iOS/SRGLogger.framework; sourceTree = "<group>"; };
 		0858B69622010C9E000F00CF /* libextobjc.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = libextobjc.framework; path = Carthage/Build/iOS/libextobjc.framework; sourceTree = "<group>"; };
 		0858B69722010C9E000F00CF /* MAKVONotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MAKVONotificationCenter.framework; path = Carthage/Build/iOS/MAKVONotificationCenter.framework; sourceTree = "<group>"; };
-		0897CEA7230F0EA400555054 /* SRGLogger.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SRGLogger.framework; path = Carthage/Build/tvOS/SRGLogger.framework; sourceTree = "<group>"; };
-		0897CEA8230F0EA400555054 /* SRGNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SRGNetwork.framework; path = Carthage/Build/tvOS/SRGNetwork.framework; sourceTree = "<group>"; };
-		0897CEA9230F0EA400555054 /* MAKVONotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MAKVONotificationCenter.framework; path = Carthage/Build/tvOS/MAKVONotificationCenter.framework; sourceTree = "<group>"; };
-		0897CEAB230F0EA400555054 /* SRGDiagnostics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SRGDiagnostics.framework; path = Carthage/Build/tvOS/SRGDiagnostics.framework; sourceTree = "<group>"; };
-		08E2AF1023105B0800DCCE74 /* SRGContentProtection-tvOS-demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SRGContentProtection-tvOS-demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		08E2AF1423105B3900DCCE74 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		08E2AF1723105B3900DCCE74 /* TVAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TVAppDelegate.h; sourceTree = "<group>"; };
-		08E2AF1823105B3900DCCE74 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		08E2AF1923105B3900DCCE74 /* TVAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TVAppDelegate.m; sourceTree = "<group>"; };
-		08E2AF2223105B3900DCCE74 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		08E2AF5223105E3200DCCE74 /* libextobjc.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = libextobjc.framework; path = Carthage/Build/tvOS/libextobjc.framework; sourceTree = "<group>"; };
-		08E2AF5E23105F6000DCCE74 /* TVDemosViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TVDemosViewController.h; sourceTree = "<group>"; };
-		08E2AF5F23105F6000DCCE74 /* TVDemosViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TVDemosViewController.storyboard; sourceTree = "<group>"; };
-		08E2AF6023105F6000DCCE74 /* TVDemosViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TVDemosViewController.m; sourceTree = "<group>"; };
 		08E2AF6323108D8F00DCCE74 /* MediaDemoConfiguration.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = MediaDemoConfiguration.plist; sourceTree = "<group>"; };
 		08E2AF6723108EBA00DCCE74 /* Media.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Media.h; sourceTree = "<group>"; };
 		08E2AF6823108EBA00DCCE74 /* Media.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Media.m; sourceTree = "<group>"; };
@@ -177,8 +113,8 @@
 		6F7B78692108A05C001E3BBE /* SRGAkamaiToken.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SRGAkamaiToken.m; sourceTree = "<group>"; };
 		6F8A93D020FDB3D200AA6434 /* SRGFairPlayAssetResourceLoaderDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SRGFairPlayAssetResourceLoaderDelegate.h; sourceTree = "<group>"; };
 		6F8A93D120FDB3D200AA6434 /* SRGFairPlayAssetResourceLoaderDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SRGFairPlayAssetResourceLoaderDelegate.m; sourceTree = "<group>"; };
-		6F8A93D820FDCA0800AA6434 /* SRGContentProtection-iOS-demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SRGContentProtection-iOS-demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		6F8A93F020FDCAA800AA6434 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		6F8A93D820FDCA0800AA6434 /* SRGContentProtection-demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SRGContentProtection-demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6F8A93F020FDCAA800AA6434 /* LaunchScreen~ios.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "LaunchScreen~ios.storyboard"; sourceTree = "<group>"; };
 		6F8A93F120FDCAA800AA6434 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		6F8A93F420FDCAA800AA6434 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		6F8A93F520FDCAA800AA6434 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -186,7 +122,7 @@
 		6F8A93F820FDCAA800AA6434 /* DemosViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemosViewController.h; sourceTree = "<group>"; };
 		6F8A93F920FDCAA800AA6434 /* DemosViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemosViewController.m; sourceTree = "<group>"; };
 		6F8A93FA20FDCAA800AA6434 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6F8A940120FDCBA600AA6434 /* DemosViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DemosViewController.storyboard; sourceTree = "<group>"; };
+		6F8A940120FDCBA600AA6434 /* DemosViewController~ios.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "DemosViewController~ios.storyboard"; sourceTree = "<group>"; };
 		6FB74D672101D4D200E2D365 /* SRGContentProtection-tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SRGContentProtection-tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6FB74D742101D5D600E2D365 /* AkamaiResourceLoaderTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AkamaiResourceLoaderTestCase.m; sourceTree = "<group>"; };
 		6FB74D752101D5D600E2D365 /* FairPlayResourceLoaderTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FairPlayResourceLoaderTestCase.m; sourceTree = "<group>"; };
@@ -196,6 +132,8 @@
 		6FBF24362147FE2E00E576A2 /* SRGAssetResourceLoaderDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SRGAssetResourceLoaderDelegate.m; sourceTree = "<group>"; };
 		6FBF243821480DB300E576A2 /* SRGContentProtectionConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SRGContentProtectionConstants.h; sourceTree = "<group>"; };
 		6FBF243921480DB300E576A2 /* SRGContentProtectionConstants.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SRGContentProtectionConstants.m; sourceTree = "<group>"; };
+		6FCAB6BE23165A020043432E /* DemosViewController~tvos.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "DemosViewController~tvos.storyboard"; sourceTree = "<group>"; };
+		6FCAB6C023165B0D0043432E /* Demo.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Demo.xcconfig; sourceTree = "<group>"; };
 		6FCBFEF8210B578B006BC355 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		6FCBFEFA210B57BD006BC355 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
 		6FCBFEFB210B57BD006BC355 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -214,19 +152,6 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		08E2AEF923105B0800DCCE74 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				08E2AF5323105E3200DCCE74 /* libextobjc.framework in Frameworks */,
-				08E2AF4E23105E3100DCCE74 /* MAKVONotificationCenter.framework in Frameworks */,
-				08E2AF4F23105E3100DCCE74 /* SRGDiagnostics.framework in Frameworks */,
-				08E2AF5023105E3100DCCE74 /* SRGLogger.framework in Frameworks */,
-				6FCAB6BA23164F8F0043432E /* SRGContentProtection.framework in Frameworks */,
-				08E2AF5123105E3100DCCE74 /* SRGNetwork.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		6F0C98E32121E1C200073AB6 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -253,6 +178,7 @@
 				6F0432BE21007340002B090A /* SRGNetwork.framework in Frameworks */,
 				0858B6A322010CD6000F00CF /* MAKVONotificationCenter.framework in Frameworks */,
 				0858B6A522010CD6000F00CF /* SRGLogger.framework in Frameworks */,
+				6FCAB6CE231673B00043432E /* SRGContentProtection.framework in Frameworks */,
 				0858B69C22010C9E000F00CF /* libextobjc.framework in Frameworks */,
 				6FBF24342147F4C900E576A2 /* SRGDiagnostics.framework in Frameworks */,
 				6F8A940320FDD01B00AA6434 /* SRGContentProtection.framework in Frameworks */,
@@ -270,53 +196,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		08E2AF1223105B3900DCCE74 /* DemoTV */ = {
-			isa = PBXGroup;
-			children = (
-				08E2AF1523105B3900DCCE74 /* Sources */,
-				08E2AF1323105B3900DCCE74 /* Resources */,
-				08E2AF2223105B3900DCCE74 /* Info.plist */,
-			);
-			path = DemoTV;
-			sourceTree = "<group>";
-		};
-		08E2AF1323105B3900DCCE74 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				08E2AF1423105B3900DCCE74 /* Assets.xcassets */,
-			);
-			path = Resources;
-			sourceTree = "<group>";
-		};
-		08E2AF1523105B3900DCCE74 /* Sources */ = {
-			isa = PBXGroup;
-			children = (
-				08E2AF1623105B3900DCCE74 /* Application */,
-				08E2AF1A23105B3900DCCE74 /* Demos */,
-			);
-			path = Sources;
-			sourceTree = "<group>";
-		};
-		08E2AF1623105B3900DCCE74 /* Application */ = {
-			isa = PBXGroup;
-			children = (
-				08E2AF1823105B3900DCCE74 /* main.m */,
-				08E2AF1723105B3900DCCE74 /* TVAppDelegate.h */,
-				08E2AF1923105B3900DCCE74 /* TVAppDelegate.m */,
-			);
-			path = Application;
-			sourceTree = "<group>";
-		};
-		08E2AF1A23105B3900DCCE74 /* Demos */ = {
-			isa = PBXGroup;
-			children = (
-				08E2AF5E23105F6000DCCE74 /* TVDemosViewController.h */,
-				08E2AF6023105F6000DCCE74 /* TVDemosViewController.m */,
-				08E2AF5F23105F6000DCCE74 /* TVDemosViewController.storyboard */,
-			);
-			path = Demos;
-			sourceTree = "<group>";
-		};
 		08E2AF6623108EBA00DCCE74 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -332,7 +211,6 @@
 				6F0EB53C20FC7FA9009C02CF /* Framework */,
 				6FB74D722101D5D600E2D365 /* Tests */,
 				6F8A93EE20FDCAA800AA6434 /* Demo */,
-				08E2AF1223105B3900DCCE74 /* DemoTV */,
 				6F8A945521006A9E00AA6434 /* Frameworks */,
 				6F0EB53220FC7F58009C02CF /* Products */,
 			);
@@ -342,10 +220,9 @@
 			isa = PBXGroup;
 			children = (
 				6F0EB53120FC7F58009C02CF /* SRGContentProtection.framework */,
-				6F8A93D820FDCA0800AA6434 /* SRGContentProtection-iOS-demo.app */,
+				6F8A93D820FDCA0800AA6434 /* SRGContentProtection-demo.app */,
 				6FB74D672101D4D200E2D365 /* SRGContentProtection-tests.xctest */,
 				6F0C98E62121E1C200073AB6 /* SRGContentProtection.bundle */,
-				08E2AF1023105B0800DCCE74 /* SRGContentProtection-tvOS-demo.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -395,6 +272,7 @@
 				6F8A93F220FDCAA800AA6434 /* Sources */,
 				6F8A93EF20FDCAA800AA6434 /* Resources */,
 				6F8A93FA20FDCAA800AA6434 /* Info.plist */,
+				6FCAB6C023165B0D0043432E /* Demo.xcconfig */,
 			);
 			path = Demo;
 			sourceTree = "<group>";
@@ -403,7 +281,7 @@
 			isa = PBXGroup;
 			children = (
 				08E2AF6323108D8F00DCCE74 /* MediaDemoConfiguration.plist */,
-				6F8A93F020FDCAA800AA6434 /* LaunchScreen.storyboard */,
+				6F8A93F020FDCAA800AA6434 /* LaunchScreen~ios.storyboard */,
 				6F8A93F120FDCAA800AA6434 /* Images.xcassets */,
 			);
 			path = Resources;
@@ -434,7 +312,8 @@
 			children = (
 				6F8A93F820FDCAA800AA6434 /* DemosViewController.h */,
 				6F8A93F920FDCAA800AA6434 /* DemosViewController.m */,
-				6F8A940120FDCBA600AA6434 /* DemosViewController.storyboard */,
+				6F8A940120FDCBA600AA6434 /* DemosViewController~ios.storyboard */,
+				6FCAB6BE23165A020043432E /* DemosViewController~tvos.storyboard */,
 			);
 			path = Demos;
 			sourceTree = "<group>";
@@ -442,15 +321,10 @@
 		6F8A945521006A9E00AA6434 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				08E2AF5223105E3200DCCE74 /* libextobjc.framework */,
 				0858B69622010C9E000F00CF /* libextobjc.framework */,
-				0897CEA9230F0EA400555054 /* MAKVONotificationCenter.framework */,
 				0858B69722010C9E000F00CF /* MAKVONotificationCenter.framework */,
-				0897CEAB230F0EA400555054 /* SRGDiagnostics.framework */,
 				6FBF24302147F3ED00E576A2 /* SRGDiagnostics.framework */,
-				0897CEA7230F0EA400555054 /* SRGLogger.framework */,
 				0858B69522010C9E000F00CF /* SRGLogger.framework */,
-				0897CEA8230F0EA400555054 /* SRGNetwork.framework */,
 				6F0432BC21006E7A002B090A /* SRGNetwork.framework */,
 			);
 			name = Frameworks;
@@ -520,25 +394,6 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		08E2AEF223105B0800DCCE74 /* SRGContentProtection-tvOS-demo */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 08E2AF0B23105B0800DCCE74 /* Build configuration list for PBXNativeTarget "SRGContentProtection-tvOS-demo" */;
-			buildPhases = (
-				08E2AEF523105B0800DCCE74 /* Sources */,
-				08E2AEF923105B0800DCCE74 /* Frameworks */,
-				08E2AF0023105B0800DCCE74 /* Resources */,
-				08E2AF3D23105C5300DCCE74 /* Embed Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				6FCAB6BD23164F8F0043432E /* PBXTargetDependency */,
-			);
-			name = "SRGContentProtection-tvOS-demo";
-			productName = "SRGContentProtection-demo";
-			productReference = 08E2AF1023105B0800DCCE74 /* SRGContentProtection-tvOS-demo.app */;
-			productType = "com.apple.product-type.application";
-		};
 		6F0C98E52121E1C200073AB6 /* SRGContentProtection-resources */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6F0C98E92121E1C200073AB6 /* Build configuration list for PBXNativeTarget "SRGContentProtection-resources" */;
@@ -575,23 +430,24 @@
 			productReference = 6F0EB53120FC7F58009C02CF /* SRGContentProtection.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		6F8A93D720FDCA0800AA6434 /* SRGContentProtection-iOS-demo */ = {
+		6F8A93D720FDCA0800AA6434 /* SRGContentProtection-demo */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6F8A93EB20FDCA0900AA6434 /* Build configuration list for PBXNativeTarget "SRGContentProtection-iOS-demo" */;
+			buildConfigurationList = 6F8A93EB20FDCA0900AA6434 /* Build configuration list for PBXNativeTarget "SRGContentProtection-demo" */;
 			buildPhases = (
 				6F8A93D420FDCA0800AA6434 /* Sources */,
 				6F8A93D520FDCA0800AA6434 /* Frameworks */,
 				6F8A93D620FDCA0800AA6434 /* Resources */,
-				6F8A940720FDD01B00AA6434 /* Embed Frameworks */,
+				6FCAB6CC2316732B0043432E /* Embed Frameworks (Carthage) */,
+				6FCAB6D0231673B00043432E /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				6F8A940620FDD01B00AA6434 /* PBXTargetDependency */,
 			);
-			name = "SRGContentProtection-iOS-demo";
+			name = "SRGContentProtection-demo";
 			productName = "SRGContentProtection-demo";
-			productReference = 6F8A93D820FDCA0800AA6434 /* SRGContentProtection-iOS-demo.app */;
+			productReference = 6F8A93D820FDCA0800AA6434 /* SRGContentProtection-demo.app */;
 			productType = "com.apple.product-type.application";
 		};
 		6FB74D662101D4D200E2D365 /* SRGContentProtection-tests */ = {
@@ -655,23 +511,12 @@
 				6F0EB53020FC7F58009C02CF /* SRGContentProtection */,
 				6F0C98E52121E1C200073AB6 /* SRGContentProtection-resources */,
 				6FB74D662101D4D200E2D365 /* SRGContentProtection-tests */,
-				6F8A93D720FDCA0800AA6434 /* SRGContentProtection-iOS-demo */,
-				08E2AEF223105B0800DCCE74 /* SRGContentProtection-tvOS-demo */,
+				6F8A93D720FDCA0800AA6434 /* SRGContentProtection-demo */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		08E2AF0023105B0800DCCE74 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				08E2AF6123105F6000DCCE74 /* TVDemosViewController.storyboard in Resources */,
-				08E2AF4B23105D5700DCCE74 /* Assets.xcassets in Resources */,
-				08E2AF6523108D8F00DCCE74 /* MediaDemoConfiguration.plist in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		6F0C98E42121E1C200073AB6 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -684,7 +529,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				08E2AF2323105B3900DCCE74 /* Assets.xcassets in Resources */,
 				6F0C98F12121E26A00073AB6 /* SRGContentProtection.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -693,10 +537,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6F8A93FB20FDCAA800AA6434 /* LaunchScreen.storyboard in Resources */,
-				6F8A940220FDCBA600AA6434 /* DemosViewController.storyboard in Resources */,
+				6F8A93FB20FDCAA800AA6434 /* LaunchScreen~ios.storyboard in Resources */,
+				6F8A940220FDCBA600AA6434 /* DemosViewController~ios.storyboard in Resources */,
 				08E2AF6423108D8F00DCCE74 /* MediaDemoConfiguration.plist in Resources */,
 				6F8A93FC20FDCAA800AA6434 /* Images.xcassets in Resources */,
+				6FCAB6BF23165A020043432E /* DemosViewController~tvos.storyboard in Resources */,
+				6FCAB6C123165B0E0043432E /* Demo.xcconfig in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -709,18 +555,33 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXSourcesBuildPhase section */
-		08E2AEF523105B0800DCCE74 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
+/* Begin PBXShellScriptBuildPhase section */
+		6FCAB6CC2316732B0043432E /* Embed Frameworks (Carthage) */ = {
+			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				08E2AF4223105D1800DCCE74 /* main.m in Sources */,
-				08E2AF4423105D1800DCCE74 /* TVAppDelegate.m in Sources */,
-				08E2AF6A23108EBA00DCCE74 /* Media.m in Sources */,
-				08E2AF6223105F6000DCCE74 /* TVDemosViewController.m in Sources */,
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/$(CARTHAGE_SUBPATH)/libextobjc.framework",
+				"$(SRCROOT)/Carthage/Build/$(CARTHAGE_SUBPATH)/MAKVONotificationCenter.framework",
+				"$(SRCROOT)/Carthage/Build/$(CARTHAGE_SUBPATH)/SRGDiagnostics.framework",
+				"$(SRCROOT)/Carthage/Build/$(CARTHAGE_SUBPATH)/SRGLogger.framework",
+				"$(SRCROOT)/Carthage/Build/$(CARTHAGE_SUBPATH)/SRGNetwork.framework",
+			);
+			name = "Embed Frameworks (Carthage)";
+			outputFileListPaths = (
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
 		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
 		6F0C98E22121E1C200073AB6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -783,11 +644,6 @@
 			target = 6F0EB53020FC7F58009C02CF /* SRGContentProtection */;
 			targetProxy = 6FB74D6D2101D4D200E2D365 /* PBXContainerItemProxy */;
 		};
-		6FCAB6BD23164F8F0043432E /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 6F0EB53020FC7F58009C02CF /* SRGContentProtection */;
-			targetProxy = 6FCAB6BC23164F8F0043432E /* PBXContainerItemProxy */;
-		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
@@ -806,98 +662,6 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		08E2AF0C23105B0800DCCE74 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = VMGRRW6SG7;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/tvOS",
-				);
-				INFOPLIST_FILE = DemoTV/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "ch.srgssr.SRGContentProtection-tvOS-demo";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = appletvos;
-				TARGETED_DEVICE_FAMILY = 3;
-			};
-			name = Debug;
-		};
-		08E2AF0D23105B0800DCCE74 /* Debug-static */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = VMGRRW6SG7;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/tvOS",
-				);
-				INFOPLIST_FILE = DemoTV/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "ch.srgssr.SRGContentProtection-tvOS-demo";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = appletvos;
-				TARGETED_DEVICE_FAMILY = 3;
-			};
-			name = "Debug-static";
-		};
-		08E2AF0E23105B0800DCCE74 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = VMGRRW6SG7;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/tvOS",
-				);
-				INFOPLIST_FILE = DemoTV/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "ch.srgssr.SRGContentProtection-tvOS-demo";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = appletvos;
-				TARGETED_DEVICE_FAMILY = 3;
-			};
-			name = Release;
-		};
-		08E2AF0F23105B0800DCCE74 /* Release-static */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = VMGRRW6SG7;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/tvOS",
-				);
-				INFOPLIST_FILE = DemoTV/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "ch.srgssr.SRGContentProtection-tvOS-demo";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = appletvos;
-				TARGETED_DEVICE_FAMILY = 3;
-			};
-			name = "Release-static";
-		};
 		6F0C98DA2121E14000073AB6 /* Debug-static */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -998,13 +762,14 @@
 		};
 		6F0C98DC2121E14000073AB6 /* Debug-static */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6FCAB6C023165B0D0043432E /* Demo.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "$(APP_ICONS_SOURCE)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = VMGRRW6SG7;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/Carthage/Build/$(CARTHAGE_SUBPATH)",
 				);
 				INFOPLIST_FILE = Demo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1014,7 +779,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "ch.srgssr.SRGContentProtection-demo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = "Debug-static";
 		};
@@ -1133,13 +897,14 @@
 		};
 		6F0C98E02121E14600073AB6 /* Release-static */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6FCAB6C023165B0D0043432E /* Demo.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "$(APP_ICONS_SOURCE)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = VMGRRW6SG7;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/Carthage/Build/$(CARTHAGE_SUBPATH)",
 				);
 				INFOPLIST_FILE = Demo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1149,7 +914,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "ch.srgssr.SRGContentProtection-demo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = "Release-static";
 		};
@@ -1420,13 +1184,14 @@
 		};
 		6F8A93EC20FDCA0900AA6434 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6FCAB6C023165B0D0043432E /* Demo.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "$(APP_ICONS_SOURCE)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = VMGRRW6SG7;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/Carthage/Build/$(CARTHAGE_SUBPATH)",
 				);
 				INFOPLIST_FILE = Demo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1436,19 +1201,19 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "ch.srgssr.SRGContentProtection-demo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
 		6F8A93ED20FDCA0900AA6434 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6FCAB6C023165B0D0043432E /* Demo.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "$(APP_ICONS_SOURCE)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = VMGRRW6SG7;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/Carthage/Build/$(CARTHAGE_SUBPATH)",
 				);
 				INFOPLIST_FILE = Demo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1458,7 +1223,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "ch.srgssr.SRGContentProtection-demo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -1507,17 +1271,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		08E2AF0B23105B0800DCCE74 /* Build configuration list for PBXNativeTarget "SRGContentProtection-tvOS-demo" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				08E2AF0C23105B0800DCCE74 /* Debug */,
-				08E2AF0D23105B0800DCCE74 /* Debug-static */,
-				08E2AF0E23105B0800DCCE74 /* Release */,
-				08E2AF0F23105B0800DCCE74 /* Release-static */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		6F0C98E92121E1C200073AB6 /* Build configuration list for PBXNativeTarget "SRGContentProtection-resources" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1551,7 +1304,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6F8A93EB20FDCA0900AA6434 /* Build configuration list for PBXNativeTarget "SRGContentProtection-iOS-demo" */ = {
+		6F8A93EB20FDCA0900AA6434 /* Build configuration list for PBXNativeTarget "SRGContentProtection-demo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6F8A93EC20FDCA0900AA6434 /* Debug */,

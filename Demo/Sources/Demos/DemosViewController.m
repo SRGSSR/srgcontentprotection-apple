@@ -11,6 +11,16 @@
 
 #import "Media.h"
 
+static NSString *ResourceNameForClass(Class cls)
+{
+    NSString *name = NSStringFromClass(cls);
+#if TARGET_OS_TV
+    return [name stringByAppendingString:@"~tvos"];
+#else
+    return [name stringByAppendingString:@"~ios"];
+#endif
+}
+
 @interface DemosViewController ()
 
 @property (nonatomic) NSArray<Media *> *medias;
@@ -23,7 +33,7 @@
 
 - (instancetype)init
 {
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:NSStringFromClass(self.class) bundle:nil];
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:ResourceNameForClass(self.class) bundle:nil];
     return [storyboard instantiateInitialViewController];
 }
 
@@ -122,6 +132,26 @@
     }
     
     AVPlayerItem *playerItem = [AVPlayerItem playerItemWithAsset:asset];
+    
+#if TARGET_OS_TV
+    AVMutableMetadataItem *titleItem = [[AVMutableMetadataItem alloc] init];
+    titleItem.identifier = AVMetadataCommonIdentifierTitle;
+    titleItem.value = self.medias[indexPath.row].name;
+    titleItem.extendedLanguageTag = @"und";
+    
+    AVMutableMetadataItem *descriptionItem = [[AVMutableMetadataItem alloc] init];
+    descriptionItem.identifier = AVMetadataCommonIdentifierDescription;
+    descriptionItem.value = [NSString stringWithFormat:NSLocalizedString(@"Playing with %@", nil), [self titleForSection:indexPath.section]];
+    descriptionItem.extendedLanguageTag = @"und";
+    
+    AVMutableMetadataItem *artworkItem = [[AVMutableMetadataItem alloc] init];
+    artworkItem.identifier = AVMetadataCommonIdentifierArtwork;
+    artworkItem.value = UIImagePNGRepresentation([UIImage imageNamed:@"artwork"]);
+    artworkItem.extendedLanguageTag = @"und";
+    
+    playerItem.externalMetadata = @[ titleItem, descriptionItem, artworkItem ];
+#endif
+    
     AVPlayer *player = [AVPlayer playerWithPlayerItem:playerItem];
     
     AVPlayerViewController *playerViewController = [[AVPlayerViewController alloc] init];
