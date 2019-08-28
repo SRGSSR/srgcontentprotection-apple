@@ -45,6 +45,7 @@
 		6FCAB6BF23165A020043432E /* DemosViewController~tvos.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6FCAB6BE23165A020043432E /* DemosViewController~tvos.storyboard */; };
 		6FCAB6CE231673B00043432E /* SRGContentProtection.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F0EB53120FC7F58009C02CF /* SRGContentProtection.framework */; };
 		6FCAB6CF231673B00043432E /* SRGContentProtection.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6F0EB53120FC7F58009C02CF /* SRGContentProtection.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6FCAB6D423167A670043432E /* Resources.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FCAB6D323167A670043432E /* Resources.m */; };
 		6FD810F420FCB58500F250B9 /* AVURLAsset+SRGContentProtection.h in Headers */ = {isa = PBXBuildFile; fileRef = 6FD810F220FCB58500F250B9 /* AVURLAsset+SRGContentProtection.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6FD810F520FCB58500F250B9 /* AVURLAsset+SRGContentProtection.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FD810F320FCB58500F250B9 /* AVURLAsset+SRGContentProtection.m */; };
 		6FD8110120FCC22500F250B9 /* SRGAkamaiAssetResourceLoaderDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 6FD810FF20FCC22500F250B9 /* SRGAkamaiAssetResourceLoaderDelegate.h */; };
@@ -132,6 +133,8 @@
 		6FBF243921480DB300E576A2 /* SRGContentProtectionConstants.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SRGContentProtectionConstants.m; sourceTree = "<group>"; };
 		6FCAB6BE23165A020043432E /* DemosViewController~tvos.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "DemosViewController~tvos.storyboard"; sourceTree = "<group>"; };
 		6FCAB6C023165B0D0043432E /* Demo.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Demo.xcconfig; sourceTree = "<group>"; };
+		6FCAB6D223167A670043432E /* Resources.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Resources.h; sourceTree = "<group>"; };
+		6FCAB6D323167A670043432E /* Resources.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Resources.m; sourceTree = "<group>"; };
 		6FCBFEF8210B578B006BC355 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		6FCBFEFA210B57BD006BC355 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
 		6FCBFEFB210B57BD006BC355 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -289,6 +292,7 @@
 			children = (
 				6F8A93F320FDCAA800AA6434 /* Application */,
 				6F8A93F720FDCAA800AA6434 /* Demos */,
+				6FCAB6D123167A4A0043432E /* Helpers */,
 				08E2AF6623108EBA00DCCE74 /* Models */,
 			);
 			path = Sources;
@@ -345,6 +349,15 @@
 				6FB74D752101D5D600E2D365 /* FairPlayResourceLoaderTestCase.m */,
 			);
 			path = Sources;
+			sourceTree = "<group>";
+		};
+		6FCAB6D123167A4A0043432E /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				6FCAB6D223167A670043432E /* Resources.h */,
+				6FCAB6D323167A670043432E /* Resources.m */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		6FCBFEF6210B571C006BC355 /* Resources */ = {
@@ -607,6 +620,7 @@
 			files = (
 				6F8A93FE20FDCAA800AA6434 /* AppDelegate.m in Sources */,
 				6F8A93FD20FDCAA800AA6434 /* main.m in Sources */,
+				6FCAB6D423167A670043432E /* Resources.m in Sources */,
 				08E2AF6923108EBA00DCCE74 /* Media.m in Sources */,
 				6F8A93FF20FDCAA800AA6434 /* DemosViewController.m in Sources */,
 			);

@@ -6,20 +6,11 @@
 
 #import "DemosViewController.h"
 
+#import "Media.h"
+#import "Resources.h"
+
 #import <AVKit/AVKit.h>
 #import <SRGContentProtection/SRGContentProtection.h>
-
-#import "Media.h"
-
-static NSString *ResourceNameForClass(Class cls)
-{
-    NSString *name = NSStringFromClass(cls);
-#if TARGET_OS_TV
-    return [name stringByAppendingString:@"~tvos"];
-#else
-    return [name stringByAppendingString:@"~ios"];
-#endif
-}
 
 @interface DemosViewController ()
 
@@ -33,7 +24,7 @@ static NSString *ResourceNameForClass(Class cls)
 
 - (instancetype)init
 {
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:ResourceNameForClass(self.class) bundle:nil];
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:ResourceNameForUIClass(self.class) bundle:nil];
     return [storyboard instantiateInitialViewController];
 }
 
