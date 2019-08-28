@@ -67,6 +67,8 @@
 		6FBF24372147FE2E00E576A2 /* SRGAssetResourceLoaderDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FBF24362147FE2E00E576A2 /* SRGAssetResourceLoaderDelegate.m */; };
 		6FBF243A21480DB300E576A2 /* SRGContentProtectionConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 6FBF243821480DB300E576A2 /* SRGContentProtectionConstants.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6FBF243B21480DB300E576A2 /* SRGContentProtectionConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FBF243921480DB300E576A2 /* SRGContentProtectionConstants.m */; };
+		6FCAB6BA23164F8F0043432E /* SRGContentProtection.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F0EB53120FC7F58009C02CF /* SRGContentProtection.framework */; };
+		6FCAB6BB23164F8F0043432E /* SRGContentProtection.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6F0EB53120FC7F58009C02CF /* SRGContentProtection.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6FD810F420FCB58500F250B9 /* AVURLAsset+SRGContentProtection.h in Headers */ = {isa = PBXBuildFile; fileRef = 6FD810F220FCB58500F250B9 /* AVURLAsset+SRGContentProtection.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6FD810F520FCB58500F250B9 /* AVURLAsset+SRGContentProtection.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FD810F320FCB58500F250B9 /* AVURLAsset+SRGContentProtection.m */; };
 		6FD8110120FCC22500F250B9 /* SRGAkamaiAssetResourceLoaderDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 6FD810FF20FCC22500F250B9 /* SRGAkamaiAssetResourceLoaderDelegate.h */; };
@@ -98,6 +100,13 @@
 			remoteGlobalIDString = 6F0EB53020FC7F58009C02CF;
 			remoteInfo = SRGContentProtection;
 		};
+		6FCAB6BC23164F8F0043432E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6F0EB52820FC7F58009C02CF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6F0EB53020FC7F58009C02CF;
+			remoteInfo = SRGContentProtection;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -111,6 +120,7 @@
 				08E2AF5A23105E4E00DCCE74 /* MAKVONotificationCenter.framework in Embed Frameworks */,
 				08E2AF5B23105E4E00DCCE74 /* SRGDiagnostics.framework in Embed Frameworks */,
 				08E2AF5C23105E4E00DCCE74 /* SRGLogger.framework in Embed Frameworks */,
+				6FCAB6BB23164F8F0043432E /* SRGContentProtection.framework in Embed Frameworks */,
 				08E2AF5D23105E4E00DCCE74 /* SRGNetwork.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -212,6 +222,7 @@
 				08E2AF4E23105E3100DCCE74 /* MAKVONotificationCenter.framework in Frameworks */,
 				08E2AF4F23105E3100DCCE74 /* SRGDiagnostics.framework in Frameworks */,
 				08E2AF5023105E3100DCCE74 /* SRGLogger.framework in Frameworks */,
+				6FCAB6BA23164F8F0043432E /* SRGContentProtection.framework in Frameworks */,
 				08E2AF5123105E3100DCCE74 /* SRGNetwork.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -521,6 +532,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				6FCAB6BD23164F8F0043432E /* PBXTargetDependency */,
 			);
 			name = "SRGContentProtection-tvOS-demo";
 			productName = "SRGContentProtection-demo";
@@ -771,6 +783,11 @@
 			target = 6F0EB53020FC7F58009C02CF /* SRGContentProtection */;
 			targetProxy = 6FB74D6D2101D4D200E2D365 /* PBXContainerItemProxy */;
 		};
+		6FCAB6BD23164F8F0043432E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6F0EB53020FC7F58009C02CF /* SRGContentProtection */;
+			targetProxy = 6FCAB6BC23164F8F0043432E /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
@@ -956,6 +973,7 @@
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = VMGRRW6SG7;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1090,6 +1108,7 @@
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = VMGRRW6SG7;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1349,6 +1368,7 @@
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = VMGRRW6SG7;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1377,6 +1397,7 @@
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = VMGRRW6SG7;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_SEARCH_PATHS = (
