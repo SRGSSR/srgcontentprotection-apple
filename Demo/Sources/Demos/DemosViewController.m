@@ -35,14 +35,16 @@
     return NSLocalizedString(@"Protections", nil);
 }
 
+#pragma mark Content
+
 - (NSString *)titleForSection:(NSInteger)section
 {
     static dispatch_once_t s_onceToken;
     static NSArray<NSString *> *s_sections;
     dispatch_once(&s_onceToken, ^{
-        s_sections = @[ @"Vanilla player",
-                        @"Akamai content protection player",
-                        @"FairPlay content protection player" ];
+        s_sections = @[ NSLocalizedString(@"Vanilla player", nil),
+                        NSLocalizedString(@"Akamai content protection player", nil),
+                        NSLocalizedString(@"FairPlay content protection player", nil) ];
     });
     
     return s_sections[section];
