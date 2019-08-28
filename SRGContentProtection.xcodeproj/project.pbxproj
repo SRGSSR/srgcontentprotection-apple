@@ -33,7 +33,6 @@
 		6F8A93FE20FDCAA800AA6434 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F8A93F620FDCAA800AA6434 /* AppDelegate.m */; };
 		6F8A93FF20FDCAA800AA6434 /* DemosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F8A93F920FDCAA800AA6434 /* DemosViewController.m */; };
 		6F8A940220FDCBA600AA6434 /* DemosViewController~ios.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6F8A940120FDCBA600AA6434 /* DemosViewController~ios.storyboard */; };
-		6F8A940320FDD01B00AA6434 /* SRGContentProtection.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F0EB53120FC7F58009C02CF /* SRGContentProtection.framework */; };
 		6FB74D6C2101D4D200E2D365 /* SRGContentProtection.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F0EB53120FC7F58009C02CF /* SRGContentProtection.framework */; };
 		6FB74D772101D5D600E2D365 /* AkamaiResourceLoaderTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FB74D742101D5D600E2D365 /* AkamaiResourceLoaderTestCase.m */; };
 		6FB74D782101D5D600E2D365 /* FairPlayResourceLoaderTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FB74D752101D5D600E2D365 /* FairPlayResourceLoaderTestCase.m */; };
@@ -44,7 +43,6 @@
 		6FBF243A21480DB300E576A2 /* SRGContentProtectionConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 6FBF243821480DB300E576A2 /* SRGContentProtectionConstants.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6FBF243B21480DB300E576A2 /* SRGContentProtectionConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FBF243921480DB300E576A2 /* SRGContentProtectionConstants.m */; };
 		6FCAB6BF23165A020043432E /* DemosViewController~tvos.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6FCAB6BE23165A020043432E /* DemosViewController~tvos.storyboard */; };
-		6FCAB6C123165B0E0043432E /* Demo.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 6FCAB6C023165B0D0043432E /* Demo.xcconfig */; };
 		6FCAB6CE231673B00043432E /* SRGContentProtection.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F0EB53120FC7F58009C02CF /* SRGContentProtection.framework */; };
 		6FCAB6CF231673B00043432E /* SRGContentProtection.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6F0EB53120FC7F58009C02CF /* SRGContentProtection.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6FD810F420FCB58500F250B9 /* AVURLAsset+SRGContentProtection.h in Headers */ = {isa = PBXBuildFile; fileRef = 6FD810F220FCB58500F250B9 /* AVURLAsset+SRGContentProtection.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -181,7 +179,6 @@
 				6FCAB6CE231673B00043432E /* SRGContentProtection.framework in Frameworks */,
 				0858B69C22010C9E000F00CF /* libextobjc.framework in Frameworks */,
 				6FBF24342147F4C900E576A2 /* SRGDiagnostics.framework in Frameworks */,
-				6F8A940320FDD01B00AA6434 /* SRGContentProtection.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -474,7 +471,7 @@
 		6F0EB52820FC7F58009C02CF /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1010;
+				LastUpgradeCheck = 1030;
 				ORGANIZATIONNAME = "SRG SSR";
 				TargetAttributes = {
 					6F0C98E52121E1C200073AB6 = {
@@ -542,7 +539,6 @@
 				08E2AF6423108D8F00DCCE74 /* MediaDemoConfiguration.plist in Resources */,
 				6F8A93FC20FDCAA800AA6434 /* Images.xcassets in Resources */,
 				6FCAB6BF23165A020043432E /* DemosViewController~tvos.storyboard in Resources */,
-				6FCAB6C123165B0E0043432E /* Demo.xcconfig in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
