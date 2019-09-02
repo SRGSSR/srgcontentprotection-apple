@@ -29,6 +29,8 @@
 	</dict>
 	<key>UILaunchStoryboardName</key>
 	<string>$(LAUNCH_SCREEN)</string>
+	<key>UIUserInterfaceStyle</key>
+	<string>Automatic</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
