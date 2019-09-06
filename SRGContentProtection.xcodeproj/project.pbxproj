@@ -765,8 +765,6 @@
 					"@loader_path/Frameworks",
 				);
 				MACH_O_TYPE = staticlib;
-				PRODUCT_BUNDLE_IDENTIFIER = ch.srgssr.SRGContentProtection;
-				PRODUCT_NAME = SRGContentProtection;
 				SKIP_INSTALL = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -788,8 +786,6 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "ch.srgssr.SRGContentProtection-demo";
-				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = "Debug-static";
 		};
@@ -809,8 +805,6 @@
 					"@loader_path/Frameworks",
 					"$(FRAMEWORK_SEARCH_PATHS)",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "ch.srgssr.SRGContentProtection-tests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = "Debug-static";
 		};
@@ -899,8 +893,6 @@
 					"@loader_path/Frameworks",
 				);
 				MACH_O_TYPE = staticlib;
-				PRODUCT_BUNDLE_IDENTIFIER = ch.srgssr.SRGContentProtection;
-				PRODUCT_NAME = SRGContentProtection;
 				SKIP_INSTALL = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -922,8 +914,6 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "ch.srgssr.SRGContentProtection-demo";
-				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = "Release-static";
 		};
@@ -943,8 +933,6 @@
 					"@loader_path/Frameworks",
 					"$(FRAMEWORK_SEARCH_PATHS)",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "ch.srgssr.SRGContentProtection-tests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = "Release-static";
 		};
@@ -956,7 +944,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Framework/Resources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
-				PRODUCT_BUNDLE_IDENTIFIER = "ch.srgssr.SRGContentProtection-resources";
 				PRODUCT_NAME = SRGContentProtection;
 				SKIP_INSTALL = YES;
 				WRAPPER_EXTENSION = bundle;
@@ -971,7 +958,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Framework/Resources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
-				PRODUCT_BUNDLE_IDENTIFIER = "ch.srgssr.SRGContentProtection-resources";
 				PRODUCT_NAME = SRGContentProtection;
 				SKIP_INSTALL = YES;
 				WRAPPER_EXTENSION = bundle;
@@ -986,7 +972,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Framework/Resources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
-				PRODUCT_BUNDLE_IDENTIFIER = "ch.srgssr.SRGContentProtection-resources";
 				PRODUCT_NAME = SRGContentProtection;
 				SKIP_INSTALL = YES;
 				WRAPPER_EXTENSION = bundle;
@@ -1001,7 +986,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Framework/Resources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
-				PRODUCT_BUNDLE_IDENTIFIER = "ch.srgssr.SRGContentProtection-resources";
 				PRODUCT_NAME = SRGContentProtection;
 				SKIP_INSTALL = YES;
 				WRAPPER_EXTENSION = bundle;
@@ -1156,8 +1140,6 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = ch.srgssr.SRGContentProtection;
-				PRODUCT_NAME = SRGContentProtection;
 				SKIP_INSTALL = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -1185,8 +1167,6 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = ch.srgssr.SRGContentProtection;
-				PRODUCT_NAME = SRGContentProtection;
 				SKIP_INSTALL = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -1208,8 +1188,6 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "ch.srgssr.SRGContentProtection-demo";
-				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
 		};
@@ -1229,8 +1207,6 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "ch.srgssr.SRGContentProtection-demo";
-				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
 		};
@@ -1250,8 +1226,6 @@
 					"@loader_path/Frameworks",
 					"$(FRAMEWORK_SEARCH_PATHS)",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "ch.srgssr.SRGContentProtection-tests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
 		};
@@ -1271,8 +1245,6 @@
 					"@loader_path/Frameworks",
 					"$(FRAMEWORK_SEARCH_PATHS)",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "ch.srgssr.SRGContentProtection-tests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
 		};
