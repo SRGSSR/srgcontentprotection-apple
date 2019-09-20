@@ -764,6 +764,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				SDKROOT = iphoneos;
 			};
 			name = "Debug-static";
 		};
@@ -892,6 +893,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				SDKROOT = iphoneos;
 			};
 			name = "Release-static";
 		};
@@ -1166,6 +1168,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				SDKROOT = iphoneos;
 			};
 			name = Debug;
 		};
@@ -1185,6 +1188,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				SDKROOT = iphoneos;
 			};
 			name = Release;
 		};
