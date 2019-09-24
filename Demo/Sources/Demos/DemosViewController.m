@@ -7,7 +7,6 @@
 #import "DemosViewController.h"
 
 #import "Media.h"
-#import "Resources.h"
 
 #import <AVKit/AVKit.h>
 #import <SRGContentProtection/SRGContentProtection.h>
@@ -24,8 +23,7 @@
 
 - (instancetype)init
 {
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:ResourceNameForUIClass(self.class) bundle:nil];
-    return [storyboard instantiateInitialViewController];
+    return [super initWithStyle:UITableViewStyleGrouped];
 }
 
 #pragma mark Getters and setters
