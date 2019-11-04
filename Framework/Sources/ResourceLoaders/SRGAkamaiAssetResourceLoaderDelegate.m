@@ -99,16 +99,16 @@ static NSString * const SRGStandardURLSchemePrefix = @"akamai";
         [diagnosticInformation setString:error.localizedDescription forKey:@"errorMessage"];
         [diagnosticInformation stopTimeMeasurementForKey:@"duration"];
         
-        NSMutableURLRequest *playlistRequest = [loadingRequest.request mutableCopy];
+        NSMutableURLRequest *playlistRequest = loadingRequest.request.mutableCopy;
         playlistRequest.URL = URL;
         SRGRequest *request = [[SRGRequest dataRequestWithURLRequest:playlistRequest session:self.session completionBlock:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
             loadingRequest.response = response;
             if (error) {
-                NSMutableDictionary *userInfo = [@{ NSLocalizedDescriptionKey : SRGContentProtectionLocalizedString(@"This content is protected and cannot be played without proper rights.", @"User-facing message displayed proper authorization to play a stream has not been obtained") } mutableCopy];
+                NSMutableDictionary *userInfo = @{ NSLocalizedDescriptionKey : SRGContentProtectionLocalizedString(@"This content is protected and cannot be played without proper rights.", @"User-facing message displayed proper authorization to play a stream has not been obtained") }.mutableCopy;
                 if (error) {
                     userInfo[NSUnderlyingErrorKey] = error;
                 }
-                NSError *friendlyError = [NSError errorWithDomain:SRGContentProtectionErrorDomain code:SRGContentProtectionErrorUnauthorized userInfo:[userInfo copy]];
+                NSError *friendlyError = [NSError errorWithDomain:SRGContentProtectionErrorDomain code:SRGContentProtectionErrorUnauthorized userInfo:userInfo.copy];
                 [loadingRequest finishLoadingWithError:friendlyError];
             }
             else {
