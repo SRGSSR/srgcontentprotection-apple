@@ -27,7 +27,7 @@
             [medias addObject:media];
         }
     }
-    return [medias copy];
+    return medias.copy;
 }
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary
