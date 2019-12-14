@@ -1,6 +1,6 @@
-[![SRG Content Protection logo](README-images/logo.png)](https://github.com/SRGSSR/srgcontentprotection-ios)
+[![SRG Content Protection logo](README-images/logo.png)](https://github.com/SRGSSR/srgcontentprotection-apple)
 
-[![GitHub releases](https://img.shields.io/github/v/release/SRGSSR/srgcontentprotection-fake-ios)](https://github.com/SRGSSR/srgcontentprotection-ios/releases) [![platform](https://img.shields.io/badge/platfom-ios%20%7C%20tvos-blue)](https://github.com/SRGSSR/srgcontentprotection-ios) [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage) [![GitHub license](https://img.shields.io/badge/license-(c)%20SRG%20SSR-lightgrey)](https://github.com/SRGSSR/srgcontentprotection-ios/blob/master/LICENSE)
+[![GitHub releases](https://img.shields.io/github/v/release/SRGSSR/srgcontentprotection-fake-apple)](https://github.com/SRGSSR/srgcontentprotection-apple/releases) [![platform](https://img.shields.io/badge/platfom-ios%20%7C%20tvos-blue)](https://github.com/SRGSSR/srgcontentprotection-apple) [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage) [![GitHub license](https://img.shields.io/badge/license-(c)%20SRG%20SSR-lightgrey)](https://github.com/SRGSSR/srgcontentprotection-apple/blob/master/LICENSE)
 
 ## About
 
@@ -11,7 +11,7 @@ The SRG Content Protection framework contains the sensitive logic required for p
 
 ## Compatibility
 
-The library is suitable for applications running on iOS 9, tvOS 9 and above. The project is meant to be opened with the latest Xcode version.
+The library is suitable for applications running on iOS 9, tvOS 12 and above. The project is meant to be opened with the latest Xcode version.
 
 ## Contributing
 
@@ -22,7 +22,7 @@ If you want to contribute to the project, have a look at our [contributing guide
 The library can be added to a project using [Carthage](https://github.com/Carthage/Carthage) by adding the following dependency to your `Cartfile`:
     
 ```
-github "SRGSSR/srgcontentprotection-ios"
+github "SRGSSR/srgcontentprotection-apple"
 ```
 
 For more information about Carthage and its use, refer to the [official documentation](https://github.com/Carthage/Carthage).
