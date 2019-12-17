@@ -8,8 +8,8 @@ xcuserdata
 
 /Carthage
 
-/fastlane/report.xml
-/fastlane/TestSummaries.xml
+/fastlane/*.xcresult
+/fastlane/*.xml
 
 /vendor
 /.bundle

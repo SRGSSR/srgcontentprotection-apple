@@ -63,11 +63,11 @@ static NSString * const SRGTokenServiceURLString = @"https://tp.srgssr.ch/akahd/
         // Build the tokenized URL, merging token components with existing ones
         NSURLComponents *URLComponents = [NSURLComponents componentsWithURL:URL resolvingAgainstBaseURL:NO];
         
-        NSMutableArray *queryItems = [URLComponents.queryItems mutableCopy] ?: [NSMutableArray array];
+        NSMutableArray *queryItems = URLComponents.queryItems.mutableCopy ?: [NSMutableArray array];
         if (tokenURLComponents.queryItems) {
             [queryItems addObjectsFromArray:tokenURLComponents.queryItems];
         }
-        URLComponents.queryItems = [queryItems copy];
+        URLComponents.queryItems = queryItems.copy;
         
         return URLComponents.URL;
     } completionBlock:^(id _Nullable object, NSURLResponse * _Nullable response, NSError * _Nullable error) {

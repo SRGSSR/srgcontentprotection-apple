@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>medias</key>
+	<array>
+		<dict>
+			<key>name</key>
+			<string>Unprotected Akamai HLS stream</string>
+			<key>url</key>
+			<string>https://rtsvodww-vh.akamaihd.net/i/genhi/2018/genhi_20180126_full_f_1067247-,301k,101k,701k,1201k,2001k,fra-ad,.mp4.csmil/master.m3u8</string>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Akamai token-protected HLS stream</string>
+			<key>url</key>
+			<string>https://srgssruni11ch-lh.akamaihd.net/i/enc11uni_ch@191455/master.m3u8</string>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>FairPlay-protected HLS live stream</string>
+			<key>url</key>
+			<string>https://rtsun-euwe.akamaized.net/5f6cc644-70fa-4adf-9f94-b673f9fe486f/rts1.ism/manifest(format=m3u8-aapl,encryption=cbcs-aapl,filter=nodvr)</string>
+			<key>certificateUrl</key>
+			<string>https://srg.live.ott.irdeto.com/licenseServer/streaming/v1/SRG/getcertificate?applicationId=live</string>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>FairPlay-protected HLS VoD HD stream</string>
+			<key>url</key>
+			<string>https://premiumendpoint-srgssrvoddeveuwe-euwe.streaming.media.azure.net/e34e5c1e-ffa4-4d0f-b56b-b96e2c2a0e83/RSIVOD-9b60c46b-5e58.ism/manifest(format=m3u8-aapl,encryption=cbcs-aapl)</string>
+			<key>certificateUrl</key>
+			<string>https://rng.stage.ott.irdeto.com/licenseServer/streaming/v1/SRG/getcertificate?applicationId=stage</string>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>FairPlay-protected HLS VoD SD stream</string>
+			<key>url</key>
+			<string>https://premiumendpoint-srgssrvoddeveuwe-euwe.streaming.media.azure.net/dac31bb8-67c2-4d3a-bb55-1045d968fd92/RSIVOD-9b60c46b-5e58.ism/manifest(format=m3u8-aapl,encryption=cbcs-aapl)</string>
+			<key>certificateUrl</key>
+			<string>https://rng.stage.ott.irdeto.com/licenseServer/streaming/v1/SRG/getcertificate?applicationId=stage</string>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Non-Akamai HLS stream</string>
+			<key>url</key>
+			<string>https://lsaplus.swisstxt.ch/audio/la-1ere_96.stream/playlist.m3u8</string>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Non-Akamai MP3 stream</string>
+			<key>url</key>
+			<string>http://stream.srg-ssr.ch/m/la-1ere/mp3_128</string>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Akamai MP3 stream</string>
+			<key>url</key>
+			<string>https://srfaudio-a.akamaihd.net/delivery/world/75f44907-4638-422d-bc80-bbb14c9d9c93.mp3</string>
+		</dict>
+	</array>
+</dict>
+</plist>
