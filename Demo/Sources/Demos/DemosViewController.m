@@ -8,8 +8,8 @@
 
 #import "Media.h"
 
-#import <AVKit/AVKit.h>
-#import <SRGContentProtection/SRGContentProtection.h>
+@import AVKit;
+@import SRGContentProtection;
 
 @interface DemosViewController ()
 
