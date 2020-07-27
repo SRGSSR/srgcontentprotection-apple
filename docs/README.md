@@ -1,6 +1,6 @@
 [![SRG Content Protection logo](README-images/logo.png)](https://github.com/SRGSSR/srgcontentprotection-apple)
 
-[![GitHub releases](https://img.shields.io/github/v/release/SRGSSR/srgcontentprotection-fake-apple)](https://github.com/SRGSSR/srgcontentprotection-apple/releases) [![platform](https://img.shields.io/badge/platfom-ios%20%7C%20tvos-blue)](https://github.com/SRGSSR/srgcontentprotection-apple) [![GitHub license](https://img.shields.io/badge/license-(c)%20SRG%20SSR-lightgrey)](https://github.com/SRGSSR/srgcontentprotection-apple/blob/master/LICENSE)
+[![GitHub releases](https://img.shields.io/github/v/release/SRGSSR/srgcontentprotection-fake-apple)](https://github.com/SRGSSR/srgcontentprotection-apple/releases) [![platform](https://img.shields.io/badge/platfom-ios%20%7C%20tvos-blue)](https://github.com/SRGSSR/srgcontentprotection-apple) [![SPM compatible](https://img.shields.io/badge/SPM-compatible-4BC51D.svg?style=flat)](https://swift.org/package-manager) [![GitHub license](https://img.shields.io/badge/license-(c)%20SRG%20SSR-lightgrey)](https://github.com/SRGSSR/srgcontentprotection-apple/blob/master/LICENSE)
 
 ## About
 
