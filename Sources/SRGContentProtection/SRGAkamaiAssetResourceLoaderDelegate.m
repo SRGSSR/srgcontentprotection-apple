@@ -99,24 +99,15 @@ static NSString * const SRGStandardURLSchemePrefix = @"akamai";
         [diagnosticInformation setString:error.localizedDescription forKey:@"errorMessage"];
         [diagnosticInformation stopTimeMeasurementForKey:@"duration"];
         
-        NSMutableURLRequest *playlistRequest = loadingRequest.request.mutableCopy;
-        playlistRequest.URL = URL;
-        SRGRequest *request = [[SRGRequest dataRequestWithURLRequest:playlistRequest session:self.session completionBlock:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-            loadingRequest.response = response;
-            if (error) {
-                NSMutableDictionary *userInfo = @{ NSLocalizedDescriptionKey : SRGContentProtectionLocalizedString(@"This content is protected and cannot be played without proper rights.", @"User-facing message displayed proper authorization to play a stream has not been obtained") }.mutableCopy;
-                if (error) {
-                    userInfo[NSUnderlyingErrorKey] = error;
-                }
-                NSError *friendlyError = [NSError errorWithDomain:SRGContentProtectionErrorDomain code:SRGContentProtectionErrorUnauthorized userInfo:userInfo.copy];
-                [loadingRequest finishLoadingWithError:friendlyError];
-            }
-            else {
-                [loadingRequest.dataRequest respondWithData:data];
-                [loadingRequest finishLoading];
-            }
-        }] requestWithOptions:SRGRequestOptionBackgroundCompletionEnabled];
-        [self.requestQueue addRequest:request resume:YES];
+        NSMutableURLRequest *redirect = [loadingRequest.request mutableCopy];
+        redirect.URL = URL;
+        loadingRequest.redirect = [redirect copy];
+        
+        // Force redirect to the new tokenized URL
+        NSHTTPURLResponse *response = [[NSHTTPURLResponse alloc] initWithURL:URL statusCode:303 HTTPVersion:nil headerFields:nil];
+        [loadingRequest setResponse:response];
+        
+        [loadingRequest finishLoading];
     }] requestWithOptions:SRGRequestOptionBackgroundCompletionEnabled];
     [self.requestQueue addRequest:request resume:YES];
     return YES;
