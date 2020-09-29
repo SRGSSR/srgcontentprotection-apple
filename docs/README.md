@@ -4,7 +4,7 @@
 
 ## About
 
-The SRG Content Protection framework contains the sensitive logic required for protected media playback. The following protection measures are currently supported:
+The SRG Content Protection framework contains the logic required for encrypted media playback. The following protection measures are currently supported:
 
 * Akamai secure token.
 * Digital Rights Management via FairPlay.
