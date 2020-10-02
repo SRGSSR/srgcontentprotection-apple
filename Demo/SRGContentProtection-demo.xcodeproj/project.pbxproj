@@ -34,6 +34,7 @@
 		6F8A93F820FDCAA800AA6434 /* DemosViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemosViewController.h; sourceTree = "<group>"; };
 		6F8A93F920FDCAA800AA6434 /* DemosViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemosViewController.m; sourceTree = "<group>"; };
 		6F8A93FA20FDCAA800AA6434 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6FB32D2B2527688100BC599B /* SRGContentProtection-demo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "SRGContentProtection-demo.entitlements"; sourceTree = "<group>"; };
 		6FBF24302147F3ED00E576A2 /* SRGDiagnostics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SRGDiagnostics.framework; path = Carthage/Build/iOS/SRGDiagnostics.framework; sourceTree = "<group>"; };
 		6FCAB6C023165B0D0043432E /* Demo.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Demo.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -64,6 +65,7 @@
 			children = (
 				6FCAB6C023165B0D0043432E /* Demo.xcconfig */,
 				6F8A93FA20FDCAA800AA6434 /* Info.plist */,
+				6FB32D2B2527688100BC599B /* SRGContentProtection-demo.entitlements */,
 				6F8A93F220FDCAA800AA6434 /* Sources */,
 				6F8A93EF20FDCAA800AA6434 /* Resources */,
 				6F8A945521006A9E00AA6434 /* Frameworks */,
@@ -285,6 +287,7 @@
 			baseConfigurationReference = 6FCAB6C023165B0D0043432E /* Demo.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "$(APP_ICONS_SOURCE)";
+				CODE_SIGN_ENTITLEMENTS = "SRGContentProtection-demo.entitlements";
 				DEVELOPMENT_TEAM = VMGRRW6SG7;
 				INFOPLIST_FILE = Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -292,6 +295,7 @@
 					"@executable_path/Frameworks",
 				);
 				SDKROOT = iphoneos;
+				SUPPORTS_MACCATALYST = YES;
 			};
 			name = "Debug-static";
 		};
@@ -357,6 +361,7 @@
 			baseConfigurationReference = 6FCAB6C023165B0D0043432E /* Demo.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "$(APP_ICONS_SOURCE)";
+				CODE_SIGN_ENTITLEMENTS = "SRGContentProtection-demo.entitlements";
 				DEVELOPMENT_TEAM = VMGRRW6SG7;
 				INFOPLIST_FILE = Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -364,6 +369,7 @@
 					"@executable_path/Frameworks",
 				);
 				SDKROOT = iphoneos;
+				SUPPORTS_MACCATALYST = YES;
 			};
 			name = "Release-static";
 		};
@@ -492,6 +498,7 @@
 			baseConfigurationReference = 6FCAB6C023165B0D0043432E /* Demo.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "$(APP_ICONS_SOURCE)";
+				CODE_SIGN_ENTITLEMENTS = "SRGContentProtection-demo.entitlements";
 				DEVELOPMENT_TEAM = VMGRRW6SG7;
 				INFOPLIST_FILE = Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -499,6 +506,7 @@
 					"@executable_path/Frameworks",
 				);
 				SDKROOT = iphoneos;
+				SUPPORTS_MACCATALYST = YES;
 			};
 			name = Debug;
 		};
@@ -507,6 +515,7 @@
 			baseConfigurationReference = 6FCAB6C023165B0D0043432E /* Demo.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "$(APP_ICONS_SOURCE)";
+				CODE_SIGN_ENTITLEMENTS = "SRGContentProtection-demo.entitlements";
 				DEVELOPMENT_TEAM = VMGRRW6SG7;
 				INFOPLIST_FILE = Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -514,6 +523,7 @@
 					"@executable_path/Frameworks",
 				);
 				SDKROOT = iphoneos;
+				SUPPORTS_MACCATALYST = YES;
 			};
 			name = Release;
 		};
