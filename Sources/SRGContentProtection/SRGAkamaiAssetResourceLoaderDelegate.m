@@ -112,7 +112,9 @@ static NSString * const SRGStandardURLSchemePrefix = @"akamai";
                 [loadingRequest finishLoadingWithError:friendlyError];
             }
             else {
-                [loadingRequest.dataRequest respondWithData:data];
+                NSString *string = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
+                string  = [string stringByReplacingOccurrencesOfString:@"05d53c61817923406ac07f201cad2eb6" withString:@"https://srgssr-akaprep.akamaized.net/hls/live/2022085/srf1-test/05d53c61817923406ac07f201cad2eb6"];
+                [loadingRequest.dataRequest respondWithData:[string dataUsingEncoding:NSUTF8StringEncoding]];
                 [loadingRequest finishLoading];
             }
         }] requestWithOptions:SRGRequestOptionBackgroundCompletionEnabled];

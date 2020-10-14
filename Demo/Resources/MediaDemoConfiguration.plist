@@ -18,6 +18,12 @@
 		</dict>
 		<dict>
 			<key>name</key>
+			<string>Akamai LSVE token-protected HLS stream</string>
+			<key>url</key>
+			<string>https://srgssr-akaprep.akamaized.net/hls/live/2022085/srf1-test/master.m3u8</string>
+		</dict>
+		<dict>
+			<key>name</key>
 			<string>FairPlay-protected HLS live stream</string>
 			<key>url</key>
 			<string>https://rtsun-euwe.akamaized.net/5f6cc644-70fa-4adf-9f94-b673f9fe486f/rts1.ism/manifest(format=m3u8-aapl,encryption=cbcs-aapl,filter=nodvr)</string>
