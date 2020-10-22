@@ -12,8 +12,3 @@ NSString *SRGContentProtectionMarketingVersion(void)
 {
     return @MARKETING_VERSION;
 }
-
-BOOL SRGContentProtectionIsPublic(void)
-{
-    return NO;
-}
