@@ -8,8 +8,8 @@
 
 #import "Media.h"
 
-#import <AVKit/AVKit.h>
-#import <SRGContentProtection/SRGContentProtection.h>
+@import AVKit;
+@import SRGContentProtection;
 
 @interface DemosViewController ()
 
@@ -147,6 +147,7 @@
     
     AVPlayerViewController *playerViewController = [[AVPlayerViewController alloc] init];
     playerViewController.player = player;
+    playerViewController.allowsPictureInPicturePlayback = NO;
     
     [self presentViewController:playerViewController animated:YES completion:^{
         [player play];

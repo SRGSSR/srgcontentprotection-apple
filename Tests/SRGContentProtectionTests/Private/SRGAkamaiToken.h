@@ -1,0 +1,1 @@
+../../../Sources/SRGContentProtection/SRGAkamaiToken.h
