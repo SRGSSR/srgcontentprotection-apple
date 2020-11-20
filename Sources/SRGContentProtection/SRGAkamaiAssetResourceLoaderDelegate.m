@@ -99,7 +99,7 @@ static NSString * const SRGStandardURLSchemePrefix = @"akamai";
         [diagnosticInformation setString:error.localizedDescription forKey:@"errorMessage"];
         [diagnosticInformation stopTimeMeasurementForKey:@"duration"];
         
-        // Redirecting to the tokenized URL preserves cookies on iOS 11+ and therefore works well
+        // Redirecting to the tokenized URL preserves cookies on iOS 11+ and restores original scheme url.
         if (@available(iOS 11, *)) {
             NSMutableURLRequest *redirect = loadingRequest.request.mutableCopy;
             redirect.URL = URL;
@@ -108,7 +108,9 @@ static NSString * const SRGStandardURLSchemePrefix = @"akamai";
             loadingRequest.response = [[NSHTTPURLResponse alloc] initWithURL:URL statusCode:303 HTTPVersion:nil headerFields:nil];
             [loadingRequest finishLoading];
         }
-        // Retrieve the master playlist on iOS 9 and 10 to preserve cookies
+        // Retrieve the master playlist on iOS 9 and 10 to preserve cookies.
+        // Known issue if next resource url is relative: it reuses the previous scheme url, host and path, which includes the custom scheme url again.
+        // See https://github.com/SRGSSR/srgcontentprotection-apple/issues/6
         else {
             NSMutableURLRequest *playlistRequest = loadingRequest.request.mutableCopy;
             playlistRequest.URL = URL;
