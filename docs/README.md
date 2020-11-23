@@ -45,6 +45,8 @@ If the protection used does not match the one required by the content, playback 
 
 FairPlay stream playback requires a physical iOS device. Streams will not play in the simulator.
 
+While the HLS specification allows relative URLs in playlist, this implementation supports only Akamai master playlists containing full URLs only (for variants and video / audio / subtitles tracks) on iOS 9 and iOS 10.
+
 ## License
 
 See the [LICENSE](../LICENSE) file for more information.
