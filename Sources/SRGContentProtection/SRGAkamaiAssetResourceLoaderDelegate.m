@@ -99,24 +99,38 @@ static NSString * const SRGStandardURLSchemePrefix = @"akamai";
         [diagnosticInformation setString:error.localizedDescription forKey:@"errorMessage"];
         [diagnosticInformation stopTimeMeasurementForKey:@"duration"];
         
-        NSMutableURLRequest *playlistRequest = loadingRequest.request.mutableCopy;
-        playlistRequest.URL = URL;
-        SRGRequest *request = [[SRGRequest dataRequestWithURLRequest:playlistRequest session:self.session completionBlock:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-            loadingRequest.response = response;
-            if (error) {
-                NSMutableDictionary *userInfo = @{ NSLocalizedDescriptionKey : SRGContentProtectionLocalizedString(@"This content is protected and cannot be played without proper rights.", @"User-facing message displayed proper authorization to play a stream has not been obtained") }.mutableCopy;
+        // Redirecting to the tokenized URL preserves cookies on iOS 11+ and restores original scheme url.
+        if (@available(iOS 11, *)) {
+            NSMutableURLRequest *redirect = loadingRequest.request.mutableCopy;
+            redirect.URL = URL;
+            loadingRequest.redirect = redirect.copy;
+            
+            loadingRequest.response = [[NSHTTPURLResponse alloc] initWithURL:URL statusCode:303 HTTPVersion:nil headerFields:nil];
+            [loadingRequest finishLoading];
+        }
+        // Retrieve the master playlist on iOS 9 and 10 to preserve cookies.
+        // Known issue if next resource url is relative: it reuses the previous scheme url, host and path, which includes the custom scheme url again.
+        // See https://github.com/SRGSSR/srgcontentprotection-apple/issues/6
+        else {
+            NSMutableURLRequest *playlistRequest = loadingRequest.request.mutableCopy;
+            playlistRequest.URL = URL;
+            SRGRequest *request = [[SRGRequest dataRequestWithURLRequest:playlistRequest session:self.session completionBlock:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+                loadingRequest.response = response;
                 if (error) {
-                    userInfo[NSUnderlyingErrorKey] = error;
+                    NSMutableDictionary *userInfo = @{ NSLocalizedDescriptionKey : SRGContentProtectionLocalizedString(@"This content is protected and cannot be played without proper rights.", @"User-facing message displayed proper authorization to play a stream has not been obtained") }.mutableCopy;
+                    if (error) {
+                        userInfo[NSUnderlyingErrorKey] = error;
+                    }
+                    NSError *friendlyError = [NSError errorWithDomain:SRGContentProtectionErrorDomain code:SRGContentProtectionErrorUnauthorized userInfo:userInfo.copy];
+                    [loadingRequest finishLoadingWithError:friendlyError];
                 }
-                NSError *friendlyError = [NSError errorWithDomain:SRGContentProtectionErrorDomain code:SRGContentProtectionErrorUnauthorized userInfo:userInfo.copy];
-                [loadingRequest finishLoadingWithError:friendlyError];
-            }
-            else {
-                [loadingRequest.dataRequest respondWithData:data];
-                [loadingRequest finishLoading];
-            }
-        }] requestWithOptions:SRGRequestOptionBackgroundCompletionEnabled];
-        [self.requestQueue addRequest:request resume:YES];
+                else {
+                    [loadingRequest.dataRequest respondWithData:data];
+                    [loadingRequest finishLoading];
+                }
+            }] requestWithOptions:SRGRequestOptionBackgroundCompletionEnabled];
+            [self.requestQueue addRequest:request resume:YES];
+        }
     }] requestWithOptions:SRGRequestOptionBackgroundCompletionEnabled];
     [self.requestQueue addRequest:request resume:YES];
     return YES;
