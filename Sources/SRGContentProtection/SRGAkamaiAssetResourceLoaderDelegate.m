@@ -99,7 +99,7 @@ static NSString * const SRGStandardURLSchemePrefix = @"akamai";
         [diagnosticInformation setString:error.localizedDescription forKey:@"errorMessage"];
         [diagnosticInformation stopTimeMeasurementForKey:@"duration"];
         
-        // Retrieve the master playlist to find how we shopuld respond to the loading request for maximum compatibility.
+        // Retrieve the master playlist to find how we should respond to the loading request for maximum compatibility.
         NSMutableURLRequest *playlistRequest = loadingRequest.request.mutableCopy;
         playlistRequest.URL = URL;
         SRGRequest *request = [[SRGRequest dataRequestWithURLRequest:playlistRequest session:self.session completionBlock:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
@@ -118,10 +118,10 @@ static NSString * const SRGStandardURLSchemePrefix = @"akamai";
                 // If #EXT-X-STREAM-INF are absolute URLs, the master playlist we retrieved can be provided as response
                 // data to the loading request. This works on all iOS and tvOS versions we support, and also when casting
                 // to any Apple TV receiver via AirPlay (including old receivers like Apple TV 3rd gen which uses an even
-                // older version of tvOS).
+                // older version of tvOS). See https://github.com/SRGSSR/srgcontentprotection-apple/issues/7 .
                 //
                 // Remark: Absolute URLs are required for iOS / tvOS 9 and 10 compatibilty, otherwise the stream will
-                //         not play. See https://github.com/SRGSSR/srgcontentprotection-apple/issues/6. Playlists with
+                //         not play. See https://github.com/SRGSSR/srgcontentprotection-apple/issues/6 . Playlists with
                 //         relative URLs will not play correctly.
                 if ([masterPlaylistString containsString:@"\nhttp"]) {
                     [loadingRequest.dataRequest respondWithData:data];
