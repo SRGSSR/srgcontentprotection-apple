@@ -99,38 +99,52 @@ static NSString * const SRGStandardURLSchemePrefix = @"akamai";
         [diagnosticInformation setString:error.localizedDescription forKey:@"errorMessage"];
         [diagnosticInformation stopTimeMeasurementForKey:@"duration"];
         
-        // Redirecting to the tokenized URL preserves cookies on iOS 11+ and restores original scheme url.
-        if (@available(iOS 11, *)) {
-            NSMutableURLRequest *redirect = loadingRequest.request.mutableCopy;
-            redirect.URL = URL;
-            loadingRequest.redirect = redirect.copy;
-            
-            loadingRequest.response = [[NSHTTPURLResponse alloc] initWithURL:URL statusCode:303 HTTPVersion:nil headerFields:nil];
-            [loadingRequest finishLoading];
-        }
-        // Retrieve the master playlist on iOS 9 and 10 to preserve cookies.
-        // Known issue if next resource url is relative: it reuses the previous scheme url, host and path, which includes the custom scheme url again.
-        // See https://github.com/SRGSSR/srgcontentprotection-apple/issues/6
-        else {
-            NSMutableURLRequest *playlistRequest = loadingRequest.request.mutableCopy;
-            playlistRequest.URL = URL;
-            SRGRequest *request = [[SRGRequest dataRequestWithURLRequest:playlistRequest session:self.session completionBlock:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-                loadingRequest.response = response;
+        // Retrieve the master playlist to find how we should respond to the loading request for maximum compatibility.
+        NSMutableURLRequest *playlistRequest = loadingRequest.request.mutableCopy;
+        playlistRequest.URL = URL;
+        SRGRequest *request = [[SRGRequest dataRequestWithURLRequest:playlistRequest session:self.session completionBlock:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+            loadingRequest.response = response;
+            if (error) {
+                NSMutableDictionary *userInfo = @{ NSLocalizedDescriptionKey : SRGContentProtectionLocalizedString(@"This content is protected and cannot be played without proper rights.", @"User-facing message displayed proper authorization to play a stream has not been obtained") }.mutableCopy;
                 if (error) {
-                    NSMutableDictionary *userInfo = @{ NSLocalizedDescriptionKey : SRGContentProtectionLocalizedString(@"This content is protected and cannot be played without proper rights.", @"User-facing message displayed proper authorization to play a stream has not been obtained") }.mutableCopy;
-                    if (error) {
-                        userInfo[NSUnderlyingErrorKey] = error;
-                    }
-                    NSError *friendlyError = [NSError errorWithDomain:SRGContentProtectionErrorDomain code:SRGContentProtectionErrorUnauthorized userInfo:userInfo.copy];
-                    [loadingRequest finishLoadingWithError:friendlyError];
+                    userInfo[NSUnderlyingErrorKey] = error;
                 }
-                else {
+                NSError *friendlyError = [NSError errorWithDomain:SRGContentProtectionErrorDomain code:SRGContentProtectionErrorUnauthorized userInfo:userInfo.copy];
+                [loadingRequest finishLoadingWithError:friendlyError];
+            }
+            else {
+                NSString *masterPlaylistString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+
+                // If #EXT-X-STREAM-INF are absolute URLs, the master playlist we retrieved can be provided as response
+                // data to the loading request. This works on all iOS and tvOS versions we support, and also when casting
+                // to any Apple TV receiver via AirPlay (including old receivers like Apple TV 3rd gen which uses an even
+                // older version of tvOS). See https://github.com/SRGSSR/srgcontentprotection-apple/issues/7 .
+                //
+                // Remark: Absolute URLs are required for iOS / tvOS 9 and 10 compatibilty, otherwise the stream will
+                //         not play. See https://github.com/SRGSSR/srgcontentprotection-apple/issues/6 . Playlists with
+                //         relative URLs will not play correctly.
+                if ([masterPlaylistString containsString:@"\nhttp"]) {
                     [loadingRequest.dataRequest respondWithData:data];
                     [loadingRequest finishLoading];
                 }
-            }] requestWithOptions:SRGRequestOptionBackgroundCompletionEnabled];
-            [self.requestQueue addRequest:request resume:YES];
-        }
+                // If partial URLs are detected, simply redirect to the tokenized URL. This restores original scheme URL and
+                // preserves cookies on iOS 11+ and tvOS 11+. This does not work on older iOS and tvOS versions, but there
+                // is nothing else we can do for them.
+                //
+                // Remark: The redirect approach also works fine on iOS 11+ and tvOS 11+ if the master playlist contains
+                //         absolute URLs. But still we have to provide the response directly, as an iOS 11+ device can
+                //         cast to an old Apple TV 3rd gen receiver which would not support the redirect.
+                else {
+                    NSMutableURLRequest *redirect = loadingRequest.request.mutableCopy;
+                    redirect.URL = URL;
+                    loadingRequest.redirect = redirect.copy;
+                    
+                    loadingRequest.response = [[NSHTTPURLResponse alloc] initWithURL:URL statusCode:303 HTTPVersion:nil headerFields:nil];
+                    [loadingRequest finishLoading];
+                }
+            }
+        }] requestWithOptions:SRGRequestOptionBackgroundCompletionEnabled];
+        [self.requestQueue addRequest:request resume:YES];
     }] requestWithOptions:SRGRequestOptionBackgroundCompletionEnabled];
     [self.requestQueue addRequest:request resume:YES];
     return YES;
