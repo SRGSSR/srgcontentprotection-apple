@@ -14,12 +14,20 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
-    [self.window makeKeyAndVisible];
-    
-    DemosViewController *demosViewController = [[DemosViewController alloc] init];
-    self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:demosViewController];
+    if (@available(iOS 13, tvOS 13, *)) {}
+    else {
+        self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
+        [self.window makeKeyAndVisible];
+        
+        DemosViewController *demosViewController = [[DemosViewController alloc] init];
+        self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:demosViewController];
+    }
     return YES;
+}
+
+- (UISceneConfiguration *)application:(UIApplication *)application configurationForConnectingSceneSession:(UISceneSession *)connectingSceneSession options:(UISceneConnectionOptions *)options API_AVAILABLE(ios(13.0))
+{
+    return [[UISceneConfiguration alloc] initWithName:@"Default" sessionRole:connectingSceneSession.role];
 }
 
 @end
