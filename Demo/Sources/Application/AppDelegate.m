@@ -8,12 +8,16 @@
 
 #import "DemosViewController.h"
 
+@import AVFoundation;
+
 @implementation AppDelegate
 
 #pragma mark UIApplicationDelegate protocol
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [AVAudioSession.sharedInstance setCategory:AVAudioSessionCategoryPlayback error:NULL];
+    
     if (@available(iOS 13, tvOS 13, *)) {}
     else {
         self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
