@@ -20,7 +20,7 @@
 			<key>name</key>
 			<string>FairPlay-protected HLS live stream</string>
 			<key>url</key>
-			<string>https://rtsun-euwe.akamaized.net/a25e5040-3e4c-47a7-abda-132d1c40b597/rts1.ism/manifest(format=m3u8-aapl,encryption=cbcs-aapl)</string>
+			<string>https://rtsun-euwe.akamaized.net/31b0cff3-6652-4359-948c-9aa9063a7e9c/rts1.ism/manifest(format=m3u8-aapl,encryption=cbcs-aapl)</string>
 			<key>certificateUrl</key>
 			<string>https://srg.live.ott.irdeto.com/licenseServer/streaming/v1/SRG/getcertificate?applicationId=live</string>
 		</dict>
