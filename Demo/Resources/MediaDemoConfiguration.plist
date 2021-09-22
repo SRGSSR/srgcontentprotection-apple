@@ -8,7 +8,7 @@
 			<key>name</key>
 			<string>Unprotected Akamai HLS stream</string>
 			<key>url</key>
-			<string>https://rtsvodww-vh.akamaihd.net/i/genhi/2018/genhi_20180126_full_f_1067247-,301k,101k,701k,1201k,2001k,fra-ad,.mp4.csmil/master.m3u8</string>
+			<string>https://rts-vod-amd.akamaized.net/ww/hls/10080791/545cbc27-0798-3d5e-ae1b-1aba03c9a5b5/master.m3u8</string>
 		</dict>
 		<dict>
 			<key>name</key>
@@ -20,7 +20,7 @@
 			<key>name</key>
 			<string>FairPlay-protected HLS live stream</string>
 			<key>url</key>
-			<string>https://rtsun-euwe.akamaized.net/5f6cc644-70fa-4adf-9f94-b673f9fe486f/rts1.ism/manifest(format=m3u8-aapl,encryption=cbcs-aapl,filter=nodvr)</string>
+			<string>https://rtsun-euwe.akamaized.net/31b0cff3-6652-4359-948c-9aa9063a7e9c/rts1.ism/manifest(format=m3u8-aapl,encryption=cbcs-aapl)</string>
 			<key>certificateUrl</key>
 			<string>https://srg.live.ott.irdeto.com/licenseServer/streaming/v1/SRG/getcertificate?applicationId=live</string>
 		</dict>

@@ -24,8 +24,8 @@
         "repositoryURL": "https://github.com/SRGSSR/srgdiagnostics-apple.git",
         "state": {
           "branch": null,
-          "revision": "5d2ef5c833a5cf6e56762a9c506e73f58ccad5e8",
-          "version": "3.0.0"
+          "revision": "9921cec150a83df60fe4cde41ffb9e3209b21e92",
+          "version": "3.0.2"
         }
       },
       {
@@ -33,8 +33,8 @@
         "repositoryURL": "https://github.com/SRGSSR/srglogger-apple.git",
         "state": {
           "branch": null,
-          "revision": "cfc39d1223ed039aeb7df38c6c7570977b22d1aa",
-          "version": "3.0.0"
+          "revision": "5840af9ccbbc23a1269ff53feb3832f56ffde1eb",
+          "version": "3.0.2"
         }
       },
       {
@@ -42,8 +42,8 @@
         "repositoryURL": "https://github.com/SRGSSR/srgnetwork-apple.git",
         "state": {
           "branch": null,
-          "revision": "734fe399088b2f846e9e69d48a43118f6a8dc0d2",
-          "version": "3.0.0"
+          "revision": "9d79d6649de885876577c28e7b19f24f7ce16399",
+          "version": "3.0.3"
         }
       }
     ]

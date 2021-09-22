@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		08E2AF6423108D8F00DCCE74 /* MediaDemoConfiguration.plist in Resources */ = {isa = PBXBuildFile; fileRef = 08E2AF6323108D8F00DCCE74 /* MediaDemoConfiguration.plist */; };
 		08E2AF6923108EBA00DCCE74 /* Media.m in Sources */ = {isa = PBXBuildFile; fileRef = 08E2AF6823108EBA00DCCE74 /* Media.m */; };
+		6F28354226E0A30C0079246B /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F28354126E0A30C0079246B /* SceneDelegate.m */; };
 		6F8A93FB20FDCAA800AA6434 /* LaunchScreen~ios.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6F8A93F020FDCAA800AA6434 /* LaunchScreen~ios.storyboard */; };
 		6F8A93FC20FDCAA800AA6434 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6F8A93F120FDCAA800AA6434 /* Images.xcassets */; };
 		6F8A93FD20FDCAA800AA6434 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F8A93F520FDCAA800AA6434 /* main.m */; };
@@ -25,6 +26,8 @@
 		08E2AF6723108EBA00DCCE74 /* Media.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Media.h; sourceTree = "<group>"; };
 		08E2AF6823108EBA00DCCE74 /* Media.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Media.m; sourceTree = "<group>"; };
 		6F0432BC21006E7A002B090A /* SRGNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SRGNetwork.framework; path = Carthage/Build/iOS/SRGNetwork.framework; sourceTree = "<group>"; };
+		6F28354026E0A30C0079246B /* SceneDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
+		6F28354126E0A30C0079246B /* SceneDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
 		6F8A93D820FDCA0800AA6434 /* SRGContentProtection-demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SRGContentProtection-demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F8A93F020FDCAA800AA6434 /* LaunchScreen~ios.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "LaunchScreen~ios.storyboard"; sourceTree = "<group>"; };
 		6F8A93F120FDCAA800AA6434 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -107,6 +110,8 @@
 				6F8A93F420FDCAA800AA6434 /* AppDelegate.h */,
 				6F8A93F620FDCAA800AA6434 /* AppDelegate.m */,
 				6F8A93F520FDCAA800AA6434 /* main.m */,
+				6F28354026E0A30C0079246B /* SceneDelegate.h */,
+				6F28354126E0A30C0079246B /* SceneDelegate.m */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -161,7 +166,7 @@
 		6F0EB52820FC7F58009C02CF /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1200;
+				LastUpgradeCheck = 1300;
 				ORGANIZATIONNAME = "SRG SSR";
 				TargetAttributes = {
 					6F8A93D720FDCA0800AA6434 = {
@@ -211,6 +216,7 @@
 			files = (
 				6F8A93FE20FDCAA800AA6434 /* AppDelegate.m in Sources */,
 				6F8A93FD20FDCAA800AA6434 /* main.m in Sources */,
+				6F28354226E0A30C0079246B /* SceneDelegate.m in Sources */,
 				08E2AF6923108EBA00DCCE74 /* Media.m in Sources */,
 				6F8A93FF20FDCAA800AA6434 /* DemosViewController.m in Sources */,
 			);
