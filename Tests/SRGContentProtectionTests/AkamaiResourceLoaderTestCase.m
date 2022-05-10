@@ -20,7 +20,7 @@
 
 - (void)testProtectedResourcePlayback
 {
-    NSURL *URL = [NSURL URLWithString:@"https://srgssruni9ch-lh.akamaihd.net/i/enc9uni_ch@191320/master.m3u8"];
+    NSURL *URL = [NSURL URLWithString:@"https://srgssruni11ch-lh.akamaihd.net/i/enc11uni_ch@191455/master.m3u8"];
     AVURLAsset *asset = [AVURLAsset srg_akamaiTokenProtectedAssetWithURL:URL options:nil];
     AVPlayerItem *playerItem = [AVPlayerItem playerItemWithAsset:asset];
     
@@ -33,7 +33,7 @@
 
 - (void)testProtectedResourcePlaybackWithParameter
 {
-    NSURL *URL = [NSURL URLWithString:@"https://srgssruni9ch-lh.akamaihd.net/i/enc9uni_ch@191320/master.m3u8?__b__=800"];
+    NSURL *URL = [NSURL URLWithString:@"https://srgssruni11ch-lh.akamaihd.net/i/enc11uni_ch@191455/master.m3u8?__b__=800"];
     AVURLAsset *asset = [AVURLAsset srg_akamaiTokenProtectedAssetWithURL:URL options:nil];
     AVPlayerItem *playerItem = [AVPlayerItem playerItemWithAsset:asset];
     
@@ -46,7 +46,7 @@
 
 - (void)testNonProtectedResourcePlayback
 {
-    NSURL *URL = [NSURL URLWithString:@"http://tagesschau-lh.akamaihd.net/i/tagesschau_1@119231/master.m3u8"];
+    NSURL *URL = [NSURL URLWithString:@"https://rtsc3video-lh.akamaihd.net/i/rtsc3video_ww@513975/master.m3u8"];
     AVURLAsset *asset = [AVURLAsset srg_akamaiTokenProtectedAssetWithURL:URL options:nil];
     AVPlayerItem *playerItem = [AVPlayerItem playerItemWithAsset:asset];
     
@@ -59,7 +59,7 @@
 
 - (void)testNonProtectedResourcePlaybackWithParameter
 {
-    NSURL *URL = [NSURL URLWithString:@"http://tagesschau-lh.akamaihd.net/i/tagesschau_1@119231/master.m3u8?__b__=800"];
+    NSURL *URL = [NSURL URLWithString:@"https://rtsc3video-lh.akamaihd.net/i/rtsc3video_ww@513975/master.m3u8?__b__=800"];
     AVURLAsset *asset = [AVURLAsset srg_akamaiTokenProtectedAssetWithURL:URL options:nil];
     AVPlayerItem *playerItem = [AVPlayerItem playerItemWithAsset:asset];
     
