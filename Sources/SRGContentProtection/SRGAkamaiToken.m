@@ -9,7 +9,7 @@
 #import "NSBundle+SRGContentProtection.h"
 #import "SRGContentProtectionError.h"
 
-static NSString * const SRGTokenServiceURLString = @"https://tp.srgssr.ch/akahd/token";
+static NSString * const SRGTokenServiceURLString = @"https://stage.tp.srgssr.ch/akahd/token";
 
 @interface SRGAkamaiToken ()
 
