@@ -20,7 +20,7 @@
 
 - (void)testProtectedResourcePlayback
 {
-    NSURL *URL = [NSURL URLWithString:@"https://srgssruni11ch-lh.akamaihd.net/i/enc11uni_ch@191455/master.m3u8"];
+    NSURL *URL = [NSURL URLWithString:@"https://srgssrch.akamaized.net/hls/live/2022077/srgssr-hls-stream20-ch-dvr/master.m3u8"];
     AVURLAsset *asset = [AVURLAsset srg_akamaiTokenProtectedAssetWithURL:URL options:nil];
     AVPlayerItem *playerItem = [AVPlayerItem playerItemWithAsset:asset];
     
@@ -33,7 +33,7 @@
 
 - (void)testProtectedResourcePlaybackWithParameter
 {
-    NSURL *URL = [NSURL URLWithString:@"https://srgssruni11ch-lh.akamaihd.net/i/enc11uni_ch@191455/master.m3u8?__b__=800"];
+    NSURL *URL = [NSURL URLWithString:@"https://srgssrch.akamaized.net/hls/live/2022077/srgssr-hls-stream20-ch-dvr/master.m3u8?__b__=800"];
     AVURLAsset *asset = [AVURLAsset srg_akamaiTokenProtectedAssetWithURL:URL options:nil];
     AVPlayerItem *playerItem = [AVPlayerItem playerItemWithAsset:asset];
     
@@ -46,7 +46,7 @@
 
 - (void)testNonProtectedResourcePlayback
 {
-    NSURL *URL = [NSURL URLWithString:@"https://rtsc3video-lh.akamaihd.net/i/rtsc3video_ww@513975/master.m3u8"];
+    NSURL *URL = [NSURL URLWithString:@"https://rtsc3video.akamaized.net/hls/live/2042837/c3video/3/playlist.m3u8"];
     AVURLAsset *asset = [AVURLAsset srg_akamaiTokenProtectedAssetWithURL:URL options:nil];
     AVPlayerItem *playerItem = [AVPlayerItem playerItemWithAsset:asset];
     
@@ -59,7 +59,7 @@
 
 - (void)testNonProtectedResourcePlaybackWithParameter
 {
-    NSURL *URL = [NSURL URLWithString:@"https://rtsc3video-lh.akamaihd.net/i/rtsc3video_ww@513975/master.m3u8?__b__=800"];
+    NSURL *URL = [NSURL URLWithString:@"https://rtsc3video.akamaized.net/hls/live/2042837/c3video/3/playlist.m3u8?__b__=800"];
     AVURLAsset *asset = [AVURLAsset srg_akamaiTokenProtectedAssetWithURL:URL options:nil];
     AVPlayerItem *playerItem = [AVPlayerItem playerItemWithAsset:asset];
     

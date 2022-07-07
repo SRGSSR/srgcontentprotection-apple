@@ -35,7 +35,7 @@ static NSURL *FairPlayCertificateURL(void)
 
 - (void)testNonProtectedResourcePlayback
 {
-    NSURL *URL = [NSURL URLWithString:@"https://rtsc3video-lh.akamaihd.net/i/rtsc3video_ww@513975/master.m3u8"];
+    NSURL *URL = [NSURL URLWithString:@"https://rtsc3video.akamaized.net/hls/live/2042837/c3video/3/playlist.m3u8"];
     AVURLAsset *asset = [AVURLAsset srg_fairPlayProtectedAssetWithURL:URL certificateURL:FairPlayCertificateURL() options:nil];
     AVPlayerItem *playerItem = [AVPlayerItem playerItemWithAsset:asset];
     
@@ -48,7 +48,7 @@ static NSURL *FairPlayCertificateURL(void)
 
 - (void)testNonProtectedResourcePlaybackWithParameter
 {
-    NSURL *URL = [NSURL URLWithString:@"https://rtsc3video-lh.akamaihd.net/i/rtsc3video_ww@513975/master.m3u8?__b__=800"];
+    NSURL *URL = [NSURL URLWithString:@"https://rtsc3video.akamaized.net/hls/live/2042837/c3video/3/playlist.m3u8?__b__=800"];
     AVURLAsset *asset = [AVURLAsset srg_fairPlayProtectedAssetWithURL:URL certificateURL:FairPlayCertificateURL() options:nil];
     AVPlayerItem *playerItem = [AVPlayerItem playerItemWithAsset:asset];
     
@@ -74,7 +74,7 @@ static NSURL *FairPlayCertificateURL(void)
 
 - (void)testAkamaiMP3ResourcePlayback
 {
-    NSURL *URL = [NSURL URLWithString:@"https://srfaudio-a.akamaihd.net/delivery/world/75f44907-4638-422d-bc80-bbb14c9d9c93.mp3"];
+    NSURL *URL = [NSURL URLWithString:@"https://rts-aod-dd.akamaized.net/ww/13141009/51a55d34-ce77-33ab-8a01-b01c4ffbc56f.mp3"];
     AVURLAsset *asset = [AVURLAsset srg_fairPlayProtectedAssetWithURL:URL certificateURL:FairPlayCertificateURL() options:nil];
     AVPlayerItem *playerItem = [AVPlayerItem playerItemWithAsset:asset];
     

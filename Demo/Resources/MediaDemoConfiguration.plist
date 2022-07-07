@@ -14,7 +14,7 @@
 			<key>name</key>
 			<string>Akamai token-protected HLS stream</string>
 			<key>url</key>
-			<string>https://srgssruni11ch-lh.akamaihd.net/i/enc11uni_ch@191455/master.m3u8</string>
+			<string>https://srgssrch.akamaized.net/hls/live/2022077/srgssr-hls-stream20-ch-dvr/master.m3u8</string>
 		</dict>
 		<dict>
 			<key>name</key>
@@ -56,7 +56,7 @@
 			<key>name</key>
 			<string>Akamai MP3 stream</string>
 			<key>url</key>
-			<string>https://srfaudio-a.akamaihd.net/delivery/world/75f44907-4638-422d-bc80-bbb14c9d9c93.mp3</string>
+			<string>https://rts-aod-dd.akamaized.net/ww/13141009/51a55d34-ce77-33ab-8a01-b01c4ffbc56f.mp3</string>
 		</dict>
 	</array>
 </dict>
