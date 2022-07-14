@@ -11,7 +11,7 @@ The SRG Content Protection framework contains the logic required for encrypted m
 
 ## Compatibility
 
-The library is suitable for applications running on iOS 9, tvOS 12 and above. The project is meant to be compiled with the latest Xcode version.
+The library is suitable for applications running on iOS 12, tvOS 12 and above. The project is meant to be compiled with the latest Xcode version.
 
 ## Contributing
 
@@ -44,8 +44,6 @@ If the protection used does not match the one required by the content, playback 
 ## Known limitations
 
 FairPlay stream playback requires a physical iOS device. Streams will not play in the simulator.
-
-While the HLS specification allows relative URLs in playlist, this implementation supports only Akamai master playlists containing full URLs only (for variants and video / audio / subtitles tracks) on iOS 9 and iOS 10.
 
 ## License
 
