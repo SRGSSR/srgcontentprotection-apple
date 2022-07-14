@@ -20,8 +20,8 @@ let package = Package(
         )
     ],
     dependencies: [
-        .package(name: "SRGDiagnostics", url: "https://github.com/SRGSSR/srgdiagnostics-apple.git", .branch("feature/ios16-tvos16-xcode14")),
-        .package(name: "SRGNetwork", url: "https://github.com/SRGSSR/srgnetwork-apple.git", .branch("feature/ios16-tvos16-xcode14"))
+        .package(name: "SRGDiagnostics", url: "https://github.com/SRGSSR/srgdiagnostics-apple.git", .branch("develop")),
+        .package(name: "SRGNetwork", url: "https://github.com/SRGSSR/srgnetwork-apple.git", .branch("develop"))
     ],
     targets: [
         .target(
