@@ -8,13 +8,13 @@
 			<key>name</key>
 			<string>Unprotected Akamai HLS stream</string>
 			<key>url</key>
-			<string>https://rts-vod-amd.akamaized.net/ww/hls/10080791/545cbc27-0798-3d5e-ae1b-1aba03c9a5b5/master.m3u8</string>
+			<string>https://rts-vod-amd.akamaized.net/ww/13228673/edf35ff9-3ec1-3d47-9b9d-df5a3fa7f159/master.m3u8</string>
 		</dict>
 		<dict>
 			<key>name</key>
 			<string>Akamai token-protected HLS stream</string>
 			<key>url</key>
-			<string>https://srgssruni11ch-lh.akamaihd.net/i/enc11uni_ch@191455/master.m3u8</string>
+			<string>https://srgssrch.akamaized.net/hls/live/2022077/srgssr-hls-stream20-ch-dvr/master.m3u8</string>
 		</dict>
 		<dict>
 			<key>name</key>
@@ -56,7 +56,7 @@
 			<key>name</key>
 			<string>Akamai MP3 stream</string>
 			<key>url</key>
-			<string>https://srfaudio-a.akamaihd.net/delivery/world/75f44907-4638-422d-bc80-bbb14c9d9c93.mp3</string>
+			<string>https://rts-aod-dd.akamaized.net/ww/13141009/51a55d34-ce77-33ab-8a01-b01c4ffbc56f.mp3</string>
 		</dict>
 	</array>
 </dict>

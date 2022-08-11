@@ -147,7 +147,7 @@
     
     AVPlayerViewController *playerViewController = [[AVPlayerViewController alloc] init];
     playerViewController.player = player;
-    if (@available(iOS 9, tvOS 14, *)) {
+    if (@available(iOS 12, tvOS 14, *)) {
         playerViewController.allowsPictureInPicturePlayback = NO;
     }
     
