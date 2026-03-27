@@ -20,7 +20,7 @@
 
 - (void)testProtectedResourcePlayback
 {
-    NSURL *URL = [NSURL URLWithString:@"https://srgssrch.akamaized.net/hls/live/2022077/srgssr-hls-stream20-ch-dvr/master.m3u8"];
+    NSURL *URL = [NSURL URLWithString:@"https://srgssrlsvech.akamaized.net/out/v1/8686957b2c284d9688941bf2a76fa8cb/index.m3u8"];
     AVURLAsset *asset = [AVURLAsset srg_akamaiTokenProtectedAssetWithURL:URL options:nil];
     AVPlayerItem *playerItem = [AVPlayerItem playerItemWithAsset:asset];
     
@@ -33,7 +33,7 @@
 
 - (void)testProtectedResourcePlaybackWithParameter
 {
-    NSURL *URL = [NSURL URLWithString:@"https://srgssrch.akamaized.net/hls/live/2022077/srgssr-hls-stream20-ch-dvr/master.m3u8?__b__=800"];
+    NSURL *URL = [NSURL URLWithString:@"https://srgssrlsvech.akamaized.net/out/v1/8686957b2c284d9688941bf2a76fa8cb/index.m3u8?__b__=800"];
     AVURLAsset *asset = [AVURLAsset srg_akamaiTokenProtectedAssetWithURL:URL options:nil];
     AVPlayerItem *playerItem = [AVPlayerItem playerItemWithAsset:asset];
     
