@@ -30,7 +30,7 @@ static NSString *TestURLParameter(NSURL *URL, NSString *parameter)
 {
     XCTestExpectation *expectation = [self expectationWithDescription:@"Request ended"];
     
-    [[SRGAkamaiToken tokenizeURL:[NSURL URLWithString:@"https://srgssrch.akamaized.net/hls/live/2022077/srgssr-hls-stream20-ch-dvr/master.m3u8"] withSession:[NSURLSession sharedSession] completionBlock:^(NSURL * _Nonnull URL, NSHTTPURLResponse * _Nonnull HTTPResponse, NSError * _Nullable error) {
+    [[SRGAkamaiToken tokenizeURL:[NSURL URLWithString:@"https://srgssrlsvech.akamaized.net/out/v1/8686957b2c284d9688941bf2a76fa8cb/index.m3u8"] withSession:[NSURLSession sharedSession] completionBlock:^(NSURL * _Nonnull URL, NSHTTPURLResponse * _Nonnull HTTPResponse, NSError * _Nullable error) {
         XCTAssertNotNil(TestURLParameter(URL, @"hdnts"));
         XCTAssertEqual(HTTPResponse.statusCode, 200);
         XCTAssertNil(error);
@@ -44,7 +44,7 @@ static NSString *TestURLParameter(NSURL *URL, NSString *parameter)
 {
     XCTestExpectation *expectation = [self expectationWithDescription:@"Request ended"];
     
-    [[SRGAkamaiToken tokenizeURL:[NSURL URLWithString:@"https://srgssrch.akamaized.net/hls/live/2022077/srgssr-hls-stream20-ch-dvr/master.m3u8&dw=0&__b__=800"] withSession:[NSURLSession sharedSession] completionBlock:^(NSURL * _Nonnull URL, NSHTTPURLResponse * _Nonnull HTTPResponse, NSError * _Nullable error) {
+    [[SRGAkamaiToken tokenizeURL:[NSURL URLWithString:@"https://srgssrlsvech.akamaized.net/out/v1/8686957b2c284d9688941bf2a76fa8cb/index.m3u8?dw=0&__b__=800"] withSession:[NSURLSession sharedSession] completionBlock:^(NSURL * _Nonnull URL, NSHTTPURLResponse * _Nonnull HTTPResponse, NSError * _Nullable error) {
         XCTAssertNotNil(TestURLParameter(URL, @"hdnts"));
         XCTAssertNotNil(TestURLParameter(URL, @"dw"));
         XCTAssertNotNil(TestURLParameter(URL, @"__b__"));
